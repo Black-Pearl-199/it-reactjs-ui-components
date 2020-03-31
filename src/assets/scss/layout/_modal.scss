@@ -1,0 +1,99 @@
+@import '../abstracts/abstracts';
+
+.modal-itech-background {
+    background: $black-half-opacity;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.modal-itech {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    box-shadow: $shadow;
+    width: 50vw;
+    font-size: 14px;
+
+    .modal-itech-header {
+        height: 66px;
+        background: $text-color;
+        color: $white;
+        padding: 15px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .modal-itech-body {
+        padding: 20px 40px 30px 40px;
+
+        .modal-panel {
+            background: $grey-light;
+            padding: 15px 15px 15px 20px;
+
+            label,
+            i,
+            span {
+                line-height: 38px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .modal-itech {
+        width: 100vw;
+
+        .modal-itech-body {
+            padding: 20px;
+        }
+    }
+}
+
+.modal-pushing {
+    width: 610px;
+    height: 535px;
+
+    .modal-pushing-header {
+        height: 25%;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .modal-pushing-body {
+        height: 50%;
+        display: block;
+        background: $modal-itech-background;
+        overflow-y: scroll;
+        padding: 35px 30px;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+
+            .progress-itech {
+                height: 6px;
+                width: 50%;
+
+                .progress-bar-itech {
+                    height: 6px;
+                }
+            }
+        }
+    }
+
+    .modal-pushing-footer {
+        height: 25%;
+    }
+}
+
+@media (max-width: 610px) {
+    .modal-pushing {
+        width: 90%;
+    }
+}

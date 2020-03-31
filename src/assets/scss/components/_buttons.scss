@@ -1,0 +1,231 @@
+@import "../abstracts/variables";
+
+
+/*============================================
+            BUTTON ON NAVBAR
+============================================*/
+
+.simple-btn-keyboard-nav {
+	@include phones {
+
+		a,
+		div[uib-dropdown] {
+			padding: 10px 15px !important;
+		}
+	}
+
+	@include tablets {
+
+		a,
+		div[uib-dropdown] {
+			padding: 22px 15px !important;
+		}
+	}
+
+	@include mediumDesktops {
+
+		a,
+		div[uib-dropdown] {
+			padding: 22px 15px !important;
+		}
+	}
+
+	@include largeDesktops {
+
+		a,
+		div[uib-dropdown] {
+			padding: 22px 15px !important;
+		}
+	}
+}
+
+/*============================================
+            BUTTON RE-DESIGN
+============================================*/
+.btn-shadow {
+	box-shadow: $shadow;
+}
+
+.btn-itech {
+	//height: 40px;
+	border-radius: 20px !important;
+	//line-height: 25px;
+	//text-transform: uppercase;
+	font-weight: 500;
+	box-shadow: $shadow;
+	//padding: 0.375rem 0.75rem;
+	white-space: nowrap;
+
+	&:focus {
+		box-shadow: none;
+	}
+
+	&[disabled] {
+		pointer-events: none;
+	}
+}
+
+.btn-itech-fixed {
+	min-width: 129px;
+}
+
+.btn-itech-sm {
+	min-width: 75px !important;
+	//height: 31px;
+	margin: 0;
+	border-radius: 99px;
+	//font-weight: 300;
+}
+
+.btn-itech-icon {
+	//min-width: 75px !important;
+	//height: 31px;
+	height: 32px;
+	width: 32px;
+	padding: unset !important;
+	margin: 0;
+	border-radius: 99px !important;
+	//font-weight: 300;
+}
+
+.btn-itech-icon-primary {
+	box-shadow: none;
+	color: $green-itech-dark !important;
+	background: transparent !important;
+
+	&:hover, &:active, &.active {
+		background: $green-itech-dark !important;
+		color: $white !important;
+	}
+}
+
+.btn-itech-icon-warning {
+	box-shadow: none;
+	color: $orange !important;
+	background: transparent !important;
+
+	&:hover, &:active, &.active {
+		background: $orange !important;
+		color: $white !important;
+	}
+}
+
+.btn-itech-icon-secondary {
+	box-shadow: none;
+	color: $grey-1;
+	&:hover, &:active, &.active {
+		background: $grey-1 !important;
+	}
+}
+
+.btn-itech-primary {
+	background: $green-itech-dark !important;
+	color: $white !important;
+
+	&:hover {
+
+		background-color: $green-itech-light;
+	}
+}
+
+.btn-itech-secondary {
+	background: $grey-1;
+	color: $cyan !important;
+
+	&:hover {
+		background-color: $grey-2;
+	}
+}
+
+.btn-itech-dark {
+	background: $cyan;
+	color: $white !important;
+
+	&:hover {
+		background-color: $cyan-lighter;
+	}
+}
+
+.btn-itech-light {
+	background: $grey-normal-opacity;
+	color: $cyan;
+
+	&:hover {
+		background: $grey-normal-opacity-hover;
+		color: $cyan;
+	}
+
+	&:active {
+		background: $grey-normal-opacity;
+	}
+}
+
+.btn-itech-danger {
+	background: $orange;
+	color: $white !important;
+
+	&:hover {
+		color: $white;
+		background-color: $orange-light-1;
+	}
+
+	&:active {
+		background: $grey-1;
+	}
+}
+
+.btn-itech-dropdown {
+	background: $white;
+	border: 1px solid #ced4da;
+	white-space: nowrap;
+
+	&:hover {
+		border-color: $green-itech-light;
+	}
+
+	&:focus {
+		border-color: $green-itech-dark;
+		background-color: $form-background-color-focus !important;
+	}
+}
+
+.btn-sm {
+	line-height: 1.2;
+}
+
+.btn-pick-date {
+	height: 26px;
+	//padding-top: 2px;
+
+	&.active {
+		background-color: $text-color;
+		color: white !important;
+		z-index: 0 !important;
+	}
+}
+
+.group-btn-pick-date {
+	display: flex;
+
+	& > button {
+		margin-left: .15rem;
+		margin-right: .15rem;
+		flex-grow: 1;
+
+		&:first-child {
+			margin-left: 0 !important;
+		}
+
+		&:last-child {
+			margin-right: 0 !important;
+		}
+	}
+}
+
+.btn:disabled {
+	pointer-events: none;
+}
+
+.btn-link {
+	color: #0056b3;
+}

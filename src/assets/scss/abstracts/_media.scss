@@ -1,0 +1,42 @@
+// Device follow bootstrap 3.7 grids
+$Phones: '(max-width: 767px)';
+$Tablet: "(min-width: 768px) and (max-width: 991px)";
+$MediumDesktops: "(min-width: 992px) and (max-width: 1199px)";
+$LargeDesktops: "(min-width: 1200px)";
+
+$resXXL: 1280px;
+$resXL: 1170px;
+$resL: 991px;
+$resM: 768px;
+$resS: 660px;
+$resXS: 500px;
+$resXXS: 435px;
+$resMin: 320px;
+
+// $tablet-width: 768px;
+// $desktop-medium-width: 992px;
+// $desktop-large-width: 1200px;
+
+@mixin phones {
+    @media #{$Phones} {
+        @content;
+    }
+}
+
+@mixin tablets {
+    @media #{$Tablet} {
+        @content;
+    }
+}
+
+@mixin mediumDesktops {
+    @media #{$MediumDesktops} {
+        @content;
+    }
+}
+
+@mixin largeDesktops {
+    @media #{$LargeDesktops} {
+        @content;
+    }
+}

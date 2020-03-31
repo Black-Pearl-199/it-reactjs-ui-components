@@ -1,0 +1,16 @@
+@import "../abstracts/variables";
+
+.main-page {
+  .tab-content {
+    position: absolute;
+    top: $top-height;
+    width: 100%;
+    //min-height: 100vh;
+    height: calc(100% - #{$top-height});
+
+    & .tab-pane {
+      height: 100%
+    }
+  }
+}
+

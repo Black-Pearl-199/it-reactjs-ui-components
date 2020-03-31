@@ -1,0 +1,37 @@
+@import "../abstracts/abstracts";
+
+.msg-box {
+
+	& .msg-body {
+		border-radius: 0.5rem;
+		border: solid 1px;
+		padding: 1.5rem 2rem;
+		text-align: -webkit-center;
+		min-height: 150px;
+	}
+
+	&-warning {
+		& .msg-head {
+			color: $warning-head;
+		}
+
+		& .msg-body {
+			border-color: $warning-border;
+			background-color: $warning-background;
+		}
+	}
+
+	&-info {
+		& .msg-head {
+			color: $main-green;
+		}
+
+		& .msg-body {
+			border-color: $main-green-dark;
+			background-color: $form-background-color-focus;
+		}
+	}
+}
+
+
+

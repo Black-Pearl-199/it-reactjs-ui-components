@@ -1,0 +1,36 @@
+@import '../abstracts/abstracts';
+
+.pagination-itech {
+  .page-item {
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 0.25rem;
+    }
+
+    .page-link {
+      width: $paginationBtnWidth;
+      height: $paginationBtnHeight;
+      line-height: $paginationBtnHeight;
+      text-align: center;
+      padding: 0;
+      color: $cyan;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+      border-radius: .25rem;
+
+      &:hover {
+        background: $cyan;
+        color: $white;
+        border-color: $cyan;
+      }
+    }
+
+    &.active {
+      .page-link {
+        background: $cyan;
+        color: $white;
+        border-color: $cyan;
+      }
+    }
+  }
+}

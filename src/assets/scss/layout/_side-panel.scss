@@ -1,0 +1,61 @@
+@import "../abstracts/variables";
+
+.background_rectangle_sidemenu {
+    position: absolute;
+    width: 20%;
+    height: 1080px;
+    background-color: $grey-dark;
+    box-shadow: $shadow;
+}
+
+.header_logo {
+    position: absolute;
+    left: 1%;
+    top: 90px;
+}
+
+.top_navigation_arrow {
+    position: absolute;
+    top: 50px;
+    left: 16.5%;
+    color: $white;
+    opacity: 0;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+// ul {
+//     .dropdown-menu {
+//         .side-sub-menu-itech {
+//             position: absolute;
+//             top: calc(+205px);
+//             width: 100%;
+//             background-color: none;
+//             z-index: 1;
+//             li {
+//                 padding-top: 50px;
+//             }
+//         }
+//     }
+// }
+
+ul.side-menu-itech {
+    position: absolute;
+    top: 175px;
+    width: 20%;
+    li {
+        padding-top: 25px;
+    }
+}
+
+ul.dropdown-menu.side-sub-menu-itech {
+    position: absolute;
+    top: 205px;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1;
+    li {
+        padding-top: 50px;
+    }
+}

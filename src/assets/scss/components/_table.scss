@@ -1,0 +1,91 @@
+@import '../abstracts/abstracts';
+
+.table {
+	@include shadow-1;
+
+	thead.table-itech-thread {
+		tr {
+			background: $main-green-dark !important;
+			color: $white;
+			text-transform: uppercase;
+
+			th {
+				font-weight: 300 !important;
+				text-align: center;
+			}
+		}
+
+		th,
+		td,
+		span {
+			background-color: transparent !important;
+			color: $white !important;
+			font-weight: 500 !important;
+			font-size: .75rem;
+		}
+	}
+}
+
+.table-striped {
+	tbody {
+		tr {
+			&:nth-of-type(odd) &:not(.tr-normal) {
+				background: $white;
+
+				&:hover {
+					&:not(.active) {
+						background: $white !important;
+					}
+
+					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+				}
+			}
+
+			&:nth-of-type(odd) &:not(.tr-normal) {
+				&:not(.active) {
+					background: #EBF1EE !important;
+				}
+
+				&:hover {
+					&:not(.active) {
+						background: #EBF1EE !important;
+					}
+
+					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+				}
+			}
+
+			/*&:hover {
+				background: $main-green-lighter-1;
+				color: $white;
+				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+			}*/
+
+			td {
+				//text-align: center;
+			}
+
+			td:has(button.btn-itech-icon) {
+				padding: 0 !important;
+				background: black !important;
+			}
+
+			td:has(div) {
+				& > div {
+					background: #0ba14a;
+				}
+			}
+		}
+
+		// &:hover {
+		//     background: $main-green-lighter-1;
+		//     color: $white;
+		// }
+	}
+}
+
+.hide-bulk-actions {
+	[data-test="bulk-actions-toolbar"] {
+		display: none;
+	}
+}

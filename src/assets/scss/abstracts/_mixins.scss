@@ -1,0 +1,36 @@
+@mixin bg-translucent-dark($opacity) {
+  background: rgba(0, 0, 0, $opacity);
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin transition($prop, $time, $type) {
+  transition: $prop $time $type;
+  -webkit-transition: $prop $time $type;
+  -moz-transition: $prop $time $type;
+  -o-transition: $prop $time $type;
+  -ms-transition: $prop $time $type;
+
+}
+
+

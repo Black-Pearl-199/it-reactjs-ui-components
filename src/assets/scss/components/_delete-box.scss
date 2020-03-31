@@ -1,0 +1,15 @@
+@import '../abstracts/variables';
+
+.delete-box {
+    position: absolute;
+    height: $delete-box-height;
+    width: 100%;
+    bottom: 0;
+    background: $cyan;
+    color: $white;
+    left: 0;
+}
+
+.has-delete-box {
+    margin-bottom: $delete-box-height;
+}

@@ -1,0 +1,131 @@
+@import "../abstracts/variables";
+
+$logo-small-height: 50px;
+
+.auth-main {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../../images/background.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+
+    .auth-block {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 548px;
+        height: 620px;
+        border-radius: 0;
+        background: $white;
+        box-shadow: $shadow;
+        padding: 16px 16px 22px 16px;
+
+        form {
+            margin-right: 60px;
+            margin-left: 60px;
+        }
+
+        h1 {
+            font-weight: 400;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+        }
+
+        .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .info {
+        text-align: center;
+        color: $grey-dark;
+        font-size: 0.8rem;
+    }
+
+    .form-control {
+        background: #E9F6F2
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-block {
+        height: 100% !important;
+        box-shadow: none !important;
+
+        form {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.auth-link {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 33px;
+}
+
+.auth-sep {
+    height: 1px;
+    background: $grey-background;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-auth {
+    color: $white;
+    background-color: $green-itech-dark;
+    height: 40px;
+    width: 120px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &:hover {
+        color: $white;
+        background-color: $green-itech-light;
+    }
+
+    &:active {
+        transform: translateY(2px);
+    }
+
+    &:focus {
+        box-shadow: none;
+        border-style: none;
+    }
+}
+
+.info {
+    text-align: center;
+    color: $grey-normal !important;
+    //margin-top: 70px;
+    font-size: 1rem !important;
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+    left: 0;
+}

@@ -1,0 +1,20 @@
+export const button = {
+    search: 'Tìm kiếm',
+    clear: 'Xóa',
+    add: 'Lưu',
+    logout: 'Đăng xuất',
+    view: 'Xem',
+    back: 'Quay lại',
+    edit: 'Sửa',
+    pushToTele: 'Gửi ca chụp',
+    deleteMany: 'Xóa các %{resource_name} đã chọn',
+    delete: 'Xóa',
+    next: 'Tiếp theo',
+    close: 'Đóng',
+    no: 'Không',
+    actions: 'Hành động',
+    update: 'Cập nhật',
+    changePassword: 'Đổi mật khẩu',
+    choose: 'Chọn',
+    confirm: 'Xác nhận'
+};

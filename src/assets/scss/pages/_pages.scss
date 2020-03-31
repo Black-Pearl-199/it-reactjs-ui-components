@@ -1,0 +1,19 @@
+@import 'admin-user';
+@import 'auth-itech';
+@import 'patient';
+@import "home";
+@import "modality";
+@import "clients";
+@import "user";
+@import "user-info";
+
+.home-page {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+}
+
+.wrap-content {
+  flex: 1;
+}

@@ -1,0 +1,63 @@
+@import "../abstracts/variables";
+
+.form-control {
+	background-color: $white;
+	color: $text-color;
+
+	//border-width: 2px;
+	//border-color: $grey-light;
+	&:hover {
+		border-color: $green-itech-light;
+	}
+
+	&:focus {
+		border-color: $green-itech-dark;
+		background-color: $form-background-color-focus;
+		box-shadow: none;
+	}
+
+	border: none;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+	padding: 3px 8px;
+}
+
+.form-control-sm {
+	font-size: 14px;
+	height: 26px;
+}
+
+.form-group {
+	margin-bottom: 0.3rem;
+}
+
+.was-validated {
+	.form-control {
+		&:valid ~ .invalid-feedback {
+			display: none;
+		}
+	}
+}
+
+.input-group-itech-search {
+	.input-group-prepend {
+		.input-group-text {
+			border-radius: 99px 0 0 99px;
+			background: $green-text-selection;
+		}
+	}
+
+	.form-control {
+		border-radius: 0 99px 99px 0;
+		height: 26px !important;
+	}
+}
+
+.hide-legend {
+	legend, p {
+		display: none;
+	}
+}
+
+.custom-select-input > select {
+    padding-left: 4px !important;
+}

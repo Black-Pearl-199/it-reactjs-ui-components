@@ -1,0 +1,22 @@
+export const button = {
+    search: 'Search',
+    clear: 'Clear',
+    add: 'Add',
+    no: 'No',
+    edit: 'Edit',
+    logout: 'Logout',
+    view: 'View',
+    back: 'Go back',
+    pushToTele: 'Upload Study',
+    deleteMany: 'Delete selected %{resource_name}s',
+    delete: 'Delete',
+    next: 'Next',
+    close: 'Close',
+    clone: 'Copy',
+    update: 'Update',
+    createUser: 'Create New User',
+    help: 'Help',
+    changePassword: 'Change Password',
+    choose: 'Choose',
+    confirm: 'Confirm'
+};

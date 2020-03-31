@@ -1,0 +1,11 @@
+@import '../abstracts/variables';
+
+.version {
+	color: $white;
+	font-size: small;
+	line-height: normal;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	padding: .2rem;
+}

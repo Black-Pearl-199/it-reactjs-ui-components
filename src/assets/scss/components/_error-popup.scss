@@ -1,0 +1,27 @@
+@import '../abstracts/abstracts';
+
+.error-pop-up {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    height: 280px;
+    width: 30vw;
+    background: $white;
+    @include shadow-3;
+    padding: 20px 50px;
+    text-align: center;
+    font-weight: 500;
+    .alert{
+        height: 60%;
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .error-pop-up{
+        width: 60vw !important;
+        padding: 20px !important;
+    }
+}
