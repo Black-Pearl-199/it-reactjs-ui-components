@@ -1,9 +1,7 @@
 import { crud } from './crud';
 import { sidebar } from './sidebar';
-import { resources } from './resources';
 import { bodyPart } from './bodyPart';
 import { modalityTypes } from './modalityTypes';
-import { page } from './page';
 import { button } from './button';
 import { commons } from './commons';
 
@@ -13,9 +11,7 @@ export const vi = {
     language: {
         name: 'Tiếng Việt'
     },
-    page,
     sidebar,
-    resources,
     msgBox: {
         heading: {
             info: 'Thông báo',

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import { CardActions, translate } from 'react-admin';
+import { CardActions, useTranslate } from 'react-admin';
 import { useForm } from 'react-final-form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import TabsManager, { TAB_CONTEXT_MAIN } from '../layouts/TabsManager';
 
-export const RedirectCreateButton = translate((props) => {
-    const { basePath, resource, translate, path = 'create', label } = props;
+export const RedirectCreateButton = (props) => {
+    const translate = useTranslate();
+    const { basePath, resource, path = 'create', label } = props;
     return (
         <div className="my-auto">
             <Link
@@ -22,10 +23,18 @@ export const RedirectCreateButton = translate((props) => {
             </Link>
         </div>
     );
-});
+};
 
-export const BackMainButton = translate((props) => {
-    const { translate } = props;
+RedirectCreateButton.propTypes = {
+    basePath: PropTypes.string,
+    resource: PropTypes.string,
+    path: PropTypes.string,
+    label: PropTypes.string
+};
+
+
+export const BackMainButton = () => {
+    const translate = useTranslate();
     const redirectToMain = (e) => {
         e.preventDefault();
         TabsManager.tabClick(TAB_CONTEXT_MAIN, 'home');
@@ -39,7 +48,7 @@ export const BackMainButton = translate((props) => {
             {translate('button.back')}
         </Button>
     );
-});
+};
 
 export const MyBackButton = ({ history, basePath }) => {
     const goBack = () => {
@@ -59,8 +68,9 @@ MyBackButton.propTypes = {
     basePath: PropTypes.string
 };
 
-export const MyBackEditButton = translate((props) => {
-    const { translate, changeEditState } = props;
+export const MyBackEditButton = (props) => {
+    const { changeEditState } = props;
+    const translate = useTranslate();
     const form = useForm();
     const goBack = () => {
         changeEditState(false);
@@ -77,7 +87,11 @@ export const MyBackEditButton = translate((props) => {
             {translate('button.back')}
         </Button>
     );
-});
+};
+
+MyBackEditButton.propTypes = {
+    changeEditState: PropTypes.func
+};
 
 export const ListActionButtons = (props) => {
     const { bulkActionButtons, basePath, displayedFilters, filters, filterValues, onUnselectItems, resource, selectedIds, showFilter } = props;

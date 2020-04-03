@@ -1,9 +1,7 @@
 import { crud } from './crud';
 import { sidebar } from './sidebar';
-import { resources } from './resources';
 import { modalityTypes } from './modalityTypes';
 import { bodyPart } from './bodyPart';
-import { page } from './page';
 import { button } from './button';
 import { commons } from './commons';
 import { msgBox } from './msgBox';
@@ -14,9 +12,7 @@ export const en = {
     language: {
         name: 'English'
     },
-    page,
     sidebar,
-    resources,
     commons,
     msgBox,
     button,

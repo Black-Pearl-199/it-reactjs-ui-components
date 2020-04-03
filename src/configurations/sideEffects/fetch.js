@@ -27,7 +27,7 @@ import {
 } from 'ra-core';
 import { get } from 'lodash';
 
-import { checkTokenExpire, refreshToken } from '../resources/authProvider';
+// import { checkTokenExpire, refreshToken } from '../resources/authProvider';
 
 const sanitizeFetchType = (fetchType) => {
     switch (fetchType) {
@@ -131,18 +131,18 @@ export function* handleFetch(dataProvider, action) {
             put({ type: FETCH_START })
         ]);
 
-        yield put({ type: 'CHECK_TOKEN_EXPIRE_START' });
-        const expired = yield call(checkTokenExpire);
-        if (expired) {
-            console.log('token expired, get new access token');
-            try {
-                const refreshTokenResult = yield call(refreshToken);
-                console.log('refresh token result', refreshTokenResult);
-            } catch (e) {
-                console.log(e);
-            }
-        }
-        yield put({ type: 'CHECK_TOKEN_EXPIRE_END' });
+        // yield put({ type: 'CHECK_TOKEN_EXPIRE_START' });
+        // const expired = yield call(checkTokenExpire);
+        // if (expired) {
+        //     console.log('token expired, get new access token');
+        //     try {
+        //         const refreshTokenResult = yield call(refreshToken);
+        //         console.log('refresh token result', refreshTokenResult);
+        //     } catch (e) {
+        //         console.log(e);
+        //     }
+        // }
+        // yield put({ type: 'CHECK_TOKEN_EXPIRE_END' });
 
         const response = yield call(
             dataProvider[sanitizeFetchType(restType)],

@@ -1,19 +1,15 @@
 import React from 'react';
-import { compose } from 'recompose';
-import { connect } from 'react-redux';
-import { withTranslate } from 'ra-core';
+import { useSelector } from 'react-redux';
+import { useTranslate } from 'react-admin';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
 import { get } from 'lodash';
 
-const mapStateToProps = (state) => ({
-    loading: state.admin.loading > 0
-});
-const enhance = compose(connect(mapStateToProps, {}), withTranslate);
-
-export const MyRadioButtonGroupInput = enhance((props) => {
-    const { translate, groupClasses, label, hideLabel, labelClasses, buttonGroupsClasses, buttonClasses, resource, source, input, inputValue, onInputChange, choices, optionValue, optionText, allowEmpty, emptyChoiceLabel, disabled } = props;
+export const MyRadioButtonGroupInput = (props) => {
+    const translate = useTranslate();
+    const loading = useSelector((state) => state.admin.loading > 0);
+    const { groupClasses, label, hideLabel, labelClasses, buttonGroupsClasses, buttonClasses, resource, source, input, inputValue, onInputChange, choices, optionValue, optionText, allowEmpty, emptyChoiceLabel, disabled } = props;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const value = input && input.value ? input.value : (inputValue && inputValue[source]);
@@ -45,7 +41,7 @@ export const MyRadioButtonGroupInput = enhance((props) => {
                             key={choiceValue}
                             variant="pick-date"
                             size="sm"
-                            disabled={disabled}
+                            disabled={disabled || loading}
                             className={classNames('btn-itech-secondary', value === choiceValue ? 'active' : '', buttonClasses)}
                             onClick={onClick}
                             data-value={choiceValue}
@@ -59,7 +55,7 @@ export const MyRadioButtonGroupInput = enhance((props) => {
                     <Button
                         variant="pick-date"
                         size="sm"
-                        disabled={disabled}
+                        disabled={disabled || loading}
                         className={classNames('btn-itech-secondary', !value ? 'active' : '', buttonClasses)}
                         onClick={onClick}
                         type="button"
@@ -70,13 +66,12 @@ export const MyRadioButtonGroupInput = enhance((props) => {
             </div>
         </div>
     );
-});
+};
 
-MyRadioButtonGroupInput.propsType = {
+MyRadioButtonGroupInput.propTypes = {
     label: PropTypes.string,
     hideLabel: PropTypes.bool,
     choices: PropTypes.array,
-    translateChoice: PropTypes.bool,
     emptyChoiceLabel: PropTypes.string,
     groupClasses: PropTypes.string,
     labelClasses: PropTypes.string,
@@ -93,7 +88,6 @@ MyRadioButtonGroupInput.propsType = {
     input: PropTypes.object
 };
 MyRadioButtonGroupInput.defaultProps = {
-    translateChoice: true,
     optionValue: 'id',
     optionText: 'name',
     allowEmpty: true,

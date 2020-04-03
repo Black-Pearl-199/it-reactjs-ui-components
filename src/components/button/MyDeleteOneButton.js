@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { translate } from 'ra-core';
+import { useDispatch } from 'react-redux';
+import { useTranslate } from 'react-admin';
 import { Button, Container, Modal } from 'react-bootstrap';
 import { MyBootstrapInput } from '../form';
 
 import { ITCrudDelete } from '../../configurations/actions';
 import { notificationName } from '../../utils';
 
-const enhance = compose(translate, connect(undefined, { ITCrudDelete }));
 
-export const MyDeleteBox = enhance(({ ...props }) => {
+export const MyDeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);
-
-    const { translate, resource, id, callback, redirect = 'list', fixed, ITCrudDelete, basePath, optimistic } = props;
-    const { record = {} } = props;
+    const translate = useTranslate();
+    const dispatch = useDispatch();
+    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {} } = props;
     const resourceName = notificationName({ values: record }, resource, translate);
     const [inputValue, setInputValue] = useState({ reason: '' });
     const [showPopup, setShowPopup] = useState(false);
@@ -39,7 +37,7 @@ export const MyDeleteBox = enhance(({ ...props }) => {
         // return;
 
         hidePopup();
-        ITCrudDelete({
+        dispatch(ITCrudDelete({
             resource,
             previousData: record,
             id,
@@ -49,7 +47,7 @@ export const MyDeleteBox = enhance(({ ...props }) => {
             resourceName,
             optimistic,
             callback
-        });
+        }));
     };
 
     return (
@@ -104,14 +102,17 @@ export const MyDeleteBox = enhance(({ ...props }) => {
             </Modal>
         </div>
     );
-});
+};
 
 MyDeleteBox.propTypes = {
     resource: PropTypes.string.isRequired,
     id: PropTypes.any.isRequired,
     fixed: PropTypes.bool,
     callback: PropTypes.func,
-    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    basePath: PropTypes.string,
+    optimistic: PropTypes.bool,
+    record: PropTypes.object
 };
 
 MyDeleteBox.defaultProps = {

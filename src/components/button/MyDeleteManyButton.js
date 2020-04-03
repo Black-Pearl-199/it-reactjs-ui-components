@@ -1,32 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import compose from 'recompose/compose';
-import { startUndoable, translate } from 'ra-core';
+import { useDispatch } from 'react-redux';
+import { startUndoable, useTranslate } from 'ra-core';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ITCrudDeleteMany } from '../../configurations/actions/CrudActions';
 
-const enhance = compose(
-    connect(
-        undefined,
-        {
-            startUndoable,
-            dispatchCrudDeleteMany: ITCrudDeleteMany
-        }
-    ),
-    translate
-);
-
-export const MyDeleteManyButton = enhance((props) => {
-    const { translate, basePath, dispatchCrudDeleteMany, resource, selectedIds, startUndoable, undoable, onClick } = props;
+export const MyDeleteManyButton = (props) => {
+    const translate = useTranslate();
+    const dispatch = useDispatch();
+    const dispatchCrudDeleteMany = ITCrudDeleteMany;
+    const { basePath, resource, selectedIds, undoable, onClick } = props;
     const resourceName = translate(`resources.${resource}.name`);
     const disabled = selectedIds.length === 0;
 
     const handleClick = () => {
         if (undoable) {
-            startUndoable(dispatchCrudDeleteMany({ resource, ids: selectedIds, basePath, resourceName }));
+            dispatch(startUndoable(dispatchCrudDeleteMany({ resource, ids: selectedIds, basePath, resourceName })));
         } else {
             dispatchCrudDeleteMany({ resource, ids: selectedIds, basePath, resourceName });
         }
@@ -49,14 +40,12 @@ export const MyDeleteManyButton = enhance((props) => {
             {translate('button.deleteMany', { resource_name: resourceName })}
         </button>
     );
-});
+};
 
 MyDeleteManyButton.propTypes = {
     basePath: PropTypes.string,
-    classes: PropTypes.object,
-    dispatchCrudDeleteMany: PropTypes.func,
+    onClick: PropTypes.func,
     resource: PropTypes.string,
-    startUndoable: PropTypes.func,
     selectedIds: PropTypes.arrayOf(PropTypes.any),
     undoable: PropTypes.bool
 };

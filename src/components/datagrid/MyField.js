@@ -1,6 +1,5 @@
 import React, { cloneElement, Children } from 'react';
-import { compose } from 'recompose';
-import { translate } from 'react-admin';
+import { useTranslate } from 'react-admin';
 import * as PropTypes from 'prop-types';
 import { find, get } from 'lodash';
 import classNames from 'classnames';
@@ -14,8 +13,6 @@ export const FIELD_DATE = 'date';
 export const FIELD_SELECT = 'select';
 export const FIELD_ARRAY = 'array';
 const ALL_TYPE = [FIELD_BOOLEAN, FIELD_DATE, FIELD_SELECT, FIELD_TEXT, FIELD_ARRAY];
-
-const enhance = compose(translate);
 
 const defaultDateFormat = 'DD-MM-YYYY';
 
@@ -58,8 +55,9 @@ const renderField = ({ type, value, choices, translateChoice, translate, childre
     }
 };
 
-export const MyField = enhance((props) => {
-    const { translate, record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, ...rest } = props;
+export const MyField = (props) => {
+    const translate = useTranslate();
+    const { record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, ...rest } = props;
     const translatedLabel = !hideLabel && `${label ? translate(label) : translate(`resources.${resource}.fields.${source}`)}: `;
     const value = get(record, source);
     const fieldId = `field-${source}`;
@@ -75,7 +73,7 @@ export const MyField = enhance((props) => {
             </div>
         </div>
     );
-});
+};
 MyField.propTypes = {
     record: PropTypes.object,
     resource: PropTypes.string,

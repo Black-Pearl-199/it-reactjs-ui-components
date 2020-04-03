@@ -1,54 +1,63 @@
-import React, { Children, Fragment } from 'react';
+import React from 'react';
+import { useTranslate } from 'ra-core';
 import * as PropTypes from 'prop-types';
-import { FormInput } from 'react-admin';
 import classNames from 'classnames';
 
-export const MyGroupingInput = (props) => {
-    const { basePath, record, resource, children, heading, groupClasses, innerClasses, border } = props;
-    // console.log('grouping input record', JSON.parse(JSON.stringify(record)));
-
-    const inner = React.createElement(Fragment, {}, Children.map(children, (input) => (React.createElement(FormInput, {
-        basePath,
-        input,
-        record,
-        resource
-    }))));
+export const MyRadioGroupInput = (props) => {
+    const { name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest } = props;
+    const translate = useTranslate();
+    const onChange = (e) => {
+        // console.log('radio group change value', e.target.value);
+        onInputChange({ [name]: JSON.parse(e.target.value) });
+    };
 
     return (
-        <>
-            {border ? (
-                <div className={groupClasses}>
-                    {heading ?
-                        <label className="info-title-label mb-0">{heading}</label> : null}
-                    <div className="card panel-itech">
-                        <div className={classNames('card-body', innerClasses)}>
-                            {inner}
-                        </div>
+        <div className={groupClasses} {...rest}>
+            {choices.map((choice) => {
+                const id = `${name}-${choice.id}`;
+                // console.log(choice.name, choice.value, inputValue, choice.value === inputValue);
+                return (
+                    <div
+                        key={choice.id}
+                        className={classNames('custom-control', `custom-${type}`, inline ? 'custom-control-inline' : undefined)}
+                    >
+                        <input
+                            className="custom-control-input"
+                            type={type}
+                            name={name}
+                            id={id}
+                            checked={inputValue === choice.value}
+                            onChange={onChange}
+                            value={choice.value}
+                        />
+                        <label
+                            htmlFor={id}
+                            className="custom-control-label no-select"
+                        >
+                            {skipFormat ? choice.name : translate(choice.name)}
+                        </label>
                     </div>
-                </div>
-            )
-                : (
-                    <div className={groupClasses}>
-                        {heading ? <label className="info-title-label mb-0">{heading}</label> : null}
-                        <div className={innerClasses}>
-                            {inner}
-                        </div>
-                    </div>
-                )}
-        </>
+                );
+            })}
+        </div>
     );
 };
 
-MyGroupingInput.propTypes = {
+MyRadioGroupInput.propTypes = {
+    choices: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.any,
+        value: PropTypes.any,
+        name: PropTypes.string
+    }).isRequired),
+    skipFormat: PropTypes.bool,
+    inline: PropTypes.bool,
+    type: PropTypes.oneOf(['radio', 'check']),
     groupClasses: PropTypes.string,
-    innerClasses: PropTypes.string,
-    basePath: PropTypes.string,
-    children: PropTypes.node,
-    record: PropTypes.object,
-    resource: PropTypes.string,
-    border: PropTypes.bool,
-    heading: PropTypes.string
+    inputValue: PropTypes.any,
+    onInputChange: PropTypes.func.isRequired,
+    name: PropTypes.string
 };
-MyGroupingInput.defaultProps = {
-    border: true
+MyRadioGroupInput.defaultProps = {
+    type: 'radio',
+    skipFormat: true
 };

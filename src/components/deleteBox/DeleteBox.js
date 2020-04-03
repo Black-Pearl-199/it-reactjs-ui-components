@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { translate } from 'ra-core';
+import { useDispatch } from 'react-redux';
+import { useTranslate } from 'react-admin';
 import { Button, Container, Modal } from 'react-bootstrap';
 import { MyBootstrapInput } from '../form';
 import { ITCrudDelete } from '../../configurations/actions';
 
-const enhance = compose(translate, connect(undefined, { ITCrudDelete }));
-
-export const DeleteBox = enhance(({ ...props }) => {
+export const DeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);
-
-    const { translate, ITCrudDelete, id, resource, basePath, fixed, callback, redirect = 'list' } = props;
+    const translate = useTranslate();
+    const dispatch = useDispatch();
+    const { id, resource, basePath, fixed, callback, redirect = 'list' } = props;
 
     const [inputValue, setInputValue] = useState({ reason: '' });
     const [showPopup, setShowPopup] = useState(false);
@@ -34,7 +32,7 @@ export const DeleteBox = enhance(({ ...props }) => {
         // return;
 
         hidePopup();
-        ITCrudDelete({
+        dispatch(ITCrudDelete({
             resource,
             id,
             redirectTo: redirect,
@@ -42,7 +40,7 @@ export const DeleteBox = enhance(({ ...props }) => {
             basePath,
             resourceName: translate('resources.study.name'),
             callback
-        });
+        }));
     };
 
     return (
@@ -92,14 +90,15 @@ export const DeleteBox = enhance(({ ...props }) => {
             </Modal>
         </div>
     );
-});
+};
 
 DeleteBox.propTypes = {
     resource: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     fixed: PropTypes.bool,
     callback: PropTypes.func,
-    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    basePath: PropTypes.string
 };
 
 DeleteBox.defaultProps = {

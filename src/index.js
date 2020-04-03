@@ -24,3 +24,4 @@
 // // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
 export * from './components';
+export * from './configurations';

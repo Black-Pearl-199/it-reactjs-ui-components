@@ -1,7 +1,7 @@
 import React, { Children, useState, useEffect } from 'react';
 import * as PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-import { translate } from 'ra-core';
+import { translate, useTranslate } from 'ra-core';
 import { Labeled, useInput, useReferenceInputController } from 'react-admin';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useForm } from 'react-final-form';
@@ -9,7 +9,9 @@ import { get } from 'lodash';
 
 import { connect } from 'react-redux';
 import ReferenceError from './ReferenceError';
-import { SORT_ASC, SORT_DESC } from '../../configurations/resources';
+
+const SORT_ASC = 'ASC';
+const SORT_DESC = 'DESC';
 
 const sanitizeRestProps = ({
     allowEmpty,
@@ -257,6 +259,7 @@ export const MyReferenceInput = ({
     validate,
     ...props
 }) => {
+    const translate = useTranslate();
     const inputProps = useInput({
         format,
         onBlur,
@@ -264,6 +267,7 @@ export const MyReferenceInput = ({
         onFocus,
         parse,
         validate,
+        translate,
         ...props
     });
     return (

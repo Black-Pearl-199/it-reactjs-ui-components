@@ -11,9 +11,9 @@ import { debounce, isEmpty } from 'lodash';
 import { Button } from 'react-bootstrap';
 import { ITCrudGetList } from '../../configurations/actions';
 import { inputValidate } from '../../configurations/validation';
-import { SORT_DESC } from '../../configurations/resources';
 import { hasCustomParams, selectQuery } from '../../utils';
 
+const SORT_DESC = 'DESC';
 const sanitizeRestProps = ({ initFilter, permissions, pagination, options, history, match, basePath, hasList, hasCreate, hasEdit, hasShow, defaultSort, ...rest }) => rest;
 
 export const MyFilterBox = (props) => {

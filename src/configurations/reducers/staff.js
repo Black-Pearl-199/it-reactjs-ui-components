@@ -1,6 +1,8 @@
 import { USER_LOGIN_SUCCESS, USER_LOGOUT } from 'ra-core';
 import { isEmpty } from 'lodash';
-import { AUTH_STAFF } from '../resources/authProvider';
+
+const appName = process.env.REACT_APP_NAME;
+const AUTH_STAFF = `${appName}.astf`;
 
 const initialState = JSON.parse(localStorage.getItem(AUTH_STAFF)) || {};
 
