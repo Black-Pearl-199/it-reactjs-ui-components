@@ -1,14 +1,11 @@
 import React from 'react';
-import { compose } from 'recompose';
-import { translate } from 'ra-core';
+import { useTranslate } from 'ra-core';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const enhance = compose(translate);
-
-export const MyRadioGroupInput = enhance((props) => {
-    const { translate, name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest } = props;
-
+export const MyRadioGroupInput = (props) => {
+    const { name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest } = props;
+    const translate = useTranslate();
     const onChange = (e) => {
         // console.log('radio group change value', e.target.value);
         onInputChange({ [name]: JSON.parse(e.target.value) });
@@ -44,7 +41,7 @@ export const MyRadioGroupInput = enhance((props) => {
             })}
         </div>
     );
-});
+};
 
 MyRadioGroupInput.propTypes = {
     choices: PropTypes.arrayOf(PropTypes.shape({

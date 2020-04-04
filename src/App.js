@@ -26,17 +26,25 @@ import { index } from './configurations/messages';
 
 import NoAccess from './pages/noAccess/NoAccess';
 import { createAdminStore } from './configurations/createAdminStore';
+
 import version from './version';
+import ITechReducers, { ITECH_REDUCER } from './configurations/reducers';
+import customSideEffect from './configurations/sideEffects';
 import { MessageBox } from './components';
 import { RESOURCES } from './configurations/resources';
 
 const i18nProvider = polyglotI18nProvider((locale) => index[locale], 'vi');
 const history = createBrowserHistory();
+const customReducer = {
+    [ITECH_REDUCER]: ITechReducers
+};
 
 const adminStore = createAdminStore({
     authProvider,
     dataProvider,
-    history
+    history,
+    customReducer,
+    customSideEffect
 });
 
 const iTechTheme = createMuiTheme({

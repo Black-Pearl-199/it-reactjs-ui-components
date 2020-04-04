@@ -4,10 +4,9 @@ import classNames from 'classnames';
 import { Field } from 'react-final-form';
 import * as PropTypes from 'prop-types';
 import { BooleanInput, useTranslate } from 'react-admin';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { compose } from 'recompose';
 import isReact from 'is-react';
 import { useSelector } from 'react-redux';
+import { makeStyles } from '@material-ui/core';
 import { inputStyles } from '../MyCustomStyles';
 
 export const MyTextInput = (props) => <MyCustomInput {...props} component="input" />;
@@ -15,9 +14,10 @@ export const MyTextInput = (props) => <MyCustomInput {...props} component="input
 const composeValidators = (validators) => (value, allValues) => validators.reduce((error, validator) => error || validator(value, allValues), undefined);
 
 // tạm thời bỏ style={{padding: "0.375rem 0"}} của boolean input
-export const MyBooleanInput = compose(withStyles(inputStyles))(({ disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, classes, ...rest }) => {
+export const MyBooleanInput = ({ disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, ...rest }) => {
     const { resource } = rest;
     const translate = useTranslate();
+    const classes = makeStyles(inputStyles)();
     return (
         <div className={classNames('form-group', groupClasses)}>
             <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)}>
@@ -32,7 +32,17 @@ export const MyBooleanInput = compose(withStyles(inputStyles))(({ disabled, requ
             </div>
         </div>
     );
-});
+};
+
+MyBooleanInput.propTypes = {
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    label: PropTypes.string,
+    source: PropTypes.string,
+    labelClasses: PropTypes.string,
+    inputClasses: PropTypes.string,
+    groupClasses: PropTypes.string
+}
 
 // formClassName ->> class name for wrapper of this input, default by react-admin -> remove it to not attach on children
 

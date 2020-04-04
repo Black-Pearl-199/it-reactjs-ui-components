@@ -1,13 +1,11 @@
 import React, { Children, useState, useEffect } from 'react';
 import * as PropTypes from 'prop-types';
-import compose from 'recompose/compose';
-import { translate, useTranslate } from 'ra-core';
+import { useTranslate } from 'ra-core';
 import { Labeled, useInput, useReferenceInputController } from 'react-admin';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useForm } from 'react-final-form';
 import { get } from 'lodash';
 
-import { connect } from 'react-redux';
 import ReferenceError from './ReferenceError';
 
 const SORT_ASC = 'ASC';
@@ -51,8 +49,8 @@ const sanitizeRestProps = ({
     //    change,
     ...rest
 }) => rest;
-const enhance = connect(undefined, {});
-export const ReferenceInputView = enhance((props) => {
+
+export const ReferenceInputView = (props) => {
     const {
         allowEmpty,
         basePath,
@@ -98,8 +96,11 @@ export const ReferenceInputView = enhance((props) => {
         return <ReferenceError label={label} error={error} />;
     }
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [firstInit, setFirstInit] = useState(true);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const form = useForm();
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         if (firstInit && !loading) {
             setFirstInit(false);
@@ -146,7 +147,7 @@ export const ReferenceInputView = enhance((props) => {
         translateChoice: false,
         ...sanitizeRest
     });
-});
+};
 
 ReferenceInputView.propTypes = {
     allowEmpty: PropTypes.bool,
@@ -318,9 +319,3 @@ MyReferenceInput.defaultProps = {
     perPage: 25,
     sort: { field: 'id', order: SORT_DESC }
 };
-
-const EnhancedReferenceInput = compose(
-    translate
-)(MyReferenceInput);
-
-export default EnhancedReferenceInput;

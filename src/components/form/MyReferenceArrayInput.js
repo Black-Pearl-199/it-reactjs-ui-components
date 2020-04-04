@@ -1,7 +1,6 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
-import compose from 'recompose/compose';
-import { translate, ReferenceArrayInputController } from 'ra-core';
+import { useTranslate, ReferenceArrayInputController } from 'ra-core';
 import { Labeled } from 'react-admin';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ReferenceError from './ReferenceError';
@@ -54,10 +53,10 @@ export const ReferenceArrayInputView = ({
     setPagination,
     setSort,
     source,
-    translate,
     warning,
     ...rest
 }) => {
+    const translate = useTranslate();
     const translatedLabel = translate(
         label || `resources.${resource}.fields.${source}`,
         { _: label }
@@ -125,7 +124,6 @@ ReferenceArrayInputView.propTypes = {
     setPagination: PropTypes.func,
     setSort: PropTypes.func,
     source: PropTypes.string,
-    translate: PropTypes.func.isRequired,
     warning: PropTypes.string
 };
 
@@ -243,8 +241,7 @@ MyReferenceArrayInput.propTypes = {
         field: PropTypes.string,
         order: PropTypes.oneOf(['ASC', 'DESC'])
     }),
-    source: PropTypes.string,
-    translate: PropTypes.func.isRequired
+    source: PropTypes.string
 };
 
 MyReferenceArrayInput.defaultProps = {
@@ -254,9 +251,3 @@ MyReferenceArrayInput.defaultProps = {
     perPage: 25,
     sort: { field: 'id', order: 'DESC' }
 };
-
-const EnhancedReferenceArrayInput = compose(
-    translate
-)(MyReferenceArrayInput);
-
-export default EnhancedReferenceArrayInput;

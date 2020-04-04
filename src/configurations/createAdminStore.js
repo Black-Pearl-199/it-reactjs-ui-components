@@ -9,23 +9,25 @@ import {
     // formMiddleware,
     USER_LOGOUT
 } from 'react-admin';
-import iTechSideEffect from './sideEffects';
-import ITechReducers, { ITECH_REDUCER } from './reducers';
+// import iTechSideEffect from './sideEffects';
 
 import adminSaga from './sideEffects/adminSaga';
 
 export const createAdminStore = ({
     authProvider,
     dataProvider,
+    customReducer,
     // i18nProvider = defaultI18nProvider,
-    history
+    history,
+    customSideEffect
     // locale = "en"
 }) => {
+    console.log('customReducer', customReducer);
     const reducer = combineReducers({
         admin: adminReducer,
         // i18n: i18nReducer(locale, i18nProvider(locale)),
         router: connectRouter(history),
-        [ITECH_REDUCER]: ITechReducers
+        ...customReducer
     });
     const resettableAppReducer = (state, action) => reducer(action.type !== USER_LOGOUT ? state : undefined, action);
 
@@ -34,7 +36,8 @@ export const createAdminStore = ({
             [
                 adminSaga(dataProvider, authProvider),
                 // add your own sagas here
-                iTechSideEffect(dataProvider)
+                // iTechSideEffect(dataProvider),
+                customSideEffect(dataProvider)
                 // fetchProgress()
             ].map(fork)
         );
