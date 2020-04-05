@@ -1,10 +1,7 @@
 import { createSelector } from 'reselect';
 import { parse } from 'query-string';
-import { pickBy } from 'lodash';
+import pickBy from 'lodash.pickby';
 import { inputValidate } from '../configurations/validation';
-import { ITECH_REDUCER, STAFF } from '../configurations/reducers';
-
-export const getStaff = (state) => state[ITECH_REDUCER][STAFF];
 
 export const cleanObject = (obj) => Object.entries(obj).forEach(([key, val]) => {
     if (val && typeof val === 'object') cleanObject(val);

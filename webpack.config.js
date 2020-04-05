@@ -4,13 +4,14 @@ const path = require('path');
 // Webpack is just a bunch of keys on module.exports!
 module.exports = {
     externals: {
+        exceljs: 'exceljs',
+        'ra-core': 'ra-core',
         react: 'react',
         'react-admin': 'react-admin',
-        'ra-core': 'ra-core',
         'react-dom': 'react-dom',
-        'react-router-dom': 'react-router-dom',
+        'react-final-form': 'react-final-form',
         'react-redux': 'react-redux',
-        'react-final-form': 'react-final-form'
+        'react-router-dom': 'react-router-dom'
     },
     // This is where our app starts. This is why we have done all this importing
     // and exporting, to get to here

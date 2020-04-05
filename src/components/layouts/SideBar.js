@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { NavLink } from 'react-router-dom';
-import { find } from 'lodash';
+import find from 'lodash.find';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslate } from 'react-admin';

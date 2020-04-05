@@ -1,11 +1,13 @@
 import React, { cloneElement, Children } from 'react';
 import { useTranslate } from 'react-admin';
 import * as PropTypes from 'prop-types';
-import { find, get } from 'lodash';
+import get from 'lodash.get';
+import find from 'lodash.find';
 import classNames from 'classnames';
 import moment from 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 export const FIELD_BOOLEAN = 'boolean';
 export const FIELD_TEXT = 'text';

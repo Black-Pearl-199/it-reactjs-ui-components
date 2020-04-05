@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash.isempty';
 import {
     useTranslate,
     useNotify,

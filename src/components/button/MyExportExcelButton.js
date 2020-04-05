@@ -1,4 +1,4 @@
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GetApp from '@material-ui/icons/GetApp';
 import ExcelJS from 'exceljs';
@@ -8,7 +8,7 @@ import { crudGetAll, useTranslate } from 'ra-core';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { get } from 'lodash';
+import get from 'lodash.get';
 
 const sanitizeRestProps = ({
     basePath,

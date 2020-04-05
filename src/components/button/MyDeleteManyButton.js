@@ -4,8 +4,8 @@ import { startUndoable, useTranslate } from 'ra-core';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ITCrudDeleteMany } from '../../configurations/actions/CrudActions';
+import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 
 export const MyDeleteManyButton = (props) => {
     const translate = useTranslate();

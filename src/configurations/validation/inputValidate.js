@@ -1,5 +1,5 @@
 import moment from 'moment/moment';
-import { get } from 'lodash';
+import get from 'lodash.get';
 
 export const inputValidate = {
     cid: {

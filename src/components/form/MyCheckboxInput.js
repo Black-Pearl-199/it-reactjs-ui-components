@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useField } from 'react-final-form';
 import { useTranslate } from 'react-admin';
-import { get } from 'lodash';
+import get from 'lodash.get';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FormControlLabel from '@material-ui/core/FormControlLabel';

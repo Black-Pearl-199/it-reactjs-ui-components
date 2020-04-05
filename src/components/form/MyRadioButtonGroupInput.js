@@ -4,7 +4,7 @@ import { useTranslate } from 'react-admin';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Button } from 'react-bootstrap';
-import { get } from 'lodash';
+import get from 'lodash.get';
 
 export const MyRadioButtonGroupInput = (props) => {
     const translate = useTranslate();

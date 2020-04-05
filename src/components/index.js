@@ -1,10 +1,11 @@
-export * from './MyCustomStyles';
-export * from './LanguageSwitcher';
 export * from './button';
 export * from './datagrid';
+export * from './deleteBox';
 export * from './form';
 export * from './layouts';
-export * from './pagination';
-export * from './deleteBox';
-export * from './progressBar';
 export * from './messageBox';
+export * from './pagination';
+export * from './progressBar';
+
+export * from './MyCustomStyles';
+export * from './LanguageSwitcher';

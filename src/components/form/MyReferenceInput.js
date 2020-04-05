@@ -4,7 +4,7 @@ import { useTranslate } from 'ra-core';
 import { Labeled, useInput, useReferenceInputController } from 'react-admin';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { useForm } from 'react-final-form';
-import { get } from 'lodash';
+import get from 'lodash.get';
 
 import ReferenceError from './ReferenceError';
 

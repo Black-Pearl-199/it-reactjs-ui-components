@@ -4,7 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useTranslate } from 'react-admin';
 import { pure } from 'recompose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 
 const classes = (theme) => makeStyles({
     actions: {
