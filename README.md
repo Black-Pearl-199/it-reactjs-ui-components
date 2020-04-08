@@ -1,4 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Intro
+This project was built up for encapsulate Base Frontend Template for a ReactJS PWA
+
+## Core dependencies
+
+- react
+- react-dom
+- react-admin
+- react-bootstrap
+- react-redux
+- react-final-form
+
+## Included
+
+- Redux store creator
+- Side effects configuration
+- Base UI Component: Button, Input, Datagrid, ProgressBar
 
 ## Available Scripts
 

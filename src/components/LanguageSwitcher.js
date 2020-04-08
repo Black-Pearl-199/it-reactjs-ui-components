@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
-import { string } from 'prop-types';
+import { string, array } from 'prop-types';
 import { useSetLocale, useTranslate } from 'react-admin';
 
 import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
@@ -11,6 +11,7 @@ export const LanguageSwitcher = (props) => {
         id,
         variant,
         size,
+        buttons,
         ...rest
     } = props;
     const translate = useTranslate();
@@ -45,28 +46,32 @@ export const LanguageSwitcher = (props) => {
                 onSelect={onSelectLanguage}
                 {...rest}
             >
-                <Dropdown.Item
-                    as="button"
-                    eventKey={LOCALE_EN}
-                    className="font-875rem"
-                >
-                    English
-                </Dropdown.Item>
-                <Dropdown.Item
-                    as="button"
-                    eventKey={LOCALE_VI}
-                    className="font-875rem"
-                >
-                    Tiếng Việt
-                </Dropdown.Item>
+                {buttons.map((button)=>(
+                    <Dropdown.Item
+                        as="button"
+                        eventKey={button.eventKey}
+                        className="font-875rem"
+                        key={button.eventKey}
+                    >
+                        {button.text}
+                    </Dropdown.Item>
+                ))}
             </DropdownButton>
         </div>
     );
 };
 
 LanguageSwitcher.propTypes = {
+    buttons: array,
     locale: string,
     id: string,
-    variant: string,
-    size: string
+    size: string,
+    variant: string
+};
+
+LanguageSwitcher.defaultProps = {
+    buttons: [
+        {eventKey: LOCALE_EN, text: 'English'},
+        {eventKey: LOCALE_VI, text: 'Tiếng Việt'}
+    ]
 };

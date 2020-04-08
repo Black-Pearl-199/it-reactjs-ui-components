@@ -15,7 +15,7 @@ module.exports = {
     },
     // This is where our app starts. This is why we have done all this importing
     // and exporting, to get to here
-    entry: './src/index.js',
+    entry: `${path.resolve(__dirname, '../src/')}/index.js`,
     // module (I know it's a bit weird to have module.exports.module) is where we
     // define all the rules for how webpack will deal with thing.
     module: {
@@ -44,9 +44,9 @@ module.exports = {
                     // These three libraries are commonly used together to turn Sass into
                     // CSS, then be able to load the CSS directly with imports. From there
                     // It gets put in the DOM for you.
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                    { loader: 'sass-loader' }
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'sass-loader'}
                 ]
             },
             {
@@ -69,7 +69,7 @@ module.exports = {
     // dist is a common output folder, and it should be gitignored. The build can
     // be run after publishing so you don't wind up with it in source control
     output: {
-        path: path.resolve(__dirname, 'dist/'),
+        path: path.resolve(__dirname, '../dist/'),
         publicPath: '',
         // You can do fun things here like use the [hash] keyword to generate unique
         // filenames, but for this purpose rinse.js is fine. This file and path will
@@ -82,7 +82,10 @@ module.exports = {
         libraryTarget: 'umd'
     },
     optimization: {
-        minimize: true // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
+        minimize: true, // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
+        splitChunks: {
+            chunks: 'all'
+        }
     },
     devtool: 'source-map'
 };
