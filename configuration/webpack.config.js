@@ -75,6 +75,7 @@ module.exports = {
         // filenames, but for this purpose rinse.js is fine. This file and path will
         // be what you put in package.json's "main" field
         filename: 'it-reactjs-ui-components.js',
+        chunkFilename: '[it-reactjs-ui-components].bundle.js',
         // This field determines how things are importable when installed from other
         // sources. UMD may not be correct now and there is an open issue to fix this,
         // but until then, more reading can be found here:
@@ -83,9 +84,6 @@ module.exports = {
     },
     optimization: {
         minimize: true, // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
-        splitChunks: {
-            chunks: 'all'
-        }
     },
     devtool: 'source-map'
 };
