@@ -44,9 +44,9 @@ module.exports = {
                     // These three libraries are commonly used together to turn Sass into
                     // CSS, then be able to load the CSS directly with imports. From there
                     // It gets put in the DOM for you.
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader'},
-                    {loader: 'sass-loader'}
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    { loader: 'sass-loader' }
                 ]
             },
             {
@@ -83,7 +83,7 @@ module.exports = {
         libraryTarget: 'umd'
     },
     optimization: {
-        minimize: true, // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
+        minimize: true // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
     },
     devtool: 'source-map'
 };

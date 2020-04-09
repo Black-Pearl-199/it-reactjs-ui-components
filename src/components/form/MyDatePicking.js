@@ -57,6 +57,7 @@ export const MyDatePicking = (props) => {
         let todayStart = new Date();
         todayStart.setHours(0, 0, 0, 0);
         let todayEnd = new Date();
+        todayEnd.setHours(23, 59, 59, 999);
         const { inputValue } = props;
         if (inputValue) {
             const startDate = inputValue[startDateName];

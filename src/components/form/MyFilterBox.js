@@ -4,12 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Form } from 'react-final-form';
 import { changeListParams, showNotification, useTranslate } from 'ra-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
+import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import debounce from 'lodash.debounce';
 import isEmpty from 'lodash.isempty';
+import debounce from 'lodash.debounce';
 import { Button } from 'react-bootstrap';
 import { ITCrudGetList } from '../../configurations/actions';
 import { inputValidate } from '../../configurations/validation';
@@ -38,6 +37,7 @@ export const MyFilterBox = (props) => {
     const queryFormat = Object.keys(query).length > 0 ? query : hasCustomParams(params) ? { ...params } : { filter: props.initFilter || {} };
     const { filter } = queryFormat;
     const [form, setForm] = useState(filter || props.initFilter);
+    const [triggerSubmit, setTriggerSubmit] = useState(false);
     const formRef = useRef();
     const dispatch = useDispatch();
     const translate = useTranslate();
@@ -51,10 +51,19 @@ export const MyFilterBox = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        if (triggerSubmit) {
+            setTriggerSubmit(false);
+            onSubmit();
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [triggerSubmit]);
+
     const onChange = (e, component, type) => {
         // console.log('my filter box update', e, component, type);
         setForm({ ...form, ...e });
-        if (component !== 'input' || type !== 'text') onSubmit();
+        // if (component !== 'input' || type !== 'text') onSubmit();
+        if (component !== 'input' || type !== 'text') setTriggerSubmit(true);
     };
 
     const checkFormValidate = () => {
@@ -95,6 +104,7 @@ export const MyFilterBox = (props) => {
         const { initFilter, defaultSort, convertValue, resource } = props;
         let filter = {};
         const formFormat = convertValue ? convertValue(form) : form;
+        console.log('formFormat', formFormat);
 
         Object.keys(formFormat).forEach((field) => {
             const value = formFormat[field];
