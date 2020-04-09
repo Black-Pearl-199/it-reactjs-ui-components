@@ -7,7 +7,6 @@ import { MySaveButton } from './MySaveButton';
 export const MySaveToolbar = (props) => {
     const { children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, form, ...rest } = props;
     const { invalid, redirect } = rest;
-    console.log('mysavetoolbar', props.form);
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
     return (
@@ -21,7 +20,6 @@ export const MySaveToolbar = (props) => {
                 action={customAction}
                 hideNotification={hideNotification}
                 customNotification={customNotification}
-                form={form}
             />
             {childrenWithProps}
             {customButton}
@@ -35,6 +33,5 @@ MySaveToolbar.propTypes = {
     beforeSubmit: PropTypes.func,
     hideNotification: PropTypes.bool,
     customNotification: PropTypes.object,
-    form: PropTypes.string,
     customButton: PropTypes.any
 };

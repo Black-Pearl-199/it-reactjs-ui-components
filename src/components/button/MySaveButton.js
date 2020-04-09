@@ -110,7 +110,6 @@ MySaveButton.propTypes = {
     action: PropTypes.func,
     hideNotification: PropTypes.bool,
     customNotification: PropTypes.object,
-    form: PropTypes.string,
     dispatch: PropTypes.func,
     basePath: PropTypes.string,
     resource: PropTypes.string,

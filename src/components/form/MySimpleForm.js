@@ -81,30 +81,27 @@ const SimpleFormView = ({
     undoable,
     variant,
     ...rest
-}) => {
-    const { form } = rest;
-    const { errors } = form.getState();
-    return (
-        <form
-            className={classnames('simple-form', className)}
-            {...sanitizeRestProps(rest)}
-        >
-            <CardContentInner>
-                {Children.map(
-                    children,
-                    (input) => input && (
-                        <FormInput
-                            basePath={basePath}
-                            input={input}
-                            record={record}
-                            resource={resource}
-                            variant={input.props.variant || variant}
-                            margin={input.props.margin || margin}
-                        />
-                    )
-                )}
-            </CardContentInner>
-            {toolbar &&
+}) => (
+    <form
+        className={classnames('simple-form', className)}
+        {...sanitizeRestProps(rest)}
+    >
+        <CardContentInner>
+            {Children.map(
+                children,
+                (input) => input && (
+                    <FormInput
+                        basePath={basePath}
+                        input={input}
+                        record={record}
+                        resource={resource}
+                        variant={input.props.variant || variant}
+                        margin={input.props.margin || margin}
+                    />
+                )
+            )}
+        </CardContentInner>
+        {toolbar &&
             React.cloneElement(toolbar, {
                 basePath,
                 handleSubmitWithRedirect,
@@ -116,12 +113,10 @@ const SimpleFormView = ({
                 resource,
                 saving,
                 submitOnEnter,
-                undoable,
-                errors
+                undoable
             })}
-        </form>
-    );
-};
+    </form>
+);
 
 SimpleFormView.propTypes = {
     basePath: PropTypes.string,
