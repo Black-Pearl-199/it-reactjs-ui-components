@@ -1,15 +1,15 @@
-import progressBar from 'nprogress';
+import ProgressBar from 'nprogress';
 
-export class ProgressBarManager {
-    static _instance;
+export default class ProgressBarManager {
+    static instance
 
     queue = [];
 
     static getInstance = () => {
-        if (!ProgressBarManager._instance) {
-            ProgressBarManager._instance = new ProgressBarManager();
+        if (!ProgressBarManager.instance) {
+            ProgressBarManager.instance = new ProgressBarManager();
         }
-        return ProgressBarManager._instance;
+        return ProgressBarManager.instance;
     };
 
     start = (processName) => {
@@ -17,7 +17,7 @@ export class ProgressBarManager {
         if (index === -1 || processName === 'fetch') {
             // console.log('start progress bar for processName=', processName);
             this.queue.push(processName);
-            if (this.queue.length === 1) progressBar.start();
+            if (this.queue.length === 1) ProgressBar.start();
         }
     };
 
@@ -26,14 +26,12 @@ export class ProgressBarManager {
         if (index > -1) {
             // console.log('stop progress bar for processName=', processName);
             this.queue.splice(index, 1);
-            if (this.queue.length === 0) progressBar.done();
+            if (this.queue.length === 0) ProgressBar.done();
         }
     };
 
     forceStop = () => {
         this.queue = [];
-        progressBar.done(true);
+        ProgressBar.done(true);
     }
 }
-
-export default ProgressBarManager.getInstance();

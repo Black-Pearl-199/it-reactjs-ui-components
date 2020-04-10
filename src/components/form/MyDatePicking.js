@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
-import { MyBootstrapInput } from './MyBootstrapInput';
+import MyBootstrapInput from './MyBootstrapInput';
 
 function add(date, day) {
     const newDate = new Date();
@@ -81,24 +81,23 @@ export const MyDatePicking = (props) => {
                     .startOf('isoWeek')
                     .toDate();
                 if (
-                    start.getTime() === todayStart.getTime() &&
-                    end.getTime() === todayEnd.getTime()
+                    start.getTime() === todayStart.getTime()
+                    && end.getTime() === todayEnd.getTime()
                 ) {
                     setCurrentActive(DATE_RANGE.TODAY);
                 } else if (
-                    start.getTime() + 86400000 === todayStart.getTime() &&
-                    end.getTime() + 86400000 === todayEnd.getTime()
+                    start.getTime() + 86400000 === todayStart.getTime()
+                    && end.getTime() + 86400000 === todayEnd.getTime()
                 ) {
                     setCurrentActive(DATE_RANGE.YESTERDAY);
                 } else if (
-                    start.getTime() === lastWeekStart.getTime() &&
-                    lastWeekStart.getTime() + 86400000 * 7 === end.getTime()
+                    start.getTime() === lastWeekStart.getTime()
+                    && lastWeekStart.getTime() + 86400000 * 7 === end.getTime()
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_WEEK);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const changeInput = (newInputValues) => {
@@ -117,7 +116,7 @@ export const MyDatePicking = (props) => {
     };
 
     const selectDateRange = (e) => {
-        const selectType = e.currentTarget.dataset['selectType'];
+        const { selectType } = e.currentTarget.dataset;
         const todayStart = new Date();
         const todayEnd = new Date();
         todayStart.setHours(0, 0, 0, 0);

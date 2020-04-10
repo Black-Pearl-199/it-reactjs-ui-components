@@ -4,7 +4,9 @@ import { FormInput } from 'react-admin';
 import classNames from 'classnames';
 
 export const MyGroupingInput = (props) => {
-    const { basePath, record, resource, children, heading, groupClasses, innerClasses, border } = props;
+    const {
+        basePath, record, resource, children, heading, groupClasses, innerClasses, border
+    } = props;
     // console.log('grouping input record', JSON.parse(JSON.stringify(record)));
 
     const inner = React.createElement(Fragment, {}, Children.map(children, (input) => (React.createElement(FormInput, {
@@ -18,8 +20,8 @@ export const MyGroupingInput = (props) => {
         <>
             {border ? (
                 <div className={groupClasses}>
-                    {heading ?
-                        <label className="info-title-label mb-0">{heading}</label> : null}
+                    {heading
+                        ? <label className="info-title-label mb-0">{heading}</label> : null}
                     <div className="card panel-itech">
                         <div className={classNames('card-body', innerClasses)}>
                             {inner}

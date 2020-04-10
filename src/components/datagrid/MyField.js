@@ -18,7 +18,9 @@ const ALL_TYPE = [FIELD_BOOLEAN, FIELD_DATE, FIELD_SELECT, FIELD_TEXT, FIELD_ARR
 
 const defaultDateFormat = 'DD-MM-YYYY';
 
-const renderField = ({ type, value, choices, translateChoice, translate, children, ...rest }) => {
+const renderField = ({
+    type, value, choices, translateChoice, translate, children, ...rest
+}) => {
     // console.log('render field type', type, 'value', value, typeof value);
     switch (type) {
         case FIELD_BOOLEAN:
@@ -41,10 +43,7 @@ const renderField = ({ type, value, choices, translateChoice, translate, childre
             return (translateChoice && presentValue) ? translate(presentValue) : presentValue;
         case FIELD_ARRAY:
             // console.log(children, value);
-            const data = (value && value.reduce((prev, item) => {
-                prev[JSON.stringify(item)] = item;
-                return prev;
-            }, {})) || {};
+            const data = (value && value.reduce((prev, item) => ({ ...prev, [JSON.stringify(item)]: item }), {})) || {};
             const ids = (value && value.map(JSON.stringify)) || [];
             return ids.map((id) => cloneElement(Children.only(children), {
                 key: id,
@@ -59,7 +58,9 @@ const renderField = ({ type, value, choices, translateChoice, translate, childre
 
 export const MyField = (props) => {
     const translate = useTranslate();
-    const { record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, ...rest } = props;
+    const {
+        record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, ...rest
+    } = props;
     const translatedLabel = !hideLabel && `${label ? translate(label) : translate(`resources.${resource}.fields.${source}`)}: `;
     const value = get(record, source);
     const fieldId = `field-${source}`;

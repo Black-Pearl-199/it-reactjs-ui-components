@@ -13,3 +13,5 @@ export const showEnhanceNotification = (message, type = 'info', notificationOpti
         message
     }
 });
+
+export default showEnhanceNotification;

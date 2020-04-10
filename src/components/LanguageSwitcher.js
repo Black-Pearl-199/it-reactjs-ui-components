@@ -46,7 +46,7 @@ export const LanguageSwitcher = (props) => {
                 onSelect={onSelectLanguage}
                 {...rest}
             >
-                {buttons.map((button)=>(
+                {buttons.map((button) => (
                     <Dropdown.Item
                         as="button"
                         eventKey={button.eventKey}
@@ -71,7 +71,7 @@ LanguageSwitcher.propTypes = {
 
 LanguageSwitcher.defaultProps = {
     buttons: [
-        {eventKey: LOCALE_EN, text: 'English'},
-        {eventKey: LOCALE_VI, text: 'Tiếng Việt'}
+        { eventKey: LOCALE_EN, text: 'English' },
+        { eventKey: LOCALE_VI, text: 'Tiếng Việt' }
     ]
 };

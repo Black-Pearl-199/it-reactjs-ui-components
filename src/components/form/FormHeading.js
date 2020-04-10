@@ -5,7 +5,9 @@ import classNames from 'classnames';
 import { MyBackButton } from '../button';
 
 export const FormHeading = (props) => {
-    const { title, hasBack, history, basePath, children, skipTran, className } = props;
+    const {
+        title, hasBack, history, basePath, children, skipTran, className
+    } = props;
     const translate = useTranslate();
     return (
         <div className={classNames('d-flex flex-row flex-nowrap', className)}>

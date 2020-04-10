@@ -88,12 +88,10 @@ const MyDatagridRow = (props) => {
             return;
         }
         if (path === ROW_CLICK.SELECT_ONE) {
-            console.log('select one');
             props.onSelect([props.id]);
             return;
         }
         if (path === ROW_CLICK.UN_SELECT_ONE) {
-            console.log('un select one');
             props.onSelect([]);
             return;
         }
@@ -105,9 +103,9 @@ const MyDatagridRow = (props) => {
     function computeColSpan(props) {
         const { children, hasBulkActions } = props;
         return (
-            1 + // show expand button
-            (hasBulkActions ? 1 : 0) + // checkbox column
-            React.Children.toArray(children).filter((child) => !!child).length // non-null children
+            1 // show expand button
+            + (hasBulkActions ? 1 : 0) // checkbox column
+            + React.Children.toArray(children).filter((child) => !!child).length // non-null children
         );
     }
 

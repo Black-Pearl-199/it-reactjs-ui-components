@@ -1,4 +1,4 @@
-export const commons = {
+export default {
     yes: 'Có',
     no: 'Không',
     and: 'và',

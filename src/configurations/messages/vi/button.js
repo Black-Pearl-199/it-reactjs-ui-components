@@ -1,4 +1,4 @@
-export const button = {
+export default {
     search: 'Tìm kiếm',
     clear: 'Xóa',
     add: 'Lưu',

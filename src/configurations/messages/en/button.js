@@ -1,4 +1,4 @@
-export const button = {
+export default {
     search: 'Search',
     clear: 'Clear',
     add: 'Add',

@@ -51,41 +51,37 @@ export const DatagridHeaderCell = (props) => {
             variant="head"
             {...rest}
         >
-            {field.props.sortable !== false &&
-            (field.props.sortBy || field.props.source) ? (
-                    <Tooltip
-                        title={translate('ra.action.sort')}
-                        placement={
-                            field.props.textAlign === 'right'
-                                ? 'bottom-end'
-                                : 'bottom-start'
-                        }
-                        enterDelay={300}
+            {field.props.sortable !== false && (field.props.sortBy || field.props.source) ? (
+                <Tooltip
+                    title={translate('ra.action.sort')}
+                    placement={
+                        field.props.textAlign === 'right'
+                            ? 'bottom-end'
+                            : 'bottom-start'
+                    }
+                    enterDelay={300}
+                >
+                    <TableSortLabel
+                        active={currentSort.field === (field.props.sortBy || field.props.source)}
+                        direction={currentSort.order === 'ASC' ? 'asc' : 'desc'}
+                        data-sort={field.props.sortBy || field.props.source}
+                        onClick={updateSort}
+                        classes={classes}
                     >
-                        <TableSortLabel
-                            active={
-                                currentSort.field ===
-                                (field.props.sortBy || field.props.source)
-                            }
-                            direction={currentSort.order === 'ASC' ? 'asc' : 'desc'}
-                            data-sort={field.props.sortBy || field.props.source}
-                            onClick={updateSort}
-                            classes={classes}
-                        >
-                            <FieldTitle
-                                label={field.props.label}
-                                source={field.props.source}
-                                resource={resource}
-                            />
-                        </TableSortLabel>
-                    </Tooltip>
-                ) : (
-                    <FieldTitle
-                        label={field.props.label}
-                        source={field.props.source}
-                        resource={resource}
-                    />
-                )}
+                        <FieldTitle
+                            label={field.props.label}
+                            source={field.props.source}
+                            resource={resource}
+                        />
+                    </TableSortLabel>
+                </Tooltip>
+            ) : (
+                <FieldTitle
+                    label={field.props.label}
+                    source={field.props.source}
+                    resource={resource}
+                />
+            )}
         </TableCell>
     );
 };
@@ -106,8 +102,8 @@ DatagridHeaderCell.propTypes = {
 };
 
 export default shouldUpdate(
-    (props, nextProps) => props.updateSort !== nextProps.updateSort ||
-        props.currentSort.sort !== nextProps.currentSort.sort ||
-        props.currentSort.order !== nextProps.currentSort.order ||
-        (nextProps.isSorting && props.sortable !== nextProps.sortable)
+    (props, nextProps) => props.updateSort !== nextProps.updateSort
+        || props.currentSort.sort !== nextProps.currentSort.sort
+        || props.currentSort.order !== nextProps.currentSort.order
+        || (nextProps.isSorting && props.sortable !== nextProps.sortable)
 )(DatagridHeaderCell);

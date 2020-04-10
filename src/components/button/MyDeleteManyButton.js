@@ -4,22 +4,28 @@ import { startUndoable, useTranslate } from 'ra-core';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { ITCrudDeleteMany } from '../../configurations/actions/CrudActions';
-import { faTrash } from "@fortawesome/free-solid-svg-icons/faTrash";
 
 export const MyDeleteManyButton = (props) => {
     const translate = useTranslate();
     const dispatch = useDispatch();
     const dispatchCrudDeleteMany = ITCrudDeleteMany;
-    const { basePath, resource, selectedIds, undoable, onClick } = props;
+    const {
+        basePath, resource, selectedIds, undoable, onClick
+    } = props;
     const resourceName = translate(`resources.${resource}.name`);
     const disabled = selectedIds.length === 0;
 
     const handleClick = () => {
         if (undoable) {
-            dispatch(startUndoable(dispatchCrudDeleteMany({ resource, ids: selectedIds, basePath, resourceName })));
+            dispatch(startUndoable(dispatchCrudDeleteMany({
+                resource, ids: selectedIds, basePath, resourceName
+            })));
         } else {
-            dispatchCrudDeleteMany({ resource, ids: selectedIds, basePath, resourceName });
+            dispatchCrudDeleteMany({
+                resource, ids: selectedIds, basePath, resourceName
+            });
         }
 
         if (typeof onClick === 'function') {

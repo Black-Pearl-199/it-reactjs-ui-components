@@ -44,8 +44,8 @@ export const SideBar = (props) => {
         if (onResize) clearTimeout(onResize);
         onResize = setTimeout(() => {
             if (
-                isViewer ||
-                (!collapse && window.innerWidth <= props.resWidthHideSidebar)
+                isViewer
+                || (!collapse && window.innerWidth <= props.resWidthHideSidebar)
             ) {
                 setCollapse(true);
             }
@@ -55,7 +55,7 @@ export const SideBar = (props) => {
 
     const menuSelect = (e) => {
         // console.log(e.currentTarget.dataset['eventKey']);
-        const eventKey = e.currentTarget.dataset['eventKey'];
+        const { eventKey } = e.currentTarget.dataset;
         const menuItem = find(items, { eventKey });
         // console.log('menu select', menuItem);
         if (menuItem) {
@@ -76,7 +76,7 @@ export const SideBar = (props) => {
     };
 
     const toggleExpand = (e) => {
-        const eventKey = e.currentTarget.dataset['eventKey'];
+        const { eventKey } = e.currentTarget.dataset;
         if (expandedKey && expandedKey === eventKey) {
             e.stopPropagation();
             e.preventDefault();
@@ -99,7 +99,6 @@ export const SideBar = (props) => {
                 document.addEventListener('resize', listener);
 
                 return () => {
-                    console.log('remove event');
                     document.removeEventListener('resize', listener);
                 };
             },

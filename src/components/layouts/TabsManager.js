@@ -1,5 +1,5 @@
 class TabsManager {
-    static _instance;
+    static instance
 
     constructor() {
         this.map = new Map();
@@ -91,10 +91,10 @@ class TabsManager {
      *  @return {TabsManager} current instance
      */
     static getInstance = () => {
-        if (!TabsManager._instance) {
-            TabsManager._instance = new TabsManager();
+        if (!TabsManager.instance) {
+            TabsManager.instance = new TabsManager();
         }
-        return TabsManager._instance;
+        return TabsManager.instance;
     }
 }
 

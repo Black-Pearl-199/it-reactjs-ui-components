@@ -3,13 +3,18 @@ import { parse } from 'query-string';
 import pickBy from 'lodash.pickby';
 import { inputValidate } from '../configurations/validation';
 
-export const cleanObject = (obj) => Object.entries(obj).forEach(([key, val]) => {
-    if (val && typeof val === 'object') cleanObject(val);
-    else if (val == null) delete obj[key];
-});
+export const cleanObject = (obj) => {
+    const result = { ...obj };
+    Object.entries(result).forEach(([key, val]) => {
+        if (val && typeof val === 'object') cleanObject(val);
+        else if (val == null) delete result[key];
+    });
+    return result;
+};
 
 export const isEmpty = (obj) => obj === undefined || obj === null || Object.keys(obj).length === 0;
 
+/* eslint-disable no-bitwise */
 export const uuidv4 = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
     const r = (Math.random() * 16) | 0;
     const v = c === 'x' ? r : (r & 0x3) | 0x8;
@@ -31,12 +36,12 @@ export const getInvalidMessages = (syncErrors, translate) => {
     return result;
 };
 
-export const hasCustomParams = (params) => params &&
-    ((params.filter && Object.keys(params.filter).length > 0) ||
-        params.order != null ||
-        params.page !== 1 ||
-        params.perPage != null ||
-        params.sort != null);
+export const hasCustomParams = (params) => (params
+    && ((params.filter && Object.keys(params.filter).length > 0)
+        || params.order != null
+        || params.page !== 1
+        || params.perPage != null
+        || params.sort != null));
 
 export const notificationName = (recordForm, resource, translate) => `${translate(`resources.${resource}.name`)}`;
 
@@ -47,40 +52,32 @@ export const notificationName = (recordForm, resource, translate) => `${translat
  * @param {String} val - string to search
  * @return {Boolean} true if obj contain val in all of values
  */
-export const searchValues = (obj, val) => {
-    let result = false;
-    for (const i in obj) {
-        if (
-            !Object.prototype.hasOwnProperty.call(obj, i) ||
-            typeof obj[i] === 'function'
-        ) continue;
-        if (typeof obj[i] === 'object') {
-            result = searchValues(obj[i], val);
-            if (result === true) return true;
-        } else if (
-            String(obj[i])
+export const searchValues = (obj, val) => (Object.keys(obj).some((key) => {
+    const type = typeof obj[key];
+    switch (type) {
+        case 'function':
+            return false;
+        case 'object':
+            return searchValues(obj[key], val);
+        default:
+            return String(obj[key])
                 .toLowerCase()
-                .indexOf(val.toLowerCase()) > -1
-        ) {
-            return true;
-        }
+                .indexOf(val.toLowerCase()) > -1;
     }
-    return result;
-};
+}));
 
 export const searchInDataTable = (obj, val) => {
     const result = {};
-    for (const i in obj) {
-        if (
-            !Object.prototype.hasOwnProperty.call(obj, i) ||
-            typeof obj[i] === 'function'
-        ) continue;
-        if (typeof obj[i] === 'object') {
-            if (searchValues(obj[i], val)) {
-                result[i] = obj[i];
-            }
+    Object.keys(obj).forEach((key) => {
+        const type = typeof obj[key];
+        switch (type) {
+            case 'function':
+                break;
+            default:
+                if (searchValues(obj[key], val)) result[key] = obj[key];
+                break;
         }
-    }
+    });
     return result;
 };
 
@@ -107,27 +104,22 @@ export const selectQuery = createSelector(
 );
 
 export const checkFormValidate = (form, translate, showNotification) => {
-    const names = Object.keys(form);
     const invalid = {};
-    try {
-        for (const name of names) {
-            const value = form[name];
-            if (
-                typeof value === 'string' &&
-                inputValidate[name] !== undefined &&
-                inputValidate[name].pattern
-            ) {
-                if (value && value.length > 0) {
-                    const pattern = inputValidate[name].pattern;
-                    if (!value.match(pattern)) {
-                        invalid[name] = `commons.message.invalid.${name}`;
-                    }
-                } else invalid[name] = `commons.message.invalid.${name}`;
-            }
+    Object.keys(form).forEach((name) => {
+        const value = form[name];
+        if (
+            typeof value === 'string'
+            && inputValidate[name] !== undefined
+            && inputValidate[name].pattern
+        ) {
+            if (value && value.length > 0) {
+                const { pattern } = inputValidate[name];
+                if (!value.match(pattern)) {
+                    invalid[name] = `commons.message.invalid.${name}`;
+                }
+            } else invalid[name] = `commons.message.invalid.${name}`;
         }
-    } catch (e) {
-        console.error(e);
-    }
+    });
 
     const formValidated = isEmpty(invalid);
     if (!formValidated) {

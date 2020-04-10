@@ -15,7 +15,9 @@ import { inputValidate } from '../../configurations/validation';
 import { hasCustomParams, selectQuery } from '../../utils';
 
 const SORT_DESC = 'DESC';
-const sanitizeRestProps = ({ initFilter, permissions, pagination, options, history, match, basePath, hasList, hasCreate, hasEdit, hasShow, defaultSort, ...rest }) => rest;
+const sanitizeRestProps = ({
+    initFilter, permissions, pagination, options, history, match, basePath, hasList, hasCreate, hasEdit, hasShow, defaultSort, ...rest
+}) => rest;
 
 export const MyFilterBox = (props) => {
     const stateProps = useSelector((state) => {
@@ -34,47 +36,29 @@ export const MyFilterBox = (props) => {
     });
     const { query, params, loading } = stateProps;
 
-    const queryFormat = Object.keys(query).length > 0 ? query : hasCustomParams(params) ? { ...params } : { filter: props.initFilter || {} };
+    let queryFormat;
+    if (Object.keys(query).length > 0) queryFormat = query;
+    else if (hasCustomParams(params)) queryFormat = { ...params };
+    else queryFormat = { filter: props.initFilter || {} };
+    // const queryFormat = Object.keys(query).length > 0 ? query : hasCustomParams(params) ? { ...params } : { filter: props.initFilter || {} };
     const { filter } = queryFormat;
     const [form, setForm] = useState(filter || props.initFilter);
     const [triggerSubmit, setTriggerSubmit] = useState(false);
     const formRef = useRef();
     const dispatch = useDispatch();
     const translate = useTranslate();
-    const { hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, ...rest } = props;
-
-    useEffect(() => {
-        const { initData } = props;
-        if (initData) {
-            onSubmit(undefined, true);
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    useEffect(() => {
-        if (triggerSubmit) {
-            setTriggerSubmit(false);
-            onSubmit();
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [triggerSubmit]);
-
-    const onChange = (e, component, type) => {
-        // console.log('my filter box update', e, component, type);
-        setForm({ ...form, ...e });
-        // if (component !== 'input' || type !== 'text') onSubmit();
-        if (component !== 'input' || type !== 'text') setTriggerSubmit(true);
-    };
+    const {
+        hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, ...rest
+    } = props;
 
     const checkFormValidate = () => {
         if (!form) {
             return false;
         }
 
-        const names = Object.keys(form);
         const invalid = {};
         try {
-            for (const name of names) {
+            Object.keys(form).forEach((name) => {
                 const value = form[name];
                 if (value && typeof value === 'string' && value.length > 0 && inputValidate[name] !== undefined && inputValidate[name].pattern) {
                     const { pattern } = inputValidate[name];
@@ -84,7 +68,7 @@ export const MyFilterBox = (props) => {
                         invalid[name] = `commons.message.invalid.${name}`;
                     }
                 }
-            }
+            });
         } catch (e) {
             console.error(e);
         }
@@ -101,7 +85,9 @@ export const MyFilterBox = (props) => {
         if (e) e.preventDefault();
         if (!checkFormValidate()) return;
 
-        const { initFilter, defaultSort, convertValue, resource } = props;
+        const {
+            initFilter, defaultSort, convertValue, resource
+        } = props;
         let filter = {};
         const formFormat = convertValue ? convertValue(form) : form;
         console.log('formFormat', formFormat);
@@ -115,7 +101,9 @@ export const MyFilterBox = (props) => {
         filter = { ...filter, ...permanentFilter };
         const { field: defaultSortField, order: defaultSortOrder } = defaultSort;
 
-        const { page = 1, perPage = 10, sort = defaultSortField, order = defaultSortOrder } = query;
+        const {
+            page = 1, perPage = 10, sort = defaultSortField, order = defaultSortOrder
+        } = query;
         const pagination = {
             page,
             perPage
@@ -125,8 +113,12 @@ export const MyFilterBox = (props) => {
             order
         };
 
-        const newParams = { ...pagination, sort, order, filter };
-        const search = stringify({ filter: JSON.stringify(filter), ...pagination, sort, order });
+        const newParams = {
+            ...pagination, sort, order, filter
+        };
+        const search = stringify({
+            filter: JSON.stringify(filter), ...pagination, sort, order
+        });
         const { history, location } = props;
         if (history && location) {
             const currentSearchStr = JSON.parse(JSON.stringify(location)).search;
@@ -137,11 +129,34 @@ export const MyFilterBox = (props) => {
 
             // search ko update thì là refresh page
             if (searchEqual) {
-                const crudGetListParams = { resource, pagination, sort: sortQuery, filter };
+                const crudGetListParams = {
+                    resource, pagination, sort: sortQuery, filter
+                };
                 dispatch(ITCrudGetList(crudGetListParams));
             }
         }
     }, 500);
+
+    useEffect(() => {
+        const { initData } = props;
+        if (initData) {
+            onSubmit(undefined, true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (triggerSubmit) {
+            setTriggerSubmit(false);
+            onSubmit();
+        }
+    }, [triggerSubmit]);
+
+    const onChange = (e, component, type) => {
+        // console.log('my filter box update', e, component, type);
+        setForm({ ...form, ...e });
+        // if (component !== 'input' || type !== 'text') onSubmit();
+        if (component !== 'input' || type !== 'text') setTriggerSubmit(true);
+    };
 
     const formEnter = (e) => {
         e.preventDefault();
@@ -224,6 +239,8 @@ export const MyFilterBox = (props) => {
 };
 
 MyFilterBox.propTypes = {
+    children: PropTypes.any,
+    className: PropTypes.string,
     initFilter: PropTypes.object,
     permanentFilter: PropTypes.object,
     buttonClasses: PropTypes.string,

@@ -1,4 +1,4 @@
-export const modalityTypes = {
+export default {
     CT: 'CT',
     MR: 'MRI',
     CR: 'Computed Radiography',

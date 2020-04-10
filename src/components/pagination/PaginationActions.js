@@ -90,7 +90,7 @@ const PaginationActions = (props) => {
     };
 
     const renderPageNums = () => {
-        const { classes = {} } = props;
+        const { classes } = props;
 
         return range().map((pageNum, index) => (pageNum === '.' ? (
             <span key={`hyphen_${index}`} className={classes.hellip}>
@@ -152,7 +152,8 @@ PaginationActions.propTypes = {
     count: PropTypes.number.isRequired,
     onChangePage: PropTypes.func.isRequired,
     page: PropTypes.number.isRequired,
-    rowsPerPage: PropTypes.number.isRequired
+    rowsPerPage: PropTypes.number.isRequired,
+    classes: PropTypes.object
 };
 
 export default pure(PaginationActions);

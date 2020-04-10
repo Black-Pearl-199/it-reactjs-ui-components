@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
+import get from 'lodash.get';
 import classNames from 'classnames';
 // import { makeStyles } from '@material-ui/core/styles';
 import { useInput } from 'ra-core';
@@ -179,7 +179,6 @@ export const MyCheckboxGroupInput = (props) => {
                 // impossible to convert value, e.g. 'abc'
                 newValue = event.target.value;
             }
-            console.log('newValue', newValue);
             if (isChecked) {
                 finalFormOnChange([...(value || []), ...[newValue]]);
             } else {

@@ -5,12 +5,16 @@ import { paginationStyles } from '../MyCustomStyles';
 import { Pagination } from './Pagination';
 import { RedirectCreateButton } from '../button';
 
-const sanitizeProps = ({ setPage, setPerPage, perPage, page, total, ...rest }) => rest;
+const sanitizeProps = ({
+    setPage, setPerPage, perPage, page, total, ...rest
+}) => rest;
 const classes = makeStyles(paginationStyles);
 
 export const MyCustomPagination = ((props) => {
     // console.log('custom pagination', props)
-    const { children, basePath, createBtn, ...rest } = props;
+    const {
+        children, basePath, createBtn, ...rest
+    } = props;
 
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { ...sanitizeProps(rest) }));
 
@@ -29,5 +33,8 @@ export const MyCustomPagination = ((props) => {
 
 MyCustomPagination.propTypes = {
     basePath: PropTypes.string,
-    createBtn: PropTypes.bool
+    createBtn: PropTypes.bool,
+    children: PropTypes.any
 };
+
+export default MyCustomPagination;

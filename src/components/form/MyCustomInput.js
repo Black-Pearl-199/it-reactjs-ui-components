@@ -14,7 +14,9 @@ export const MyTextInput = (props) => <MyCustomInput {...props} component="input
 const composeValidators = (validators) => (value, allValues) => validators.reduce((error, validator) => error || validator(value, allValues), undefined);
 
 // tạm thời bỏ style={{padding: "0.375rem 0"}} của boolean input
-export const MyBooleanInput = ({ disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, ...rest }) => {
+export const MyBooleanInput = ({
+    disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, ...rest
+}) => {
     const { resource } = rest;
     const translate = useTranslate();
     const classes = makeStyles(inputStyles)();
@@ -42,12 +44,14 @@ MyBooleanInput.propTypes = {
     labelClasses: PropTypes.string,
     inputClasses: PropTypes.string,
     groupClasses: PropTypes.string
-}
+};
 
 // formClassName ->> class name for wrapper of this input, default by react-admin -> remove it to not attach on children
 
 export const MyCustomInput = (props) => {
-    const { optionText = 'name', optionValue = 'id', hidden, validate, disabled, required, skipFormat, label, placeholder, source, labelClasses, inputClasses, groupClasses, className, basePath, hideLabel, component, choices, type, allowEmpty, original, formClassName, small, ...rest } = props;
+    const {
+        optionText = 'name', optionValue = 'id', hidden, validate, disabled, required, skipFormat, label, placeholder, source, labelClasses, inputClasses, groupClasses, className, basePath, hideLabel, component, choices, type, allowEmpty, original, formClassName, small, ...rest
+    } = props;
     const { resource } = rest;
     const loading = useSelector((state) => state.admin.loading > 0);
     const translate = useTranslate();
@@ -130,7 +134,9 @@ MyCustomInput.defaultProps = {
 };
 
 // div tag alternator
-export const InputWrapper = ({ children, basePath, className, style, allowEmpty, alwaysOn, formClassName, ...props }) => (
+export const InputWrapper = ({
+    children, basePath, className, style, allowEmpty, alwaysOn, formClassName, ...props
+}) => (
     <div className={className} style={style}>
         {React.Children.map(children, (child) => React.cloneElement(child, { ...props }))}
     </div>
@@ -151,7 +157,9 @@ export const MyDisabledInput = (props) => {
     return <MyTextInput {...newProps} />;
 };
 
-export const MyCustomInputGroup = ({ skipFormat, label, placeholder, source, labelClasses, inputClasses, groupClasses, className, basePath, component, choices, allowEmpty, ...rest }) => {
+export const MyCustomInputGroup = ({
+    skipFormat, label, placeholder, source, labelClasses, inputClasses, groupClasses, className, basePath, component, choices, allowEmpty, ...rest
+}) => {
     const { resource } = rest;
     const translate = useTranslate();
     // console.log(resource, label);

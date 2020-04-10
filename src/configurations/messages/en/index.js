@@ -1,12 +1,12 @@
-import { crud } from './crud';
-import { sidebar } from './sidebar';
-import { modalityTypes } from './modalityTypes';
-import { bodyPart } from './bodyPart';
-import { button } from './button';
-import { commons } from './commons';
-import { msgBox } from './msgBox';
+import crud from './crud';
+import sidebar from './sidebar';
+import modalityTypes from './modalityTypes';
+import bodyPart from './bodyPart';
+import button from './button';
+import commons from './commons';
+import msgBox from './msgBox';
 
-export const en = {
+export default {
     // ...defaultMessages,
     ...crud,
     language: {

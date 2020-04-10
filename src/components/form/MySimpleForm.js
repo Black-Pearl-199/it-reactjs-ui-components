@@ -2,7 +2,59 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { FormWithRedirect } from 'ra-core';
-import { FormInput, Toolbar, CardContentInner } from 'react-admin';
+import { CardContentInner, FormInput, Toolbar } from 'react-admin';
+
+const sanitizeRestProps = ({
+    anyTouched,
+    array,
+    asyncBlurFields,
+    asyncValidate,
+    asyncValidating,
+    autofill,
+    blur,
+    change,
+    clearAsyncError,
+    clearFields,
+    clearSubmit,
+    clearSubmitErrors,
+    destroy,
+    dirty,
+    dirtyFields,
+    dirtyFieldsSinceLastSubmit,
+    dirtySinceLastSubmit,
+    dispatch,
+    form,
+    handleSubmit,
+    hasSubmitErrors,
+    hasValidationErrors,
+    initialize,
+    initialized,
+    initialValues,
+    pristine,
+    pure,
+    redirect,
+    reset,
+    resetSection,
+    save,
+    setRedirect,
+    submit,
+    submitError,
+    submitErrors,
+    submitAsSideEffect,
+    submitFailed,
+    submitSucceeded,
+    submitting,
+    touch,
+    translate,
+    triggerSubmit,
+    undoable,
+    untouch,
+    valid,
+    validate,
+    validating,
+    _reduxForm,
+    ...props
+}) => props;
 
 /**
  * Form with a one column layout, one input per line.
@@ -101,20 +153,20 @@ const SimpleFormView = ({
                 )
             )}
         </CardContentInner>
-        {toolbar &&
-            React.cloneElement(toolbar, {
-                basePath,
-                handleSubmitWithRedirect,
-                handleSubmit,
-                invalid,
-                pristine,
-                record,
-                redirect,
-                resource,
-                saving,
-                submitOnEnter,
-                undoable
-            })}
+        {toolbar
+        && React.cloneElement(toolbar, {
+            basePath,
+            handleSubmitWithRedirect,
+            handleSubmit,
+            invalid,
+            pristine,
+            record,
+            redirect,
+            resource,
+            saving,
+            submitOnEnter,
+            undoable
+        })}
     </form>
 );
 
@@ -147,57 +199,5 @@ SimpleFormView.defaultProps = {
     submitOnEnter: true,
     toolbar: <Toolbar />
 };
-
-const sanitizeRestProps = ({
-    anyTouched,
-    array,
-    asyncBlurFields,
-    asyncValidate,
-    asyncValidating,
-    autofill,
-    blur,
-    change,
-    clearAsyncError,
-    clearFields,
-    clearSubmit,
-    clearSubmitErrors,
-    destroy,
-    dirty,
-    dirtyFields,
-    dirtyFieldsSinceLastSubmit,
-    dirtySinceLastSubmit,
-    dispatch,
-    form,
-    handleSubmit,
-    hasSubmitErrors,
-    hasValidationErrors,
-    initialize,
-    initialized,
-    initialValues,
-    pristine,
-    pure,
-    redirect,
-    reset,
-    resetSection,
-    save,
-    setRedirect,
-    submit,
-    submitError,
-    submitErrors,
-    submitAsSideEffect,
-    submitFailed,
-    submitSucceeded,
-    submitting,
-    touch,
-    translate,
-    triggerSubmit,
-    undoable,
-    untouch,
-    valid,
-    validate,
-    validating,
-    _reduxForm,
-    ...props
-}) => props;
 
 export const MySimpleForm = SimpleForm;

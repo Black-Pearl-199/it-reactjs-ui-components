@@ -59,7 +59,6 @@ const MultipleSelect = (props) => {
         hidden
     } = props;
     const defaultValue = (record && record[source]) || [];
-    console.log('resource', props);
     const labelDisplay = translate(
         label || `resources.${resource}.fields.${source}`
     );
@@ -73,7 +72,6 @@ const MultipleSelect = (props) => {
     const handleChange = (event) => {
         setMultipleSelectValue(event.target.value);
         onChange(event.target.value);
-        console.log('multipleSelect', event.target.value);
     };
 
     return (

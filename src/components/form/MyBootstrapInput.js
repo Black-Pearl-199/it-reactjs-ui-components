@@ -1,6 +1,6 @@
 import React from 'react';
 import isReact from 'is-react';
-import { addField, useTranslate } from 'ra-core';
+import { useTranslate } from 'ra-core';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import DatePicker, { registerLocale } from 'react-datepicker';
@@ -14,7 +14,9 @@ import { dateShowFormat, dateStoreFormat } from '../../utils';
 
 registerLocale('vi', vi);
 
-const sanitizeRestProps = ({ submit, optionText, optionValue, label, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest }) => rest;
+const sanitizeRestProps = ({
+    submit, optionText, optionValue, label, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest
+}) => rest;
 
 function onChangeRaw(e) {
     // console.log(this);
@@ -35,8 +37,12 @@ function onChangeRaw(e) {
 
 const textareaStyle = { resize: 'none' };
 
-const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
-    const { component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, ...rest } = props;
+const renderInput = ({
+    inputId, translatedLabel, composeInputClasses, ...props
+}) => {
+    const {
+        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, ...rest
+    } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
     // console.log(component, sanitizeProps);
@@ -70,7 +76,8 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         </label>
                     </div>
                 );
-            } return (
+            }
+            return (
                 <input
                     name={source}
                     type={type}
@@ -98,6 +105,10 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
         case 'select':
             // remove duplicate choices
             const { optionText = 'name', optionValue = 'id' } = props;
+            // {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
+            let showText = null;
+            if (hideLabel === true) showText = translatedLabel;
+            else if (emptyChoiceLabel) showText = translate(emptyChoiceLabel);
             return (
                 <select
                     name={source}
@@ -113,7 +124,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         <option
                             value=""
                         >
-                            {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
+                            {showText}
                         </option>
                     ) : null}
                     {uniqBy(choices, optionValue)
@@ -176,11 +187,15 @@ renderInput.propTypes = {
 };
 
 // input not null khi sử dụng ReferenceInput
-export const MyBootstrapInput = (props) => {
+const MyBootstrapInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
-    const { label, labelClasses, inputClasses, groupClasses, alignCenter, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest } = props;
-    const { resource, source, component, hideLabel, type } = rest;
+    const {
+        label, labelClasses, inputClasses, groupClasses, alignCenter, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest
+    } = props;
+    const {
+        resource, source, component, hideLabel, type
+    } = rest;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const inputId = `input-${source}`;
@@ -190,7 +205,7 @@ export const MyBootstrapInput = (props) => {
     // console.log(props);
     let value = input && input.value ? input.value : (inputValue && inputValue[source]);
     if (component === 'input' && type === 'checkbox' && checkConvert) {
-        value = value === checkConvert[true];
+        value = value === checkConvert.true;
     }
     // console.log('render input', source, value);
     const onChange = (e) => {
@@ -199,15 +214,21 @@ export const MyBootstrapInput = (props) => {
             if (e) {
                 newValue = moment(e);
                 if (source === 'start_date' || source === 'startDate') {
-                    newValue.set({ hour: 0, minute: 0, second: 0, milliseconds: 0 });
+                    newValue.set({
+                        hour: 0, minute: 0, second: 0, milliseconds: 0
+                    });
                 } else if (source === 'end_date' || source === 'endDate') {
-                    newValue.set({ hour: 23, minute: 59, second: 59, milliseconds: 999 });
+                    newValue.set({
+                        hour: 23, minute: 59, second: 59, milliseconds: 999
+                    });
                 }
                 newValue = newValue.format(dateStoreFormat);
             } else newValue = undefined;
         } else {
-            const target = e.target;
-            newValue = target.type === 'checkbox' ? (checkConvert ? checkConvert[target.checked] : target.checked) : target.value;
+            const { target } = e;
+            if (target.type !== 'checkbox') newValue = target.value;
+            else newValue = checkConvert ? checkConvert[target.checked] : target.checked;
+            // newValue = target.type === 'checkbox' ? (checkConvert ? checkConvert[target.checked] : target.checked) : target.value;
         }
         if (input && input.onChange) {
             input.onChange(newValue, component, type);
@@ -280,4 +301,4 @@ MyBootstrapInput.defaultProps = {
     alignCenter: true
 };
 
-export const MyBootstrapField = addField(MyBootstrapInput);
+export default MyBootstrapInput;

@@ -7,7 +7,9 @@ import { MyBackEditButton } from './MyCustomButton';
 import { MyDeleteBox } from './MyDeleteOneButton';
 
 export const MyEditToolbar = (props) => {
-    const { children, invalid, callback, className, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest } = props;
+    const {
+        children, invalid, callback, className, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest
+    } = props;
     const { redirect } = rest;
 
     const { record, resource, basePath } = rest;

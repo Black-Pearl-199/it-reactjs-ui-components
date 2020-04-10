@@ -24,17 +24,17 @@ export const Pagination = pure((props) => {
     /**
      * Warning: material-ui's page is 0-based
      */
-    const handlePageChange = (event, page) => {
+    const handlePageChange = (event, nextPage) => {
         // eslint-disable-next-line no-unused-expressions
         event && event.stopPropagation();
-        if (page < 0 || page > getNbPages() - 1) {
+        if (nextPage < 0 || nextPage > getNbPages() - 1) {
             throw new Error(
                 translate('ra.navigation.page_out_of_boundaries', {
-                    page: page + 1
+                    page: nextPage + 1
                 })
             );
         }
-        props.setPage(page + 1);
+        props.setPage(nextPage + 1);
     };
 
     const handlePerPageChange = (event) => {
@@ -114,4 +114,4 @@ Pagination.defaultProps = {
     labelPerPage: 'ra.navigation.page_rows_per_page'
 };
 
-// export default pure(Pagination);
+export default Pagination;

@@ -1,4 +1,4 @@
-export const msgBox = {
+export default {
     heading: {
         info: 'Thông báo',
         warning: 'Lỗi',

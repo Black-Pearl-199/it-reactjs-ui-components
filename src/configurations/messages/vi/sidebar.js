@@ -1,4 +1,4 @@
-export const sidebar = {
+export default {
     dashboard: 'Bảng điều khiển',
     study: 'Danh sách ca chụp',
     examination: 'Ca chụp',

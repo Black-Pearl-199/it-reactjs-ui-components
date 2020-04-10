@@ -1,4 +1,4 @@
-export const crud = {
+export default {
     ra: {
         action: {
             add_filter: 'Add filter',

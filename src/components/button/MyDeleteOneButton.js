@@ -3,17 +3,18 @@ import * as PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useTranslate } from 'react-admin';
 import { Button, Container, Modal } from 'react-bootstrap';
-import { MyBootstrapInput } from '../form';
+import MyBootstrapInput from '../form/MyBootstrapInput';
 
 import { ITCrudDelete } from '../../configurations/actions';
 import { notificationName } from '../../utils';
-
 
 export const MyDeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {} } = props;
+    const {
+        resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}
+    } = props;
     const resourceName = notificationName({ values: record }, resource, translate);
     const [inputValue, setInputValue] = useState({ reason: '' });
     const [showPopup, setShowPopup] = useState(false);
@@ -42,7 +43,7 @@ export const MyDeleteBox = ({ ...props }) => {
             previousData: record,
             id,
             redirectTo: redirect,
-            reason: inputValue['reason'],
+            reason: inputValue.reason,
             basePath,
             resourceName,
             optimistic,

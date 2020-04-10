@@ -10,7 +10,9 @@ export const DeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const { id, resource, basePath, fixed, callback, redirect = 'list' } = props;
+    const {
+        id, resource, basePath, fixed, callback, redirect = 'list'
+    } = props;
 
     const [inputValue, setInputValue] = useState({ reason: '' });
     const [showPopup, setShowPopup] = useState(false);
@@ -36,7 +38,7 @@ export const DeleteBox = ({ ...props }) => {
             resource,
             id,
             redirectTo: redirect,
-            reason: inputValue['reason'],
+            reason: inputValue.reason,
             basePath,
             resourceName: translate('resources.study.name'),
             callback

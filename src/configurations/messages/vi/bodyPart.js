@@ -1,4 +1,4 @@
-export const bodyPart = {
+export default {
     SKULL: 'Xương sọ',
     CSPINE: 'Cột sống cổ',
     TSPINE: 'Cột sống ngực',

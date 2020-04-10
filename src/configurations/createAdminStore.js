@@ -1,68 +1,90 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import { routerMiddleware, connectRouter } from 'connected-react-router';
+import {
+    applyMiddleware, combineReducers, compose, createStore
+} from 'redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import {
-    adminReducer,
-    // defaultI18nProvider,
-    // i18nReducer,
-    // formMiddleware,
-    USER_LOGOUT
-} from 'react-admin';
-// import iTechSideEffect from './sideEffects';
-
+import { adminReducer, USER_LOGOUT } from 'react-admin';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
 import adminSaga from './sideEffects/adminSaga';
 
+const defaultPersistConfig = {
+    key: 'persist-state-key',
+    storage,
+    blacklist: ['viewer', 'i18n', 'admin']
+};
+
+/**
+ * @typedef {Object} AdminStore
+ * @property {Object} store - the redux store, which created
+ * @property {Persistor} persistor - the state's persistor built with redux-persist
+ */
+
+/**
+ *
+ * @param {Object} authProvider: auth provider for react admin
+ * @param {Object} dataProvider: data provider for react admin
+ * @param {Object} history: history for route middleware and react router
+ * @param {Object} customReducer: combination of custom reducer using by app
+ * @param {Object} customSideEffect: side effect handler of app
+ * @param {Object} customMiddleware: add in custom middleware, ex: redux-thunk for viewer,...
+ * @param {PersistConfig} persistConfig: config for redux-persist
+ * @returns {AdminStore} The store configuration
+ */
 export const createAdminStore = ({
     authProvider,
     dataProvider,
-    customReducer,
-    // i18nProvider = defaultI18nProvider,
     history,
-    customSideEffect
-    // locale = "en"
+    customReducer = {},
+    customSideEffect,
+    customMiddlewares = {},
+    persistConfig = defaultPersistConfig
 }) => {
-    console.log('customReducer', customReducer);
     const reducer = combineReducers({
         admin: adminReducer,
-        // i18n: i18nReducer(locale, i18nProvider(locale)),
         router: connectRouter(history),
         ...customReducer
     });
     const resettableAppReducer = (state, action) => reducer(action.type !== USER_LOGOUT ? state : undefined, action);
+    const persistableReducer = persistReducer(persistConfig, resettableAppReducer);
 
     const saga = function* rootSaga() {
         yield all(
             [
                 adminSaga(dataProvider, authProvider),
                 // add your own sagas here
-                // iTechSideEffect(dataProvider),
                 customSideEffect(dataProvider)
-                // fetchProgress()
             ].map(fork)
         );
     };
     const sagaMiddleware = createSagaMiddleware();
 
     const store = createStore(
-        resettableAppReducer,
-        // {
-        //     /* set your initial state here */
-        // },
+        persistableReducer,
+        // { /* set your initial state here */},
+        {},
         compose(
             applyMiddleware(
                 sagaMiddleware,
                 // formMiddleware,
-                routerMiddleware(history)
-                // LogRocket.reduxMiddleware()
+                routerMiddleware(history),
                 // add your own middlewares here
+                ...customMiddlewares
             ),
+            /* eslint-disable no-underscore-dangle */
             typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
                 ? window.__REDUX_DEVTOOLS_EXTENSION__()
                 : (f) => f
             // add your own enhancers here
         )
     );
+    const persistor = persistStore(store);
     sagaMiddleware.run(saga);
-    return store;
+
+    window.store = store;
+
+    return { store, persistor };
 };
+
+export default createAdminStore;

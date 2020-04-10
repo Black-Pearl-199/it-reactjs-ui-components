@@ -96,11 +96,8 @@ export const ReferenceInputView = (props) => {
         return <ReferenceError label={label} error={error} />;
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [firstInit, setFirstInit] = useState(true);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const form = useForm();
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         if (firstInit && !loading) {
             setFirstInit(false);

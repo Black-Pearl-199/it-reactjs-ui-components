@@ -64,44 +64,40 @@ const normalizeValue = (value) => (typeof value === 'string' && value.trim().rep
 /**
  * @param {string} patternName - name of pattern using to test
  */
-const validPattern =
-    (patternName) => (value) => {
-        const pattern = inputValidate[patternName].pattern;
-        const normalizeVal = normalizeValue(value);
-        return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${patternName}`);
-    };
+const validPattern = (patternName) => (value) => {
+    const { pattern } = inputValidate[patternName];
+    const normalizeVal = normalizeValue(value);
+    return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${patternName}`);
+};
 
 // Test email có hợp lệ k, cho phép rỗng
-const validPatternForMail =
-    (patternName) => (value) => {
-        if (value) {
-            const pattern = inputValidate[patternName].pattern;
-            const normalizeVal = normalizeValue(value);
-            return pattern.test(normalizeVal) ? undefined : `${msgPrefix}.${patternName}`;
-        }
-        return undefined;
-    };
+const validPatternForMail = (patternName) => (value) => {
+    if (value) {
+        const { pattern } = inputValidate[patternName];
+        const normalizeVal = normalizeValue(value);
+        return pattern.test(normalizeVal) ? undefined : `${msgPrefix}.${patternName}`;
+    }
+    return undefined;
+};
 
 // test password co hop le khong va cho phep null
-const validPatternForPassword =
-    (password) => (value) => {
-        if (value) {
-            const pattern = inputValidate[password].pattern;
-            const normalizeVal = normalizeValue(value);
-            return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${password}`);
-        }
-        return undefined;
-    };
+const validPatternForPassword = (password) => (value) => {
+    if (value) {
+        const { pattern } = inputValidate[password];
+        const normalizeVal = normalizeValue(value);
+        return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${password}`);
+    }
+    return undefined;
+};
 
-const validPatternForSourceCanNull =
-    (source) => (value) => {
-        if (value) {
-            const pattern = inputValidate[source].pattern;
-            const normalizeVal = normalizeValue(value);
-            return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${source}`);
-        }
-        return undefined;
-    };
+const validPatternForSourceCanNull = (source) => (value) => {
+    if (value) {
+        const { pattern } = inputValidate[source];
+        const normalizeVal = normalizeValue(value);
+        return pattern.test(normalizeVal) ? undefined : (`${msgPrefix}.${source}`);
+    }
+    return undefined;
+};
 
 export const testPid = validPattern('pid');
 export const testCid = validPattern('cid');
@@ -120,11 +116,10 @@ export const testEmailNull = validPatternForMail('email');
 export const testPatternUsername = validPattern('username');
 export const testPatternPassword = validPattern('password');
 export const testPatternPasswordNotRequired = validPatternForPassword('password');
-export const testPasswordVerify =
-    (field) => (value, allValues) => {
-        const originValue = get(allValues, field);
-        return value === originValue ? undefined : (`${msgPrefix}.${field}Verify`);
-    };
+export const testPasswordVerify = (field) => (value, allValues) => {
+    const originValue = get(allValues, field);
+    return value === originValue ? undefined : (`${msgPrefix}.${field}Verify`);
+};
 export const checkAccessTokenValiditySeconds = validPatternForSourceCanNull('accessTokenValiditySeconds');
 export const checkRefreshTokenValiditySeconds = validPatternForSourceCanNull('refreshTokenValiditySeconds');
 export const checkRegisteredRedirectURIs = validPatternForSourceCanNull('registeredRedirectURIs');

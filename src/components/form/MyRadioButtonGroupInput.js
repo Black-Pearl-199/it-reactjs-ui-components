@@ -9,13 +9,15 @@ import get from 'lodash.get';
 export const MyRadioButtonGroupInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
-    const { groupClasses, label, hideLabel, labelClasses, buttonGroupsClasses, buttonClasses, resource, source, input, inputValue, onInputChange, choices, optionValue, optionText, allowEmpty, emptyChoiceLabel, disabled } = props;
+    const {
+        groupClasses, label, hideLabel, labelClasses, buttonGroupsClasses, buttonClasses, resource, source, input, inputValue, onInputChange, choices, optionValue, optionText, allowEmpty, emptyChoiceLabel, disabled
+    } = props;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const value = input && input.value ? input.value : (inputValue && inputValue[source]);
 
     const onClick = (e) => {
-        const newValue = e.currentTarget.dataset['value'];
+        const newValue = e.currentTarget.dataset.value;
         // console.log('new val', newValue);
         if (onInputChange) onInputChange({ [source]: newValue });
         if (input && input.onChange) input.onChange(newValue);

@@ -1,4 +1,4 @@
-export const sidebar = {
+export default {
     dashboard: 'Dashboard',
     study: 'Study List',
     examination: 'Examinations',

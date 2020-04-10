@@ -1,4 +1,4 @@
-export const bodyPart = {
+export default {
     SKULL: 'Skull',
     CSPINE: 'Cervical Spine',
     TSPINE: 'Thoracic Spine',

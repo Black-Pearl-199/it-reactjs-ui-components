@@ -11,7 +11,9 @@ import TabsManager, { TAB_CONTEXT_MAIN } from '../layouts/TabsManager';
 
 export const RedirectCreateButton = (props) => {
     const translate = useTranslate();
-    const { basePath, resource, path = 'create', label } = props;
+    const {
+        basePath, resource, path = 'create', label
+    } = props;
     return (
         <div className="my-auto">
             <Link
@@ -95,7 +97,9 @@ MyBackEditButton.propTypes = {
 };
 
 export const ListActionButtons = (props) => {
-    const { bulkActionButtons, basePath, displayedFilters, filters, filterValues, onUnselectItems, resource, selectedIds, showFilter } = props;
+    const {
+        bulkActionButtons, basePath, displayedFilters, filters, filterValues, onUnselectItems, resource, selectedIds, showFilter
+    } = props;
     // currentSort, exporter, total
     return (
         <CardActions>

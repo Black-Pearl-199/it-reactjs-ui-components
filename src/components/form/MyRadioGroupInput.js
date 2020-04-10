@@ -4,7 +4,9 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export const MyRadioGroupInput = (props) => {
-    const { name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest } = props;
+    const {
+        name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest
+    } = props;
     const translate = useTranslate();
     const onChange = (e) => {
         // console.log('radio group change value', e.target.value);
@@ -55,7 +57,8 @@ MyRadioGroupInput.propTypes = {
     groupClasses: PropTypes.string,
     inputValue: PropTypes.any,
     onInputChange: PropTypes.func.isRequired,
-    name: PropTypes.string
+    name: PropTypes.string,
+    className: PropTypes.string
 };
 MyRadioGroupInput.defaultProps = {
     type: 'radio',

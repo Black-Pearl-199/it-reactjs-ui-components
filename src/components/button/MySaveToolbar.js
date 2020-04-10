@@ -4,8 +4,10 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { MySaveButton } from './MySaveButton';
 
-export const MySaveToolbar = (props) => {
-    const { children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, form, ...rest } = props;
+const MySaveToolbar = (props) => {
+    const {
+        children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, ...rest
+    } = props;
     const { invalid, redirect } = rest;
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
@@ -35,3 +37,5 @@ MySaveToolbar.propTypes = {
     customNotification: PropTypes.object,
     customButton: PropTypes.any
 };
+
+export default MySaveToolbar;

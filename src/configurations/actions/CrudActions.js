@@ -17,7 +17,9 @@ export const IT_CRUD_GET_LIST_LOADING = 'IT/CRUD_GET_LIST_LOADING';
 export const IT_CRUD_GET_LIST_FAILURE = 'IT/CRUD_GET_LIST_FAILURE';
 export const IT_CRUD_GET_LIST_SUCCESS = 'IT/CRUD_GET_LIST_SUCCESS';
 export const ITCrudGetList = function (params) {
-    const { resource, pagination, sort, filter } = params;
+    const {
+        resource, pagination, sort, filter
+    } = params;
     return ({
         type: CRUD_GET_LIST,
         payload: { pagination, sort, filter },
@@ -38,7 +40,9 @@ export const IT_CRUD_GET_ALL_LOADING = 'IT/CRUD_GET_ALL_LOADING';
 export const IT_CRUD_GET_ALL_FAILURE = 'IT/CRUD_GET_ALL_FAILURE';
 export const IT_CRUD_GET_ALL_SUCCESS = 'IT/CRUD_GET_ALL_SUCCESS';
 export const ITCrudGetAll = function ({ ...params }) {
-    const { resource, sort, filter, maxResults, callback } = params;
+    const {
+        resource, sort, filter, maxResults, callback
+    } = params;
     // console.log('ITCrud get all', params)
     return ({
         type: IT_CRUD_GET_ALL,
@@ -63,7 +67,9 @@ export const IT_CRUD_GET_ONE_LOADING = 'IT/CRUD_GET_ONE_LOADING';
 export const IT_CRUD_GET_ONE_FAILURE = 'IT/CRUD_GET_ONE_FAILURE';
 export const IT_CRUD_GET_ONE_SUCCESS = 'IT/CRUD_GET_ONE_SUCCESS';
 export const ITCrudGetOne = function ({ ...params }) {
-    const { resource, id, basePath, filter } = params;
+    const {
+        resource, id, basePath, filter
+    } = params;
     let { refresh } = params;
     // eslint-disable-next-line no-void
     if (refresh === void 0) {
@@ -92,8 +98,9 @@ export const IT_CRUD_CREATE_LOADING = 'IT/CRUD_CREATE_LOADING';
 export const IT_CRUD_CREATE_FAILURE = 'IT/CRUD_CREATE_FAILURE';
 export const IT_CRUD_CREATE_SUCCESS = 'IT/CRUD_CREATE_SUCCESS';
 export const ITCrudCreate = function (params) {
-    const { resource, data, basePath, resourceName, callback, filter, meta } = params;
-    console.log('action create params', params);
+    const {
+        resource, data, basePath, resourceName, callback, filter, meta
+    } = params;
     let { redirectTo } = params;
     // const id = data.id;
     // eslint-disable-next-line no-void
@@ -138,16 +145,19 @@ export const IT_CRUD_UPDATE_FAILURE = 'IT/CRUD_UPDATE_FAILURE';
 export const IT_CRUD_UPDATE_SUCCESS = 'IT/CRUD_UPDATE_SUCCESS';
 export const IT_CRUD_UPDATE_OPTIMISTIC = 'IT/CRUD_UPDATE_OPTIMISTIC';
 export const ITCrudUpdate = function (params) {
-    const { resource, id, data, previousData, basePath, resourceName, callback, filter, meta } = params;
+    const {
+        resource, id, data, previousData, basePath, resourceName, callback, filter, meta
+    } = params;
     let { redirectTo } = params;
-    console.log('call update', params);
     // eslint-disable-next-line no-void
     if (redirectTo === void 0) {
         redirectTo = 'show';
     }
     return ({
         type: IT_CRUD_UPDATE,
-        payload: { id, data, previousData, filter },
+        payload: {
+            id, data, previousData, filter
+        },
         meta: {
             resource,
             fetch: UPDATE,
@@ -183,7 +193,9 @@ export const IT_CRUD_UPDATE_MANY_FAILURE = 'IT/CRUD_UPDATE_MANY_FAILURE';
 export const IT_CRUD_UPDATE_MANY_SUCCESS = 'IT/CRUD_UPDATE_MANY_SUCCESS';
 export const IT_CRUD_UPDATE_MANY_OPTIMISTIC = 'IT/CRUD_UPDATE_MANY_OPTIMISTIC';
 export const ITCrudUpdateMany = function (params) {
-    const { resource, ids, data, basePath, resourceName, filter } = params;
+    const {
+        resource, ids, data, basePath, resourceName, filter
+    } = params;
     let { refresh } = params;
     // eslint-disable-next-line no-void
     if (refresh === void 0) {
@@ -224,16 +236,19 @@ export const IT_CRUD_DELETE_FAILURE = 'IT/CRUD_DELETE_FAILURE';
 export const IT_CRUD_DELETE_SUCCESS = 'IT/CRUD_DELETE_SUCCESS';
 export const IT_CRUD_DELETE_OPTIMISTIC = 'IT/CRUD_DELETE_OPTIMISTIC';
 export const ITCrudDelete = function ({ ...params }) {
-    const { resource, id, previousData, basePath, resourceName, reason, callback, filter, purge, optimistic = false } = params;
+    const {
+        resource, id, previousData, basePath, resourceName, reason, callback, filter, purge, optimistic = false
+    } = params;
     let { redirectTo } = params;
     // eslint-disable-next-line no-void
     if (redirectTo === void 0) {
         redirectTo = 'list';
     }
-    console.log('crud delete params', params);
     return ({
         type: CRUD_DELETE,
-        payload: { id, previousData, reason, filter, purge },
+        payload: {
+            id, previousData, reason, filter, purge
+        },
         meta: {
             resource,
             fetch: DELETE,
@@ -270,7 +285,9 @@ export const IT_CRUD_DELETE_MANY_FAILURE = 'IT/CRUD_DELETE_MANY_FAILURE';
 export const IT_CRUD_DELETE_MANY_SUCCESS = 'IT/CRUD_DELETE_MANY_SUCCESS';
 export const IT_CRUD_DELETE_MANY_OPTIMISTIC = 'IT/CRUD_DELETE_MANY_OPTIMISTIC';
 export const ITCrudDeleteMany = function ({ ...params }) {
-    const { resource, ids, basePath, resourceName, filter } = params;
+    const {
+        resource, ids, basePath, resourceName, filter
+    } = params;
     let { refresh } = params;
     // eslint-disable-next-line no-void
     if (refresh === void 0) {
@@ -330,7 +347,9 @@ export const IT_CRUD_GET_MATCHING_LOADING = 'IT/CRUD_GET_MATCHING_LOADING';
 export const IT_CRUD_GET_MATCHING_FAILURE = 'IT/CRUD_GET_MATCHING_FAILURE';
 export const IT_CRUD_GET_MATCHING_SUCCESS = 'IT/CRUD_GET_MATCHING_SUCCESS';
 export const ITCrudGetMatching = function ({ ...params }) {
-    const { reference, relatedTo, pagination, sort, filter } = params;
+    const {
+        reference, relatedTo, pagination, sort, filter
+    } = params;
     return ({
         type: IT_CRUD_GET_MATCHING,
         payload: { pagination, sort, filter },
@@ -352,10 +371,14 @@ export const IT_CRUD_GET_MANY_REFERENCE_LOADING = 'IT/CRUD_GET_MANY_REFERENCE_LO
 export const IT_CRUD_GET_MANY_REFERENCE_FAILURE = 'IT/CRUD_GET_MANY_REFERENCE_FAILURE';
 export const IT_CRUD_GET_MANY_REFERENCE_SUCCESS = 'IT/CRUD_GET_MANY_REFERENCE_SUCCESS';
 export const ITCrudGetManyReference = function ({ ...params }) {
-    const { reference, target, id, relatedTo, pagination, sort, filter, source } = params;
+    const {
+        reference, target, id, relatedTo, pagination, sort, filter, source
+    } = params;
     return ({
         type: IT_CRUD_GET_MANY_REFERENCE,
-        payload: { target, id, pagination, sort, filter, source },
+        payload: {
+            target, id, pagination, sort, filter, source
+        },
         meta: {
             resource: reference,
             relatedTo,

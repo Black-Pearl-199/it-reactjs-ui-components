@@ -74,7 +74,7 @@ module.exports = {
         // You can do fun things here like use the [hash] keyword to generate unique
         // filenames, but for this purpose rinse.js is fine. This file and path will
         // be what you put in package.json's "main" field
-        filename: 'it-reactjs-ui-components.js',
+        filename: 'index.js',
         chunkFilename: '[it-reactjs-ui-components].bundle.js',
         // This field determines how things are importable when installed from other
         // sources. UMD may not be correct now and there is an open issue to fix this,

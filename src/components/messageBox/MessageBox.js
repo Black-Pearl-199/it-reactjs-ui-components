@@ -15,7 +15,7 @@ const bodyMessageStyle = {
     whiteSpace: 'pre-line'
 };
 
-const MessageBoxView = (props) => {
+const MessageBox = (props) => {
     const translate = useTranslate();
     const dispatch = useDispatch();
     const notification = useSelector((state) => getNotification(state));
@@ -75,9 +75,9 @@ const MessageBoxView = (props) => {
                             style={bodyMessageStyle}
                             dangerouslySetInnerHTML={{
                                 __html:
-                                    notification &&
-                                    notification.message &&
-                                    translate(notification.message, notification.messageArgs)
+                                    notification
+                                    && notification.message
+                                    && translate(notification.message, notification.messageArgs)
                             }}
                         />
                     </Container>
@@ -112,7 +112,7 @@ const MessageBoxView = (props) => {
     );
 };
 
-MessageBoxView.propTypes = {
+MessageBox.propTypes = {
     notification: PropTypes.shape({
         message: PropTypes.string,
         type: PropTypes.string,
@@ -124,4 +124,4 @@ MessageBoxView.propTypes = {
     // autoHideDuration: PropTypes.number,
 };
 
-export const MessageBox = MessageBoxView;
+export default MessageBox;

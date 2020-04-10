@@ -1,24 +1,19 @@
-import { crud } from './crud';
-import { sidebar } from './sidebar';
-import { bodyPart } from './bodyPart';
-import { modalityTypes } from './modalityTypes';
-import { button } from './button';
-import { commons } from './commons';
+import crud from './crud';
+import sidebar from './sidebar';
+import bodyPart from './bodyPart';
+import modalityTypes from './modalityTypes';
+import button from './button';
+import commons from './commons';
+import msgBox from './msgBox';
 
-export const vi = {
+export default {
     // ...defaultMessages,
     ...crud,
     language: {
         name: 'Tiếng Việt'
     },
     sidebar,
-    msgBox: {
-        heading: {
-            info: 'Thông báo',
-            warning: 'Lỗi',
-            actions: 'Thông báo'
-        }
-    },
+    msgBox,
     commons,
     button,
     label: {

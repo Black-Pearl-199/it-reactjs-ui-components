@@ -193,9 +193,9 @@ export const MyDatagrid = (props) => {
                                 className="select-all"
                                 color="primary"
                                 checked={
-                                    selectedIds.length > 0 &&
-                                    ids.length > 0 &&
-                                    !ids.find(
+                                    selectedIds.length > 0
+                                    && ids.length > 0
+                                    && !ids.find(
                                         (it) => selectedIds.indexOf(it) === -1
                                     )
                                 }
@@ -209,8 +209,8 @@ export const MyDatagrid = (props) => {
                             currentSort={currentSort}
                             field={field}
                             isSorting={
-                                currentSort.field ===
-                                    (field.props.sortBy || field.props.source)
+                                currentSort.field
+                                    === (field.props.sortBy || field.props.source)
                             }
                             key={field.props.source || index}
                             resource={resource}
