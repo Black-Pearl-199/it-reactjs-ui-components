@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash.get';
+import get from 'lodash/get';
 import classNames from 'classnames';
 // import { makeStyles } from '@material-ui/core/styles';
 import { useInput } from 'ra-core';

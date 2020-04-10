@@ -1,8 +1,8 @@
 import React, { cloneElement, Children } from 'react';
 import { useTranslate } from 'react-admin';
 import * as PropTypes from 'prop-types';
-import get from 'lodash.get';
-import find from 'lodash.find';
+import get from 'lodash/get';
+import find from 'lodash/find';
 import classNames from 'classnames';
 import moment from 'moment-timezone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

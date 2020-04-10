@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { parse } from 'query-string';
-import pickBy from 'lodash.pickby';
+import pickBy from 'lodash/pickBy';
 import { inputValidate } from '../configurations/validation';
 
 export const cleanObject = (obj) => {

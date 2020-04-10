@@ -8,7 +8,7 @@ import { crudGetAll, useTranslate } from 'ra-core';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import get from 'lodash.get';
+import get from 'lodash/get';
 
 const sanitizeRestProps = ({
     basePath,

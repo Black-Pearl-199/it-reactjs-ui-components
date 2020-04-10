@@ -25,7 +25,7 @@ import {
     DELETE,
     DELETE_MANY
 } from 'ra-core';
-import get from 'lodash.get';
+import get from 'lodash/get';
 
 // import { checkTokenExpire, refreshToken } from '../resources/authProvider';
 

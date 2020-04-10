@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { NavLink } from 'react-router-dom';
-import find from 'lodash.find';
+import find from 'lodash/find';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useTranslate } from 'react-admin';
