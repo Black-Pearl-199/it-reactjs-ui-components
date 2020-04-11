@@ -1,12 +1,12 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import { CardActions, useTranslate } from 'react-admin';
-import { useForm } from 'react-final-form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { CardActions, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
+import { useForm } from 'react-final-form';
+import { Link } from 'react-router-dom';
 import TabsManager, { TAB_CONTEXT_MAIN } from '../layouts/TabsManager';
 
 export const RedirectCreateButton = (props) => {

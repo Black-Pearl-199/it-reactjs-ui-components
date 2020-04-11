@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import ProgressBarManager from './ProgressBarManager';
 import { uuidv4 } from '../../utils';
+import ProgressBarManager from './ProgressBarManager';
 
 const LazyLoad = () => {
     useEffect(() => {

@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
-import classNames from 'classnames';
-import { Field } from 'react-final-form';
-import * as PropTypes from 'prop-types';
-import { BooleanInput, useTranslate } from 'react-admin';
-import isReact from 'is-react';
-import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core';
+import classNames from 'classnames';
+import isReact from 'is-react';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { BooleanInput, useTranslate } from 'react-admin';
+import { Field } from 'react-final-form';
+import { useSelector } from 'react-redux';
 import { inputStyles } from '../MyCustomStyles';
 
 export const MyTextInput = (props) => <MyCustomInput {...props} component="input" />;

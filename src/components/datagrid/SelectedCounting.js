@@ -1,7 +1,7 @@
+import * as PropTypes from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
 import { useSelector } from 'react-redux';
-import * as PropTypes from 'prop-types';
 
 export const SelectedCounting = (props) => {
     const { resource } = props;

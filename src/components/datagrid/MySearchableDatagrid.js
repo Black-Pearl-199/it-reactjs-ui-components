@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useTranslate } from 'react-admin';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import { MyDatagrid } from './MyDatagrid';
+import React, { useState } from 'react';
+import { useTranslate } from 'react-admin';
 import { searchInDataTable } from '../../utils';
-import { tableStyles } from '../MyCustomStyles';
 import { MyExportExcelButton } from '../button/MyExportExcelButton';
+import { tableStyles } from '../MyCustomStyles';
+import { MyDatagrid } from './MyDatagrid';
 
 export const MySearchableDataGrid = (props) => {
     const classes = makeStyles(tableStyles)();

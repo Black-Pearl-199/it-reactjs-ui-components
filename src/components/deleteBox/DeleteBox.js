@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import * as PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Container, Modal } from 'react-bootstrap';
-import { MyBootstrapInput } from '../form';
+import { useDispatch } from 'react-redux';
 import { ITCrudDelete } from '../../configurations/actions';
+import { MyBootstrapInput } from '../form';
 
 export const DeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);

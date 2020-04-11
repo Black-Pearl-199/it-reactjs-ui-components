@@ -1,9 +1,9 @@
-import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classNames from 'classnames';
-import { withTranslate } from 'ra-core';
 import PropTypes from 'prop-types';
+import { withTranslate } from 'ra-core';
+import React from 'react';
 
 const ExpandRowButton = ({
     classes,

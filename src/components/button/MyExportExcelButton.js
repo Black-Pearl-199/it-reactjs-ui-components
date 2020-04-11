@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GetApp from '@material-ui/icons/GetApp';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
+import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
 import { crudGetAll, useTranslate } from 'ra-core';
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
-import get from 'lodash/get';
+import { useDispatch, useSelector } from 'react-redux';
 
 const sanitizeRestProps = ({
     basePath,

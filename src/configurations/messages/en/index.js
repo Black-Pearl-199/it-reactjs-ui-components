@@ -1,10 +1,10 @@
-import crud from './crud';
-import sidebar from './sidebar';
-import modalityTypes from './modalityTypes';
 import bodyPart from './bodyPart';
 import button from './button';
 import commons from './commons';
+import crud from './crud';
+import modalityTypes from './modalityTypes';
 import msgBox from './msgBox';
+import sidebar from './sidebar';
 
 export default {
     // ...defaultMessages,

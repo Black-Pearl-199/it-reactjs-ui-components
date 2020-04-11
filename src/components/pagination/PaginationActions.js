@@ -1,11 +1,11 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import { useTranslate } from 'react-admin';
-import { pure } from 'recompose';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { makeStyles } from '@material-ui/core/styles';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { useTranslate } from 'react-admin';
+import { pure } from 'recompose';
 
 const classes = (theme) => makeStyles({
     actions: {

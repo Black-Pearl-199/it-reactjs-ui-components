@@ -1,3 +1,4 @@
+import { CRUD_DELETE } from 'ra-core';
 import {
     CREATE,
     CRUD_GET_LIST,
@@ -10,7 +11,6 @@ import {
     UPDATE,
     UPDATE_MANY
 } from 'react-admin';
-import { CRUD_DELETE } from 'ra-core';
 
 export const IT_CRUD_GET_LIST = 'IT/CRUD_GET_LIST';
 export const IT_CRUD_GET_LIST_LOADING = 'IT/CRUD_GET_LIST_LOADING';

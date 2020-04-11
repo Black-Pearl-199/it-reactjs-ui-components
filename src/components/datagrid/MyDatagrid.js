@@ -1,15 +1,11 @@
-import React, {
-    Children,
-    cloneElement,
-    isValidElement
-} from 'react';
-import { sanitizeListRestProps } from 'ra-core/esm/index';
+import Checkbox from '@material-ui/core/Checkbox/index';
 import { makeStyles } from '@material-ui/core/styles/index';
 import TableCell from '@material-ui/core/TableCell/index';
-import Checkbox from '@material-ui/core/Checkbox/index';
-import { DatagridLoading } from 'react-admin';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import { sanitizeListRestProps } from 'ra-core/esm/index';
+import React, { Children, cloneElement, isValidElement } from 'react';
+import { DatagridLoading } from 'react-admin';
 import variables from '../../assets/scss/abstracts/_variables.scss';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';

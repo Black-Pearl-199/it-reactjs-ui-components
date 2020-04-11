@@ -1,10 +1,10 @@
-import React, { Children, useState, useEffect } from 'react';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
 import { useTranslate } from 'ra-core';
+import React, { Children, useEffect, useState } from 'react';
 import { Labeled, useInput, useReferenceInputController } from 'react-admin';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import { useForm } from 'react-final-form';
-import get from 'lodash/get';
 
 import ReferenceError from './ReferenceError';
 

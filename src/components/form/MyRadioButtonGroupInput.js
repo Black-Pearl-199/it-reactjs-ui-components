@@ -1,10 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useTranslate } from 'react-admin';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { get } from 'lodash';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
-import get from 'lodash/get';
+import { useSelector } from 'react-redux';
 
 export const MyRadioButtonGroupInput = (props) => {
     const translate = useTranslate();

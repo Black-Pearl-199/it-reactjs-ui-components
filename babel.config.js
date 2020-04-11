@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 module.exports = {
     plugins: [
         [
@@ -5,8 +6,18 @@ module.exports = {
             {
                 '@fortawesome/free-solid-svg-icons': {
                     transform: '@fortawesome/free-solid-svg-icons/${member}',
-                    skipDefaultConversion: true
+                    skipDefaultConversion: true,
+                    preventFullImport: true
+                },
+                'react-bootstrap': {
+                    transform: 'react-bootstrap/${member}',
+                    preventFullImport: true
+                },
+                lodash: {
+                    transform: 'lodash/${member}',
+                    preventFullImport: true
                 }
+
             }
         ]
     ],

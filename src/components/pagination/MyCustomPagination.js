@@ -1,9 +1,9 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { RedirectCreateButton } from '../button';
 import { paginationStyles } from '../MyCustomStyles';
 import { Pagination } from './Pagination';
-import { RedirectCreateButton } from '../button';
 
 const sanitizeProps = ({
     setPage, setPerPage, perPage, page, total, ...rest

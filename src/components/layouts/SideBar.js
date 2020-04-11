@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Button, Nav } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
-import { NavLink } from 'react-router-dom';
-import find from 'lodash/find';
-import * as PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import { find } from 'lodash';
+import * as PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
+import { Button, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 import version from '../../version';
 

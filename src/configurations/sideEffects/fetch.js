@@ -1,31 +1,24 @@
+import { get } from 'lodash';
 import {
-    all,
-    call,
-    cancelled,
-    put,
-    select,
-    takeEvery
-} from 'redux-saga/effects';
-import {
-    fetchActionsWithRecordResponse,
-    fetchActionsWithArrayOfIdentifiedRecordsResponse,
-    fetchActionsWithArrayOfRecordsResponse,
-    fetchActionsWithTotalResponse,
+    CREATE,
+    DELETE,
+    DELETE_MANY,
     FETCH_CANCEL,
     FETCH_END,
     FETCH_ERROR,
     FETCH_START,
+    fetchActionsWithArrayOfIdentifiedRecordsResponse,
+    fetchActionsWithArrayOfRecordsResponse,
+    fetchActionsWithRecordResponse,
+    fetchActionsWithTotalResponse,
     GET_LIST,
-    GET_ONE,
     GET_MANY,
     GET_MANY_REFERENCE,
-    CREATE,
+    GET_ONE,
     UPDATE,
-    UPDATE_MANY,
-    DELETE,
-    DELETE_MANY
+    UPDATE_MANY
 } from 'ra-core';
-import get from 'lodash/get';
+import { all, call, cancelled, put, select, takeEvery } from 'redux-saga/effects';
 
 // import { checkTokenExpire, refreshToken } from '../resources/authProvider';
 

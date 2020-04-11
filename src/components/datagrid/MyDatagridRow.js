@@ -1,14 +1,14 @@
-import React, { useState, isValidElement, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
-import { push } from 'react-router-redux';
+import Checkbox from '@material-ui/core/Checkbox';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Checkbox from '@material-ui/core/Checkbox';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { linkToRecord } from 'ra-core';
+import React, { isValidElement, useEffect, useState } from 'react';
 
 import { DatagridCell } from 'react-admin';
+import { useDispatch } from 'react-redux';
+import { push } from 'react-router-redux';
 import ExpandRowButton from './ExpandRowButton';
 
 export const ROW_CLICK = {

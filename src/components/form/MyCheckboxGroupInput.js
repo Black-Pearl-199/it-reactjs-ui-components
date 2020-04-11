@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import classNames from 'classnames';
+import { get } from 'lodash';
+import PropTypes from 'prop-types';
 // import { makeStyles } from '@material-ui/core/styles';
 import { useInput } from 'ra-core';
+import React, { useCallback } from 'react';
 import MyCheckboxGroupInputItem from './MyCheckboxGroupInputItem';
 
 // const defaultSanitizeRestProps = ({

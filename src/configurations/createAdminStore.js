@@ -1,12 +1,10 @@
-import {
-    applyMiddleware, combineReducers, compose, createStore
-} from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
+import { adminReducer, USER_LOGOUT } from 'react-admin';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import { adminReducer, USER_LOGOUT } from 'react-admin';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer, persistStore } from 'redux-persist';
 import adminSaga from './sideEffects/adminSaga';
 
 const defaultPersistConfig = {

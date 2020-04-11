@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import shouldUpdate from 'recompose/shouldUpdate';
+import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
-import { makeStyles } from '@material-ui/core/styles';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import { FieldTitle, useTranslate } from 'ra-core';
+import React from 'react';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 // remove the sort icons when not active
 const useStyles = makeStyles(

@@ -1,5 +1,8 @@
 import { required } from 'ra-core';
 import {
+    checkAccessTokenValiditySeconds,
+    checkRefreshTokenValiditySeconds,
+    checkRegisteredRedirectURIs,
     msgPrefix,
     testBirthDate,
     testEmail,
@@ -7,13 +10,10 @@ import {
     testPasswordVerify,
     testPatientName,
     testPatternPassword,
+    testPatternPasswordNotRequired,
     testPatternUsername,
     testPhoneNumber,
-    testPid,
-    testPatternPasswordNotRequired,
-    checkAccessTokenValiditySeconds,
-    checkRefreshTokenValiditySeconds,
-    checkRegisteredRedirectURIs
+    testPid
 } from './inputValidate';
 
 const msgPrefixRequired = `${msgPrefix}.required`;

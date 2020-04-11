@@ -1,10 +1,10 @@
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
+import * as PropTypes from 'prop-types';
+import { startUndoable, useTranslate } from 'ra-core';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { startUndoable, useTranslate } from 'ra-core';
-import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { ITCrudDeleteMany } from '../../configurations/actions/CrudActions';
 
 export const MyDeleteManyButton = (props) => {

@@ -1,7 +1,7 @@
-import React from 'react';
-import { Toolbar } from 'react-admin';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import React from 'react';
+import { Toolbar } from 'react-admin';
 import { MySaveButton } from './MySaveButton';
 
 const MySaveToolbar = (props) => {

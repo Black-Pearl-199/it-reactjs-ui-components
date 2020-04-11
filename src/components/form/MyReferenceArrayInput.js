@@ -1,8 +1,8 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import { useTranslate, ReferenceArrayInputController } from 'ra-core';
-import { Labeled } from 'react-admin';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import * as PropTypes from 'prop-types';
+import { ReferenceArrayInputController, useTranslate } from 'ra-core';
+import React from 'react';
+import { Labeled } from 'react-admin';
 import ReferenceError from './ReferenceError';
 
 const sanitizeRestProps = ({

@@ -1,7 +1,7 @@
-import React, { Children, Fragment } from 'react';
-import * as PropTypes from 'prop-types';
-import { FormInput } from 'react-admin';
 import classNames from 'classnames';
+import * as PropTypes from 'prop-types';
+import React, { Children, Fragment } from 'react';
+import { FormInput } from 'react-admin';
 
 export const MyGroupingInput = (props) => {
     const {

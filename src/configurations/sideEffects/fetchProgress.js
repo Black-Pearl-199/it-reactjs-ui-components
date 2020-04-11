@@ -1,5 +1,5 @@
-import { call, takeEvery } from 'redux-saga/effects';
 import { FETCH_END, FETCH_ERROR, FETCH_START } from 'ra-core';
+import { call, takeEvery } from 'redux-saga/effects';
 import { ProgressBarManager } from '../../components/progressBar';
 
 function* handleFetchProgress(action) {

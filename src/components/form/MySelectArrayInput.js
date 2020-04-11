@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import * as PropTypes from 'prop-types';
-import { useTranslate } from 'react-admin';
-import classNames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Select from '@material-ui/core/Select';
-import Checkbox from '@material-ui/core/Checkbox';
-import { useField } from 'react-final-form';
 import { Chip } from '@material-ui/core';
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
+import * as PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useTranslate } from 'react-admin';
+import { useField } from 'react-final-form';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {

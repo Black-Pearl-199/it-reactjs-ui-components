@@ -1,9 +1,9 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import * as PropTypes from 'prop-types';
 import { useChoices } from 'ra-core';
+import React from 'react';
 
 const useStyles = makeStyles(
     {

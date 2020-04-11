@@ -1,7 +1,7 @@
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { MyBackButton } from '../button';
 
 export const FormHeading = (props) => {

@@ -1,8 +1,8 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as PropTypes from 'prop-types';
+import React from 'react';
+import { Button } from 'react-bootstrap';
 
 export const ButtonDeleteRow = React.memo((props) => {
     const { record, onDelete } = props;

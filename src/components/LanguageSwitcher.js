@@ -1,7 +1,7 @@
+import { array, string } from 'prop-types';
 import React, { useCallback } from 'react';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
-import { string, array } from 'prop-types';
 import { useSetLocale, useTranslate } from 'react-admin';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
 

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useField } from 'react-final-form';
-import { useTranslate } from 'react-admin';
-import get from 'lodash/get';
-import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import classNames from 'classnames';
+import { get } from 'lodash';
+import * as PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useTranslate } from 'react-admin';
+import { useField } from 'react-final-form';
 
 export const MyCheckboxInput = (props) => {
     const translate = useTranslate();

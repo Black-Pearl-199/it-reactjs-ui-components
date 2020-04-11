@@ -1,6 +1,6 @@
-import React from 'react';
-import * as PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import * as PropTypes from 'prop-types';
+import React from 'react';
 
 const ReferenceError = ({ label, error }) => (
     <TextField error disabled label={label} value={error} margin="normal" />

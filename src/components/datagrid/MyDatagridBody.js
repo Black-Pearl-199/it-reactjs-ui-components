@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import shouldUpdate from 'recompose/shouldUpdate';
 import TableBody from '@material-ui/core/TableBody';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
+import shouldUpdate from 'recompose/shouldUpdate';
 import MyDatagridRow from './MyDatagridRow';
 
 const MyDatagridBody = ({

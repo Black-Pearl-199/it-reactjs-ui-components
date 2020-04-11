@@ -1,11 +1,9 @@
-import React, { useCallback } from 'react';
-import * as PropTypes from 'prop-types';
-import {
-    useTranslate
-} from 'react-admin';
-import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
-import { showEnhanceNotification, ITCrudUpdate } from '../../configurations';
+import * as PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+import { useTranslate } from 'react-admin';
+import { useDispatch } from 'react-redux';
+import { ITCrudUpdate, showEnhanceNotification } from '../../configurations';
 import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
 

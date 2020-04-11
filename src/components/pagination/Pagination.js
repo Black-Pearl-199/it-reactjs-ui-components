@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import * as PropTypes from 'prop-types';
 import TablePagination from '@material-ui/core/TablePagination';
-import { pure } from 'recompose';
+import * as PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core';
+import React, { useEffect } from 'react';
 
 import { Responsive, useTranslate } from 'react-admin';
+import { pure } from 'recompose';
 import PaginationActions from './PaginationActions';
 import PaginationLimit from './PaginationLimit';
 
