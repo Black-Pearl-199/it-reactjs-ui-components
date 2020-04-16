@@ -5,14 +5,14 @@ import ProgressBarManager from './ProgressBarManager';
 const LazyLoad = () => {
     useEffect(() => {
         const processName = uuidv4();
-        ProgressBarManager.start(processName);
+        ProgressBarManager.getInstance().start(processName);
 
         return () => {
-            ProgressBarManager.stop(processName);
+            ProgressBarManager.getInstance().stop(processName);
         };
     });
 
-    return '';
+    return <></>;
 };
 
 export default LazyLoad;

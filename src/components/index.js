@@ -11,4 +11,4 @@ export * from './progressBar';
 
 export * from './MyCustomStyles';
 
-export { _LanguageSwitcher as LanguageSwitcher };
+export { _LanguageSwitcher as LanguageSwitcher }
