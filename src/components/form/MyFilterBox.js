@@ -204,7 +204,7 @@ export const MyFilterBox = (props) => {
                                 <div className="col-form-label mr-3">
                                     <Button
                                         variant="itech"
-                                        className="btn-itech-secondary"
+                                        className="btn-itech-secondary btn-itech-fixed"
                                         type="reset"
                                         disabled={loading}
                                         size="sm"
@@ -224,7 +224,7 @@ export const MyFilterBox = (props) => {
                                     disabled={loading}
                                     size="sm"
                                     onClick={formEnter}
-                                    className="btn-itech-primary float-md-right float-lg-none"
+                                    className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
                                 >
                                     <FontAwesomeIcon icon={faSearch} />
                                     {translate('button.search')}
@@ -259,3 +259,5 @@ MyFilterBox.defaultProps = {
     initData: false,
     defaultSort: { field: 'id', order: SORT_DESC }
 };
+
+export default MyFilterBox;
