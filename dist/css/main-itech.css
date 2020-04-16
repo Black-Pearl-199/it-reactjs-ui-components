@@ -1019,9 +1019,9 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 @media (max-width: 767px) {
   #user {
-    padding: 10px 15px 0px 15px;
+    padding: 10px 15px 0 15px;
     line-height: 20px !important;
-    margin-right: 0px !important;
+    margin-right: 0 !important;
   }
 }
 
@@ -1967,7 +1967,7 @@ a {
 
 .al-footer {
   height: 34px;
-  padding: 0px 18px 0 210px;
+  padding: 0 18px 0 210px;
   width: 100%;
   position: absolute;
   display: block;
@@ -2145,184 +2145,6 @@ a {
   paginationBtnHeight: 32px;
 }
 
-.select-role-input {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #F7F7F7;
-}
-
-.select-role-input:hover {
-  border-color: #64a87a;
-}
-
-.select-role-input:focus {
-  border-color: #64a87a;
-  background-color: #76B194;
-}
-
-.select-role-input input:focus {
-  border-color: #64a87a;
-  background-color: #76B194;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-
-:export {
-  primaryBgColor: #376B51;
-  primaryBgHoverColor: #2C5641;
-  primaryBgDark: #3E935A;
-  primaryBgDarkHover: #64a87a;
-  primaryTextColor: #ffffff;
-  focusBgColor: #76B194;
-  rowHoverColor: #C8E7D2;
-  paginationBtnWidth: 32px;
-  paginationBtnHeight: 32px;
-}
-
-.auth-main {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../../images/background.jpg");
-  background-repeat: repeat;
-  background-size: cover;
-  background-position: center;
-  position: fixed;
-}
-
-.auth-main .auth-block {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 548px;
-  height: 620px;
-  border-radius: 0;
-  background: #fff;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
-  padding: 16px 16px 22px 16px;
-}
-
-.auth-main .auth-block form {
-  margin-right: 60px;
-  margin-left: 60px;
-}
-
-.auth-main .auth-block h1 {
-  font-weight: 400;
-  text-align: center;
-}
-
-.auth-main .auth-block p {
-  font-size: 16px;
-}
-
-.auth-main .auth-block a {
-  text-decoration: none;
-  outline: none;
-  transition: all 0.2s ease;
-  font-size: 0.8rem;
-}
-
-.auth-main .auth-block .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.auth-main .info {
-  text-align: center;
-  color: #333333;
-  font-size: 0.8rem;
-}
-
-.auth-main .form-control {
-  background: #E9F6F2;
-}
-
-@media (max-width: 480px) {
-  .auth-block {
-    height: 100% !important;
-    box-shadow: none !important;
-  }
-  .auth-block form {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-  }
-  .auth-block .info {
-    margin-bottom: 20px;
-  }
-}
-
-.auth-link {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 33px;
-}
-
-.auth-sep {
-  height: 1px;
-  background: #E5E5E5;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.btn-auth {
-  color: #fff;
-  background-color: #3E935A;
-  height: 40px;
-  width: 120px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.btn-auth:hover {
-  color: #fff;
-  background-color: #64a87a;
-}
-
-.btn-auth:active {
-  transform: translateY(2px);
-}
-
-.btn-auth:focus {
-  box-shadow: none;
-  border-style: none;
-}
-
-.info {
-  text-align: center;
-  color: #666666 !important;
-  font-size: 1rem !important;
-  position: absolute;
-  bottom: 1rem;
-  right: 0;
-  left: 0;
-}
-
-itech-menu aside.sidebar {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-itech-menu aside.sidebar ul li:first-child {
-  border-top-left-radius: 10px;
-}
-
-:export {
-  primaryBgColor: #376B51;
-  primaryBgHoverColor: #2C5641;
-  primaryBgDark: #3E935A;
-  primaryBgDarkHover: #64a87a;
-  primaryTextColor: #ffffff;
-  focusBgColor: #76B194;
-  rowHoverColor: #C8E7D2;
-  paginationBtnWidth: 32px;
-  paginationBtnHeight: 32px;
-}
-
 .main-page .tab-content {
   position: absolute;
   top: 50px;
@@ -2332,40 +2154,6 @@ itech-menu aside.sidebar ul li:first-child {
 
 .main-page .tab-content .tab-pane {
   height: 100%;
-}
-
-.modality-form > div {
-  display: flex;
-}
-
-.client-form-custom > div:first-child {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.user-info-form > div:first-child {
-  flex-grow: inherit;
-}
-
-.user-show-page > div > div {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.personal-info {
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.personal-info .basic-info {
-  padding: 15px 30px 12px 20px;
-  background: #fff;
-  height: 100%;
-}
-
-.personal-info div {
-  border-radius: 0;
 }
 
 .home-page {

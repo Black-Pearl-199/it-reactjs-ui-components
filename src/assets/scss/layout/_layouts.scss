@@ -1,8 +1,8 @@
 @import 'header';
 @import 'side-panel';
-@import "sidebar";
-@import "pageTop";
-@import "tabs";
+@import 'sidebar';
+@import 'pageTop';
+@import 'tabs';
 @import 'modal';
 
 @include scrollbars(.5em, #d9d9d9, rgba(0, 0, 0, 0));
@@ -88,7 +88,7 @@ a {
 
 .al-footer {
 	height: $footer-height;
-	padding: 0px 18px 0 $sidebar-width;
+	padding: 0 18px 0 $sidebar-width;
 	width: 100%;
 	position: absolute;
 	display: block;
