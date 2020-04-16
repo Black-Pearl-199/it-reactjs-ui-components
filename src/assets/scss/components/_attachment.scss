@@ -1,0 +1,49 @@
+.image-attachment {
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	margin: 0 .5rem;
+
+	&.big {
+		width: 500px;
+		height: 500px;
+		margin: 0;
+	}
+
+	&.small {
+		width: 25px;
+		height: 25px;
+	}
+}
+
+.preview-attachment {
+	height: calc(100% - 2 * 1.75rem);
+	max-width: max-content;
+
+	.modal-content {
+		height: 75%;
+	}
+}
+
+.btn-delete-attachment {
+	position: absolute;
+	top: 0;
+	right: .5rem;
+	color: white;
+	padding: .2rem;
+
+	&:hover {
+		color: grey;
+	}
+}
+
+.image-attachment-report {
+	height: 60px;
+	cursor: pointer;
+	object-fit: contain;
+	margin: 0.5rem 1rem 0.5rem 0;
+	&.big {
+		height: 500px;
+		margin: 0;
+	}
+}

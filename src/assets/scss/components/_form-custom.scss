@@ -58,6 +58,19 @@
 	}
 }
 
-.custom-select-input > select {
-    padding-left: 4px !important;
+.file-input {
+	& p {
+		margin: auto;
+	}
+
+	& div {
+		padding: 0;
+	}
+}
+
+.report-builder-form {
+	> div {
+		width: 100%;
+		padding-left: 0;
+	}
 }

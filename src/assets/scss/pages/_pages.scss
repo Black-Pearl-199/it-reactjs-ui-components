@@ -1,12 +1,15 @@
 @import "home";
 
-.home-page {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
+.main-page {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
-.wrap-content {
-  flex: 1;
+.home-page {
+	position: relative;
+	display: flex;
+	//min-height: 100%;
+	//width: 100%;
+	flex: auto;
 }

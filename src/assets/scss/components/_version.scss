@@ -1,6 +1,7 @@
 @import '../abstracts/variables';
 
 .version {
+	z-index: 9999;
 	color: $white;
 	font-size: small;
 	line-height: normal;

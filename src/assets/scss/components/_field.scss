@@ -1,22 +1,49 @@
 .field-inline {
-    & div.ra-field > div {
-        width: 100%;
-        flex-direction: row;
-        margin-top: 0;
-        margin-bottom: 0;
+	& div.ra-field > div {
+		width: 100%;
+		flex-direction: row;
+		margin-top: 0;
+		margin-bottom: 0;
 
-        & label {
-            margin-bottom: 0;
-            padding: 0;
-            transform: none;
-            line-height: inherit
-        }
+		& label {
+			margin-bottom: 0;
+			padding: 0;
+			transform: none;
+			line-height: inherit
+		}
 
-        & > div {
-            width: auto;
-            padding: 0;
-            margin-left: 1rem;
-            transform: none
-        }
-    }
+		& > div {
+			width: auto;
+			padding: 0;
+			margin-left: 1rem;
+			transform: none
+		}
+	}
+}
+
+.select-dicom-files {
+	> label {
+		display: none;
+	}
+
+	> span {
+		width: 100%
+	}
+
+	.previews {
+		display: none;
+        flex-wrap: wrap;
+        justify-content: space-between;
+	}
+
+}
+
+.select-study-type {
+	[role='radiogroup'] {
+		display: flex;
+		flex-direction: row;
+		label > span {
+			height: auto;
+		}
+	}
 }
