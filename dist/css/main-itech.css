@@ -429,31 +429,19 @@
   background-color: rgba(33, 156, 119, 0.1);
 }
 
-:export {
-  primaryBgColor: #376B51;
-  primaryBgHoverColor: #2C5641;
-  primaryBgDark: #3E935A;
-  primaryBgDarkHover: #64a87a;
-  primaryTextColor: #ffffff;
-  focusBgColor: #76B194;
-  rowHoverColor: #C8E7D2;
-  paginationBtnWidth: 32px;
-  paginationBtnHeight: 32px;
-}
-
 .logo {
-  content: url("../../images/logo-medium.png");
+  content: url("/images/logo-medium.png");
 }
 
 @media (max-width: 767px) {
   .logo {
-    content: url("../../images/logo-small.png") !important;
+    content: url("/images/logo-small.png") !important;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .logo {
-    content: url("../../images/logo-small.png") !important;
+    content: url("/images/logo-small.png") !important;
   }
 }
 
