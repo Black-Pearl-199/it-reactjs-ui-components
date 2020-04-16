@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
-import { complete, getNotification, hideNotification } from 'ra-core';
-import React, { useEffect, useRef, useState } from 'react';
-import { useTranslate } from 'react-admin';
-import { Button, Container, Modal } from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslate } from 'react-admin';
+import { complete, getNotification, hideNotification } from 'ra-core';
+import * as PropTypes from 'prop-types';
+import { Button, Container, Modal } from 'react-bootstrap';
+import classNames from 'classnames';
 
 export const NOTIFICATION_TYPE = {
     INFO: 'info',
@@ -12,10 +12,11 @@ export const NOTIFICATION_TYPE = {
 };
 
 const bodyMessageStyle = {
-    whiteSpace: 'pre-line'
+    whiteSpace: 'pre-line',
+    textAlign: 'center'
 };
 
-const MessageBox = (props) => {
+const MessageBoxView = (props) => {
     const translate = useTranslate();
     const dispatch = useDispatch();
     const notification = useSelector((state) => getNotification(state));
@@ -71,7 +72,7 @@ const MessageBox = (props) => {
                         fluid
                         className="msg-body"
                     >
-                        <span
+                        <p
                             style={bodyMessageStyle}
                             dangerouslySetInnerHTML={{
                                 __html:
@@ -112,7 +113,7 @@ const MessageBox = (props) => {
     );
 };
 
-MessageBox.propTypes = {
+MessageBoxView.propTypes = {
     notification: PropTypes.shape({
         message: PropTypes.string,
         type: PropTypes.string,
@@ -124,4 +125,4 @@ MessageBox.propTypes = {
     // autoHideDuration: PropTypes.number,
 };
 
-export default MessageBox;
+export const MessageBox = MessageBoxView;
