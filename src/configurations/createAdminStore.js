@@ -36,7 +36,7 @@ export const createAdminStore = ({
     history,
     customReducer = {},
     customSideEffect,
-    customMiddlewares = {},
+    customMiddlewares = [],
     persistConfig = defaultPersistConfig
 }) => {
     const reducer = combineReducers({

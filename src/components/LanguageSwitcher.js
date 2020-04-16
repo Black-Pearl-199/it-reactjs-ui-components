@@ -5,7 +5,7 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
 
-export const LanguageSwitcher = (props) => {
+const LanguageSwitcher = (props) => {
     const {
         locale,
         id,
@@ -75,3 +75,5 @@ LanguageSwitcher.defaultProps = {
         { eventKey: LOCALE_VI, text: 'Tiếng Việt' }
     ]
 };
+
+export default LanguageSwitcher;

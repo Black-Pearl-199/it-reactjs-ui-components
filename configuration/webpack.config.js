@@ -8,6 +8,7 @@ module.exports = {
         'ra-core': 'ra-core',
         react: 'react',
         'react-admin': 'react-admin',
+        'react-bootstrap': 'react-bootstrap',
         'react-dom': 'react-dom',
         'react-final-form': 'react-final-form',
         'react-redux': 'react-redux',

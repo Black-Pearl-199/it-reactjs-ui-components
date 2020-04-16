@@ -1,3 +1,5 @@
+import _LanguageSwitcher from './LanguageSwitcher';
+
 export * from './button';
 export * from './datagrid';
 export * from './deleteBox';
@@ -8,4 +10,5 @@ export * from './pagination';
 export * from './progressBar';
 
 export * from './MyCustomStyles';
-export * from './LanguageSwitcher';
+
+export { _LanguageSwitcher as LanguageSwitcher };
