@@ -12,7 +12,7 @@ const LazyLoad = () => {
         };
     });
 
-    return <></>;
+    return '';
 };
 
 export default LazyLoad;
