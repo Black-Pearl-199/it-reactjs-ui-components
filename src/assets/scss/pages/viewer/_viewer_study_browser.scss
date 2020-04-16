@@ -1,0 +1,258 @@
+.StudyBrowser {
+	float: left;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: var(--box-background-color);
+	padding-bottom: 30px;
+
+	.scrollable-study-thumbnails {
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.ThumbnailEntryContainer {
+			margin: 0 auto;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+
+.draggable {
+	cursor: copy;
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
+
+.series {
+	width: 100%;
+	display: block;
+	border-style: solid;
+	border-bottom-color: #007a17;
+	border-width: 0 0 2px 0;
+	//padding: 0.5rem 0;
+}
+
+.series_content {
+	margin: 5px 10px;
+	/* border-color: #caced1; */
+	background-color: transparent;
+	color: white;
+	text-align: justify;
+	font-size: var(--font-primary-size);
+
+	&:hover {
+		/*border-width: 2px;*/
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	}
+}
+
+.ThumbnailEntry {
+	cursor: pointer;
+	margin: 5px 10px;
+	position: relative;
+	border: var(--thumbnail-border-thickness) solid transparent;
+	border-radius: 0.25rem;
+
+	.series-details {
+		display: flex;
+		color: var(--text-primary-color);
+		//font-size: var(--font-primary-size);
+		line-height: 1.3em;
+		margin-top: 0.75rem;
+		margin-left: 7px;
+		margin-right: 7px;
+		max-width: 220px;
+		position: relative;
+		word-wrap: break-word;
+		font-size: small;
+
+		.series-description {
+			flex-grow: 1;
+		}
+
+		&.info-only {
+			.series-description {
+				display: none;
+			}
+
+			.series-information {
+				display: flex;
+				flex-grow: 1;
+				float: none;
+				max-width: none;
+				padding-right: 0;
+
+				.item {
+					flex: 1;
+					text-align: center;
+
+					.icon {
+						display: inline;
+						float: none;
+						line-height: 25px;
+					}
+
+					.value {
+						display: inline;
+						float: none;
+						line-height: 25px;
+						margin-left: 0;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.series-information {
+		display: flex;
+		position: relative;
+		width: 100%;
+		max-width: 100% !important;
+		margin-top: -2rem;
+		justify-content: space-between;
+		z-index: 2;
+		padding: 0 0.75rem !important;
+
+		.item-frames .icon {
+			height: 18px;
+		}
+
+		.value {
+			color: var(--default-color);
+			display: inline-block;
+			float: right;
+			font-size: 12px;
+			margin-left: 4px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: calc(100% - 15px);
+		}
+
+		.icon {
+			color: var(--active-color);
+			display: inline-block;
+			float: left;
+			font-size: 10px;
+			font-weight: 900;
+			text-align: right;
+			width: 11px;
+
+			div {
+				background-color: var(--series-count-background-color);
+				margin-top: 6px;
+				position: relative;
+				border: 1px solid var(--series-count-background-color);
+				content: '';
+				display: inline-block;
+				height: 11px;
+				width: 11px;
+
+				&:after {
+					background-color: var(--active-color);
+					box-shadow: 1px 1px rgba(0, 0, 0, 0.115);
+					left: -5px;
+					position: absolute;
+					top: -5px;
+					border: 1px solid var(--series-count-background-color);
+					content: '';
+					display: inline-block;
+					height: 11px;
+					width: 11px;
+				}
+			}
+		}
+	}
+
+	&:hover, &.active {
+		border-color: var(--active-color);
+		box-shadow: none;
+		transition: var(--sidebar-transition);
+	}
+}
+
+.image-thumbnail-clone {
+	z-index: 100000;
+	pointer-events: none;
+
+	&:hover {
+		border-color: var(--hover-color);
+		box-shadow: none;
+	}
+}
+
+.ImageThumbnail {
+	height: 110px;
+	margin: 0 auto;
+	padding: 5px;
+	position: relative;
+	transition: var(--sidebar-transition);
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+}
+
+.image-thumbnail-canvas {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+
+	img {
+		-webkit-user-drag: none;
+	}
+
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.thumbnailLoadingIndicator {
+	display: none;
+	pointer-events: none;
+	color: var(--text-secondary-color);
+	height: 20px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+
+	p {
+		text-align: center;
+		font-size: 10pt;
+	}
+
+	&.d-block {
+		display: block;
+	}
+}
+
+.image-thumbnail-progress-bar {
+	position: relative;
+	width: 100%;
+	height: 3px;
+	top: -3px;
+
+	.image-thumbnail-progress-bar-inner {
+		height: 100%;
+		width: 0;
+		border-radius: 5px;
+		background-color: var(--active-color);
+	}
+}
+
