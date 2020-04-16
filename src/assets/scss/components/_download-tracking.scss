@@ -1,0 +1,24 @@
+@import "../abstracts/variables";
+
+.download-tracking {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	max-width: $sidebar-width;
+	padding:  1.5rem .5rem;
+	transition: left 200ms linear;
+	//opacity: .3;
+
+	&.collapse {
+		display: block;
+		//left: $sidebar-width-collapse
+	}
+
+	> button {
+		white-space: pre-wrap;
+	}
+
+	&:hover {
+		//opacity: 1;
+	}
+}

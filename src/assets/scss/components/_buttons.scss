@@ -90,12 +90,20 @@
 
 .btn-itech-icon-primary {
 	box-shadow: none;
-	color: $green-itech-dark !important;
+	color: $cyan !important;
 	background: transparent !important;
 
+	i::before {
+		color: $cyan;
+	}
+
 	&:hover, &:active, &.active {
-		background: $green-itech-dark !important;
+		background: $cyan !important;
 		color: $white !important;
+
+		i::before {
+			color: $white;
+		}
 	}
 }
 
@@ -113,6 +121,7 @@
 .btn-itech-icon-secondary {
 	box-shadow: none;
 	color: $grey-1;
+
 	&:hover, &:active, &.active {
 		background: $grey-1 !important;
 	}
@@ -122,6 +131,10 @@
 	background: $green-itech-dark !important;
 	color: $white !important;
 
+	i::before {
+		color: white;
+	}
+
 	&:hover {
 
 		background-color: $green-itech-light;
@@ -130,7 +143,11 @@
 
 .btn-itech-secondary {
 	background: $grey-1;
-	color: $cyan !important;
+	color: $grey-normal !important;
+
+	i::before {
+		color: $grey-normal;
+	}
 
 	&:hover {
 		background-color: $grey-2;
@@ -195,7 +212,9 @@
 
 .btn-pick-date {
 	height: 26px;
-	//padding-top: 2px;
+	background: $grey-1;
+	color: $grey-dark !important;
+
 
 	&.active {
 		background-color: $text-color;

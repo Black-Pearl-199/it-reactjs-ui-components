@@ -9,61 +9,66 @@
 }
 
 .navbar.nav-iTech {
+
 	padding: 0 1rem;
-	position: fixed;
-    width: 100%;
-    z-index: 100000;
+
 	.logo {
 		height: 40px;
 	}
 }
 
-#navItech {
-	transform: translate(0, 4px);
-	margin-left: calc(1.5rem - 1px);
-	flex: 1;
+.nav-item {
+	user-select: none;
+	border-style: solid;
+	border-width: 1px 1px 0 1px;
+	border-color: $grey-background;
+	border-radius: 10px 10px 0 0;
+	background: $grey-background !important;
 
-	.nav-item {
-		//background-color: $grey-dark !important;
-		border-style: solid;
-		border-width: 1px 1px 0 1px;
-		border-color: $grey-background;
+	a {
+		color: $cyan;
+		-webkit-user-drag: none;
+
+		&:hover {
+			background-color: $green-input-form-selection;
+		}
+	}
+
+	&:hover {
+		background-color: $main-green-lighter-1;
+	}
+
+	.nav-link {
 		border-radius: 10px 10px 0 0;
-		background: $grey-background !important;
 
-		a {
+		&:hover {
+			border-radius: 10px 10px 0 0;
+			border-color: $green-input-form-selection !important;
+			color: $cyan;
+		}
+
+		&.active {
+			border-radius: 10px 10px 0 0;
+			background-color: $grey-light;
+			border-color: $grey-light;
 			color: $cyan;
 
 			&:hover {
-				background-color: $green-input-form-selection;
-			}
-		}
-
-		&:hover {
-			background-color: $main-green-lighter-1;
-		}
-
-		.nav-link {
-			border-radius: 10px 10px 0 0;
-
-			&:hover {
-				border-radius: 10px 10px 0 0;
-				border-color: $green-input-form-selection !important;
-				color: $cyan;
-			}
-
-			&.active {
-				border-radius: 10px 10px 0 0;
-				background-color: $grey-light;
-				border-color: $grey-light;
-				color: $cyan;
-
-				&:hover {
-					border-color: transparent !important;
-				}
+				border-color: transparent !important;
 			}
 		}
 	}
+}
+
+#navItech {
+	transform: translate(0, 6px);
+	//margin-left: calc(1.5rem - 1px);
+	flex: 1;
+	flex-wrap: nowrap;
+	overflow-x: overlay;
+	overflow-y: hidden;
+	position: relative;
+
 
 	//&:last-child {
 	//    margin-left: auto;
@@ -71,7 +76,7 @@
 
 	.tab-close {
 		svg {
-			margin-left: 0.75rem;
+			margin-left: .5rem;
 			//background-color: $cyan;
 			color: $cyan;
 
@@ -83,6 +88,20 @@
 		}
 	}
 
+
+	&::-webkit-scrollbar {
+		width: 1vw;
+		background: transparent;
+		//display: none;
+		//position: absolute;
+		//bottom: 10px;
+		//transform: translateY(-10px);
+		//margin-top: 1rem;
+	}
+
+	&::-webkit-scrollbar-track, &::-webkit-scrollbar-track-piece {
+		background: transparent
+	}
 }
 
 .nav.nav-pills.nav-iTech {

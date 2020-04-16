@@ -1,52 +1,84 @@
 @import "../abstracts/abstracts";
 
 .itech-tabs {
-  background-color: $sidebar;
-  height: $top-height + 1px;
-  width: 100%;
-  min-width: $resMin;
-  flex: 1;
+	background-color: $sidebar;
+	height: $top-height + 1px;
+	width: 100%;
+	min-width: $resMin;
+	flex: 1;
 
-  & .nav-link {
-    height: $tab-height;
-    text-decoration: none;
-    color: $sidebar-text;
-    border-radius: 0;
-    border: none;
-    padding: 0.5rem 0.75rem;
-    margin-top: $top-height - $tab-height;
+	& .nav-link {
+		height: $tab-height;
+		text-decoration: none;
+		color: $sidebar-text;
+		border-radius: 0;
+		border: none;
+		padding: 0.5rem 0.75rem;
+		margin-top: $top-height - $tab-height;
 
-    &:hover {
-      color: $green-itech-light;
-    }
+		&:hover {
+			color: $green-itech-light;
+		}
 
-    &.active {
-      background-color: $green-itech-light;
-      color: $sidebar-text;
+		&.active {
+			background-color: $green-itech-light;
+			color: $sidebar-text;
 
-      .tab-close {
-        svg:hover {
-          background-color: $green-itech-light;
-          color: $sidebar;
-        }
-      }
-    }
+			.tab-close {
+				svg:hover {
+					background-color: $green-itech-light;
+					color: $sidebar;
+				}
+			}
+		}
 
-    &:last-child {
-      margin-left: auto;
-    }
+		&:last-child {
+			margin-left: auto;
+		}
 
-    .tab-close {
-      svg {
-        margin-left: 0.75rem;
-        color: $sidebar-text;
+		.tab-close {
+			svg {
+				margin-left: 0.75rem;
+				color: $sidebar-text;
 
-        &:hover {
-          border-radius: 50%;
-          background-color: $sidebar;
-          color: $green-itech-light;
-        }
-      }
-    }
-  }
+				&:hover {
+					border-radius: 50%;
+					background-color: $sidebar;
+					color: $green-itech-light;
+				}
+			}
+		}
+	}
+}
+
+.nav-iTech {
+	.nav-link {
+		padding: .5rem;
+		font-size: 14px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		flex-basis: auto;
+		flex-grow: 1;
+	}
+
+	.tab-close {
+		display: flex;
+		max-width: 120px;
+
+		.tab-title {
+			white-space: nowrap;
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	.nav-item a {
+		border-bottom: none !important;
+	}
+}
+
+.no-wrap {
+	white-space: nowrap;
 }

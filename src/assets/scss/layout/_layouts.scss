@@ -1,8 +1,8 @@
 @import 'header';
 @import 'side-panel';
-@import 'sidebar';
-@import 'pageTop';
-@import 'tabs';
+@import "sidebar";
+@import "pageTop";
+@import "tabs";
 @import 'modal';
 
 @include scrollbars(.5em, #d9d9d9, rgba(0, 0, 0, 0));
@@ -88,7 +88,7 @@ a {
 
 .al-footer {
 	height: $footer-height;
-	padding: 0 18px 0 $sidebar-width;
+	padding: 0px 18px 0 $sidebar-width;
 	width: 100%;
 	position: absolute;
 	display: block;
@@ -170,6 +170,7 @@ a {
 	//margin-top: 10px;
 	padding: 20px;
 	position: relative;
+	overflow-x: hidden;
 }
 
 @media screen and (max-width: $resXS) {
@@ -256,4 +257,22 @@ a {
 	height: calc(100% - #{$top-height});
 	max-height: calc(100% - #{$top-height});
 	overflow: auto;
+}
+
+.col-1p5 {
+	-ms-flex: 0 0 12.5%;
+	flex: 0 0 12.5%;
+	max-width: 12.5%;
+}
+.col-10p5 {
+	-ms-flex: 0 0 87.5%;
+	flex: 0 0 87.5%;
+	max-width: 87.5%;
+}
+
+.col-1p5, .col-10p5 {
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
 }

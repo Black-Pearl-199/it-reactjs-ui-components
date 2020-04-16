@@ -29,7 +29,7 @@
 .table-striped {
 	tbody {
 		tr {
-			&:nth-of-type(odd) &:not(.tr-normal) {
+			&:nth-of-type(odd) {
 				background: $white;
 
 				&:hover {
@@ -41,7 +41,7 @@
 				}
 			}
 
-			&:nth-of-type(odd) &:not(.tr-normal) {
+			&:nth-of-type(even) {
 				&:not(.active) {
 					background: #EBF1EE !important;
 				}

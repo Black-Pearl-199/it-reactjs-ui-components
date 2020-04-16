@@ -5,12 +5,8 @@
 @import 'font';
 
 .no-select {
-	user-select: none; /* supported by Chrome and Opera */
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-}
-
-.overflow-inherit {
-	overflow: inherit !important;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
 }
