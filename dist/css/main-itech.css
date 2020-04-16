@@ -2319,6 +2319,12 @@ a {
   width: 100%;
 }
 
+.main-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .home-page {
   position: relative;
   display: flex;
