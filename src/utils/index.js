@@ -52,29 +52,31 @@ export const notificationName = (recordForm, resource, translate) => `${translat
  * @param {String} val - string to search
  * @return {Boolean} true if obj contain val in all of values
  */
-export const searchValues = (obj, val) => (Object.keys(obj).some((key) => {
-    const type = typeof obj[key];
+export const searchValues = (obj, val) => (Object.values(obj).some((value) => {
+    const type = typeof value;
     switch (type) {
         case 'function':
+        case 'undefined':
             return false;
         case 'object':
-            return searchValues(obj[key], val);
+            if (!value) return false;
+            return searchValues(value, val);
         default:
-            return String(obj[key])
+            return String(value)
                 .toLowerCase()
                 .indexOf(val.toLowerCase()) > -1;
     }
 }));
-
 export const searchInDataTable = (obj, val) => {
     const result = {};
     Object.keys(obj).forEach((key) => {
         const type = typeof obj[key];
         switch (type) {
             case 'function':
+            case 'undefined':
                 break;
             default:
-                if (searchValues(obj[key], val)) result[key] = obj[key];
+                if (obj[key] && searchValues(obj[key], val)) result[key] = obj[key];
                 break;
         }
     });

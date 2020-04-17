@@ -78093,18 +78093,20 @@ var notificationName = function notificationName(recordForm, resource, translate
  */
 
 var searchValues = function searchValues(obj, val) {
-  return Object.keys(obj).some(function (key) {
-    var type = utils_typeof(obj[key]);
+  return Object.values(obj).some(function (value) {
+    var type = utils_typeof(value);
 
     switch (type) {
       case 'function':
+      case 'undefined':
         return false;
 
       case 'object':
-        return searchValues(obj[key], val);
+        if (!value) return false;
+        return searchValues(value, val);
 
       default:
-        return String(obj[key]).toLowerCase().indexOf(val.toLowerCase()) > -1;
+        return String(value).toLowerCase().indexOf(val.toLowerCase()) > -1;
     }
   });
 };
@@ -78115,10 +78117,11 @@ var searchInDataTable = function searchInDataTable(obj, val) {
 
     switch (type) {
       case 'function':
+      case 'undefined':
         break;
 
       default:
-        if (searchValues(obj[key], val)) result[key] = obj[key];
+        if (obj[key] && searchValues(obj[key], val)) result[key] = obj[key];
         break;
     }
   });
