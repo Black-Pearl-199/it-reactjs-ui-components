@@ -153,9 +153,9 @@ export const listStylesNoActionsList = {
             '&:hover': { backgroundColor: '#e85656' },
             '&:focus': { outline: 'none' }
         },
-        // '& span.MuiCheckbox-colorPrimary.Mui-checked': {
-        //     color: variables.primaryBgColor
-        // },
+        '& span.MuiCheckbox-colorPrimary.Mui-checked': {
+            color: variables.primaryBgColor
+        },
         '& div.picker': {
             flex: '1 1 auto',
             '&>div': {
