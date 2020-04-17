@@ -63,7 +63,7 @@
     "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/main-itech.min.css dist/css/main-itech.css",
     "css-prefix": "npm-run-all --parallel css-prefix-*",
     "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
-    "webpack": "webpack --mode production --config configuration/webpack.config.js",
+    "webpack": "webpack --config configuration/webpack.config.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },
