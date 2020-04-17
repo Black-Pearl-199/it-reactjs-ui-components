@@ -110,6 +110,7 @@ export const listStylesNoActionsList = {
         boxShadow: 'none !important',
         borderRadius: '0.25rem',
         overflow: 'hidden',
+        marginTop: 0, // fix khi bulkButtonAction is checked
         // overflowY: 'inherit',
         '&>div': {
             marginRight: 'auto',
@@ -152,6 +153,9 @@ export const listStylesNoActionsList = {
             '&:hover': { backgroundColor: '#e85656' },
             '&:focus': { outline: 'none' }
         },
+        // '& span.MuiCheckbox-colorPrimary.Mui-checked': {
+        //     color: variables.primaryBgColor
+        // },
         '& div.picker': {
             flex: '1 1 auto',
             '&>div': {

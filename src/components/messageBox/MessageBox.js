@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
-import { complete, getNotification, hideNotification } from 'ra-core';
-import React, { useEffect, useRef, useState } from 'react';
-import { useTranslate } from 'react-admin';
-import { Button, Container, Modal } from 'react-bootstrap';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslate } from 'react-admin';
+import { complete, getNotification, hideNotification } from 'ra-core';
+import * as PropTypes from 'prop-types';
+import { Button, Container, Modal } from 'react-bootstrap';
+import classNames from 'classnames';
 
 export const NOTIFICATION_TYPE = {
     INFO: 'info',
@@ -12,7 +12,8 @@ export const NOTIFICATION_TYPE = {
 };
 
 const bodyMessageStyle = {
-    whiteSpace: 'pre-line'
+    whiteSpace: 'pre-line',
+    textAlign: 'center'
 };
 
 export const MessageBox = (props) => {
@@ -71,7 +72,7 @@ export const MessageBox = (props) => {
                         fluid
                         className="msg-body"
                     >
-                        <span
+                        <p
                             style={bodyMessageStyle}
                             dangerouslySetInnerHTML={{
                                 __html:
