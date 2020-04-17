@@ -10,8 +10,10 @@ import { MyExportExcelButton } from '../button/MyExportExcelButton';
 import { tableStyles } from '../MyCustomStyles';
 import { MyDatagrid } from './MyDatagrid';
 
-export const MySearchableDataGrid = (props) => {
-    const classes = makeStyles(tableStyles)();
+const useStyles = makeStyles(tableStyles);
+
+const MySearchableDataGrid = (props) => {
+    const classes = useStyles();
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
 
@@ -117,3 +119,5 @@ MySearchableDataGrid.defaultProps = {
     searchEnable: true,
     exportable: false
 };
+
+export default MySearchableDataGrid;

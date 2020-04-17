@@ -79742,6 +79742,9 @@ ButtonDeleteRow.defaultProps = {
 
 
 
+// EXTERNAL MODULE: ./node_modules/@fortawesome/free-solid-svg-icons/faSearch.js
+var faSearch = __webpack_require__(142);
+
 // EXTERNAL MODULE: ./node_modules/@material-ui/core/Checkbox/index.js
 var core_Checkbox = __webpack_require__(422);
 var Checkbox_default = /*#__PURE__*/__webpack_require__.n(core_Checkbox);
@@ -85524,9 +85527,6 @@ MyDatagrid_MyDatagrid.defaultProps = {
   selectedIds: [],
   body: /*#__PURE__*/external_react_default.a.createElement(datagrid_MyDatagridBody, null)
 };
-// EXTERNAL MODULE: ./node_modules/@fortawesome/free-solid-svg-icons/faSearch.js
-var faSearch = __webpack_require__(142);
-
 // CONCATENATED MODULE: ./src/components/datagrid/MySearchableDatagrid.js
 function MySearchableDatagrid_extends() { MySearchableDatagrid_extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return MySearchableDatagrid_extends.apply(this, arguments); }
 
@@ -85557,8 +85557,10 @@ function MySearchableDatagrid_arrayWithHoles(arr) { if (Array.isArray(arr)) retu
 
 
 
+var MySearchableDatagrid_useStyles = Object(makeStyles["a" /* default */])(tableStyles);
+
 var MySearchableDatagrid_MySearchableDataGrid = function MySearchableDataGrid(props) {
-  var classes = Object(makeStyles["a" /* default */])(tableStyles)();
+  var classes = MySearchableDatagrid_useStyles();
 
   var _useState = Object(external_react_["useState"])(''),
       _useState2 = MySearchableDatagrid_slicedToArray(_useState, 2),
@@ -85626,6 +85628,7 @@ var MySearchableDatagrid_MySearchableDataGrid = function MySearchableDataGrid(pr
     className: classnames_default()('mb-0', 'table-striped', 'table-bordered', 'table', 'table-sm')
   }))));
 };
+
 MySearchableDatagrid_MySearchableDataGrid.propTypes = {
   searchEnable: prop_types["bool"],
   exportable: prop_types["bool"],
@@ -85644,6 +85647,7 @@ MySearchableDatagrid_MySearchableDataGrid.defaultProps = {
   searchEnable: true,
   exportable: false
 };
+/* harmony default export */ var MySearchableDatagrid = (MySearchableDatagrid_MySearchableDataGrid);
 // EXTERNAL MODULE: ./node_modules/@fortawesome/free-solid-svg-icons/faCheck.js
 var faCheck = __webpack_require__(424);
 
@@ -85910,6 +85914,7 @@ SelectedCounting_SelectedCounting.propTypes = {
   resource: prop_types["string"].isRequired
 };
 // CONCATENATED MODULE: ./src/components/datagrid/index.js
+
 
 
  // eslint-disable-next-line import/export
@@ -96194,7 +96199,7 @@ var LazyLoad_LazyLoad = function LazyLoad() {
 /* concated harmony reexport MyEditToolbar */__webpack_require__.d(__webpack_exports__, "MyEditToolbar", function() { return MyEditToolbar_MyEditToolbar; });
 /* concated harmony reexport ButtonDeleteRow */__webpack_require__.d(__webpack_exports__, "ButtonDeleteRow", function() { return ButtonDeleteRow; });
 /* concated harmony reexport MyDatagrid */__webpack_require__.d(__webpack_exports__, "MyDatagrid", function() { return MyDatagrid_MyDatagrid; });
-/* concated harmony reexport MySearchableDataGrid */__webpack_require__.d(__webpack_exports__, "MySearchableDataGrid", function() { return MySearchableDatagrid_MySearchableDataGrid; });
+/* concated harmony reexport MySearchableDataGrid */__webpack_require__.d(__webpack_exports__, "MySearchableDataGrid", function() { return MySearchableDatagrid; });
 /* concated harmony reexport FIELD_BOOLEAN */__webpack_require__.d(__webpack_exports__, "FIELD_BOOLEAN", function() { return FIELD_BOOLEAN; });
 /* concated harmony reexport FIELD_TEXT */__webpack_require__.d(__webpack_exports__, "FIELD_TEXT", function() { return FIELD_TEXT; });
 /* concated harmony reexport FIELD_DATE */__webpack_require__.d(__webpack_exports__, "FIELD_DATE", function() { return FIELD_DATE; });

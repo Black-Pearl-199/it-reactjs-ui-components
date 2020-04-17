@@ -1,5 +1,7 @@
+import _MySearchableDataGrid from './MySearchableDatagrid';
+
 export * from './MyDatagrid';
-export * from './MySearchableDatagrid';
+export { _MySearchableDataGrid as MySearchableDataGrid };
 export * from './MyField';
 // eslint-disable-next-line import/export
 export * from './MyDatagridBody';
