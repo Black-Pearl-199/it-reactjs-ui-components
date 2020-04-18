@@ -1,4 +1,4 @@
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -105,7 +105,7 @@
   /* Internet Explorer/Edge */
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -419,7 +419,7 @@
   color: #0056b3;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -561,7 +561,7 @@
   padding-left: 0;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -768,7 +768,7 @@
   }
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -878,7 +878,7 @@ button.btn-itech-panel:hover {
   border-color: var(--green-itech-light);
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1002,7 +1002,7 @@ button.btn-itech-panel:hover {
   background: var(--white);
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1170,7 +1170,7 @@ button.btn-itech-panel:hover {
   display: none;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1312,7 +1312,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1410,7 +1410,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   margin-bottom: var(--delete-box-height);
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1556,7 +1556,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   }
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1709,7 +1709,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   height: auto;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1842,7 +1842,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   background-color: var(--form-background-color-focus);
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -1943,7 +1943,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   white-space: pre-wrap;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -2089,7 +2089,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   margin: 0;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -2204,7 +2204,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   }
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -2336,7 +2336,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   padding-top: 50px;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -2788,7 +2788,7 @@ a.sidebar-list-link b {
   }
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -3062,7 +3062,7 @@ a.collapse-menu-link:hover {
   cursor: pointer;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -3246,7 +3246,7 @@ a.collapse-menu-link:hover {
   white-space: nowrap;
 }
 
-#root {
+:root {
   --green-itech-1-dark: #006600;
   --reen-itech-dark: #3e935a;
   --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
