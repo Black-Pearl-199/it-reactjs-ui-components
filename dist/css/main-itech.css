@@ -1133,14 +1133,6 @@ button.btn-itech-panel:hover {
   font-size: .75rem;
 }
 
-.table-striped tbody tr {
-  /*&:hover {
-				background: $main-green-lighter-1;
-				color: var(--white);
-				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
-			}*/
-}
-
 .table-striped tbody tr:nth-of-type(odd) {
   background: var(--white);
 }

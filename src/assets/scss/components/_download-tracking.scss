@@ -11,7 +11,7 @@
 
 	&.collapse {
 		display: block;
-		//left: $sidebar-width-collapse
+		//left: var(--sidebar-width-collapse)
 	}
 
 	> button {

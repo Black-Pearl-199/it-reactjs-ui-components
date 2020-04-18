@@ -55,16 +55,6 @@
 				}
 			}
 
-			/*&:hover {
-				background: $main-green-lighter-1;
-				color: var(--white);
-				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
-			}*/
-
-			td {
-				//text-align: center;
-			}
-
 			td:has(button.btn-itech-icon) {
 				padding: 0 !important;
 				background: black !important;
@@ -76,11 +66,6 @@
 				}
 			}
 		}
-
-		// &:hover {
-		//     background: $main-green-lighter-1;
-		//     color: var(--white);
-		// }
 	}
 }
 
