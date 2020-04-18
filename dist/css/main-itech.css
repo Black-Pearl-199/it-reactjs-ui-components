@@ -434,18 +434,18 @@
 
 :root {
   --green-itech-1-dark: #006600;
-  --reen-itech-dark: #3e935a;
-  --reen-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
-  --reen-itech-light: #64a87a;
-  --reen-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
   --white-half-opacity: rgba(255, 255, 255, 0.75);
   --black-half-opacity: rgba(0, 0, 0, 0.3);
   --black: black;
-  --rey-1-light: #f9f9f9;
-  --rey-normal: #777777;
-  --rey-normal-opacity: rgba(102, 102, 102, 0.3);
-  --rey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
-  --rey-dark: #333333;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
   --red: red;
   --red-1-light: #e9322d;
   --default-text: #ffffff;
@@ -453,7 +453,7 @@
   --form-background-color: rgba(33, 156, 119, 0.1);
   --form-background-color-focus: rgba(33, 156, 119, 0.2);
   --text-color: #2e3e47;
-  --rey-background: #e5e5e5;
+  --grey-background: #e5e5e5;
   --modal-itech-background: #f7f9fc;
   --main-green-opacity: rgba(55, 107, 81, 0.1);
   --main-green: #376b51;
@@ -461,13 +461,13 @@
   --main-green-lighter: rgb(108, 119, 112);
   --main-green-lighter-1: #c8e7d2;
   --main-green-dark: #376b51;
-  --reen-text-selection: #76b194;
-  --reen-input-form-selection: rgba(33, 156, 119, 0.1);
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
   --cyan: #455f6d;
   --cyan-lighter: #6a7e8a;
-  --rey-light: #f7f7f7;
-  --rey-1: #cccccc;
-  --rey-2: #e0e0e0;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
   --black-opacity: rgba(0, 0, 0, 0.1);
   --orange: #f79d49;
   --orange-light-1: #f8b06d;
@@ -479,9 +479,9 @@
   --danger: #e85656 '!default';
   --facebook-color: #3b5998;
   --twitter-color: #55acee;
-  --oogle-color: #dd4b39;
+  --google-color: #dd4b39;
   --linkedin-color: #0177b5;
-  --ithub-color: #6b6b6b;
+  --github-color: #6b6b6b;
   --stackoverflow-color: #2f96e8;
   --dribble-color: #f26798;
   --behace-color: #0093fa;
