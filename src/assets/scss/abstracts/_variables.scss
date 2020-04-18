@@ -94,19 +94,6 @@
         0px 2px 2px 0px rgba(0, 0, 0, 0.14),
         0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 
-    @mixin shadow-1 {
-        -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
-        -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
-        box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
-    }
-
-    @mixin shadow-2 {
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-            0 0 8px rgba(102, 175, 233, 0.6);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-            0 0 8px rgba(102, 175, 233, 0.6);
-    }
-
     // ---------------------DIRECTORY PATH----------------
     --assets-root: "../";
     --images-root: var(--assets-root) + "images/";
@@ -118,6 +105,19 @@
     --font-normal: 400;
     --font-bold: 700;
     --font-ultraBold: 900;
+}
+
+@mixin shadow-1 {
+    -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+    box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+}
+
+@mixin shadow-2 {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 // :export {

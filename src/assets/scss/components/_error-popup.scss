@@ -8,7 +8,7 @@
     z-index: 999;
     height: 280px;
     width: 30vw;
-    background: $white;
+    background: var(--white);
     @include shadow-3;
     padding: 20px 50px;
     text-align: center;

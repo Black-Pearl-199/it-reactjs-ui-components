@@ -12,23 +12,23 @@
 
 	&-warning {
 		& .msg-head {
-			color: $warning-head;
+			color: var(--warning-head);
 		}
 
 		& .msg-body {
-			border-color: $warning-border;
-			background-color: $warning-background;
+			border-color: var(--warning-border);
+			background-color: var(--warning-background);
 		}
 	}
 
 	&-info {
 		& .msg-head {
-			color: $main-green;
+			color: var(--main-green);
 		}
 
 		& .msg-body {
-			border-color: $main-green-dark;
-			background-color: $form-background-color-focus;
+			border-color: var(--main-green-dark);
+			background-color: var(--form-background-color-focus);
 		}
 	}
 }

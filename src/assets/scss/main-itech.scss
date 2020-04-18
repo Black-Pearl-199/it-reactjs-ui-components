@@ -4,10 +4,10 @@
 @import "pages/pages";
 
 body {
-	font-family: $font-family;
+	font-family: var(--font-family);
 	font-size: 1rem !important;
-	color: $text-color;
-	background: $grey-light;
+	color: var(--text-color);
+	background: var(--grey-light);
 }
 
 .clickable {
@@ -20,28 +20,28 @@ body {
 }
 
 .label-required::after {
-	color: $red;
+	color: var(--red);
 	content: '*';
 }
 
 input.ng-dirty.ng-invalid {
-	border-color: $red-1-light;
+	border-color: var(--red-1-light);
 }
 
 .field-message {
 	display: inline-block;
-	color: $red-1-light;
+	color: var(--red-1-light);
 	font-size: 90%;
 	transition: 1s linear all;
 }
 
 .btn-icon[itech-toggle-menu] {
-	background-color: $grey-dark;
-	color: $white;
+	background-color: var(--grey-dark);
+	color: var(--white);
 
 	&:hover, &:active {
-		background-color: $green-itech-light;
-		color: $white;
+		background-color: var(--green-itech-light);
+		color: var(--white);
 	}
 }
 
@@ -50,7 +50,7 @@ input.ng-dirty.ng-invalid {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $font-family;
+	font-family: var(--font-family);
 	//width: 100%;
 	margin-top: 0;
 }

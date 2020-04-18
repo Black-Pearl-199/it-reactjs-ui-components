@@ -55,8 +55,8 @@ html, body {
 }
 
 a {
-	@include transition(color, $transitionTime, ease);
-	@include transition(background-color, $transitionTime, ease);
+	@include transition(color, var(--transitionTime), ease);
+	@include transition(background-color, var(--transitionTime), ease);
 	outline: 0 !important;
 }
 
@@ -87,14 +87,14 @@ a {
 }
 
 .al-footer {
-	height: $footer-height;
-	padding: 0px 18px 0 $sidebar-width;
+	height: var(--footer-height);
+	padding: 0px 18px 0 var(--sidebar-width);
 	width: 100%;
 	position: absolute;
 	display: block;
 	bottom: 0;
 	font-size: 13px;
-	color: $default-text;
+	color: var(--default-text);
 	@include transition(padding-left, 0.5s, ease);
 }
 
@@ -113,16 +113,16 @@ a {
 
 	i {
 		margin: 0 4px;
-		color: $danger;
+		color: var(--danger);
 		font-size: 12px;
 	}
 
 	a {
 		margin-left: 4px;
-		color: $default-text;
+		color: var(--default-text);
 
 		&:hover {
-			color: $danger;
+			color: var(--danger);
 		}
 	}
 }
@@ -152,15 +152,15 @@ a {
 		}
 
 		i.fa-facebook-square {
-			color: $facebook-color;
+			color: var(--facebook-color);
 		}
 
 		i.fa-twitter-square {
-			color: $twitter-color;
+			color: var(--twitter-color);
 		}
 
 		i.fa-google-plus-square {
-			color: $google-color;
+			color: var(--google-color);
 		}
 	}
 }
@@ -246,17 +246,7 @@ a {
 }
 
 .irs-grid-text {
-	color: $default-text;
-}
-
-.viewer-wrapper {
-	position: absolute;
-	width: 100%;
-	left: 0;
-	top: $top-height;
-	height: calc(100% - #{$top-height});
-	max-height: calc(100% - #{$top-height});
-	overflow: auto;
+	color: var(--default-text);
 }
 
 .col-1p5 {

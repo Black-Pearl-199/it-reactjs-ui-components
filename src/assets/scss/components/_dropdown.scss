@@ -1,8 +1,8 @@
 @import '../abstracts/abstracts';
 
 .btn-dropdown {
-    background: $grey-background !important;
-    color: $text-color;
+    background: var(--grey-background) !important;
+    color: var(--text-color);
     border-radius: 4px;
     border-style: solid;
     border-width: 1px;
@@ -11,10 +11,10 @@
     &:hover,
     &:focus,
     &:active {
-        background-color: $grey-normal !important;
+        background-color: var(--grey-normal) !important;
     }
 
     &.dropdown-toggle {
-        background: $white;
+        background: var(--white);
     }
 }
