@@ -6,7 +6,6 @@ import * as PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core/esm/index';
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { DatagridLoading } from 'react-admin';
-import variables from '../../assets/scss/abstracts/_variables.scss';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
 
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         //     backgroundColor: variables.rowHoverColor + " !important"
         // },
         '&.active': {
-            backgroundColor: `${variables.rowHoverColor} !important`
+            backgroundColor: '#c8e7d2 !important'
             // color: "#fff"
         }
     },

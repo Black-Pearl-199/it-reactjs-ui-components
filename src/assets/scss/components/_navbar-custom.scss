@@ -1,7 +1,7 @@
 @import "../abstracts/variables";
 
 .bg-light {
-	background: $white !important;
+	background: var(--white) !important;
 }
 
 .nav-tabs {
@@ -21,21 +21,21 @@
 	user-select: none;
 	border-style: solid;
 	border-width: 1px 1px 0 1px;
-	border-color: $grey-background;
+	border-color: var(--grey-background);
 	border-radius: 10px 10px 0 0;
-	background: $grey-background !important;
+	background: var(--grey-background) !important;
 
 	a {
-		color: $cyan;
+		color: var(--cyan);
 		-webkit-user-drag: none;
 
 		&:hover {
-			background-color: $green-input-form-selection;
+			background-color: var(--green-input-form-selection);
 		}
 	}
 
 	&:hover {
-		background-color: $main-green-lighter-1;
+		background-color: var(--main-green-lighter-1);
 	}
 
 	.nav-link {
@@ -43,15 +43,15 @@
 
 		&:hover {
 			border-radius: 10px 10px 0 0;
-			border-color: $green-input-form-selection !important;
-			color: $cyan;
+			border-color: var(--green-input-form-selection) !important;
+			color: var(--cyan);
 		}
 
 		&.active {
 			border-radius: 10px 10px 0 0;
-			background-color: $grey-light;
-			border-color: $grey-light;
-			color: $cyan;
+			background-color: var(--grey-light);
+			border-color: var(--grey-light);
+			color: var(--cyan);
 
 			&:hover {
 				border-color: transparent !important;
@@ -77,12 +77,12 @@
 	.tab-close {
 		svg {
 			margin-left: .5rem;
-			//background-color: $cyan;
-			color: $cyan;
+			//background-color: var(--cyan;
+			color: var(--cyan);
 
 			&:hover {
 				border-radius: 59%;
-				background-color: $cyan;
+				background-color: var(--cyan);
 				color: white;
 			}
 		}
@@ -106,19 +106,19 @@
 
 .nav.nav-pills.nav-iTech {
 	a {
-		color: $main-green;
+		color: var(--main-green);
 
 		&:hover {
-			color: $main-green-hover;
-			background-color: $green-input-form-selection;
+			color: var(--main-green-hover);
+			background-color: var(--green-input-form-selection);
 		}
 
 		&.active {
 			color: white;
-			background-color: $main-green;
+			background-color: var(--main-green);
 
 			:hover {
-				background-color: $green-input-form-selection;
+				background-color: var(--green-input-form-selection);
 			}
 		}
 	}

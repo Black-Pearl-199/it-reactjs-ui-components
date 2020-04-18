@@ -89,3 +89,5 @@ MyCheckboxInput.defaultProps = {
     readOnly: false,
     hidden: false
 };
+
+export default MyCheckboxInput;

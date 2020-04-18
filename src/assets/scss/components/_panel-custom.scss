@@ -9,11 +9,11 @@
 	background: -ms-linear-gradient(top, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
 	background: linear-gradient(to bottom, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007b17', endColorstr='#008e1a', GradientType=0);
-	border-color: $green-itech-light;
+	border-color: var(--green-itech-light);
 }
 
 .panel-itech {
-	background-color: $white;
+	background-color: var(--white);
 	//overflow: hidden;
 	padding: 0.25rem 0.5rem;
 	@include shadow-1;

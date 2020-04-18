@@ -1,6 +1,4 @@
-@import "../abstracts/variables";
-
-
+@import '../abstracts/variables';
 /*============================================
             BUTTON ON NAVBAR
 ============================================*/
@@ -43,7 +41,7 @@
             BUTTON RE-DESIGN
 ============================================*/
 .btn-shadow {
-	box-shadow: $shadow;
+	box-shadow: var(--shadow);
 }
 
 .btn-itech {
@@ -52,7 +50,7 @@
 	//line-height: 25px;
 	//text-transform: uppercase;
 	font-weight: 500;
-	box-shadow: $shadow;
+	box-shadow: var(--shadow);
 	//padding: 0.375rem 0.75rem;
 	white-space: nowrap;
 
@@ -90,46 +88,46 @@
 
 .btn-itech-icon-primary {
 	box-shadow: none;
-	color: $cyan !important;
+	color: var(--cyan) !important;
 	background: transparent !important;
 
 	i::before {
-		color: $cyan;
+		color: var(--cyan);
 	}
 
 	&:hover, &:active, &.active {
-		background: $cyan !important;
-		color: $white !important;
+		background: var(--cyan) !important;
+		color: var(--white) !important;
 
 		i::before {
-			color: $white;
+			color: var(--white);
 		}
 	}
 }
 
 .btn-itech-icon-warning {
 	box-shadow: none;
-	color: $orange !important;
+	color: var(--orange) !important;
 	background: transparent !important;
 
 	&:hover, &:active, &.active {
-		background: $orange !important;
-		color: $white !important;
+		background: var(--orange) !important;
+		color: var(--white) !important;
 	}
 }
 
 .btn-itech-icon-secondary {
 	box-shadow: none;
-	color: $grey-1;
+	color: var(--grey-1);
 
 	&:hover, &:active, &.active {
-		background: $grey-1 !important;
+		background: var(--grey-1) !important;
 	}
 }
 
 .btn-itech-primary {
-	background: $green-itech-dark !important;
-	color: $white !important;
+	background: var(--green-itech-dark) !important;
+	color: var(--white) !important;
 
 	i::before {
 		color: white;
@@ -137,72 +135,72 @@
 
 	&:hover {
 
-		background-color: $green-itech-light;
+		background-color: var(--green-itech-light);
 	}
 }
 
 .btn-itech-secondary {
-	background: $grey-1;
-	color: $grey-normal !important;
+	background: var(--grey-1);
+	color: var(--grey-normal) !important;
 
 	i::before {
-		color: $grey-normal;
+		color: var(--grey-normal);
 	}
 
 	&:hover {
-		background-color: $grey-2;
+		background-color: var(--grey-2);
 	}
 }
 
 .btn-itech-dark {
-	background: $cyan;
-	color: $white !important;
+	background: var(--cyan);
+	color: var(--white) !important;
 
 	&:hover {
-		background-color: $cyan-lighter;
+		background-color: var(--cyan-lighter);
 	}
 }
 
 .btn-itech-light {
-	background: $grey-normal-opacity;
-	color: $cyan;
+	background: var(--grey-normal-opacity);
+	color: var(--cyan);
 
 	&:hover {
-		background: $grey-normal-opacity-hover;
-		color: $cyan;
+		background: var(--grey-normal-opacity-hover);
+		color: var(--cyan);
 	}
 
 	&:active {
-		background: $grey-normal-opacity;
+		background: var(--grey-normal-opacity);
 	}
 }
 
 .btn-itech-danger {
-	background: $orange;
-	color: $white !important;
+	background: var(--orange);
+	color: var(--white) !important;
 
 	&:hover {
-		color: $white;
-		background-color: $orange-light-1;
+		color: var(--white);
+		background-color: var(--orange-light-1);
 	}
 
 	&:active {
-		background: $grey-1;
+		background: var(--grey-1);
 	}
 }
 
 .btn-itech-dropdown {
-	background: $white;
+	background: var(--white);
 	border: 1px solid #ced4da;
 	white-space: nowrap;
 
 	&:hover {
-		border-color: $green-itech-light;
+		border-color: var(--green-itech-light);
 	}
 
 	&:focus {
-		border-color: $green-itech-dark;
-		background-color: $form-background-color-focus !important;
+		border-color: var(--green-itech-dark);
+		background-color: var(--form-background-color-focus) !important;
 	}
 }
 
@@ -212,12 +210,12 @@
 
 .btn-pick-date {
 	height: 26px;
-	background: $grey-1;
-	color: $grey-dark !important;
+	background: var(--grey-1);
+	color: var(--grey-dark) !important;
 
 
 	&.active {
-		background-color: $text-color;
+		background-color: var(--text-color);
 		color: white !important;
 		z-index: 0 !important;
 	}
