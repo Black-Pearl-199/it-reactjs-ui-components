@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { FormWithRedirect } from 'ra-core';
-import React, { Children } from 'react';
+import React, { Children, useEffect } from 'react';
 import { CardContentInner, FormInput, Toolbar } from 'react-admin';
 
 const sanitizeRestProps = ({
@@ -132,43 +132,52 @@ const SimpleFormView = ({
     toolbar,
     undoable,
     variant,
+    setForm,
     ...rest
-}) => (
-    <form
-        className={classnames('simple-form', className)}
-        {...sanitizeRestProps(rest)}
-    >
-        <CardContentInner>
-            {Children.map(
-                children,
-                (input) => input && (
-                    <FormInput
-                        basePath={basePath}
-                        input={input}
-                        record={record}
-                        resource={resource}
-                        variant={input.props.variant || variant}
-                        margin={input.props.margin || margin}
-                    />
-                )
-            )}
-        </CardContentInner>
-        {toolbar
-        && React.cloneElement(toolbar, {
-            basePath,
-            handleSubmitWithRedirect,
-            handleSubmit,
-            invalid,
-            pristine,
-            record,
-            redirect,
-            resource,
-            saving,
-            submitOnEnter,
-            undoable
-        })}
-    </form>
-);
+}) => {
+    useEffect(() => {
+        if (setForm) {
+            setForm(rest.form);
+        }
+    }, []);
+
+    return (
+        <form
+            className={classnames('simple-form', className)}
+            {...sanitizeRestProps(rest)}
+        >
+            <CardContentInner>
+                {Children.map(
+                    children,
+                    (input) => input && (
+                        <FormInput
+                            basePath={basePath}
+                            input={input}
+                            record={record}
+                            resource={resource}
+                            variant={input.props.variant || variant}
+                            margin={input.props.margin || margin}
+                        />
+                    )
+                )}
+            </CardContentInner>
+            {toolbar
+            && React.cloneElement(toolbar, {
+                basePath,
+                handleSubmitWithRedirect,
+                handleSubmit,
+                invalid,
+                pristine,
+                record,
+                redirect,
+                resource,
+                saving,
+                submitOnEnter,
+                undoable
+            })}
+        </form>
+    );
+};
 
 SimpleFormView.propTypes = {
     basePath: PropTypes.string,
@@ -192,7 +201,8 @@ SimpleFormView.propTypes = {
     validate: PropTypes.func,
     handleSubmitWithRedirect: PropTypes.func,
     margin: PropTypes.any,
-    variant: PropTypes.any
+    variant: PropTypes.any,
+    setForm: PropTypes.any
 };
 
 SimpleFormView.defaultProps = {
