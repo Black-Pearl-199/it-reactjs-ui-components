@@ -91775,8 +91775,14 @@ var MySimpleForm_SimpleFormView = function SimpleFormView(_ref2) {
       toolbar = _ref2.toolbar,
       undoable = _ref2.undoable,
       variant = _ref2.variant,
-      rest = MySimpleForm_objectWithoutProperties(_ref2, ["basePath", "children", "className", "handleSubmit", "handleSubmitWithRedirect", "invalid", "margin", "pristine", "record", "redirect", "resource", "saving", "submitOnEnter", "toolbar", "undoable", "variant"]);
+      setForm = _ref2.setForm,
+      rest = MySimpleForm_objectWithoutProperties(_ref2, ["basePath", "children", "className", "handleSubmit", "handleSubmitWithRedirect", "invalid", "margin", "pristine", "record", "redirect", "resource", "saving", "submitOnEnter", "toolbar", "undoable", "variant", "setForm"]);
 
+  Object(external_react_["useEffect"])(function () {
+    if (setForm) {
+      setForm(rest.form);
+    }
+  }, []);
   return /*#__PURE__*/external_react_default.a.createElement("form", MySimpleForm_extends({
     className: classnames_default()('simple-form', className)
   }, MySimpleForm_sanitizeRestProps(rest)), /*#__PURE__*/external_react_default.a.createElement(external_react_admin_["CardContentInner"], null, external_react_["Children"].map(children, function (input) {
@@ -91823,7 +91829,8 @@ MySimpleForm_SimpleFormView.propTypes = {
   validate: prop_types_default.a.func,
   handleSubmitWithRedirect: prop_types_default.a.func,
   margin: prop_types_default.a.any,
-  variant: prop_types_default.a.any
+  variant: prop_types_default.a.any,
+  setForm: prop_types_default.a.any
 };
 MySimpleForm_SimpleFormView.defaultProps = {
   submitOnEnter: true,

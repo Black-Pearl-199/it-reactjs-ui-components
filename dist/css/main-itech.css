@@ -1166,7 +1166,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
@@ -1178,21 +1178,21 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item:not(.with-sub-menu) a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
   color: var(--sidebar-text);
 }
 
 .sidebar-list-item:not(.with-sub-menu) a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
   color: var(--sidebar-text);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1249,7 +1249,7 @@ a.sidebar-list-link {
 }
 
 a.sidebar-list-link:hover {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
 }
 
 a.sidebar-list-link i, a.sidebar-list-link svg {
@@ -1343,12 +1343,12 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li a:hover {
-  background-color: var(--main-green-hove) r !important;
+  background-color: var(--main-green-hover) !important;
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a {
   border: none;
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
@@ -1356,13 +1356,13 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
-  background-color: var(--main-green-hove) r;
+  background-color: var(--main-green-hover);
   color: var(--sidebar-text);
 }
 
 .sidebar-hover-elem {
   width: 4px;
-  background: var(--main-green-hove) r;
+  background: var(--main-green-hover);
   position: absolute;
   top: -150px;
   left: var(--sidebar-width)-4px;

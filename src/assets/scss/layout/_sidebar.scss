@@ -68,7 +68,7 @@ $angle-right: "\f101";
 	@include transition(width, var(--transitionTime), ease);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: var(--main-green-hove)r;
+		background-color: var(--main-green-hover);
 
 		a.sidebar-list-link {
 			color: var(--sidebar-text);
@@ -82,11 +82,11 @@ $angle-right: "\f101";
 	&:not(.with-sub-menu), .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
-				background-color: var(--main-green-hove)r;
+				background-color: var(--main-green-hover);
 				color: var(--sidebar-text);
 
 				&:hover {
-					background-color: var(--main-green-hove)r;
+					background-color: var(--main-green-hover);
 				}
 			}
 		}
@@ -95,11 +95,11 @@ $angle-right: "\f101";
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: var(--main-green-hove)r;
+				background-color: var(--main-green-hover);
 				color: var(--sidebar-text);
 
 				&:hover {
-					background-color: var(--main-green-hove)r;
+					background-color: var(--main-green-hover);
 				}
 			}
 		}
@@ -163,7 +163,7 @@ a.sidebar-list-link {
 	@include transition(width, var(--transitionTime), ease);
 
 	&:hover {
-		background-color: var(--main-green-hove)r;
+		background-color: var(--main-green-hover);
 
 		b {
 			//background-color: var(--green-itech-light);
@@ -255,13 +255,13 @@ a.sidebar-list-link {
 			line-height: var(--sidebar-item-height);
 
 			&:hover {
-				background-color: var(--main-green-hove)r !important;
+				background-color: var(--main-green-hover) !important;
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
-			background-color: var(--main-green-hove)r;
+			background-color: var(--main-green-hover);
 
 			&:hover {
 				color: var(--sidebar-text);
@@ -271,7 +271,7 @@ a.sidebar-list-link {
 		&:not(.with-sub-menu) {
 			a.sidebar-list-link {
 				&.selected {
-					background-color: var(--main-green-hove)r;
+					background-color: var(--main-green-hover);
 					color: var(--sidebar-text);
 				}
 			}
@@ -285,7 +285,7 @@ a.sidebar-list-link {
 
 .sidebar-hover-elem {
 	width: 4px;
-	background: var(--main-green-hove)r;
+	background: var(--main-green-hover);
 	position: absolute;
 	top: -150px;
 	left: var(--sidebar-width) - 4px;
