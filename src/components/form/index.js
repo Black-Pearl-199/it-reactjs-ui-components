@@ -16,7 +16,7 @@ import MySelectArrayInput from './MySelectArrayInput';
 
 const MyBootstrapField = addField(MyBootstrapInput);
 
-export default {
+export {
     FormHeading,
     MyBootstrapField,
     MyBootstrapInput,
