@@ -4,7 +4,7 @@ import { useTranslate } from 'react-admin';
 import { Button, Container, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { ITCrudDelete } from '../../configurations/actions';
-import { MyBootstrapInput } from '../form';
+import MyBootstrapInput from '../form/MyBootstrapInput';
 
 export const DeleteBox = ({ ...props }) => {
     // console.log('deleteBox props', props);
@@ -106,3 +106,5 @@ DeleteBox.propTypes = {
 DeleteBox.defaultProps = {
     fixed: false
 };
+
+export default DeleteBox;
