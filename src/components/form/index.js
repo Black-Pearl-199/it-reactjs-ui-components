@@ -1,36 +1,36 @@
 import { addField } from 'ra-core';
 
-import FormHeading from './FormHeading';
-import MyBootstrapInput from './MyBootstrapInput';
-import MyCheckboxInput from './MyCheckboxInput';
-import MyCheckboxGroupInput from './MyCheckboxGroupInput';
-import MyDatePicking from './MyDatePicking';
-import MyFilterBox from './MyFilterBox';
-import MyGroupingInput from './MyGroupingInput';
-import MyRadioGroupInput from './MyRadioGroupInput';
-import MyRadioButtonGroupInput from './MyRadioButtonGroupInput';
-import MyReferenceInput from './MyReferenceInput';
-import MyReferenceArrayInput from './MyReferenceArrayInput';
-import MySimpleForm from './MySimpleForm';
-import MySelectArrayInput from './MySelectArrayInput';
+import _FormHeading from './FormHeading';
+import _MyBootstrapInput from './MyBootstrapInput';
+import _MyCheckboxInput from './MyCheckboxInput';
+import _MyCheckboxGroupInput from './MyCheckboxGroupInput';
+import _MyDatePicking from './MyDatePicking';
+import _MyFilterBox from './MyFilterBox';
+import _MyGroupingInput from './MyGroupingInput';
+import _MyRadioGroupInput from './MyRadioGroupInput';
+import _MyRadioButtonGroupInput from './MyRadioButtonGroupInput';
+import _MyReferenceInput from './MyReferenceInput';
+import _MyReferenceArrayInput from './MyReferenceArrayInput';
+import _MySimpleForm from './MySimpleForm';
+import _MySelectArrayInput from './MySelectArrayInput';
 
-const MyBootstrapField = addField(MyBootstrapInput);
+const MyBootstrapField = addField(_MyBootstrapInput);
 
 export {
-    FormHeading,
+    _FormHeading as FormHeading,
     MyBootstrapField,
-    MyBootstrapInput,
-    MyCheckboxInput,
-    MyCheckboxGroupInput,
-    MyDatePicking,
-    MyFilterBox,
-    MyGroupingInput,
-    MyRadioGroupInput,
-    MyRadioButtonGroupInput,
-    MyReferenceInput,
-    MyReferenceArrayInput,
-    MySimpleForm,
-    MySelectArrayInput
+    _MyBootstrapInput as MyBootstrapInput,
+    _MyCheckboxInput as MyCheckboxInput,
+    _MyCheckboxGroupInput as MyCheckboxGroupInput,
+    _MyDatePicking as MyDatePicking,
+    _MyFilterBox as MyFilterBox,
+    _MyGroupingInput as MyGroupingInput,
+    _MyRadioGroupInput as MyRadioGroupInput,
+    _MyRadioButtonGroupInput as MyRadioButtonGroupInput,
+    _MyReferenceInput as MyReferenceInput,
+    _MyReferenceArrayInput as MyReferenceArrayInput,
+    _MySimpleForm as MySimpleForm,
+    _MySelectArrayInput as MySelectArrayInput
 };
 
 export * from './MyCustomInput';
