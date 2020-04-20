@@ -1,3 +1,87 @@
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -19,6 +103,90 @@
   /* Firefox */
   -ms-user-select: none;
   /* Internet Explorer/Edge */
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 /*============================================
@@ -251,6 +419,90 @@
   color: #0056b3;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .form-control {
   background-color: var(--white);
   color: var(--text-color);
@@ -309,6 +561,90 @@
   padding-left: 0;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .bg-light {
   background: var(--white) !important;
 }
@@ -326,7 +662,6 @@
 }
 
 .nav-item {
-  -webkit-user-select: none;
   user-select: none;
   border-style: solid;
   border-width: 1px 1px 0 1px;
@@ -432,7 +767,7 @@
   }
 }
 
-:root {
+#root {
   --green-itech-1-dark: #006600;
   --green-itech-dark: #3e935a;
   --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
@@ -519,6 +854,8 @@
 .panel-itech {
   background-color: var(--white);
   padding: 0.25rem 0.5rem;
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
@@ -536,10 +873,98 @@
 ============================================*/
 button.btn-itech-panel:hover {
   background: #007b17;
+  background: -moz-linear-gradient(top, #007b17 0%, #008e1a 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #007b17), color-stop(100%, #008e1a));
+  background: -webkit-linear-gradient(top, #007b17 0%, #008e1a 100%);
+  background: -o-linear-gradient(top, #007b17 0%, #008e1a 100%);
+  background: -ms-linear-gradient(top, #007b17 0%, #008e1a 100%);
   background: linear-gradient(to bottom, #007b17 0%, #008e1a 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007b17', endColorstr='#008e1a', GradientType=0);
   border-color: var(--green-itech-light);
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .flex-1 {
@@ -582,6 +1007,90 @@ button.btn-itech-panel:hover {
   background: var(--white);
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -606,6 +1115,8 @@ button.btn-itech-panel:hover {
 }
 
 .table {
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
 }
 
@@ -666,6 +1177,90 @@ button.btn-itech-panel:hover {
   display: none;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -724,6 +1319,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .delete-box {
   position: absolute;
   height: var(--delete-box-height);
@@ -736,6 +1415,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .has-delete-box {
   margin-bottom: var(--delete-box-height);
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 #nprogress {
@@ -760,6 +1523,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   height: 100%;
   box-shadow: 0 0 10px var(--main-green), 0 0 5px var(--main-green);
   opacity: 1.0;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
 }
 
@@ -779,6 +1544,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-top-color: var(--main-green);
   border-left-color: var(--main-green);
   border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;
 }
 
@@ -791,6 +1557,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   position: absolute;
 }
 
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @keyframes nprogress-spinner {
   0% {
     transform: rotate(0deg);
@@ -798,6 +1573,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   100% {
     transform: rotate(360deg);
   }
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .label-filter {
@@ -869,6 +1728,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   height: auto;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -918,6 +1861,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   background-color: var(--form-background-color-focus);
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .download-tracking {
   position: fixed;
   bottom: 0;
@@ -933,6 +1960,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .download-tracking > button {
   white-space: pre-wrap;
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .version {
@@ -997,6 +2108,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   margin: 0;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -1026,6 +2221,90 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
     line-height: 20px !important;
     margin-right: 0px !important;
   }
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .background_rectangle_sidemenu {
@@ -1074,6 +2353,90 @@ ul.dropdown-menu.side-sub-menu-itech {
 
 ul.dropdown-menu.side-sub-menu-itech li {
   padding-top: 50px;
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .flex-1 {
@@ -1300,6 +2663,10 @@ a.sidebar-list-link b {
   position: relative;
   height: auto;
   transition: height 0 ease;
+  -webkit-transition: height 0 ease;
+  -moz-transition: height 0 ease;
+  -o-transition: height 0 ease;
+  -ms-transition: height 0 ease;
   transition: opacity var(--transitionTime) ease;
   -webkit-transition: opacity var(--transitionTime) ease;
   -moz-transition: opacity var(--transitionTime) ease;
@@ -1442,6 +2809,90 @@ a.sidebar-list-link b {
   .footer {
     padding-left: 0;
   }
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .flex-1 {
@@ -1634,6 +3085,90 @@ a.collapse-menu-link:hover {
   cursor: pointer;
 }
 
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -1732,6 +3267,90 @@ a.collapse-menu-link:hover {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+#root {
+  --green-itech-1-dark: #006600;
+  --green-itech-dark: #3e935a;
+  --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+  --green-itech-light: #64a87a;
+  --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+  --white-half-opacity: rgba(255, 255, 255, 0.75);
+  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --black: black;
+  --grey-1-light: #f9f9f9;
+  --grey-normal: #777777;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-dark: #333333;
+  --red: red;
+  --red-1-light: #e9322d;
+  --default-text: #ffffff;
+  --input-background: #219c7719;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
+  --text-color: #2e3e47;
+  --grey-background: #e5e5e5;
+  --modal-itech-background: #f7f9fc;
+  --main-green-opacity: rgba(55, 107, 81, 0.1);
+  --main-green: #376b51;
+  --main-green-hover: #2c5641;
+  --main-green-lighter: rgb(108, 119, 112);
+  --main-green-lighter-1: #c8e7d2;
+  --main-green-dark: #376b51;
+  --green-text-selection: #76b194;
+  --green-input-form-selection: rgba(33, 156, 119, 0.1);
+  --cyan: #455f6d;
+  --cyan-lighter: #6a7e8a;
+  --grey-light: #f7f7f7;
+  --grey-1: #cccccc;
+  --grey-2: #e0e0e0;
+  --black-opacity: rgba(0, 0, 0, 0.1);
+  --orange: #f79d49;
+  --orange-light-1: #f8b06d;
+  --white: #fff;
+  --info-title: #748189;
+  --info: #2dacd1 '!default';
+  --success: #90b900 '!default';
+  --warning: #dfb81c '!default';
+  --danger: #e85656 '!default';
+  --facebook-color: #3b5998;
+  --twitter-color: #55acee;
+  --google-color: #dd4b39;
+  --linkedin-color: #0177b5;
+  --github-color: #6b6b6b;
+  --stackoverflow-color: #2f96e8;
+  --dribble-color: #f26798;
+  --behace-color: #0093fa;
+  --sidebar: var(--main-green);
+  --sidebar-text: var(--default-text);
+  --sidebar-item-height: 42px;
+  --sidebar-width: 210px;
+  --sidebar-width-collapse: 50px;
+  --sidebar-item-pad-left: 18px;
+  --warning-border: rgba(219, 11, 11, 0.2);
+  --warning-background: rgba(219, 11, 11, 0.05);
+  --warning-head: rgba(219, 11, 11, 1);
+  --top-height: 50px;
+  --tab-height: 42px;
+  --footer-height: 34px;
+  --delete-box-height: 80px;
+  --transitionTime: 0s;
+  --paginationBtnWidth: 32px;
+  --paginationBtnHeight: 32px;
+  --fontSize875: 14px;
+  --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+  --assets-root: "../";
+  --images-root: var(--assets-root) + "images/";
+  --fonts-root: var(--assets-root) + "fonts/";
+  --font-family: "Roboto", sans-serif;
+  --font-thin: 100;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-bold: 700;
+  --font-ultraBold: 900;
 }
 
 .flex-1 {
@@ -1896,6 +3515,10 @@ html, body {
 
 a {
   transition: color var(--transitionTime) ease;
+  -webkit-transition: color var(--transitionTime) ease;
+  -moz-transition: color var(--transitionTime) ease;
+  -o-transition: color var(--transitionTime) ease;
+  -ms-transition: color var(--transitionTime) ease;
   transition: background-color var(--transitionTime) ease;
   -webkit-transition: background-color var(--transitionTime) ease;
   -moz-transition: background-color var(--transitionTime) ease;
@@ -2037,7 +3660,6 @@ a {
 
 .disable-text-selection {
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -2086,11 +3708,13 @@ a {
 }
 
 .col-1p5 {
+  -ms-flex: 0 0 12.5%;
   flex: 0 0 12.5%;
   max-width: 12.5%;
 }
 
 .col-10p5 {
+  -ms-flex: 0 0 87.5%;
   flex: 0 0 87.5%;
   max-width: 87.5%;
 }
@@ -2182,4 +3806,5 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   pointer-events: none;
 }
+
 /*# sourceMappingURL=main-itech.css.map */
