@@ -34,7 +34,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-export const ReferenceArrayInputView = ({
+const ReferenceArrayInputView = ({
     allowEmpty,
     basePath,
     children,
@@ -205,7 +205,7 @@ ReferenceArrayInputView.propTypes = {
  *     <SelectArrayInput optionText="name" />
  * </MyReferenceArrayInput>
  */
-export const MyReferenceArrayInput = ({ children, ...props }) => {
+const MyReferenceArrayInput = ({ children, ...props }) => {
     if (React.Children.count(children) !== 1) {
         throw new Error(
             '<MyReferenceArrayInput> only accepts a single child (like <Datagrid>)'
@@ -251,3 +251,5 @@ MyReferenceArrayInput.defaultProps = {
     perPage: 25,
     sort: { field: 'id', order: 'DESC' }
 };
+
+export default MyReferenceArrayInput;

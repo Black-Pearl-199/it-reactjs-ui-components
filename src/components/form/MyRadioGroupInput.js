@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { useTranslate } from 'ra-core';
 import React from 'react';
 
-export const MyRadioGroupInput = (props) => {
+const MyRadioGroupInput = (props) => {
     const {
         name, choices, inline, type, onInputChange, inputValue, groupClasses, className, skipFormat, ...rest
     } = props;
@@ -64,3 +64,5 @@ MyRadioGroupInput.defaultProps = {
     type: 'radio',
     skipFormat: true
 };
+
+export default MyRadioGroupInput;

@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -64,7 +64,7 @@
     "css-prefix": "npm-run-all --parallel css-prefix-*",
     "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "webpack": "npm-run-all --parallel webpack-*",
-    "webpack-dev": "webpack --mode production --config configuration/webpack.config.js",
+    "webpack-dev": "webpack --mode development --config configuration/webpack.config.js",
     "webpack-prod": "webpack --mode production --config configuration/webpack.config.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"

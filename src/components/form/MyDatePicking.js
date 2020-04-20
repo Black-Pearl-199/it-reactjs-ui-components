@@ -26,7 +26,7 @@ export const DATE_RANGE = {
     NEXT_WEEK: 'next_week'
 };
 
-export const MyDatePicking = (props) => {
+const MyDatePicking = (props) => {
     const translate = useTranslate();
 
     const {
@@ -303,3 +303,5 @@ MyDatePicking.defaultProps = {
         endDate: 'time_range.endDate'
     }
 };
+
+export default MyDatePicking;

@@ -50,7 +50,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-export const ReferenceInputView = (props) => {
+const ReferenceInputView = (props) => {
     const {
         allowEmpty,
         basePath,
@@ -248,7 +248,7 @@ ReferenceInputView.propTypes = {
  * </MyReferenceInput>
  */
 
-export const MyReferenceInput = ({
+const MyReferenceInput = ({
     format,
     onBlur,
     onChange,
@@ -316,3 +316,5 @@ MyReferenceInput.defaultProps = {
     perPage: 25,
     sort: { field: 'id', order: SORT_DESC }
 };
+
+export default MyReferenceInput;

@@ -64,17 +64,17 @@ const sanitizeRestProps = ({
  * @example
  *
  * import React from 'react';
- * import { Create, Edit, SimpleForm, TextInput, DateInput, ReferenceManyField, Datagrid, TextField, DateField, EditButton } from 'react-admin';
+ * import { Create, Edit, MySimpleForm, TextInput, DateInput, ReferenceManyField, Datagrid, TextField, DateField, EditButton } from 'react-admin';
  * import RichTextInput from 'ra-input-rich-text';
  *
  * export const PostCreate = (props) => (
  *     <Create {...props}>
- *         <SimpleForm>
+ *         <MySimpleForm>
  *             <TextInput source="title" />
  *             <TextInput source="teaser" options={{ multiLine: true }} />
  *             <RichTextInput source="body" />
  *             <DateInput label="Publication date" source="published_at" defaultValue={new Date()} />
- *         </SimpleForm>
+ *         </MySimpleForm>
  *     </Create>
  * );
  *
@@ -90,14 +90,14 @@ const sanitizeRestProps = ({
  *
  * @param {Prop} props
  */
-const SimpleForm = (props) => (
+const MySimpleForm = (props) => (
     <FormWithRedirect
         {...props}
         render={(formProps) => <SimpleFormView {...formProps} />}
     />
 );
 
-SimpleForm.propTypes = {
+MySimpleForm.propTypes = {
     children: PropTypes.node,
     defaultValue: PropTypes.oneOfType([PropTypes.object, PropTypes.func]), // @deprecated
     initialValues: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -132,12 +132,12 @@ const SimpleFormView = ({
     toolbar,
     undoable,
     variant,
-    setForm,
+    setFormRef,
     ...rest
 }) => {
     useEffect(() => {
-        if (setForm) {
-            setForm(rest.form);
+        if (setFormRef) {
+            setFormRef(rest.form);
         }
     }, []);
 
@@ -202,7 +202,7 @@ SimpleFormView.propTypes = {
     handleSubmitWithRedirect: PropTypes.func,
     margin: PropTypes.any,
     variant: PropTypes.any,
-    setForm: PropTypes.any
+    setFormRef: PropTypes.func
 };
 
 SimpleFormView.defaultProps = {
@@ -210,4 +210,4 @@ SimpleFormView.defaultProps = {
     toolbar: <Toolbar />
 };
 
-export const MySimpleForm = SimpleForm;
+export default MySimpleForm;

@@ -19,7 +19,7 @@ const sanitizeRestProps = ({
     initFilter, permissions, pagination, options, history, match, basePath, hasList, hasCreate, hasEdit, hasShow, defaultSort, ...rest
 }) => rest;
 
-export const MyFilterBox = (props) => {
+const MyFilterBox = (props) => {
     const stateProps = useSelector((state) => {
         const resourceState = state.admin.resources[props.resource];
         return {

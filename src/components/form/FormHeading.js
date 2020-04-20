@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslate } from 'react-admin';
 import { MyBackButton } from '../button';
 
-export const FormHeading = (props) => {
+const FormHeading = (props) => {
     const {
         title, hasBack, history, basePath, children, skipTran, className
     } = props;
@@ -34,3 +34,5 @@ FormHeading.propTypes = {
     skipTran: PropTypes.bool,
     hasBack: PropTypes.bool
 };
+
+export default FormHeading;

@@ -40,7 +40,7 @@ const MenuProps = {
     }
 };
 
-const MultipleSelect = (props) => {
+const MySelectArrayInput = (props) => {
     const classes = useStyles();
     const translate = useTranslate();
     const {
@@ -132,7 +132,7 @@ const MultipleSelect = (props) => {
     );
 };
 
-MultipleSelect.propTypes = {
+MySelectArrayInput.propTypes = {
     source: PropTypes.string.isRequired,
     resource: PropTypes.string,
     choices: PropTypes.array.isRequired,
@@ -149,7 +149,7 @@ MultipleSelect.propTypes = {
     readOnly: PropTypes.bool
 };
 
-MultipleSelect.defaultProps = {
+MySelectArrayInput.defaultProps = {
     optionText: 'name',
     optionValue: 'id',
     record: {},
@@ -159,4 +159,4 @@ MultipleSelect.defaultProps = {
     readOnly: false
 };
 
-export const MySelectArrayInput = MultipleSelect;
+export default MySelectArrayInput;

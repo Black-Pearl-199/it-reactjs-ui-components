@@ -6,7 +6,7 @@ import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-export const MyRadioButtonGroupInput = (props) => {
+const MyRadioButtonGroupInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
     const {
@@ -95,3 +95,5 @@ MyRadioButtonGroupInput.defaultProps = {
     allowEmpty: true,
     buttonGroupsClasses: 'group-btn-pick-date'
 };
+
+export default MyRadioButtonGroupInput;

@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField } from 'react-final-form';
 
-export const MyCheckboxInput = (props) => {
+const MyCheckboxInput = (props) => {
     const translate = useTranslate();
     const {
         source,

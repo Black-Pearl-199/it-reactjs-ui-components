@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import React, { Children, Fragment } from 'react';
 import { FormInput } from 'react-admin';
 
-export const MyGroupingInput = (props) => {
+const MyGroupingInput = (props) => {
     const {
         basePath, record, resource, children, heading, groupClasses, innerClasses, border
     } = props;
@@ -54,3 +54,5 @@ MyGroupingInput.propTypes = {
 MyGroupingInput.defaultProps = {
     border: true
 };
+
+export default MyGroupingInput;

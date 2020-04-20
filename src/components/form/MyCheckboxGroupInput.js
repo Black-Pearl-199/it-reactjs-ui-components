@@ -116,7 +116,7 @@ import MyCheckboxGroupInputItem from './MyCheckboxGroupInputItem';
  *
  * The object passed as `options` props is passed to the material-ui <Checkbox> components
  */
-export const MyCheckboxGroupInput = (props) => {
+const MyCheckboxGroupInput = (props) => {
     const {
         choices = [],
         classes: classesOverride,
@@ -273,3 +273,5 @@ MyCheckboxGroupInput.defaultProps = {
     hidden: false,
     record: {}
 };
+
+export default MyCheckboxGroupInput;

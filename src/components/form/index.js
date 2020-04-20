@@ -1,21 +1,37 @@
 import { addField } from 'ra-core';
 
-import _MyBootstrapInput from './MyBootstrapInput';
+import FormHeading from './FormHeading';
+import MyBootstrapInput from './MyBootstrapInput';
+import MyCheckboxInput from './MyCheckboxInput';
+import MyCheckboxGroupInput from './MyCheckboxGroupInput';
+import MyDatePicking from './MyDatePicking';
+import MyFilterBox from './MyFilterBox';
+import MyGroupingInput from './MyGroupingInput';
+import MyRadioGroupInput from './MyRadioGroupInput';
+import MyRadioButtonGroupInput from './MyRadioButtonGroupInput';
+import MyReferenceInput from './MyReferenceInput';
+import MyReferenceArrayInput from './MyReferenceArrayInput';
+import MySimpleForm from './MySimpleForm';
+import MySelectArrayInput from './MySelectArrayInput';
 
-export const MyBootstrapField = addField(_MyBootstrapInput);
+const MyBootstrapField = addField(MyBootstrapInput);
 
-export { _MyBootstrapInput as MyBootstrapInput };
+export default {
+    FormHeading,
+    MyBootstrapField,
+    MyBootstrapInput,
+    MyCheckboxInput,
+    MyCheckboxGroupInput,
+    MyDatePicking,
+    MyFilterBox,
+    MyGroupingInput,
+    MyRadioGroupInput,
+    MyRadioButtonGroupInput,
+    MyReferenceInput,
+    MyReferenceArrayInput,
+    MySimpleForm,
+    MySelectArrayInput
+};
 
 export * from './MyCustomInput';
-export * from './MyGroupingInput';
-export * from './FormHeading';
-export * from './MyReferenceArrayInput';
-export * from './MyFilterBox';
-export * from './MyReferenceInput';
 export * from './MyDatePicking';
-export * from './MyRadioGroupInput';
-export * from './MyRadioButtonGroupInput';
-export * from './MySimpleForm';
-export * from './MySelectArrayInput';
-export * from './MyCheckboxGroupInput';
-export * from './MyCheckboxInput';
