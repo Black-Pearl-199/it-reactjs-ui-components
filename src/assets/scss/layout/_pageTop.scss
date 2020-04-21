@@ -1,11 +1,11 @@
 @import "../abstracts/abstracts";
 
 .page-top {
-  background-color: var(--sidebar);
+  background-color: $sidebar;
   position: fixed;
   z-index: 904;
-  box-shadow: var(--shadow);
-  height: var(--top-height);
+  box-shadow: $shadow;
+  height: $top-height;
   width: 100%;
   min-width: $resMin;
   //padding: 0 32px 0 40px;
@@ -16,17 +16,17 @@
 }
 
 a.al-logo {
-  color: var(--sidebar-text);
+  color: $sidebar-text;
   display: block;
   font-size: 24px;
-  font-family: var(--font-family);
+  font-family: $font-family;
   white-space: nowrap;
   float: left;
   outline: none !important;
   line-height: 60px;
 
   span {
-    color: var(--green-itech-light);
+    color: $green-itech-light;
   }
 }
 
@@ -57,16 +57,16 @@ a.al-logo {
 }
 
 a.refresh-data {
-  color: var(--sidebar-text);
+  color: $sidebar-text;
   font-size: 13px;
   text-decoration: none;
-  font-weight: var(--font-normal);
+  font-weight: $font-normal;
   float: right;
   margin-top: 13px;
   margin-right: 26px;
 
   &:hover {
-    color: var(--warning) !important;
+    color: $warning !important;
   }
 }
 
@@ -76,14 +76,14 @@ a.collapse-menu-link {
   display: block;
   text-decoration: none;
   line-height: 42px;
-  color: var(--sidebar-text);
+  color: $sidebar-text;
   padding: 0;
   float: left;
   margin: 11px 0 0 25px;
 
   &:hover {
     text-decoration: none;
-    color: var(--warning);
+    color: $warning;
   }
 }
 
@@ -109,7 +109,7 @@ a.collapse-menu-link {
 
 .search {
   text-shadow: none;
-  color: var(--sidebar-text);
+  color: $sidebar-text;
   font-size: 13px;
   line-height: 25px;
   transition: all 0.5s ease;

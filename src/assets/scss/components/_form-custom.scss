@@ -1,18 +1,18 @@
 @import "../abstracts/variables";
 
 .form-control {
-	background-color: var(--white);
-	color: var(--text-color);
+	background-color: $white;
+	color: $text-color;
 
 	//border-width: 2px;
-	//border-color: var(--grey-light;
+	//border-color: $grey-light;
 	&:hover {
-		border-color: var(--green-itech-light);
+		border-color: $green-itech-light;
 	}
 
 	&:focus {
-		border-color: var(--green-itech-dark);
-		background-color: var(--form-background-color-focus);
+		border-color: $green-itech-dark;
+		background-color: $form-background-color-focus;
 		box-shadow: none;
 	}
 
@@ -42,7 +42,7 @@
 	.input-group-prepend {
 		.input-group-text {
 			border-radius: 99px 0 0 99px;
-			background: var(--green-text-selection);
+			background: $green-text-selection;
 		}
 	}
 

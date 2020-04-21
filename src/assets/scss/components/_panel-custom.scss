@@ -1,19 +1,7 @@
 @import "../abstracts/variables";
 
-@mixin background-panel {
-	background: rgba(0, 123, 23, 1);
-	background: -moz-linear-gradient(top, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
-	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0, 123, 23, 1)), color-stop(100%, rgba(0, 142, 26, 1)));
-	background: -webkit-linear-gradient(top, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
-	background: -o-linear-gradient(top, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
-	background: -ms-linear-gradient(top, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
-	background: linear-gradient(to bottom, rgba(0, 123, 23, 1) 0%, rgba(0, 142, 26, 1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#007b17', endColorstr='#008e1a', GradientType=0);
-	border-color: var(--green-itech-light);
-}
-
 .panel-itech {
-	background-color: var(--white);
+	background-color: $white;
 	//overflow: hidden;
 	padding: 0.25rem 0.5rem;
 	@include shadow-1;
@@ -26,15 +14,5 @@
 		&:disabled, &[readonly] {
 			background: #e9ecef;
 		}
-	}
-}
-
-/*============================================
-            BUTTON ON PANEL COMPONENTS
-============================================*/
-
-button.btn-itech-panel {
-	&:hover {
-		@include background-panel;
 	}
 }

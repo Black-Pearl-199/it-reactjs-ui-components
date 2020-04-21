@@ -18,9 +18,9 @@ html, body {
 }
 
 //body {
-//  font: 14px/16px var(--font-family);
-//  color: var(--default-text);
-//  background-color: var(--body-bg);
+//  font: 14px/16px $font-family;
+//  color: $default-text;
+//  background-color: $body-bg;
 //  &.blur-theme {
 //    @include main-background();
 //  }
@@ -36,7 +36,7 @@ html, body {
 //    bottom: 0;
 //    right: 0;
 //    background-attachment: inherit;
-//    background-color: var(--body-bg)r;
+//    background-color: $body-bg;
 //  }
 //  &.blur-theme .body-bg{
 //    @include main-background();
@@ -55,8 +55,7 @@ html, body {
 }
 
 a {
-	@include transition(color, var(--transitionTime), ease);
-	@include transition(background-color, var(--transitionTime), ease);
+	@include transition($transitionTime, ease, color, background-color);
 	outline: 0 !important;
 }
 
@@ -75,27 +74,27 @@ a {
 }
 
 .al-main {
-	//margin-left: var(--sidebar-width);
+	//margin-left: $sidebar-width;
 	display: flex;
 	flex: 1;
-	//padding: var(--top-height) 0 var(--footer-height) 0;
+	//padding: $top-height 0 $footer-height 0;
 	min-height: 100%;
 	//width: 100%;
-	//width: calc(100% - var(--sidebar-width));
+	//width: calc(100% - #{$sidebar-width});
 	position: relative;
 	overflow: auto;
 }
 
 .al-footer {
-	height: var(--footer-height);
-	padding: 0px 18px 0 var(--sidebar-width);
+	height: $footer-height;
+	padding: 0 18px 0 $sidebar-width;
 	width: 100%;
 	position: absolute;
 	display: block;
 	bottom: 0;
 	font-size: 13px;
-	color: var(--default-text);
-	@include transition(padding-left, 0.5s, ease);
+	color: $default-text;
+	@include transition(0.5s, ease, padding-left);
 }
 
 .al-footer-main {
@@ -113,16 +112,16 @@ a {
 
 	i {
 		margin: 0 4px;
-		color: var(--danger);
+		color: $danger;
 		font-size: 12px;
 	}
 
 	a {
 		margin-left: 4px;
-		color: var(--default-text);
+		color: $default-text;
 
 		&:hover {
-			color: var(--danger);
+			color: $danger;
 		}
 	}
 }
@@ -152,15 +151,15 @@ a {
 		}
 
 		i.fa-facebook-square {
-			color: var(--facebook-color);
+			color: $facebook-color;
 		}
 
 		i.fa-twitter-square {
-			color: var(--twitter-color);
+			color: $twitter-color;
 		}
 
 		i.fa-google-plus-square {
-			color: var(--google-color);
+			color: $google-color;
 		}
 	}
 }
@@ -246,7 +245,17 @@ a {
 }
 
 .irs-grid-text {
-	color: var(--default-text);
+	color: $default-text;
+}
+
+.viewer-wrapper {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: $top-height;
+	height: calc(100% - #{$top-height});
+	max-height: calc(100% - #{$top-height});
+	overflow: auto;
 }
 
 .col-1p5 {

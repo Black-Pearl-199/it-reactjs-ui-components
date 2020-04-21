@@ -1,133 +1,113 @@
-#root {
-    // ---------------------COLOR------------------------
-    --green-itech-1-dark: #006600;
-    --green-itech-dark: #3e935a;
-    --green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
-    --green-itech-light: #64a87a;
-    --green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
-    // --reen-itech-normal:;
-    // --reen-itech-dark:;
-    --white-half-opacity: rgba(255, 255, 255, 0.75);
-    --black-half-opacity: rgba(0, 0, 0, 0.3);
-    --black: black;
-    --grey-1-light: #f9f9f9;
-    --grey-normal: #777777;
-    --grey-normal-opacity: rgba(102, 102, 102, 0.3);
-    --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
-    --grey-dark: #333333;
-    --red: red;
-    --red-1-light: #e9322d;
+// ---------------------COLOR------------------------
+$green-itech-1-dark: #006600;
+$green-itech-dark: #3E935A;
+$green-itech-dark-half-opacity: rgba(0, 122, 23, 0.5);
+$green-itech-light: #64a87a;
+$green-itech-light-half-opacity: rgba(76, 179, 0, 0.5);
+// $green-itech-normal:;
+// $green-itech-dark:;
+$white-half-opacity: rgba(255, 255, 255, 0.75);
+$black-half-opacity: rgba(0, 0, 0, 0.3);
+$black: black;
+$grey-1-light: #F9F9F9;
+$grey-normal: #777777;
+$grey-normal-opacity: rgba(102,102,102,0.3);
+$grey-normal-opacity-hover: rgba(102,102,102,0.2);
+$grey-dark: #333333;
+$red: red;
+$red-1-light: #e9322d;
 
-    --default-text: #ffffff;
-    --input-background: #219c7719;
+$default-text: #ffffff;
+$input-background: #219c7719;
 
-    // --------------------- NEW COLOR RE-DESIGN------------------------
-    --form-background-color: rgba(33, 156, 119, 0.1);
-    --form-background-color-focus: rgba(33, 156, 119, 0.2);
-    --text-color: #2e3e47;
-    --grey-background: #e5e5e5; //Main background - Background Dropdown
-    --modal-itech-background: #f7f9fc;
+// --------------------- NEW COLOR RE-DESIGN------------------------
+$form-background-color: rgba(33, 156, 119, 0.1);
+$form-background-color-focus: rgba(33, 156, 119, 0.2);
+$text-color: #2E3E47;
+$grey-background: #E5E5E5; //Main background - Background Dropdown
+$modal-itech-background:  #F7F9FC;
 
-    --main-green-opacity: rgba(55, 107, 81, 0.1);
-    --main-green: #376b51;
-    --main-green-hover: #2c5641;
-    --main-green-lighter: rgb(108, 119, 112);
-    --main-green-lighter-1: #c8e7d2;
-    --main-green-dark: #376b51;
-    --green-text-selection: #76b194;
-    --green-input-form-selection: rgba(33, 156, 119, 0.1);
-    --cyan: #455f6d;
-    --cyan-lighter: #6a7e8a;
-    --grey-light: #f7f7f7;
-    --grey-1: #cccccc;
-    --grey-2: #e0e0e0;
-    --black-opacity: rgba(0, 0, 0, 0.1);
-    --orange: #f79d49;
-    --orange-light-1: #f8b06d;
+$main-green-opacity: rgba(55, 107, 81, 0.1);
+$main-green: #376B51;
+$main-green-hover: #2C5641;
+$main-green-lighter: rgb(108, 119, 112);
+$main-green-lighter-1: #C8E7D2;
+$main-green-dark: #376B51;
+$green-text-selection: #76B194;
+$green-input-form-selection: rgba(33, 156, 119, 0.1);
+$cyan: #455F6D;
+$cyan-lighter: #6a7e8a;
+$grey-light: #F7F7F7;
+$grey-1: #CCCCCC;
+$grey-2: #E0E0E0;
+$black-opacity: rgba(0,0,0, 0.1);
+$orange: #F79D49;
+$orange-light-1: #f8b06d;
 
-    --white: #fff;
+$white: #fff;
 
-    --info-title: #748189;
-    //--primary: #209e91 !default;
-    --info: #2dacd1 '!default';
-    --success: #90b900 '!default';
-    --warning: #dfb81c '!default';
-    --danger: #e85656 '!default';
+$info-title: #748189;
+//$primary: #209e91 !default;
+$info: #2dacd1 !default;
+$success: #90b900 !default;
+$warning: #dfb81c !default;
+$danger: #e85656 !default;
 
-    --facebook-color: #3b5998;
-    --twitter-color: #55acee;
-    --google-color: #dd4b39;
-    --linkedin-color: #0177b5;
-    --github-color: #6b6b6b;
-    --stackoverflow-color: #2f96e8;
-    --dribble-color: #f26798;
-    --behace-color: #0093fa;
+$facebook-color: #3b5998;
+$twitter-color: #55acee;
+$google-color: #dd4b39;
+$linkedin-color: #0177B5;
+$github-color: #6b6b6b;
+$stackoverflow-color: #2F96E8;
+$dribble-color: #F26798;
+$behace-color: #0093FA;
 
-    --sidebar: var(--main-green);
-    --sidebar-text: var(--default-text);
-    --sidebar-item-height: 42px;
-    --sidebar-width: 210px;
-    --sidebar-width-collapse: 50px;
-    --sidebar-item-pad-left: 18px;
+$sidebar: $main-green;
+$sidebar-text: $default-text;
+$sidebar-item-height: 42px;
+$sidebar-width: 210px;
+$sidebar-width-collapse: 50px;
+$sidebar-item-pad-left: 18px;
 
-    --warning-border: rgba(219, 11, 11, 0.2);
-    --warning-background: rgba(219, 11, 11, 0.05);
-    --warning-head: rgba(219, 11, 11, 1);
+$warning-border: rgba(219, 11, 11, 0.2);
+$warning-background: rgba(219, 11, 11, 0.05);
+$warning-head: rgba(219, 11, 11, 1);
 
-    --top-height: 50px;
-    //--top-height: 42px;
-    --tab-height: 42px;
-    --footer-height: 34px;
-    --delete-box-height: 80px;
+$top-height: 50px;
+//$top-height: 42px;
+$tab-height: 42px;
+$footer-height: 34px;
+$delete-box-height: 80px;
 
-    --transitionTime: 0s;
 
-    //pagination
-    --paginationBtnWidth: 32px;
-    --paginationBtnHeight: 32px;
+$transitionTime: 0.0s;
 
-    --fontSize875: 14px;
+//pagination
+$paginationBtnWidth: 32px;
+$paginationBtnHeight: 32px;
 
-    // ---------------------SHADOW------------------------
+$fontSize875: 14px;
 
-    --shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
-        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
-        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+// ---------------------SHADOW------------------------
 
-    // ---------------------DIRECTORY PATH----------------
-    --assets-root: "../";
-    --images-root: var(--assets-root) + "images/";
-    --fonts-root: var(--assets-root) + "fonts/";
-
-    --font-family: "Roboto", sans-serif;
-    --font-thin: 100;
-    --font-light: 300;
-    --font-normal: 400;
-    --font-bold: 700;
-    --font-ultraBold: 900;
-}
+$shadow:  0 1px 5px 0 rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12);
 
 @mixin shadow-1 {
-    -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
-    box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
 }
 
 @mixin shadow-2 {
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-        0 0 8px rgba(102, 175, 233, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-        0 0 8px rgba(102, 175, 233, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 }
 
-// :export {
-//     primaryBgColor: var(--main-green);
-//     primaryBgHoverColor: var(--main-green-hover);
-//     primaryBgDark: var(--reen-itech-dark);
-//     primaryBgDarkHover: var(--reen-itech-light);
-//     primaryTextColor: var(--default-text);
-//     focusBgColor: var(--reen-text-selection);
-//     rowHoverColor: var(--main-green-lighter-1);
-//     paginationBtnWidth: var(--paginationBtnWidth);
-//     paginationBtnHeight: var(--paginationBtnHeight);
-// }
+
+// ---------------------DIRECTORY PATH----------------
+$font-family: 'Roboto', sans-serif;
+$font-thin: 100;
+$font-light: 300;
+$font-normal: 400;
+$font-bold: 700;
+$font-ultraBold: 900;

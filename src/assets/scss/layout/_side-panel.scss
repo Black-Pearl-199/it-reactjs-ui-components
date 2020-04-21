@@ -4,8 +4,8 @@
     position: absolute;
     width: 20%;
     height: 1080px;
-    background-color: var(--grey-dark);
-    box-shadow: var(--shadow);
+    background-color: $grey-dark;
+    box-shadow: $shadow;
 }
 
 .header_logo {
@@ -18,7 +18,7 @@
     position: absolute;
     top: 50px;
     left: 16.5%;
-    color: var(--white);
+    color: $white;
     opacity: 0;
     &:hover {
         opacity: 0.5;

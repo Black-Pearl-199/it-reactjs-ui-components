@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -66,6 +66,8 @@
     "webpack": "npm-run-all --parallel webpack-*",
     "webpack-dev": "webpack --mode development --config configuration/webpack.config.js",
     "webpack-prod": "webpack --mode production --config configuration/webpack.config.js",
+    "prewebpack": "npm run version",
+    "version": "node -p -e \"'export default \\'' + require('./package.json').version + '\\';'\" > src/version.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },

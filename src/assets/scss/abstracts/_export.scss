@@ -1,0 +1,13 @@
+@import "variables";
+
+:export {
+  primaryBgColor: $main-green;
+  primaryBgHoverColor: $main-green-hover;
+  primaryBgDark: $green-itech-dark;
+  primaryBgDarkHover: $green-itech-light;
+  primaryTextColor: $default-text;
+  focusBgColor: $green-text-selection;
+  rowHoverColor: $main-green-lighter-1;
+  paginationBtnWidth: $paginationBtnWidth;
+  paginationBtnHeight: $paginationBtnHeight;
+}

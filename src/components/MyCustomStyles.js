@@ -1,3 +1,5 @@
+import variables from '../assets/scss/abstracts/_export.scss';
+
 // style config cho các component Card/CardContainer/CardContainerInner của react-admin
 export const listStylesNoActions = {
     card: {
@@ -27,13 +29,13 @@ export const listStylesNoActions = {
             }
         },
         "& button[class*='button-add']": {
-            color: '#ffffff',
-            backgroundColor: '#3e935a',
+            color: variables.primaryTextColor,
+            backgroundColor: variables.primaryBgDark,
             borderRadius: '1rem',
             boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
             marginTop: '0.25rem !important',
             '&:hover': {
-                backgroundColor: '#64a87a'
+                backgroundColor: variables.primaryBgDarkHover
             },
             '&:focus': {
                 outline: 'none'
@@ -41,7 +43,7 @@ export const listStylesNoActions = {
         },
         "& button[class*='button-remove']": {
             // color: '#e9322d',
-            color: '#ffffff',
+            color: variables.primaryTextColor,
             backgroundColor: '#e9322d',
             borderRadius: '1rem',
             boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
@@ -77,7 +79,7 @@ export const listStylesNoActions = {
                 border: 'solid 1px #ced4da',
                 borderRadius: '0.25rem',
                 '&:hover': {
-                    borderColor: '#2c5641'
+                    borderColor: variables.primaryBgHoverColor
                 }
             }
         },
@@ -132,18 +134,18 @@ export const listStylesNoActionsList = {
             }
         },
         "& button[class*='button-add']": {
-            color: '#ffffff',
-            backgroundColor: '#3e935a',
+            color: variables.primaryTextColor,
+            backgroundColor: variables.primaryBgDark,
             borderRadius: '1rem',
             boxShadow:
                 '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
             marginTop: '0.25rem !important',
-            '&:hover': { backgroundColor: '#64a87a' },
+            '&:hover': { backgroundColor: variables.primaryBgDarkHover },
             '&:focus': { outline: 'none' }
         },
         "& button[class*='button-remove']": {
             // color: '#e9322d',
-            color: '#ffffff',
+            color: variables.primaryTextColor,
             backgroundColor: '#e9322d',
             borderRadius: '1rem',
             boxShadow:
@@ -152,7 +154,7 @@ export const listStylesNoActionsList = {
             '&:focus': { outline: 'none' }
         },
         '& span.MuiCheckbox-colorPrimary.Mui-checked': {
-            color: '#376b51'
+            color: variables.primaryBgColor
         },
         '& div.picker': {
             flex: '1 1 auto',
@@ -176,7 +178,7 @@ export const listStylesNoActionsList = {
                 marginTop: '0',
                 border: 'solid 1px #ced4da',
                 borderRadius: '0.25rem',
-                '&:hover': { borderColor: '#2c5641' }
+                '&:hover': { borderColor: variables.primaryBgHoverColor }
             }
         },
         '& button:not(.react-datepicker__navigation):not(.btn-pick-date), & a[role=button]': {
@@ -205,11 +207,11 @@ export const paginationStyles = {
             marginRight: '0.25rem',
             position: 'relative',
             border: '1px solid #455F6D',
-            minWidth: '32px !important',
-            minHeight: '32px !important',
-            width: '32px !important',
-            height: '32px !important',
-            lineHeight: '32px',
+            minWidth: `${variables.paginationBtnWidth} !important`,
+            minHeight: `${variables.paginationBtnHeight} !important`,
+            width: `${variables.paginationBtnWidth} !important`,
+            height: `${variables.paginationBtnHeight} !important`,
+            lineHeight: variables.paginationBtnHeight,
             textAlign: 'center',
             padding: '0 !important',
             fontSize: '1rem',
@@ -234,12 +236,12 @@ export const paginationStyles = {
 
 export const buttonStyles = {
     button: {
-        backgroundColor: '#376b51 !important',
-        color: '#ffffff !important',
+        backgroundColor: `${variables.primaryBgColor} !important`,
+        color: `${variables.primaryTextColor} !important`,
         borderRadius: '0.25rem !important',
         '&:hover': {
-            backgroundColor: '#2c5641 !important',
-            color: '#ffffff'
+            backgroundColor: `${variables.primaryBgHoverColor}!important`,
+            color: variables.primaryTextColor
         },
         '&:disabled': {
             color: '#fff',
@@ -256,14 +258,14 @@ export const buttonStyles = {
 
 export const buttonGreenStyles = {
     button: {
-        backgroundColor: '#3e935a !important',
-        color: '#ffffff !important',
+        backgroundColor: `${variables.primaryBgDark} !important`,
+        color: `${variables.primaryTextColor} !important`,
         minHeight: 34,
         minWidth: 129,
         borderRadius: '20px !important',
         '&:hover': {
-            backgroundColor: '#64a87a !important',
-            color: '#ffffff'
+            backgroundColor: `${variables.primaryBgDarkHover}!important`,
+            color: variables.primaryTextColor
         },
         '&:disabled': {
             color: '#fff',

@@ -2,8 +2,8 @@
 
 #user {
     @include phones {
-        padding: 10px 15px 0px 15px;
+        padding: 10px 15px 0 15px;
         line-height: 20px !important;
-        margin-right: 0px !important;
+        margin-right: 0 !important;
     }
 }

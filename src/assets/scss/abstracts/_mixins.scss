@@ -24,13 +24,21 @@
   }
 }
 
-@mixin transition($prop, $time, $type) {
-  transition: $prop $time $type;
-  -webkit-transition: $prop $time $type;
-  -moz-transition: $prop $time $type;
-  -o-transition: $prop $time $type;
-  -ms-transition: $prop $time $type;
-
+@mixin transition($time, $type, $prop...) {
+  @if (length($prop) == 1) {
+    transition: $prop $time $type;
+    -webkit-transition: $prop $time $type;
+    -moz-transition: $prop $time $type;
+    -o-transition: $prop $time $type;
+    //-ms-transition: $prop $time $type;
+  } @else {
+    transition: all $time $type;
+    -webkit-transition: all $time $type;
+    -moz-transition: all $time $type;
+    -o-transition: all $time $type;
+    //-ms-transition: all $time $type;
+    transition-property: $prop;
+  }
 }
 
 
