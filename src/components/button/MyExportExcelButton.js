@@ -102,7 +102,7 @@ export const MyExportExcelButton = (props) => {
             {...sanitizeRestProps(rest)}
         >
             <FontAwesomeIcon icon={faDownload} />
-            {' '}
+            &ensp;
             {translate(label)}
         </Button>
     );
@@ -131,3 +131,5 @@ MyExportExcelButton.defaultProps = {
     fields: [],
     extension: 'xlsx'
 };
+
+export default MyExportExcelButton;

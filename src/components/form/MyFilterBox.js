@@ -213,6 +213,7 @@ const MyFilterBox = (props) => {
                                         <FontAwesomeIcon
                                             icon={faEraser}
                                         />
+                                        &ensp;
                                         {translate('button.clear')}
                                     </Button>
                                 </div>
@@ -227,6 +228,7 @@ const MyFilterBox = (props) => {
                                     className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
                                 >
                                     <FontAwesomeIcon icon={faSearch} />
+                                    &ensp;
                                     {translate('button.search')}
                                 </Button>
                             </div>
