@@ -11,7 +11,7 @@ import { Button } from 'react-bootstrap';
 import { Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { ITCrudGetList } from '../../configurations/actions';
-import { inputValidate } from '../../configurations/validation';
+// import { inputValidate } from '../../configurations/validation';
 import { hasCustomParams, selectQuery } from '../../utils';
 
 const SORT_DESC = 'DESC';
@@ -48,7 +48,7 @@ const MyFilterBox = (props) => {
     const dispatch = useDispatch();
     const translate = useTranslate();
     const {
-        hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, ...rest
+        hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, inputValidate, ...rest
     } = props;
 
     const checkFormValidate = () => {
@@ -252,14 +252,16 @@ MyFilterBox.propTypes = {
     resource: PropTypes.string.isRequired,
     history: PropTypes.object,
     location: PropTypes.object,
-    hasClear: PropTypes.bool
+    hasClear: PropTypes.bool,
+    inputValidate: PropTypes.object
 };
 
 MyFilterBox.defaultProps = {
     initFilter: {},
     permanentFilter: {},
     initData: false,
-    defaultSort: { field: 'id', order: SORT_DESC }
+    defaultSort: { field: 'id', order: SORT_DESC },
+    inputValidate: {}
 };
 
 export default MyFilterBox;
