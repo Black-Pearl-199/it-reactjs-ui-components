@@ -87,9 +87,9 @@
 .btn-itech-icon {
   height: 32px;
   width: 32px;
-  padding: unset !important;
-  margin: 0;
+  margin: 0 auto;
   border-radius: 99px !important;
+  display: flex;
 }
 
 .btn-itech-icon-primary {
@@ -326,7 +326,6 @@
 }
 
 .nav-item {
-  -webkit-user-select: none;
   user-select: none;
   border-style: solid;
   border-width: 1px 1px 0 1px;
@@ -435,6 +434,8 @@
 .panel-itech {
   background-color: #fff;
   padding: 0.25rem 0.5rem;
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
@@ -511,6 +512,8 @@
 }
 
 .table {
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
 }
 
@@ -673,6 +676,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   height: 100%;
   box-shadow: 0 0 10px #376B51, 0 0 5px #376B51;
   opacity: 1.0;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
 }
 
@@ -692,6 +697,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-top-color: #376B51;
   border-left-color: #376B51;
   border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;
 }
 
@@ -702,6 +708,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .nprogress-custom-parent #nprogress .spinner, .nprogress-custom-parent #nprogress .bar {
   position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes nprogress-spinner {
@@ -1940,7 +1955,6 @@ a {
 
 .disable-text-selection {
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1999,11 +2013,13 @@ a {
 }
 
 .col-1p5 {
+  -ms-flex: 0 0 12.5%;
   flex: 0 0 12.5%;
   max-width: 12.5%;
 }
 
 .col-10p5 {
+  -ms-flex: 0 0 87.5%;
   flex: 0 0 87.5%;
   max-width: 87.5%;
 }
@@ -2184,4 +2200,5 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   pointer-events: none;
 }
+
 /*# sourceMappingURL=main-itech.css.map */
