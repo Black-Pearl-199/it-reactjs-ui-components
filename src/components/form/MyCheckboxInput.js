@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
-import { useField } from 'react-final-form';
+import { useField, useForm } from 'react-final-form';
 
 const MyCheckboxInput = (props) => {
     const translate = useTranslate();
@@ -13,7 +13,7 @@ const MyCheckboxInput = (props) => {
         source,
         label,
         resource,
-        record,
+        // record,
         hideLabel,
         labelClasses,
         required,
@@ -23,7 +23,8 @@ const MyCheckboxInput = (props) => {
     const {
         input: { onChange }
     } = useField(source);
-    const defaultValue = get(record, source, false);
+    const form = useForm();
+    const defaultValue = get(form.getState().values, source, false);
     const [checked, setChecked] = useState(defaultValue);
     const labelDisplay = translate(
         label || `resources.${resource}.fields.${source}`
