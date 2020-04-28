@@ -107,7 +107,7 @@ const MySelectArrayInput = (props) => {
                     renderValue={(selected) => (
                         <div className={classes.chips}>
                             {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} color="primary" />
+                                <Chip key={value} label={value} className={classes.chip} color="#376B51" />
                             ))}
                         </div>
                     )}
@@ -116,7 +116,7 @@ const MySelectArrayInput = (props) => {
                     {choices.map((item, key) => (
                         <MenuItem key={key} value={item[optionValue]}>
                             <Checkbox
-                                color="primary"
+                                color="#376B51"
                                 checked={
                                     multipleSelectValue.findIndex(
                                         (selectedValue) => selectedValue === item[optionValue]

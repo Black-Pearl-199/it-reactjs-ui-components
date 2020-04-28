@@ -238,6 +238,7 @@ const MyDatePicking = (props) => {
                     {...rest}
                     {...inputClasses}
                     readOnly={disabled}
+                    formatDate={formatDate}
                 />
                 <MyBootstrapInput
                     source={endDateName}
@@ -249,6 +250,7 @@ const MyDatePicking = (props) => {
                     {...rest}
                     {...inputClasses}
                     readOnly={disabled}
+                    formatDate={formatDate}
                 />
             </div>
         </div>

@@ -15,7 +15,7 @@ import { dateShowFormat, dateStoreFormat } from '../../utils';
 registerLocale('vi', vi);
 
 const sanitizeRestProps = ({
-    submit, optionText, optionValue, label, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest
+    submit, optionText, optionValue, label, formatDate, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest
 }) => rest;
 
 function onChangeRaw(e) {
@@ -191,7 +191,7 @@ const MyBootstrapInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
     const {
-        label, labelClasses, inputClasses, groupClasses, alignCenter, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest
+        label, labelClasses, inputClasses, groupClasses, alignCenter, formatDate, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest
     } = props;
     const {
         resource, source, component, hideLabel, type
@@ -222,7 +222,7 @@ const MyBootstrapInput = (props) => {
                         hour: 23, minute: 59, second: 59, milliseconds: 999
                     });
                 }
-                newValue = newValue.format(dateStoreFormat);
+                newValue = newValue.format(formatDate);
             } else newValue = undefined;
         } else {
             const { target } = e;
@@ -290,7 +290,8 @@ MyBootstrapInput.propTypes = {
     checkConvert: PropTypes.shape({ true: PropTypes.any, false: PropTypes.any }),
     convertValue: PropTypes.func,
     input: PropTypes.any,
-    formClassName: PropTypes.string
+    formClassName: PropTypes.string,
+    formatDate: PropTypes.string
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
@@ -298,7 +299,8 @@ MyBootstrapInput.defaultProps = {
     skipFormat: true,
     hideLabel: false,
     small: true,
-    alignCenter: true
+    alignCenter: true,
+    formatDate: dateStoreFormat
 };
 
 export default MyBootstrapInput;
