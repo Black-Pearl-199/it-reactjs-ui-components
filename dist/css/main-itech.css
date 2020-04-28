@@ -1029,7 +1029,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .sidebar.collapse {
   display: block;
-  width: 50px;
+  width: 50px !important;
 }
 
 .sidebar.collapse + .main {

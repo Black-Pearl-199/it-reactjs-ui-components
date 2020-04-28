@@ -19,7 +19,7 @@ $angle-right: "\f101";
 
 	&.collapse {
 		display: block;
-		width: $sidebar-width-collapse;
+		width: $sidebar-width-collapse !important;
 
 		+ .main {
 			width: calc(100% - #{$sidebar-width-collapse});
