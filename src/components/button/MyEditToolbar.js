@@ -22,7 +22,7 @@ export const MyEditToolbar = (props) => {
             {...rest}
             className={classNames('px-3', 'py-1', 'd-flex', 'flex-row-reverse', 'mt-0', className)}
         >
-            {hideEditButton && (
+            {!hideEditButton && (
                 <MyUpdateButton
                     redirect={redirect}
                     undoable={undoable}
