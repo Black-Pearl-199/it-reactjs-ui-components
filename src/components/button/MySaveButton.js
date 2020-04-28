@@ -114,3 +114,5 @@ MySaveButton.propTypes = {
     label: PropTypes.string,
     filter: PropTypes.object
 };
+
+export default MySaveButton;

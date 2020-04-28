@@ -8,7 +8,7 @@ import { MyUpdateButton } from './MyUpdateButton';
 
 export const MyEditToolbar = (props) => {
     const {
-        children, invalid, callback, className, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest
+        children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest
     } = props;
     const { redirect } = rest;
 
@@ -22,20 +22,22 @@ export const MyEditToolbar = (props) => {
             {...rest}
             className={classNames('px-3', 'py-1', 'd-flex', 'flex-row-reverse', 'mt-0', className)}
         >
-            <MyUpdateButton
-                redirect={redirect}
-                undoable={undoable}
-                beforeSubmit={beforeSubmit}
-                editing={editing}
-                convertValue={convertValue}
-                action={customAction}
-                changeEditState={changeEditState}
-                callback={callback}
-                customNotification={customNotification}
-                form={form}
-                filter={filter}
-                {...rest}
-            />
+            {hideEditButton && (
+                <MyUpdateButton
+                    redirect={redirect}
+                    undoable={undoable}
+                    beforeSubmit={beforeSubmit}
+                    editing={editing}
+                    convertValue={convertValue}
+                    action={customAction}
+                    changeEditState={changeEditState}
+                    callback={callback}
+                    customNotification={customNotification}
+                    form={form}
+                    filter={filter}
+                    {...rest}
+                />
+            )}
             {childrenWithProps}
             {editing ? <MyBackEditButton {...rest} changeEditState={changeEditState} /> : null}
             {customButton || null}
@@ -67,5 +69,12 @@ MyEditToolbar.propTypes = {
     invalid: PropTypes.bool,
     optimistic: PropTypes.bool,
     customButton: PropTypes.element,
-    undoable: PropTypes.bool
+    undoable: PropTypes.bool,
+    hideEditButton: PropTypes.bool
 };
+
+MyEditToolbar.defaultValues = {
+    hideEditButton: false
+};
+
+export default MyEditToolbar;

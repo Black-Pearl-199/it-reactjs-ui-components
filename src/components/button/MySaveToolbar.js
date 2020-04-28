@@ -6,23 +6,25 @@ import { MySaveButton } from './MySaveButton';
 
 const MySaveToolbar = (props) => {
     const {
-        children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, ...rest
+        children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, hideSaveButton, ...rest
     } = props;
     const { invalid, redirect } = rest;
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
     return (
         <Toolbar {...rest} className={classNames('px-3 py-1 d-flex flex-row-reverse mt-0', className)}>
-            <MySaveButton
-                redirect={redirect}
-                {...rest}
-                callback={callback}
-                beforeSubmit={beforeSubmit}
-                convertValue={convertValue}
-                action={customAction}
-                hideNotification={hideNotification}
-                customNotification={customNotification}
-            />
+            {hideSaveButton && (
+                <MySaveButton
+                    redirect={redirect}
+                    {...rest}
+                    callback={callback}
+                    beforeSubmit={beforeSubmit}
+                    convertValue={convertValue}
+                    action={customAction}
+                    hideNotification={hideNotification}
+                    customNotification={customNotification}
+                />
+            )}
             {childrenWithProps}
             {customButton}
         </Toolbar>
@@ -35,7 +37,12 @@ MySaveToolbar.propTypes = {
     beforeSubmit: PropTypes.func,
     hideNotification: PropTypes.bool,
     customNotification: PropTypes.object,
-    customButton: PropTypes.any
+    customButton: PropTypes.any,
+    hideSaveButton: PropTypes.bool
+};
+
+MySaveButton.defaultValues = {
+    hideSaveButton: false
 };
 
 export default MySaveToolbar;
