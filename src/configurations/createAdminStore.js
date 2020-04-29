@@ -1,5 +1,5 @@
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { adminReducer, USER_LOGOUT } from 'react-admin';
+import { adminReducer, CLEAR_STATE } from 'react-admin';
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -44,7 +44,22 @@ export const createAdminStore = ({
         router: connectRouter(history),
         ...customReducer
     });
-    const resettableAppReducer = (state, action) => reducer(action.type !== USER_LOGOUT ? state : undefined, action);
+    // Erase data from the store but keep location, notifications, ui prefs, etc.
+    // This allows e.g. to display a notification on logout
+    const resettableAppReducer = (state, action) => reducer(
+        action.type !== CLEAR_STATE
+            ? state
+            : {
+                ...state,
+                admin: {
+                    ...state.admin,
+                    loading: 0,
+                    resources: {},
+                    customQueries: {},
+                    references: { oneToMany: {}, possibleValues: {} }
+                }
+            }, action
+    );
     const persistableReducer = persistReducer(persistConfig, resettableAppReducer);
 
     const saga = function* rootSaga() {
