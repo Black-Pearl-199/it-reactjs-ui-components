@@ -1,4 +1,5 @@
 import _MySearchableDataGrid from './MySearchableDatagrid';
+import _SelectedCounting from './SelectedCounting';
 
 export * from './MyDatagrid';
 export { _MySearchableDataGrid as MySearchableDataGrid };
@@ -7,4 +8,4 @@ export * from './MyField';
 export * from './MyDatagridBody';
 export * from './MyDatagridRow';
 export * from './AgeField';
-export * from './SelectedCounting';
+export { _SelectedCounting as SelectedCounting};

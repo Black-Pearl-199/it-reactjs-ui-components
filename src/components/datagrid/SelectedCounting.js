@@ -3,10 +3,10 @@ import React from 'react';
 import { useTranslate } from 'react-admin';
 import { useSelector } from 'react-redux';
 
-export const SelectedCounting = (props) => {
+const SelectedCounting = (props) => {
     const { resource } = props;
     const translate = useTranslate();
-    const selectedIds = useSelector((state) => state.admin.resources[resource].list.selectedIds);
+    const selectedIds = useSelector((state) => (state.admin.resources[resource] ? state.admin.resources[resource].list.selectedIds : []));
     return (
         selectedIds.length > 0
             ? (
@@ -24,3 +24,5 @@ export const SelectedCounting = (props) => {
 SelectedCounting.propTypes = {
     resource: PropTypes.string.isRequired
 };
+
+export default SelectedCounting;
