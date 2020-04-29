@@ -9,7 +9,7 @@ import { DatagridLoading } from 'react-admin';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     table: {
         tableLayout: 'auto'
     },
