@@ -11,7 +11,6 @@ import { useForm } from 'react-final-form';
 
 const SaveButton = (props) => {
     const form = useForm();
-    const { errors } = form.getState();
     const {
         className,
         classes: classesOverride,
@@ -55,10 +54,7 @@ const SaveButton = (props) => {
             // prevent double submission
             event.preventDefault();
         } else {
-            // if (invalid) {
-            //     notify('ra.message.invalid_form', 'warning');
-            // }
-            // console.log('errors', errors);
+            const { errors } = form.getState();
             if (!isEmpty(errors)) {
                 notify('commons.message.error', 'warning', { error: getInvalidMessages(errors).join('\n') });
             }
