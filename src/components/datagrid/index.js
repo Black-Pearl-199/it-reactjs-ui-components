@@ -8,4 +8,4 @@ export * from './MyField';
 export * from './MyDatagridBody';
 export * from './MyDatagridRow';
 export * from './AgeField';
-export { _SelectedCounting as SelectedCounting};
+export { _SelectedCounting as SelectedCounting };

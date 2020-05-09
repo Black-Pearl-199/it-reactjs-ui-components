@@ -20,6 +20,7 @@ export const DATE_RANGE = {
     OTHER: 'other',
     THIS_WEEK: 'this_week',
     THIS_MONTH: 'this_month',
+    LAST_MONTH: 'last_month',
     DAY: 'day',
     WEEK: 'week',
     MONTH: 'month',
@@ -59,6 +60,8 @@ const MyDatePicking = (props) => {
         let todayEnd = new Date();
         todayEnd.setHours(23, 59, 59, 999);
         const { inputValue } = props;
+        const thisMonthStart = moment(todayStart).startOf('month').toDate();
+        const lastMonthStart = moment(add(thisMonthStart, -2)).startOf('month').toDate();
         if (inputValue) {
             const startDate = inputValue[startDateName];
             const endDate = inputValue[endDateName];
@@ -95,6 +98,14 @@ const MyDatePicking = (props) => {
                     && lastWeekStart.getTime() + 86400000 * 7 === end.getTime()
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_WEEK);
+                } else if (
+                    start.getTime() === thisMonthStart.getTime()
+                ) {
+                    setCurrentActive(DATE_RANGE.THIS_MONTH);
+                } else if (
+                    start.getTime() === lastMonthStart.getTime()
+                ) {
+                    setCurrentActive(DATE_RANGE.LAST_MONTH);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }

@@ -61,7 +61,7 @@ const MyCheckboxInput = (props) => {
                         checked={checked}
                         onChange={handleChange}
                         name={source}
-                        color="#376B51"
+                        iconStyle={{ fill: '#376B51' }}
                     />
                 )}
                 className="mx-1"

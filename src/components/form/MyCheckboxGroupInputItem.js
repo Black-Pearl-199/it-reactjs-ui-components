@@ -43,7 +43,7 @@ const CheckboxGroupInputItem = (props) => {
             control={(
                 <Checkbox
                     id={`${id}_${getChoiceValue(choice)}`}
-                    color="primary"
+                    iconStyle={{ fill: '#376B51' }}
                     className={classes.checkbox}
                     checked={
                         value
