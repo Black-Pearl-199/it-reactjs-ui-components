@@ -9,6 +9,7 @@ import { crudGetAll, useTranslate } from 'ra-core';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from '../../utils';
 
 const sanitizeRestProps = ({
     basePath,
@@ -22,7 +23,16 @@ const sanitizeRestProps = ({
 
 export const MyExportExcelButton = (props) => {
     const translate = useTranslate();
-    const filter = useSelector((state) => state.admin.resources[props.resource].list.params.filter);
+    const { filter, total } = useSelector((state) => {
+        let { filter } = state.admin.resources[props.resource].list.params;
+        if (isEmpty(filter)) {
+            filter = props.filter || {};
+        }
+        return {
+            filter,
+            total: state.admin.resources[props.resource].list.total
+        };
+    });
     const dispatch = useDispatch();
 
     const handleClick = () => {
@@ -90,7 +100,7 @@ export const MyExportExcelButton = (props) => {
     };
 
     const {
-        label, icon, total, ...rest
+        label, icon, ...rest
     } = props;
     return (
         <Button
@@ -121,7 +131,8 @@ MyExportExcelButton.propTypes = {
     fields: PropTypes.array.isRequired,
     extension: PropTypes.string,
     onClick: PropTypes.func,
-    name: PropTypes.string
+    name: PropTypes.string,
+    filter: PropTypes.object
 };
 
 MyExportExcelButton.defaultProps = {

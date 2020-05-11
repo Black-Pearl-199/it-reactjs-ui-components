@@ -61,7 +61,7 @@ const MyCheckboxInput = (props) => {
                         checked={checked}
                         onChange={handleChange}
                         name={source}
-                        iconStyle={{ fill: '#376B51' }}
+                        color="primary"
                     />
                 )}
                 className="mx-1"
@@ -75,7 +75,7 @@ MyCheckboxInput.propTypes = {
     source: PropTypes.string.isRequired,
     resource: PropTypes.string,
     label: PropTypes.string,
-    record: PropTypes.object,
+    // record: PropTypes.object,
     required: PropTypes.bool,
     hideLabel: PropTypes.bool,
     readOnly: PropTypes.bool,
@@ -85,7 +85,7 @@ MyCheckboxInput.propTypes = {
 };
 
 MyCheckboxInput.defaultProps = {
-    record: {},
+    // record: {},
     hideLabel: false,
     readOnly: false,
     hidden: false

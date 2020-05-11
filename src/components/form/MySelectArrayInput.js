@@ -116,7 +116,7 @@ const MySelectArrayInput = (props) => {
                     {choices.map((item, key) => (
                         <MenuItem key={key} value={item[optionValue]}>
                             <Checkbox
-                                iconStyle={{ fill: '#376B51' }}
+                                color="primary"
                                 checked={
                                     multipleSelectValue.findIndex(
                                         (selectedValue) => selectedValue === item[optionValue]
