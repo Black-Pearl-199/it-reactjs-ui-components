@@ -1,16 +1,14 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
 import { useChoices } from 'ra-core';
 import React from 'react';
+import { checkboxStyles } from '../MyCustomStyles';
 
 const useStyles = makeStyles(
-    {
-        checkbox: {
-            height: 32
-        }
-    },
+    { ...checkboxStyles },
     { name: 'RaCheckboxGroupInputItem' }
 );
 
@@ -43,8 +41,10 @@ const CheckboxGroupInputItem = (props) => {
             control={(
                 <Checkbox
                     id={`${id}_${getChoiceValue(choice)}`}
-                    color="primary"
-                    className={classes.checkbox}
+                    color="default"
+                    className={classes.root}
+                    checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+                    icon={<span className={classes.icon} />}
                     checked={
                         value
                             ? value.find((v) => v === getChoiceValue(choice)) // eslint-disable-line eqeqeq

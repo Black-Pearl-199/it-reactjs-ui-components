@@ -6,10 +6,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
+import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField } from 'react-final-form';
+import { checkboxStyles } from '../MyCustomStyles';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -29,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const useStyleCheckbox = makeStyles(checkboxStyles);
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 20;
 const MenuProps = {
@@ -43,6 +47,7 @@ const MenuProps = {
 const MySelectArrayInput = (props) => {
     const classes = useStyles();
     const translate = useTranslate();
+    const classesCheckbox = useStyleCheckbox();
     const {
         source,
         choices,
@@ -116,7 +121,10 @@ const MySelectArrayInput = (props) => {
                     {choices.map((item, key) => (
                         <MenuItem key={key} value={item[optionValue]}>
                             <Checkbox
-                                color="primary"
+                                color="default"
+                                className={classesCheckbox.root}
+                                checkedIcon={<span className={clsx(classesCheckbox.icon, classesCheckbox.checkedIcon)} />}
+                                icon={<span className={classesCheckbox.icon} />}
                                 checked={
                                     multipleSelectValue.findIndex(
                                         (selectedValue) => selectedValue === item[optionValue]

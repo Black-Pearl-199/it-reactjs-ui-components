@@ -1,4 +1,5 @@
 import Checkbox from '@material-ui/core/Checkbox';
+import clsx from 'clsx';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import classNames from 'classnames';
 import { get } from 'lodash';
@@ -6,8 +7,11 @@ import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
+import { makeStyles } from '@material-ui/core';
+import { checkboxStyles } from '../MyCustomStyles';
 
 const MyCheckboxInput = (props) => {
+    const classes = makeStyles(checkboxStyles)();
     const translate = useTranslate();
     const {
         source,
@@ -57,11 +61,14 @@ const MyCheckboxInput = (props) => {
             <FormControlLabel
                 control={(
                     <Checkbox
+                        className={classes.root}
+                        checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+                        icon={<span className={classes.icon} />}
                         disabled={props.readOnly}
                         checked={checked}
                         onChange={handleChange}
                         name={source}
-                        color="primary"
+                        color="default"
                     />
                 )}
                 className="mx-1"
