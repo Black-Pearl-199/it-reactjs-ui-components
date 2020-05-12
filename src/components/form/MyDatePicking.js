@@ -192,6 +192,15 @@ const MyDatePicking = (props) => {
                     [endDateName]: todayEnd
                 });
                 break;
+            case DATE_RANGE.LAST_MONTH:
+                const thisMonthStart = moment(todayStart).startOf('month').toDate();
+                const lastMonthStart = moment(add(thisMonthStart, -2)).startOf('month').toDate();
+                const lastMonthEnd = moment(add(thisMonthStart, -1)).toDate();
+                changeInput({
+                    [startDateName]: lastMonthStart,
+                    [endDateName]: lastMonthEnd
+                });
+                break;
             default:
                 break;
         }
