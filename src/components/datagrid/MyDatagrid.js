@@ -53,12 +53,12 @@ const useStyles = makeStyles(() => ({
     expandIconCell: {
         width: 32
     },
-    // expandIcon: {
+    expandIcon: {
     //     transform: 'rotate(-90deg)',
     //     transition: theme.transitions.create('transform', {
     //         duration: theme.transitions.duration.shortest
     //     })
-    // },
+    },
     expanded: {
         transform: 'rotate(0deg)'
     }
