@@ -30,7 +30,7 @@ export const MyExportExcelButton = (props) => {
         }
         return {
             filter,
-            total: (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.total) || 10
+            total: (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.total) || 0
         };
     });
     const dispatch = useDispatch();
