@@ -60,7 +60,7 @@ export const MyField = (props) => {
     const {
         record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, skipTranslateLabel, ...rest
     } = props;
-    const translatedLabel = !hideLabel && `${label ? translate(label) : translate(`resources.${resource}.fields.${source}`)}: `;
+    const translatedLabel = !hideLabel && `${label && !skipTranslateLabel ? translate(label) : translate(`resources.${resource}.fields.${source}`)}: `;
     const labelNotTranslate = label;
     const value = get(record, source);
     const fieldId = `field-${source}`;
