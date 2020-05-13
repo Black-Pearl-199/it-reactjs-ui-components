@@ -24,13 +24,14 @@ const sanitizeRestProps = ({
 export const MyExportExcelButton = (props) => {
     const translate = useTranslate();
     const { filter, total } = useSelector((state) => {
+        const { total = 0 } = props;
         let { filter } = (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.params) || {};
         if (isEmpty(filter)) {
             filter = props.filter || {};
         }
         return {
             filter,
-            total: (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.total) || 0
+            total: (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.total) || total
         };
     });
     const dispatch = useDispatch();
