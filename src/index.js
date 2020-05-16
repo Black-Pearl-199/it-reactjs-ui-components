@@ -5,3 +5,4 @@ console.log(`You are using it-reactjs-ui-components v${version}`);
 
 export * from './components';
 export * from './configurations';
+export * from './utils';
