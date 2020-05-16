@@ -1,8 +1,5 @@
-import _LanguageSwitcher from './LanguageSwitcher';
-
 export * from './button';
 export * from './datagrid';
-export * from './deleteBox';
 export * from './form';
 export * from './layouts';
 export * from './messageBox';
@@ -11,4 +8,5 @@ export * from './progressBar';
 
 export * from './MyCustomStyles';
 
-export { _LanguageSwitcher as LanguageSwitcher };
+export { default as DeleteBox } from './DeleteBox';
+export { default as LanguageSwitcher } from './LanguageSwitcher';

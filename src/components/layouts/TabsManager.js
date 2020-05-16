@@ -99,4 +99,3 @@ class TabsManager {
 }
 
 export default TabsManager.getInstance();
-export const TAB_CONTEXT_MAIN = 'main';

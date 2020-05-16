@@ -5,19 +5,12 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { linkToRecord } from 'ra-core';
 import React, { isValidElement, useEffect, useState } from 'react';
-
 import { DatagridCell } from 'react-admin';
 import { useDispatch } from 'react-redux';
 import { push } from 'react-router-redux';
-import ExpandRowButton from './ExpandRowButton';
 
-export const ROW_CLICK = {
-    SELECT_ONE: 'selectOne',
-    UN_SELECT_ONE: 'unSelectOne',
-    EDIT: 'edit',
-    SHOW: 'show',
-    EXPAND: 'expand'
-};
+import ExpandRowButton from './ExpandRowButton';
+import ROW_CLICK from './RowClick';
 
 const sanitizeRestProps = ({
     basePath,

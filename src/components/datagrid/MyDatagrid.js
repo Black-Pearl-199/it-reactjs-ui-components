@@ -6,6 +6,7 @@ import * as PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core/esm/index';
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { DatagridLoading } from 'react-admin';
+
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
 
@@ -96,7 +97,7 @@ const useStyles = makeStyles(() => ({
  *     </Datagrid>
  * </ReferenceManyField>
  */
-export const MyDatagrid = (props) => {
+const MyDatagrid = (props) => {
     const classes = useStyles(props);
     const updateSort = (event) => {
         event.stopPropagation();
@@ -280,3 +281,5 @@ MyDatagrid.defaultProps = {
     selectedIds: [],
     body: <MyDatagridBody />
 };
+
+export default MyDatagrid;

@@ -3,11 +3,12 @@ import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
+
 import { ITCrudCreate, showEnhanceNotification } from '../../configurations';
 import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
 
-export const MySaveButton = (props) => {
+const MySaveButton = (props) => {
     const classes = makeStyles(buttonGreenStyles)();
     const translate = useTranslate();
     const dispatch = useDispatch();

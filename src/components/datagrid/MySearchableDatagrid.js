@@ -5,10 +5,11 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
+
 import { searchInDataTable } from '../../utils';
-import { MyExportExcelButton } from '../button/MyExportExcelButton';
+import { MyExportExcelButton } from '../button';
 import { tableStyles } from '../MyCustomStyles';
-import { MyDatagrid } from './MyDatagrid';
+import MyDatagrid from './MyDatagrid';
 
 const useStyles = makeStyles(tableStyles);
 

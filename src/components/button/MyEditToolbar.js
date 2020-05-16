@@ -2,11 +2,12 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
-import { MyBackEditButton } from './MyCustomButton';
-import { MyDeleteBox } from './MyDeleteOneButton';
-import { MyUpdateButton } from './MyUpdateButton';
 
-export const MyEditToolbar = (props) => {
+import MyDeleteBox from './MyDeleteBox';
+import MyUpdateButton from './MyUpdateButton';
+import RevertEditButton from './RevertEditButton';
+
+const MyEditToolbar = (props) => {
     const {
         children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest
     } = props;
@@ -39,7 +40,7 @@ export const MyEditToolbar = (props) => {
                 />
             )}
             {childrenWithProps}
-            {editing ? <MyBackEditButton {...rest} changeEditState={changeEditState} /> : null}
+            {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
             {customButton || null}
             {deletable ? (
                 <MyDeleteBox

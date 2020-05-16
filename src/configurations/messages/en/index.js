@@ -1,8 +1,6 @@
-import bodyPart from './bodyPart';
 import button from './button';
 import commons from './commons';
 import crud from './crud';
-import modalityTypes from './modalityTypes';
 import msgBox from './msgBox';
 import sidebar from './sidebar';
 
@@ -42,8 +40,6 @@ export default {
         4: '4',
         5: '5'
     },
-    bodyPart,
-    ...modalityTypes,
     deleteReason: 'Reasons for delete',
     'no-access': 'You don\'t have permissions to access this page. Please go back or contact Administrators!',
     'Username/Password invalid': 'Username or password is not correct. Please try again.',

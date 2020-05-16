@@ -30,7 +30,7 @@ const defaultPersistConfig = {
  * @param {PersistConfig} persistConfig: config for redux-persist
  * @returns {AdminStore} The store configuration
  */
-export const createAdminStore = ({
+const createAdminStore = ({
     authProvider,
     dataProvider,
     history,

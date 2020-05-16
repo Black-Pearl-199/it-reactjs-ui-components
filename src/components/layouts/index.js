@@ -1,6 +1,2 @@
-import _TabsManager from './TabsManager';
-
-export * from './SideBar';
-export * from './TabsManager';
-
-export { _TabsManager as TabsManager };
+export { default as SideBar } from './SideBar';
+export { default as TabsManager } from './TabsManager';

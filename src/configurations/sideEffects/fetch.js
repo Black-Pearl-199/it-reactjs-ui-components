@@ -126,18 +126,23 @@ export function* handleFetch(dataProvider, action) {
             put({ type: FETCH_START })
         ]);
 
-        // yield put({ type: 'CHECK_TOKEN_EXPIRE_START' });
-        // const expired = yield call(checkTokenExpire);
-        // if (expired) {
-        //     console.log('token expired, get new access token');
-        //     try {
-        //         const refreshTokenResult = yield call(refreshToken);
-        //         console.log('refresh token result', refreshTokenResult);
-        //     } catch (e) {
-        //         console.log(e);
-        //     }
-        // }
-        // yield put({ type: 'CHECK_TOKEN_EXPIRE_END' });
+        if (dataProvider.checkTokenExpire) {
+            const expired = yield call(dataProvider.checkTokenExpire);
+            if (expired) {
+                if (dataProvider.refreshToken) {
+                    yield put({ type: 'CHECK_TOKEN_EXPIRE_START' });
+                    try {
+                        yield call(dataProvider.refreshToken);
+                    } catch (error) {
+                        yield put({ type: 'CHECK_TOKEN_EXPIRE_ERROR' });
+                        throw new Error('ra.notification.logged_out');
+                    }
+                    yield put({ type: 'CHECK_TOKEN_EXPIRE_END' });
+                } else {
+                    throw new Error('ra.notification.logged_out');
+                }
+            }
+        }
 
         const response = yield call(
             dataProvider[sanitizeFetchType(restType)],

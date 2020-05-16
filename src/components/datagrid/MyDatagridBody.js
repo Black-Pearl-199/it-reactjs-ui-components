@@ -5,7 +5,7 @@ import React from 'react';
 import shouldUpdate from 'recompose/shouldUpdate';
 import MyDatagridRow from './MyDatagridRow';
 
-const MyDatagridBody = ({
+const MyDatagridBodyView = ({
     basePath,
     children,
     classes,
@@ -56,7 +56,7 @@ const MyDatagridBody = ({
     </TableBody>
 );
 
-MyDatagridBody.propTypes = {
+MyDatagridBodyView.propTypes = {
     basePath: PropTypes.string,
     classes: PropTypes.object,
     className: PropTypes.string,
@@ -78,7 +78,7 @@ MyDatagridBody.propTypes = {
     version: PropTypes.number
 };
 
-MyDatagridBody.defaultProps = {
+MyDatagridBodyView.defaultProps = {
     data: {},
     hasBulkActions: false,
     ids: [],
@@ -87,15 +87,15 @@ MyDatagridBody.defaultProps = {
 
 const areArraysEqual = (arr1, arr2) => arr1.length === arr2.length && arr1.every((v, i) => v === arr2[i]);
 
-const PureDatagridBody = shouldUpdate(
+const MyDatagridBody = shouldUpdate(
     (props, nextProps) => props.version !== nextProps.version
         || nextProps.loading === false
         || !areArraysEqual(props.ids, nextProps.ids)
         || props.data !== nextProps.data
-)(MyDatagridBody);
+)(MyDatagridBodyView);
 
 // trick material-ui Table into thinking this is one of the child type it supports
 // @ts-ignore
-PureDatagridBody.muiName = 'TableBody';
+MyDatagridBody.muiName = 'TableBody';
 
-export default PureDatagridBody;
+export default MyDatagridBody;

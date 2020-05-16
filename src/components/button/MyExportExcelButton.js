@@ -21,7 +21,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-export const MyExportExcelButton = (props) => {
+const MyExportExcelButton = (props) => {
     const translate = useTranslate();
     const { filter, total } = useSelector((state) => {
         const { total = 0 } = props;

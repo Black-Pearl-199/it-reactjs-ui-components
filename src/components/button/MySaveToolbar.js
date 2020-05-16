@@ -2,7 +2,8 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
-import { MySaveButton } from './MySaveButton';
+
+import MySaveButton from './MySaveButton';
 
 const MySaveToolbar = (props) => {
     const {
@@ -30,6 +31,7 @@ const MySaveToolbar = (props) => {
         </Toolbar>
     );
 };
+
 MySaveToolbar.propTypes = {
     callback: PropTypes.func,
     convertValue: PropTypes.func,

@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export const ButtonDeleteRow = React.memo((props) => {
+const ButtonDeleteRow = React.memo((props) => {
     const { record, onDelete } = props;
     const onClick = () => {
         onDelete(record);
@@ -26,3 +26,5 @@ ButtonDeleteRow.propTypes = {
 ButtonDeleteRow.defaultProps = {
     record: {}
 };
+
+export default ButtonDeleteRow;

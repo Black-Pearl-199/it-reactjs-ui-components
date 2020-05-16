@@ -1,8 +1,6 @@
-import bodyPart from './bodyPart';
 import button from './button';
 import commons from './commons';
 import crud from './crud';
-import modalityTypes from './modalityTypes';
 import msgBox from './msgBox';
 import sidebar from './sidebar';
 
@@ -42,8 +40,6 @@ export default {
         4: '4',
         5: '5'
     },
-    bodyPart,
-    ...modalityTypes,
     deleteReason: 'Nhập lý do xóa',
     'no-access': 'Bạn không có quyền truy cập trang này. Xin mời ấn nút quay lại hoặc liên hệ quản trị viên!',
     'Username/Password invalid': 'Tên đăng nhập hoặc mật khẩu không đúng. Xin vui lòng thử lại',

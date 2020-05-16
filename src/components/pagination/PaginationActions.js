@@ -15,6 +15,7 @@ const classes = (theme) => makeStyles({
     },
     hellip: { padding: '1.2em' }
 });
+
 const PaginationActions = (props) => {
     /**
      * Warning: material-ui's page is 0-based

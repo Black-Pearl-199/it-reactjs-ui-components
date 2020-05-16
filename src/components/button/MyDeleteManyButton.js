@@ -5,9 +5,10 @@ import * as PropTypes from 'prop-types';
 import { startUndoable, useTranslate } from 'ra-core';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import { ITCrudDeleteMany } from '../../configurations/actions/CrudActions';
 
-export const MyDeleteManyButton = (props) => {
+const MyDeleteManyButton = (props) => {
     const translate = useTranslate();
     const dispatch = useDispatch();
     const dispatchCrudDeleteMany = ITCrudDeleteMany;
@@ -59,3 +60,5 @@ MyDeleteManyButton.propTypes = {
 MyDeleteManyButton.defaultProps = {
     undoable: false
 };
+
+export default MyDeleteManyButton;

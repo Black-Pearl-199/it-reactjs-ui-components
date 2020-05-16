@@ -1,7 +1,6 @@
-import pickBy from 'lodash/pickBy';
+import { pickBy } from 'lodash';
 import { parse } from 'query-string';
 import { createSelector } from 'reselect';
-import { inputValidate } from '../configurations/validation';
 
 export const cleanObject = (obj) => {
     const result = { ...obj };
@@ -105,32 +104,4 @@ export const selectQuery = createSelector(
     }
 );
 
-export const checkFormValidate = (form, translate, showNotification) => {
-    const invalid = {};
-    Object.keys(form).forEach((name) => {
-        const value = form[name];
-        if (
-            typeof value === 'string'
-            && inputValidate[name] !== undefined
-            && inputValidate[name].pattern
-        ) {
-            if (value && value.length > 0) {
-                const { pattern } = inputValidate[name];
-                if (!value.match(pattern)) {
-                    invalid[name] = `commons.message.invalid.${name}`;
-                }
-            } else invalid[name] = `commons.message.invalid.${name}`;
-        }
-    });
-
-    const formValidated = isEmpty(invalid);
-    if (!formValidated) {
-        const message = Object.values(invalid)
-            .map((msg) => translate(msg))
-            .join('\n');
-        showNotification('commons.message.error', 'warning', {
-            messageArgs: { error: message }
-        });
-    }
-    return formValidated;
-};
+export { default as Guardian } from './Guardian';

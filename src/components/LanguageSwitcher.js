@@ -12,6 +12,7 @@ const LanguageSwitcher = (props) => {
         variant,
         size,
         buttons,
+        localStorageKey,
         ...rest
     } = props;
     const translate = useTranslate();
@@ -22,7 +23,7 @@ const LanguageSwitcher = (props) => {
             event.preventDefault();
             event.stopPropagation();
             setLocale(languageKey);
-            localStorage.setItem('saveLocale', languageKey);
+            localStorage.setItem(localStorageKey, languageKey);
         },
         [setLocale]
     );
@@ -31,8 +32,7 @@ const LanguageSwitcher = (props) => {
         (e) => {
             e.preventDefault();
             e.stopPropagation();
-        },
-        []
+        }, []
     );
 
     return (
@@ -66,14 +66,16 @@ LanguageSwitcher.propTypes = {
     locale: string,
     id: string,
     size: string,
-    variant: string
+    variant: string,
+    localStorageKey: string
 };
 
 LanguageSwitcher.defaultProps = {
     buttons: [
         { eventKey: LOCALE_EN, text: 'English' },
         { eventKey: LOCALE_VI, text: 'Tiếng Việt' }
-    ]
+    ],
+    localStorageKey: 'saveLocale'
 };
 
 export default LanguageSwitcher;

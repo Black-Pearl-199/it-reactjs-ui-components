@@ -1,0 +1,4 @@
+src export-ignore
+configuration export-ignore
+yarn.lock export-ignore
+.* export-ignore

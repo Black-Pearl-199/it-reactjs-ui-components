@@ -2,15 +2,15 @@ import TablePagination from '@material-ui/core/TablePagination';
 import * as PropTypes from 'prop-types';
 import { sanitizeListRestProps } from 'ra-core';
 import React, { useEffect } from 'react';
-
 import { Responsive, useTranslate } from 'react-admin';
 import { pure } from 'recompose';
+
 import PaginationActions from './PaginationActions';
 import PaginationLimit from './PaginationLimit';
 
 const emptyArray = [];
 
-export const Pagination = pure((props) => {
+const Pagination = pure((props) => {
     const translate = useTranslate();
     const { page, setPage } = props;
     useEffect(() => {

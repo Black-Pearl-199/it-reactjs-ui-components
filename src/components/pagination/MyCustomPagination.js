@@ -1,16 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React from 'react';
+
 import { RedirectCreateButton } from '../button';
 import { paginationStyles } from '../MyCustomStyles';
-import { Pagination } from './Pagination';
+import Pagination from './Pagination';
 
 const sanitizeProps = ({
     setPage, setPerPage, perPage, page, total, ...rest
 }) => rest;
 const classes = makeStyles(paginationStyles);
 
-export const MyCustomPagination = ((props) => {
+const MyCustomPagination = ((props) => {
     // console.log('custom pagination', props)
     const {
         children, basePath, createBtn, ...rest

@@ -1,2 +1,2 @@
-export * from './MyCustomPagination';
-export * from './Pagination';
+export { default as MyCustomPagination } from './MyCustomPagination';
+export { default as Pagination } from './Pagination';

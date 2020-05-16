@@ -7,7 +7,7 @@ import { ITCrudUpdate, showEnhanceNotification } from '../../configurations';
 import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
 
-export const MyUpdateButton = (props) => {
+const MyUpdateButton = (props) => {
     const classes = makeStyles(buttonGreenStyles)();
     const translate = useTranslate();
     const dispatch = useDispatch();
@@ -118,3 +118,5 @@ MyUpdateButton.propTypes = {
     editing: PropTypes.bool,
     changeEditState: PropTypes.func
 };
+
+export default MyUpdateButton;

@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 // const sanitizeRestProps = ({basePath, classes, dispatchCrudDelete, filterValues, label, resource, selectedIds, startUndoable, undoable, redirect, translate, ...rest}) => rest;
 
-export const MyDeleteButton = (props) => {
+const MyDeleteButton = (props) => {
     const classes = useStyles(props);
     const translate = useTranslate();
     const dispatch = useDispatch();
@@ -110,3 +110,5 @@ MyDeleteButton.defaultProps = {
     undoable: false,
     icon: <ActionDelete />
 };
+
+export default MyDeleteButton;

@@ -24,7 +24,7 @@ const filterInSubs = (items, eventKey) => items
         return false;
     });
 
-export const SideBar = (props) => {
+const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
     const { items, collapse: collapseTemp } = props.config;
@@ -224,3 +224,5 @@ SideBar.propTypes = {
 SideBar.defaultProps = {
     resWidthHideSidebar: 1366
 };
+
+export default SideBar;

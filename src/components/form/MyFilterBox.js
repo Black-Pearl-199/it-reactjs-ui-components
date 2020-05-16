@@ -48,7 +48,7 @@ const MyFilterBox = (props) => {
     const dispatch = useDispatch();
     const translate = useTranslate();
     const {
-        hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, inputValidate, ...rest
+        hasClear, children, className, buttonClasses, initData, defaultSort, permanentFilter, inputValidate, invalidMessagePrefix, ...rest
     } = props;
 
     const checkFormValidate = () => {
@@ -65,12 +65,12 @@ const MyFilterBox = (props) => {
                     if (value.match(pattern)) {
                         //
                     } else {
-                        invalid[name] = `commons.message.invalid.${name}`;
+                        invalid[name] = `${invalidMessagePrefix}.${name}`;
                     }
                 }
             });
         } catch (e) {
-            console.error(e);
+            // console.error(e);
         }
 
         const formValidated = isEmpty(invalid);
@@ -90,7 +90,7 @@ const MyFilterBox = (props) => {
         } = props;
         let filter = {};
         const formFormat = convertValue ? convertValue(form) : form;
-        console.log('formFormat', formFormat);
+        // console.log('formFormat', formFormat);
 
         Object.keys(formFormat).forEach((field) => {
             const value = formFormat[field];
@@ -253,7 +253,8 @@ MyFilterBox.propTypes = {
     history: PropTypes.object,
     location: PropTypes.object,
     hasClear: PropTypes.bool,
-    inputValidate: PropTypes.object
+    inputValidate: PropTypes.object,
+    invalidMessagePrefix: PropTypes.string
 };
 
 MyFilterBox.defaultProps = {
@@ -261,7 +262,8 @@ MyFilterBox.defaultProps = {
     permanentFilter: {},
     initData: false,
     defaultSort: { field: 'id', order: SORT_DESC },
-    inputValidate: {}
+    inputValidate: {},
+    invalidMessagePrefix: 'validation.invalid.'
 };
 
 export default MyFilterBox;
