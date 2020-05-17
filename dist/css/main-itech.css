@@ -337,6 +337,10 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   background: #fff;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .field-inline div.ra-field > div {
   width: 100%;
   flex-direction: row;

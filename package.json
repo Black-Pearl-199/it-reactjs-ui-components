@@ -63,7 +63,7 @@
     "css-minify": "npm-run-all --parallel css-minify-*",
     "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/main-itech.min.css dist/css/main-itech.css",
     "css-prefix": "npm-run-all --parallel css-prefix-*",
-    "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"dist/css/*.min.css\"",
     "webpack": "npm-run-all --parallel webpack-*",
     "webpack-dev": "webpack --mode development --config configuration/webpack.config.js",
     "webpack-prod": "webpack --mode production --config configuration/webpack.config.js",
