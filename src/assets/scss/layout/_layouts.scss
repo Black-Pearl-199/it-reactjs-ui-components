@@ -1,9 +1,9 @@
 @import 'header';
-@import 'side-panel';
-@import "sidebar";
-@import "pageTop";
-@import "tabs";
 @import 'modal';
+@import 'pageTop';
+@import 'side-panel';
+@import 'sidebar';
+@import 'tabs';
 
 @include scrollbars(.5em, #d9d9d9, rgba(0, 0, 0, 0));
 
