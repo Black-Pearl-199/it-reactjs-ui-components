@@ -1,8 +1,8 @@
 import TablePagination from '@material-ui/core/TablePagination';
 import * as PropTypes from 'prop-types';
-import { sanitizeListRestProps } from 'ra-core';
+import { sanitizeListRestProps, Responsive, useTranslate } from 'react-admin';
 import React, { useEffect } from 'react';
-import { Responsive, useTranslate } from 'react-admin';
+
 import { pure } from 'recompose';
 
 import PaginationActions from './PaginationActions';

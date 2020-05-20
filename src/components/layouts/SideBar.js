@@ -9,8 +9,6 @@ import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-import version from '../../version';
-
 const findInSubs = (items, eventKey) => items
     .filter((item) => item.subs !== undefined)
     .find((item) => find(item.subs, { eventKey }) !== undefined);
@@ -27,7 +25,8 @@ const filterInSubs = (items, eventKey) => items
 const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
-    const { items, collapse: collapseTemp } = props.config;
+    const { children, config, ...rest } = props;
+    const { items, collapse: collapseTemp } = config;
     const [collapse, setCollapse] = useState(collapseTemp);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
     const [expandedKey, setExpandedKey] = useState((!!menuItemSubInitial && menuItemSubInitial.eventKey) || props.location.pathname);
@@ -193,6 +192,8 @@ const SideBar = (props) => {
         </div>
     );
 
+    const childrenWithProps = React.Children.map(children, (child) => (!!child && React.cloneElement(child, { ...rest })));
+
     return (
         <Nav
             as="aside"
@@ -208,9 +209,7 @@ const SideBar = (props) => {
                 </Button>
             </div>
             {menus}
-            <div className="version">
-                {`v${version}${process.env.REACT_APP_ENV}`}
-            </div>
+            {childrenWithProps}
         </Nav>
     );
 };

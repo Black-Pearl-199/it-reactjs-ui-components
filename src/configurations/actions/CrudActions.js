@@ -1,5 +1,5 @@
-import { CRUD_DELETE } from 'ra-core';
 import {
+    CRUD_DELETE,
     CREATE,
     CRUD_GET_LIST,
     DELETE,

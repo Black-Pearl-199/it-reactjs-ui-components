@@ -2,7 +2,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { startUndoable, useTranslate } from 'ra-core';
+import { startUndoable, useTranslate } from 'react-admin';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 

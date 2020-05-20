@@ -1,4 +1,4 @@
-import { SHOW_NOTIFICATION } from 'ra-core';
+import { SHOW_NOTIFICATION } from 'react-admin';
 
 /**
  *  @param message {String} : message for show

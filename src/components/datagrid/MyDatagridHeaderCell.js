@@ -4,7 +4,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { FieldTitle, useTranslate } from 'ra-core';
+import { FieldTitle, useTranslate } from 'react-admin';
 import React from 'react';
 import shouldUpdate from 'recompose/shouldUpdate';
 

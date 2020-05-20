@@ -5,7 +5,7 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { crudGetAll, useTranslate } from 'ra-core';
+import { crudGetAll, useTranslate } from 'react-admin';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';

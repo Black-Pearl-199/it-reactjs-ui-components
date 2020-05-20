@@ -17,7 +17,7 @@ import {
     GET_ONE,
     UPDATE,
     UPDATE_MANY
-} from 'ra-core';
+} from 'react-admin';
 import { all, call, cancelled, put, select, takeEvery } from 'redux-saga/effects';
 
 // import { checkTokenExpire, refreshToken } from '../resources/authProvider';

@@ -1,4 +1,4 @@
-import { FETCH_END, FETCH_ERROR, FETCH_START } from 'ra-core';
+import { FETCH_END, FETCH_ERROR, FETCH_START } from 'react-admin';
 import { call, takeEvery } from 'redux-saga/effects';
 import { ProgressBarManager } from '../../components/progressBar';
 

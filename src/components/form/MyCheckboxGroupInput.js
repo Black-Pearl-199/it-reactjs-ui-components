@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
 // import { makeStyles } from '@material-ui/core/styles';
-import { useInput } from 'ra-core';
+import { useInput } from 'react-admin';
 import React, { useCallback } from 'react';
 import MyCheckboxGroupInputItem from './MyCheckboxGroupInputItem';
 

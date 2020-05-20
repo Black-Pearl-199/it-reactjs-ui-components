@@ -5,7 +5,7 @@ import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import PropTypes from 'prop-types';
-import { FormContext, useNotify, useTranslate } from 'ra-core';
+import { FormContext, useNotify, useTranslate } from 'react-admin';
 import React, { cloneElement, useContext } from 'react';
 import { useForm } from 'react-final-form';
 

@@ -5,7 +5,7 @@ import { get } from 'lodash';
 import uniqBy from 'lodash/uniqBy';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import { useTranslate } from 'ra-core';
+import { useTranslate } from 'react-admin';
 import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
@@ -31,7 +31,7 @@ function onChangeRaw(e) {
             this.setSelected(null, e, true);
         }
     } catch (e) {
-        console.error(e);
+        // console.error(e);
     }
 }
 

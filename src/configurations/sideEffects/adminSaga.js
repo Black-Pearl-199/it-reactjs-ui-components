@@ -1,10 +1,4 @@
-import { undo } from 'ra-core';
-import accumulate from 'ra-core/esm/sideEffect/accumulate';
-import auth from 'ra-core/esm/sideEffect/auth';
-import callback from 'ra-core/esm/sideEffect/callback';
-import notification from 'ra-core/esm/sideEffect/notification';
-import redirection from 'ra-core/esm/sideEffect/redirection';
-import refresh from 'ra-core/esm/sideEffect/refresh';
+import { accumulateSaga, authSaga, callbackSaga, notificationSaga, redirectionSaga, refreshSaga, undo } from 'react-admin';
 import { all } from 'redux-saga/effects';
 
 import fetch from './fetch';
@@ -16,13 +10,13 @@ import fetch from './fetch';
  */
 export default (dataProvider, authProvider) => function* admin() {
     yield all([
-        auth(authProvider)(),
-        undo(),
+        authSaga(authProvider)(),
+        accumulateSaga(),
+        callbackSaga(),
         fetch(dataProvider)(),
-        accumulate(),
-        redirection(),
-        refresh(),
-        notification(),
-        callback()
+        notificationSaga(),
+        redirectionSaga(),
+        refreshSaga(),
+        undo()
     ]);
 };

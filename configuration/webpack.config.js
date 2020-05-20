@@ -6,7 +6,6 @@ module.exports = (env, argv) => {
     const config = {
         externals: {
             exceljs: 'exceljs',
-            'ra-core': 'ra-core',
             react: 'react',
             'react-admin': 'react-admin',
             'react-bootstrap': 'react-bootstrap',
@@ -84,13 +83,10 @@ module.exports = (env, argv) => {
             // https://webpack.js.org/configuration/output/#output-librarytarget
             libraryTarget: 'umd'
         },
-        // optimization: {
-        //     minimize: process.env // khi production thi de true - mac dinh -> se k debugger duoc, false - cho phep debugger
-        // },
+        optimization: {
+            minimize: argv.mode !== 'development'
+        },
         devtool: 'source-map'
-    };
-    config.optimization = {
-        minimize: argv.mode !== 'development'
     };
 
     return config;

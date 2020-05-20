@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types';
-import { useTranslate } from 'ra-core';
+import { useTranslate } from 'react-admin';
 import React, { useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useForm } from 'react-final-form';

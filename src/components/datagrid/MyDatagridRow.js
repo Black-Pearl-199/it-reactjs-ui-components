@@ -3,9 +3,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { linkToRecord } from 'ra-core';
+import { linkToRecord, DatagridCell } from 'react-admin';
 import React, { isValidElement, useEffect, useState } from 'react';
-import { DatagridCell } from 'react-admin';
+
 import { useDispatch } from 'react-redux';
 import { push } from 'react-router-redux';
 

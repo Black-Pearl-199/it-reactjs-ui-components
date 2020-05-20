@@ -5,7 +5,7 @@ import { debounce } from 'lodash';
 import isEmpty from 'lodash/isEmpty';
 import * as PropTypes from 'prop-types';
 import { stringify } from 'query-string';
-import { changeListParams, showNotification, useTranslate } from 'ra-core';
+import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-final-form';

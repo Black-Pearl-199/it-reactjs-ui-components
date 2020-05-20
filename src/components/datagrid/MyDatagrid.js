@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core/styles/index';
 import TableCell from '@material-ui/core/TableCell/index';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { sanitizeListRestProps } from 'ra-core/esm/index';
 import React, { Children, cloneElement, isValidElement } from 'react';
-import { DatagridLoading } from 'react-admin';
+import { DatagridLoading, sanitizeListRestProps } from 'react-admin';
 
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';

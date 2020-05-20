@@ -1,9 +1,9 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { useTranslate } from 'ra-core';
+import { useTranslate, Labeled, useInput, useReferenceInputController } from 'react-admin';
 import React, { Children, useEffect, useState } from 'react';
-import { Labeled, useInput, useReferenceInputController } from 'react-admin';
+
 import { useForm } from 'react-final-form';
 
 import ReferenceError from './ReferenceError';

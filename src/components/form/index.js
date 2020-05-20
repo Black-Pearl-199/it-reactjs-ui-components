@@ -1,4 +1,4 @@
-import { addField } from 'ra-core';
+import { addField } from 'react-admin';
 
 import _FormHeading from './FormHeading';
 import _MyBootstrapInput from './MyBootstrapInput';

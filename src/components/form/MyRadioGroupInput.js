@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { useTranslate } from 'ra-core';
+import { useTranslate } from 'react-admin';
 import React from 'react';
 
 const MyRadioGroupInput = (props) => {

@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { FormWithRedirect } from 'ra-core';
+import { FormWithRedirect, CardContentInner, FormInput, Toolbar } from 'react-admin';
 import React, { Children, useEffect } from 'react';
-import { CardContentInner, FormInput, Toolbar } from 'react-admin';
+
 
 const sanitizeRestProps = ({
     anyTouched,

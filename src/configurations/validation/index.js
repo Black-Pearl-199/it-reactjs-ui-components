@@ -1,4 +1,4 @@
-import { required } from 'ra-core';
+import { required } from 'react-admin';
 import {
     checkAccessTokenValiditySeconds,
     checkRefreshTokenValiditySeconds,
