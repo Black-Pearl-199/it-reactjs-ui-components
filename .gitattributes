@@ -2,3 +2,8 @@ src export-ignore
 configuration export-ignore
 yarn.lock export-ignore
 .* export-ignore
+
+*.css text
+*.scss text
+*.html text
+*.js text

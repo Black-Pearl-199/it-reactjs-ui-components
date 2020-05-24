@@ -23,11 +23,11 @@
 
 	&-info {
 		& .msg-head {
-			color: $main-green;
+			color: $main-color;
 		}
 
 		& .msg-body {
-			border-color: $main-green-dark;
+			border-color: $main-color-dark;
 			background-color: $form-background-color-focus;
 		}
 	}

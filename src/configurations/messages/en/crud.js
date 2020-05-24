@@ -22,7 +22,8 @@ export default {
             show: 'Show',
             sort: 'Sort',
             undo: 'Undo',
-            exportExcel: 'Export Excel'
+            exportExcel: 'Export Excel',
+            editDelete: 'Edit / Delete'
         },
         page: {
             create: 'Create new %{name}',
@@ -61,7 +62,7 @@ export default {
                 'Are you sure you want to delete this %{name}? |||| Are you sure you want to delete these %{smart_count} items?',
             bulk_delete_title:
                 'Delete %{name} |||| Delete %{smart_count} %{name} items',
-            delete_content: 'Are you sure you want to delete this item?',
+            delete_content: 'Are you sure you want to delete this %{resource_name}?',
             delete_title: 'Delete %{name} #%{id}',
             details: 'Details',
             error:

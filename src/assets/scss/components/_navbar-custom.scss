@@ -35,7 +35,7 @@
 	}
 
 	&:hover {
-		background-color: $main-green-lighter-1;
+		background-color: $main-color-lighter-1;
 	}
 
 	.nav-link {
@@ -106,16 +106,16 @@
 
 .nav.nav-pills.nav-iTech {
 	a {
-		color: $main-green;
+		color: $main-color;
 
 		&:hover {
-			color: $main-green-hover;
+			color: $main-color-hover;
 			background-color: $green-input-form-selection;
 		}
 
 		&.active {
 			color: white;
-			background-color: $main-green;
+			background-color: $main-color;
 
 			:hover {
 				background-color: $green-input-form-selection;

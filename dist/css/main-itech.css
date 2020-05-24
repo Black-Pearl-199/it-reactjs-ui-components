@@ -774,7 +774,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .table-striped tbody tr {
   /*&:hover {
-				background: $main-green-lighter-1;
+				background: $main-color-lighter-1;
 				color: $white;
 				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
 			}*/
@@ -1905,12 +1905,12 @@ h1, h2, h3, h4, h5, h6 {
   --text-color: #2E3E47;
   --grey-background: #E5E5E5;
   --modal-itech-background: #F7F9FC;
-  --main-green-opacity: rgba(55, 107, 81, 0.1);
-  --main-green: #376B51;
-  --main-green-hover: #2C5641;
-  --main-green-lighter: #6c7770;
-  --main-green-lighter-1: #c8e7d2;
-  --main-green-dark: #376B51;
+  --main-color-opacity: rgba(55, 107, 81, 0.1);
+  --main-color: #376B51;
+  --main-color-hover: #2C5641;
+  --main-color-lighter: #6c7770;
+  --main-color-lighter-1: #c8e7d2;
+  --main-color-dark: #376B51;
   --green-text-selection: #76B194;
   --green-input-form-selection: rgba(33, 156, 119, 0.1);
   --cyan: #455F6D;

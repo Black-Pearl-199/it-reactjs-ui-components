@@ -10318,10 +10318,10 @@ quick-lru@^4.0.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g==
 
-react-admin@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-3.5.2.tgz#deb21ff11b5302fabe0255cde6d7e080b46c98b1"
-  integrity sha512-cbDCpurhXnHe1wyq9NLPEPWPABXH7/qPgoChPL+0b5jbzEEC6RciLSlqaGkQ1fC/gq6x7mlWzduPI2qCSY3uvg==
+ra-core@^3.5.2:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/ra-core/-/ra-core-3.5.3.tgz#719632f5cfacbf93dd81764cb6a929349937ca8d"
+  integrity sha512-PDrWkCYZFIeGrNCThUNwQY713ZTIYQmxSY4ELMIrXb2jNZtTo7AADpuweTeztNJZ2JjE4miQXFwXXhu6z8oZXQ==
   dependencies:
     "@testing-library/react" "^8.0.7"
     classnames "~2.2.5"
@@ -10340,14 +10340,14 @@ ra-i18n-polyglot@^3.3.0, ra-i18n-polyglot@^3.5.2:
   integrity sha512-aEU5+UPgbQuYDaxCmNqfm4bxey3dj8QyyBd7DiF8yazOPQjU+pffsKoVzTxUbGSc0J6Rh25MYbRSxiAwOiNdvQ==
   dependencies:
     node-polyglot "^2.2.2"
-    react-admin "^3.5.2"
+    ra-core "^3.5.2"
 
 ra-language-english@^3.2.0, ra-language-english@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-3.5.2.tgz#f2f97f7107e800d24128d0aeefcc8c3a89db01e4"
   integrity sha512-4DbjI+0joTxVp5C4s8vr5Kkh9Xl+hpgtZCBYjherkKTj00BwXFFTMKYt0+70UkFLOnt/k4BOpxznavTSkdRRoQ==
   dependencies:
-    react-admin "^3.5.2"
+    ra-core "^3.5.2"
 
 ra-language-vietnamese@^2.0.0:
   version "2.0.0"
@@ -10421,7 +10421,7 @@ react-admin@^3.5.2:
     connected-react-router "^6.5.2"
     final-form "^4.18.5"
     final-form-arrays "^3.0.1"
-    react-admin "^3.5.2"
+    ra-core "^3.5.2"
     ra-i18n-polyglot "^3.5.2"
     ra-language-english "^3.5.2"
     ra-ui-materialui "^3.5.2"

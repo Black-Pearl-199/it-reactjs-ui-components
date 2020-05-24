@@ -22,7 +22,8 @@ export default {
             clear_input_value: 'Xóa giá trị',
             clone: 'Nhân bản',
             confirm: 'Xác nhận',
-            exportExcel: 'Xuất Excel'
+            exportExcel: 'Xuất Excel',
+            editDelete: 'Sửa / Xóa'
         },
         page: {
             list: 'Danh sách %{name}',
@@ -64,7 +65,7 @@ export default {
             loading: 'Trang web đang tải, vui lòng đợi trong giây lát',
             invalid_form: 'Dữ liệu nhập không đúng. Vui lòng kiểm tra lại',
             delete_title: 'Xóa %{name} #%{id}',
-            delete_content: 'Bạn có chắc chắn muốn xóa vật phẩm này?',
+            delete_content: 'Bạn có chắc chắn muốn xóa %{resource_name} này?',
             details: 'Chi tiết',
             error: 'Đã xảy ra lỗi ở phía người dùng và yêu cầu của bạn không thể hoàn thành.',
             bulk_delete_title:

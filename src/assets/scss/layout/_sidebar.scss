@@ -32,7 +32,7 @@ $angle-right: "\f101";
 		color: $sidebar-text;
 
 		&:hover {
-			background-color: $main-green-hover;
+			background-color: $main-color-hover;
 		}
 
 		&:focus {
@@ -68,7 +68,7 @@ $angle-right: "\f101";
 	@include transition($transitionTime, ease, width);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: $main-green-hover;
+		background-color: $main-color-hover;
 
 		a.sidebar-list-link {
 			color: $sidebar-text;
@@ -82,11 +82,11 @@ $angle-right: "\f101";
 	&:not(.with-sub-menu), .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
-				background-color: $main-green-hover;
+				background-color: $main-color-hover;
 				color: $sidebar-text;
 
 				&:hover {
-					background-color: $main-green-hover;
+					background-color: $main-color-hover;
 				}
 			}
 		}
@@ -95,11 +95,11 @@ $angle-right: "\f101";
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: $main-green-hover;
+				background-color: $main-color-hover;
 				color: $sidebar-text;
 
 				&:hover {
-					background-color: $main-green-hover;
+					background-color: $main-color-hover;
 				}
 			}
 		}
@@ -163,7 +163,7 @@ a.sidebar-list-link {
 	@include transition($transitionTime, ease, width);
 
 	&:hover {
-		background-color: $main-green-hover;
+		background-color: $main-color-hover;
 
 		// b {
 			//background-color: $green-itech-light;
@@ -254,13 +254,13 @@ a.sidebar-list-link {
 			line-height: $sidebar-item-height;
 
 			&:hover {
-				background-color: $main-green-hover !important;
+				background-color: $main-color-hover !important;
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
-			background-color: $main-green-hover;
+			background-color: $main-color-hover;
 
 			&:hover {
 				color: $sidebar-text;
@@ -270,7 +270,7 @@ a.sidebar-list-link {
 		&:not(.with-sub-menu) {
 			a.sidebar-list-link {
 				&.selected {
-					background-color: $main-green-hover;
+					background-color: $main-color-hover;
 					color: $sidebar-text;
 				}
 			}
@@ -284,7 +284,7 @@ a.sidebar-list-link {
 
 .sidebar-hover-elem {
 	width: 4px;
-	background: $main-green-hover;
+	background: $main-color-hover;
 	position: absolute;
 	top: -150px;
 	left: $sidebar-width - 4px;
