@@ -2,7 +2,6 @@ import button from './button';
 import commons from './commons';
 import crud from './crud';
 import msgBox from './msgBox';
-import sidebar from './sidebar';
 
 export default {
     // ...defaultMessages,
@@ -10,7 +9,6 @@ export default {
     language: {
         name: 'English'
     },
-    sidebar,
     commons,
     msgBox,
     button,

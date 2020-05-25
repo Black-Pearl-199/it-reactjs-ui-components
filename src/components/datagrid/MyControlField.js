@@ -1,12 +1,14 @@
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { showNotification, useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 import { ITCrudDelete } from '../../configurations';
+import { preventDefaultOnClick, getNotificationName } from '../../utils';
 import MyIconButton from '../button/MyIconButton';
 import { NOTIFICATION_TYPE } from '../messageBox';
 
@@ -14,7 +16,7 @@ const MyControlField = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const translate = useTranslate();
-    const { hasEdit, hasDelete, basePath, resource, record, urlFormat, deleteMessage } = props;
+    const { className, hasEdit, hasDelete, basePath, resource, record, urlFormat, deleteMessage, getNotificationName } = props;
     const { id } = record;
 
     let url = '';
@@ -23,7 +25,9 @@ const MyControlField = (props) => {
     } else {
         url = `${basePath}/${id}/edit`;
     }
-    const resourceName = translate(`resources.${resource}.name`);
+
+    const resourceName = getNotificationName(record, resource, translate);
+
     const editCallback = useCallback(() => {
         history.push(url);
     }, []);
@@ -47,13 +51,15 @@ const MyControlField = (props) => {
                         }
                     }
                 ],
-                resource_name: resourceName
+                messageArgs: {
+                    resourceName
+                }
             })
         );
     }, []);
 
     return (
-        <div className="d-flex">
+        <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>
             {hasEdit && (
                 <MyIconButton popLabel="ra.action.edit" onClick={editCallback} className={hasDelete && 'mr-1'}>
                     <FontAwesomeIcon icon={faEdit} />
@@ -77,14 +83,16 @@ MyControlField.propTypes = {
     urlFormat: PropTypes.func,
     deleteMessage: PropTypes.string,
     // eslint-disable-next-line react/no-unused-prop-types
-    label: PropTypes.string
+    label: PropTypes.string,
+    getNotificationName: PropTypes.func
 };
 
 MyControlField.defaultProps = {
     hasEdit: true,
     hasDelete: true,
-    deleteMessage: 'ra.message.delete_content',
-    label: 'ra.action.editDelete'
+    deleteMessage: 'commons.message.delete',
+    label: 'ra.action.editDelete',
+    getNotificationName
 };
 
 export default MyControlField;

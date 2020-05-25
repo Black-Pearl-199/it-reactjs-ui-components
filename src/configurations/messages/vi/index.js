@@ -2,15 +2,12 @@ import button from './button';
 import commons from './commons';
 import crud from './crud';
 import msgBox from './msgBox';
-import sidebar from './sidebar';
 
 export default {
-    // ...defaultMessages,
     ...crud,
     language: {
         name: 'Tiếng Việt'
     },
-    sidebar,
     msgBox,
     commons,
     button,

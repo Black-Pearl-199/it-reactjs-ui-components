@@ -42,7 +42,7 @@ export const hasCustomParams = (params) => (params
         || params.perPage != null
         || params.sort != null));
 
-export const notificationName = (recordForm, resource, translate) => `${translate(`resources.${resource}.name`)}`;
+export const getNotificationName = (record, resource, translate) => `${translate(`resources.${resource}.name`)}`;
 
 /**
  * Inspect an object and check values of all attributes,
@@ -105,3 +105,8 @@ export const selectQuery = createSelector(
 );
 
 export { default as Guardian } from './Guardian';
+
+export const preventDefaultOnClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+};
