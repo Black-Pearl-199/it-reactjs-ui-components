@@ -4,8 +4,11 @@ module.exports = {
         es6: true,
     },
     extends: [
+        'eslint:recommended',
         'plugin:react/recommended',
         'airbnb',
+        'react-app',
+        'plugin:react-hooks/recommended'
     ],
     globals: {
         Atomics: 'readonly',
@@ -27,6 +30,7 @@ module.exports = {
         "import/prefer-default-export": "warn",
         "indent": ["warn", 4, {"SwitchCase": 1}],
         "func-names": "off",
+        "linebreak-style": "off",
         "max-len": "off",
         "no-case-declarations": "off",
         "no-shadow": "off",
