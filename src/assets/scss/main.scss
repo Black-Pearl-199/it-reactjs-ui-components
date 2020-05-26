@@ -1,0 +1,176 @@
+@import 'abstracts/abstracts';
+@import 'components/components';
+@import 'layout/layouts';
+@import 'pages/pages';
+
+body {
+	font-family: $font-family;
+	font-size: 1rem !important;
+	color: $text-color;
+	background: $grey-light;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.row-reverse {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.label-required::after {
+	color: $red;
+	content: '*';
+}
+
+input.ng-dirty.ng-invalid {
+	border-color: $red-1-light;
+}
+
+.field-message {
+	display: inline-block;
+	color: $red-1-light;
+	font-size: 90%;
+	transition: 1s linear all;
+}
+
+.btn-icon[itech-toggle-menu] {
+	background-color: $grey-dark;
+	color: $white;
+
+	&:hover, &:active {
+		background-color: $green-itech-light;
+		color: $white;
+	}
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-family;
+	//width: 100%;
+	margin-top: 0;
+}
+
+:root {
+	font-size: 100%;
+
+	body {
+		margin: 0;
+		font-size: 1rem;
+	}
+
+	// ---------------------COLOR------------------------
+	--green-itech-1-dark: #{$green-itech-1-dark};
+	--green-itech-dark: #{$green-itech-dark};
+	--green-itech-dark-half-opacity: #{$green-itech-dark-half-opacity};
+	--green-itech-light: #{$green-itech-light};
+	--green-itech-light-half-opacity: #{$green-itech-light-half-opacity};
+	// --reen-itech-normal:;
+	// --reen-itech-dark:;
+	--white-half-opacity: #{$white-half-opacity};
+	--black-half-opacity: #{$black-half-opacity};
+	--black: #{$black};
+	--grey-1-light: #{$grey-1-light};
+	--grey-normal: #{$grey-normal};
+	--grey-normal-opacity: #{$grey-normal-opacity};
+	--grey-normal-opacity-hover: #{$grey-normal-opacity-hover};
+	--grey-dark: #{$grey-dark};
+	--red: #{$red};
+	--red-1-light: #{$red-1-light};
+
+	--default-text: #{$default-text};
+	--input-background: #{$input-background};
+
+	// --------------------- NEW COLOR RE-DESIGN------------------------
+	--form-background-color: #{$form-background-color};
+	--form-background-color-focus: #{$form-background-color-focus};
+	--text-color: #{$text-color};
+	--grey-background: #{$grey-background};
+	--modal-itech-background: #{$modal-itech-background};
+
+	--main-color-opacity: #{$main-color-opacity};
+	--main-color: #{$main-color};
+	--main-color-hover: #{$main-color-hover};
+	--main-color-lighter: #{$main-color-lighter};
+	--main-color-lighter-1: #c8e7d2;
+	--main-color-dark: #{$main-color-dark};
+	--green-text-selection: #{$green-text-selection};
+	--green-input-form-selection: #{$green-input-form-selection};
+	--cyan: #{$cyan};
+	--cyan-lighter: #{$cyan-lighter};
+	--grey-light: #{$grey-light};
+	--grey-1: #cccccc;
+	--grey-2: #e0e0e0;
+	--black-opacity: #{$black-opacity};
+	--orange: #{$orange};
+	--orange-light-1: #f8b06d;
+
+	--white: #{$white};
+
+	--info-title: #{$info-title};
+	//--primary: #{$primary};
+	--info: #{$info};
+	--success: #{$success};
+	--warning: #{$warning};
+	--danger: #{$danger};
+
+	--facebook-color: #{$facebook-color};
+	--twitter-color: #{$twitter-color};
+	--google-color: #{$google-color};
+	--linkedin-color: #{$linkedin-color};
+	--github-color: #{$github-color};
+	--stackoverflow-color: #{$stackoverflow-color};
+	--dribble-color: #{$dribble-color};
+	--behace-color: #{$behace-color};
+
+	--sidebar: #{$sidebar};
+	--sidebar-text: #{$sidebar-text};
+	--sidebar-item-height: #{$sidebar-item-height};
+	--sidebar-width: #{$sidebar-width};
+	--sidebar-width-collapse: #{$sidebar-width-collapse};
+	--sidebar-item-pad-left: #{$sidebar-item-pad-left};
+
+	--warning-border: #{$warning-border};
+	--warning-background: #{$warning-background};
+	--warning-head: #{$warning-head};
+
+	--top-height: #{$top-height};
+	//--top-height: #{$top-height};
+	--tab-height: #{$tab-height};
+	--footer-height: #{$footer-height};
+	--delete-box-height: #{$delete-box-height};
+
+	--transitionTime: #{$transitionTime};
+
+	//pagination
+	--paginationBtnWidth: #{$paginationBtnWidth};
+	--paginationBtnHeight: #{$paginationBtnHeight};
+
+	--fontSize875: 14px;
+
+	// ---------------------SHADOW------------------------
+
+	--shadow: #{$shadow};
+
+	// ---------------------DIRECTORY PATH----------------
+
+	--font-family: #{$font-family};
+	--font-thin: #{$font-thin};
+	--font-light: #{$font-light};
+	--font-normal: #{$font-normal};
+	--font-bold: #{$font-bold};
+	--font-ultraBold: #{$font-ultraBold};
+}
+
+.h-0 {
+	height: 0 !important;
+}
+
+.itech-tooltip {
+	word-wrap: break-word;
+	pointer-events: none;
+}

@@ -14,7 +14,7 @@ const RevertEditButton = (props) => {
         form.setConfig('keepDirtyOnReinitialize', false);
         form.reset();
         form.setConfig('keepDirtyOnReinitialize', true);
-    }, [changeEditState]);
+    }, [changeEditState, form]);
 
     return (
         <Button

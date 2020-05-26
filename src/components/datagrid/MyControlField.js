@@ -30,7 +30,7 @@ const MyControlField = (props) => {
 
     const editCallback = useCallback(() => {
         history.push(url);
-    }, []);
+    }, [history, url]);
 
     const deleteCallback = useCallback(() => {
         dispatch(
@@ -56,7 +56,7 @@ const MyControlField = (props) => {
                 }
             })
         );
-    }, []);
+    }, [basePath, deleteMessage, dispatch, id, record, resource, resourceName]);
 
     return (
         <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>

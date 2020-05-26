@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { FormWithRedirect, CardContentInner, FormInput, Toolbar } from 'react-admin';
 import React, { Children, useEffect } from 'react';
 
-
 const sanitizeRestProps = ({
     anyTouched,
     array,
@@ -139,7 +138,7 @@ const SimpleFormView = ({
         if (setFormRef) {
             setFormRef(rest.form);
         }
-    }, []);
+    }, [setFormRef, rest.form]);
 
     return (
         <form

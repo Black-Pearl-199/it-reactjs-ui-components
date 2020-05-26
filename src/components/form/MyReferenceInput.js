@@ -78,23 +78,6 @@ const ReferenceInputView = (props) => {
     if (Children.count(children) !== 1) {
         throw new Error('<ReferenceInput> only accepts a single child');
     }
-    if (loading) {
-        return (
-            <Labeled
-                label={label}
-                source={source}
-                resource={resource}
-                className={className}
-                isRequired={isRequired}
-            >
-                <LinearProgress />
-            </Labeled>
-        );
-    }
-
-    if (error) {
-        return <ReferenceError label={label} error={error} />;
-    }
 
     const [firstInit, setFirstInit] = useState(true);
     const form = useForm();
@@ -117,6 +100,24 @@ const ReferenceInputView = (props) => {
             // if (change) change(REDUX_FORM_NAME, source, value);
         }
     }, [firstInit, loading, rest, source, form, choices, defaultValue]);
+
+    if (loading) {
+        return (
+            <Labeled
+                label={label}
+                source={source}
+                resource={resource}
+                className={className}
+                isRequired={isRequired}
+            >
+                <LinearProgress />
+            </Labeled>
+        );
+    }
+
+    if (error) {
+        return <ReferenceError label={label} error={error} />;
+    }
 
     const finalMeta = warning
         ? {

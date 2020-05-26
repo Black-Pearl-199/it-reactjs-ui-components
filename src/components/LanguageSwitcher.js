@@ -25,7 +25,7 @@ const LanguageSwitcher = (props) => {
             setLocale(languageKey);
             localStorage.setItem(localStorageKey, languageKey);
         },
-        [setLocale]
+        [localStorageKey, setLocale]
     );
 
     const fixPropagationEvent = useCallback(

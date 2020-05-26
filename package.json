@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -60,7 +60,7 @@
     "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
     "css-lint-main": "stylelint \"assets/scss/**/*.scss\" --cache --cache-location .cache/.stylelintcache",
     "css-minify": "npm-run-all --parallel css-minify-*",
-    "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/main-itech.min.css dist/css/main-itech.css",
+    "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/main.min.css dist/css/main.css",
     "css-prefix": "npm-run-all --parallel css-prefix-*",
     "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"dist/css/*.min.css\"",
     "webpack": "npm-run-all --parallel webpack-*",
@@ -100,8 +100,8 @@
     "eslint-plugin-flowtype": "4.6.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
     "jest": "24.9.0",

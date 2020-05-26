@@ -2,12 +2,14 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { find } from 'lodash';
+import { debounce, find } from 'lodash';
 import * as PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+
+import { useOnClickOutside } from '../../configurations/hooks';
 
 const findInSubs = (items, eventKey) => items
     .filter((item) => item.subs !== undefined)
@@ -25,7 +27,7 @@ const filterInSubs = (items, eventKey) => items
 const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
-    const { children, config, ...rest } = props;
+    const { children, config, resWidthHideSidebar, ...rest } = props;
     const { items, collapse: collapseTemp } = config;
     const [collapse, setCollapse] = useState(collapseTemp);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
@@ -35,22 +37,18 @@ const SideBar = (props) => {
         setCollapse(!collapse);
     };
 
-    let onResize;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const checkSideBarCollapse = useCallback(debounce(() => {
+        if (window.innerWidth <= resWidthHideSidebar) setCollapse(true);
+    }, 300), [resWidthHideSidebar]);
 
-    const checkSideBarCollapse = () => {
-        const isViewer = props.location.pathname.startsWith('/viewer');
+    useEffect(() => {
+        document.addEventListener('resize', checkSideBarCollapse);
 
-        if (onResize) clearTimeout(onResize);
-        onResize = setTimeout(() => {
-            if (
-                isViewer
-                || (!collapse && window.innerWidth <= props.resWidthHideSidebar)
-            ) {
-                setCollapse(true);
-            }
-            onResize = undefined;
-        }, 200);
-    };
+        return () => {
+            document.removeEventListener('resize', checkSideBarCollapse);
+        };
+    }, [checkSideBarCollapse]);
 
     const menuSelect = (e) => {
         // console.log(e.currentTarget.dataset['eventKey']);
@@ -83,36 +81,8 @@ const SideBar = (props) => {
         }
     };
 
-    // Hook
-    const useOnClickOutside = (ref, handler) => {
-        useEffect(
-            () => {
-                const listener = (event) => {
-                    // Do nothing if clicking ref's element or descendent elements
-                    if (!ref.current || ref.current.contains(event.target)) {
-                        return;
-                    }
-                    checkSideBarCollapse();
-                };
-
-                document.addEventListener('resize', listener);
-
-                return () => {
-                    document.removeEventListener('resize', listener);
-                };
-            },
-            // Add ref and handler to effect dependencies
-            // It's worth noting that because passed in handler is a new ...
-            // ... function on every render that will cause this effect ...
-            // ... callback/cleanup to run every render. It's not a big deal ...
-            // ... but to optimize you can wrap handler in useCallback before ...
-            // ... passing it into this hook.
-            [ref, handler]
-        );
-    };
-
     // Call hook passing in the ref and a function to call on outside click
-    useOnClickOutside(ref, () => toggleCollapse());
+    useOnClickOutside(ref, checkSideBarCollapse);
 
     const menus = (
         <div ref={ref}>

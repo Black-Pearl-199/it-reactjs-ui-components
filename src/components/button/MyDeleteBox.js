@@ -19,7 +19,7 @@ const MyDeleteBox = ({ ...props }) => {
 
     const onReasonChange = useCallback((e) => {
         setInputValue({ ...inputValue, ...e });
-    }, []);
+    }, [inputValue]);
 
     const showConfirm = useCallback((e) => {
         e.preventDefault();

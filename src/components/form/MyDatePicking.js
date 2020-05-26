@@ -54,12 +54,13 @@ const MyDatePicking = (props) => {
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
     const [showInput, setShowInput] = useState(false);
 
+    const { inputValue } = props;
+
     useEffect(() => {
         let todayStart = new Date();
         todayStart.setHours(0, 0, 0, 0);
         let todayEnd = new Date();
         todayEnd.setHours(23, 59, 59, 999);
-        const { inputValue } = props;
         const thisMonthStart = moment(todayStart).startOf('month').toDate();
         const lastMonthStart = moment(add(thisMonthStart, -2)).startOf('month').toDate();
         if (inputValue) {
@@ -109,7 +110,7 @@ const MyDatePicking = (props) => {
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
-    }, []);
+    }, [inputValue, formatDate, endDateName, startDateName]);
 
     const changeInput = (newInputValues) => {
         let startDate = newInputValues[startDateName];
