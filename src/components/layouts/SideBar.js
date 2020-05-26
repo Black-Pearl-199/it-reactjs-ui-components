@@ -28,27 +28,25 @@ const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
     const { children, config, resWidthHideSidebar, ...rest } = props;
-    const { items, collapse: collapseTemp } = config;
-    const [collapse, setCollapse] = useState(collapseTemp);
+    const { items, collapse: collapseInit } = config;
+    const [collapse, setCollapse] = useState(collapseInit);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
     const [expandedKey, setExpandedKey] = useState((!!menuItemSubInitial && menuItemSubInitial.eventKey) || props.location.pathname);
 
-    const toggleCollapse = () => {
+    const toggleCollapse = useCallback(() => {
         setCollapse(!collapse);
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const checkSideBarCollapse = useCallback(debounce(() => {
-        if (window.innerWidth <= resWidthHideSidebar) setCollapse(true);
-    }, 300), [resWidthHideSidebar]);
+    }, [collapse]);
 
     useEffect(() => {
-        document.addEventListener('resize', checkSideBarCollapse);
+        const checkSideBarCollapse = debounce(() => {
+            if (window.innerWidth <= resWidthHideSidebar) setCollapse(true);
+        }, 300);
+        window.addEventListener('resize', checkSideBarCollapse);
 
         return () => {
-            document.removeEventListener('resize', checkSideBarCollapse);
+            window.removeEventListener('resize', checkSideBarCollapse);
         };
-    }, [checkSideBarCollapse]);
+    }, [resWidthHideSidebar]);
 
     const menuSelect = (e) => {
         // console.log(e.currentTarget.dataset['eventKey']);
@@ -82,7 +80,10 @@ const SideBar = (props) => {
     };
 
     // Call hook passing in the ref and a function to call on outside click
-    useOnClickOutside(ref, checkSideBarCollapse);
+    const clickOutsideCallback = useCallback(() => {
+        if (!collapse && window.innerWidth <= resWidthHideSidebar) setCollapse(true);
+    }, [collapse, resWidthHideSidebar]);
+    useOnClickOutside(ref, clickOutsideCallback);
 
     const menus = (
         <div ref={ref}>
