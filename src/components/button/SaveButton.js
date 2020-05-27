@@ -3,10 +3,10 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
-import { FormContext, useNotify, useTranslate } from 'react-admin';
 import React, { cloneElement, useContext } from 'react';
+import { FormContext, useNotify, useTranslate } from 'react-admin';
 import { useForm } from 'react-final-form';
 
 const SaveButton = (props) => {
@@ -83,11 +83,7 @@ const SaveButton = (props) => {
             {...sanitizeRestProps(rest)}
         >
             {saving ? (
-                <CircularProgress
-                    size={18}
-                    thickness={2}
-                    className={classes.leftIcon}
-                />
+                <CircularProgress size={18} thickness={2} className={classes.leftIcon} />
             ) : (
                 cloneElement(icon, {
                     className: classnames(classes.leftIcon, classes.icon)
@@ -115,14 +111,7 @@ const useStyles = makeStyles(
     { name: 'RaSaveButton' }
 );
 
-const sanitizeRestProps = ({
-    basePath,
-    handleSubmit,
-    record,
-    resource,
-    undoable,
-    ...rest
-}) => rest;
+const sanitizeRestProps = ({ basePath, handleSubmit, record, resource, undoable, ...rest }) => rest;
 
 SaveButton.propTypes = {
     className: PropTypes.string,
@@ -132,11 +121,7 @@ SaveButton.propTypes = {
     invalid: PropTypes.bool,
     label: PropTypes.string,
     pristine: PropTypes.bool,
-    redirect: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.func
-    ]),
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     saving: PropTypes.bool,
     submitOnEnter: PropTypes.bool,
     variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
