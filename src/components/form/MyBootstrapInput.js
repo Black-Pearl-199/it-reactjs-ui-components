@@ -10,6 +10,7 @@ import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
+import * as queryString from 'query-string';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
 registerLocale('vi', vi);
@@ -41,7 +42,7 @@ const renderInput = ({
     inputId, translatedLabel, composeInputClasses, ...props
 }) => {
     const {
-        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, ...rest
+        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, groupClasses, ...rest
     } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
@@ -53,6 +54,7 @@ const renderInput = ({
         defaultValue = (component === 'input' && type !== 'checkbox') ? '' : undefined;
     }
     let inputValue = value !== undefined ? value : defaultValue;
+    const { optionText = 'name', optionValue = 'id' } = props;
     switch (component) {
         case 'input':
             if (type === 'checkbox') {
@@ -74,6 +76,38 @@ const renderInput = ({
                         >
                             {translatedLabel}
                         </label>
+                    </div>
+                );
+            }
+            // checkbox group
+            if (type === 'checkbox-group') {
+                return (
+                    <div
+                        name={source}
+                        id={inputId}
+                        value={inputValue}
+                        className={classNames('d-flex justify-content-between mx-3', composeInputClasses)}
+                        title={translatedLabel}
+                        {...sanitizeProps}
+                        disabled={sanitizeProps.readOnly}
+                        placeholder={!hideLabel ? translatedLabel : null}
+                    >
+                        {uniqBy(choices, optionValue)
+                            .map((choice, index) => (
+                                <div className={groupClasses || 'formcheck'} key={index}>
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value={choice[optionValue]}
+                                        checked={inputValue.includes(choice[optionValue])}
+                                        key={index}
+                                        id={index}
+                                    />
+                                    <label className="form-check-label mr-2" htmlFor={index}>
+                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                    </label>
+                                </div>
+                            ))}
                     </div>
                 );
             }
@@ -104,7 +138,7 @@ const renderInput = ({
             );
         case 'select':
             // remove duplicate choices
-            const { optionText = 'name', optionValue = 'id' } = props;
+            // const { optionText = 'name', optionValue = 'id' } = props;
             // {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
             let showText = null;
             if (hideLabel === true) showText = translatedLabel;
@@ -183,7 +217,8 @@ renderInput.propTypes = {
     defaultValue: PropTypes.any,
     optionText: PropTypes.string,
     optionValue: PropTypes.string,
-    translate: PropTypes.func
+    translate: PropTypes.func,
+    groupClasses: PropTypes.string
 };
 
 // input not null khi sử dụng ReferenceInput
@@ -224,6 +259,24 @@ const MyBootstrapInput = (props) => {
                 }
                 newValue = newValue.format(formatDate);
             } else newValue = undefined;
+        } else if (component === 'input' && type === 'checkbox-group') {
+            const params = queryString.parse(props.location.search);
+            const { filter } = params;
+            const filterObject = filter ? JSON.parse(filter) : {};
+            const checkboxValue = filterObject[source] || [];
+            const { target } = e;
+            newValue = checkboxValue;
+            let flag = false;
+            // eslint-disable-next-line array-callback-return
+            checkboxValue.forEach((checkbox, index) => {
+                if (checkbox === target.value && !target.checked) {
+                    newValue.splice(index, 1);
+                    flag = true;
+                }
+            });
+            if (!flag) {
+                newValue.push(target.value);
+            }
         } else {
             const { target } = e;
             if (target.type !== 'checkbox') newValue = target.value;
@@ -291,7 +344,8 @@ MyBootstrapInput.propTypes = {
     convertValue: PropTypes.func,
     input: PropTypes.any,
     formClassName: PropTypes.string,
-    formatDate: PropTypes.string
+    formatDate: PropTypes.string,
+    location: PropTypes.object
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
