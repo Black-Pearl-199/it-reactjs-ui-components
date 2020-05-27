@@ -11,9 +11,7 @@ import { NavLink } from 'react-router-dom';
 
 import { useOnClickOutside } from '../../configurations/hooks';
 
-const findInSubs = (items, eventKey) => items
-    .filter((item) => item.subs !== undefined)
-    .find((item) => find(item.subs, { eventKey }) !== undefined);
+const findInSubs = (items, eventKey) => items.filter((item) => item.subs !== undefined).find((item) => find(item.subs, { eventKey }) !== undefined);
 const filterInSubs = (items, eventKey) => items
     .filter((item) => item.subs !== undefined)
     .find((item) => {
@@ -27,11 +25,13 @@ const filterInSubs = (items, eventKey) => items
 const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
-    const { children, config, resWidthHideSidebar, ...rest } = props;
+    const { children, config, resWidthHideSidebar, singleExpand, initialExpanded, ...rest } = props;
     const { items, collapse: collapseInit } = config;
     const [collapse, setCollapse] = useState(collapseInit);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
-    const [expandedKey, setExpandedKey] = useState((!!menuItemSubInitial && menuItemSubInitial.eventKey) || props.location.pathname);
+    const [expandedKeys, setExpandedKeys] = useState(
+        initialExpanded || (!!menuItemSubInitial && [menuItemSubInitial.eventKey]) || [props.location.pathname]
+    );
 
     const toggleCollapse = useCallback(() => {
         setCollapse(!collapse);
@@ -59,24 +59,35 @@ const SideBar = (props) => {
                 e.stopPropagation();
                 e.preventDefault();
             }
-            if (expandedKey === eventKey) {
-                setExpandedKey(undefined);
-            } else setExpandedKey(eventKey);
+            const eventKeyIndex = expandedKeys.indexOf(eventKey);
+            if (eventKeyIndex > -1) {
+                expandedKeys.splice(eventKeyIndex, 1);
+                setExpandedKeys([...expandedKeys]);
+            } else if (singleExpand) setExpandedKeys([eventKey]);
+            else setExpandedKeys([...expandedKeys, eventKey]);
         } else {
             // find parent of sub -> remove collapse and expand these parent
             const menuItemSub = findInSubs(items, eventKey);
             setCollapse(false);
-            setExpandedKey(menuItemSub ? menuItemSub.eventKey : undefined);
+            if (menuItemSub && expandedKeys.indexOf(menuItemSub.eventKey) === -1) {
+                if (singleExpand) setExpandedKeys([menuItemSub.eventKey]);
+                else setExpandedKeys([...expandedKeys, menuItemSub.eventKey]);
+            }
         }
     };
 
     const toggleExpand = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         const { eventKey } = e.currentTarget.dataset;
-        if (expandedKey && expandedKey === eventKey) {
-            e.stopPropagation();
-            e.preventDefault();
-            setExpandedKey(undefined);
-        }
+        const eventKeyIndex = expandedKeys.indexOf(eventKey);
+        let newExpandedKeys;
+        if (eventKeyIndex > -1) {
+            expandedKeys.splice(eventKeyIndex, 1);
+            newExpandedKeys = [...expandedKeys];
+        } else if (singleExpand) newExpandedKeys = [eventKey];
+        else newExpandedKeys = [...expandedKeys, eventKey];
+        setExpandedKeys(newExpandedKeys);
     };
 
     // Call hook passing in the ref and a function to call on outside click
@@ -88,94 +99,68 @@ const SideBar = (props) => {
     const menus = (
         <div ref={ref}>
             <ul className="sidebar-list">
-                {items.map((item, index) => (
-                    <li
-                        key={`menu-${index}`}
-                        title={translate(item.title)}
-                        className={classNames(
-                            'sidebar-list-item',
-                            item.subs ? 'with-sub-menu' : '',
-                            expandedKey === item.eventKey
-                                ? 'ba-sidebar-item-expanded'
-                                : '',
-                            item.disabled ? 'isDisabled' : ''
-                        )}
-                    >
-                        <NavLink
-                            className="sidebar-list-link"
-                            to={item.url}
-                            activeClassName="selected"
-                            onClick={menuSelect}
-                            data-event-key={item.eventKey}
+                {items.map((item, index) => {
+                    const expanded = expandedKeys.indexOf(item.eventKey) > -1;
+                    return (
+                        <li
+                            key={`menu-${item.eventKey}`}
+                            title={translate(item.title)}
+                            className={classNames(
+                                'sidebar-list-item',
+                                item.subs ? 'with-sub-menu' : '',
+                                expanded ? 'ba-sidebar-item-expanded' : '',
+                                item.disabled ? 'isDisabled' : ''
+                            )}
                         >
-                            {item.icon ? (
-                                <FontAwesomeIcon icon={item.icon} />
-                            ) : (
-                                ''
-                            )}
-                            <span>{translate(item.title)}</span>
-                            {item.subs ? (
-                                <b
-                                    onClick={toggleExpand}
-                                    data-event-key={item.eventKey}
-                                >
-                                    <FontAwesomeIcon icon={faAngleUp} />
-                                </b>
-                            ) : (
-                                ''
-                            )}
-                        </NavLink>
-                        {item.subs ? (
-                            <ul
-                                className={[
-                                    'sidebar-sublist',
-                                    expandedKey === item.eventKey
-                                        ? 'expanded'
-                                        : ''
-                                ].join(' ')}
+                            <NavLink
+                                className="sidebar-list-link"
+                                to={item.url}
+                                activeClassName="selected"
+                                onClick={menuSelect}
+                                data-event-key={item.eventKey}
                             >
-                                {item.subs.map((sub, index1) => (
-                                    <li
-                                        key={`sub-${index1}`}
-                                        title={translate(sub.title)}
-                                    >
-                                        <NavLink
-                                            className={classNames(
-                                                'sidebar-list-link',
-                                                sub.disabled && 'isDisabled'
-                                            )}
-                                            to={sub.url}
-                                            activeClassName="selected"
-                                            onClick={menuSelect}
-                                            data-event-key={sub.eventKey}
-                                        >
-                                            <span>{translate(sub.title)}</span>
-                                        </NavLink>
-                                    </li>
-                                ))}
-                            </ul>
-                        ) : (
-                            ''
-                        )}
-                    </li>
-                ))}
+                                {item.icon ? <FontAwesomeIcon icon={item.icon} /> : ''}
+                                <span>{translate(item.title)}</span>
+                                {item.subs ? (
+                                    <b onClick={toggleExpand} data-event-key={item.eventKey}>
+                                        <FontAwesomeIcon icon={faAngleUp} />
+                                    </b>
+                                ) : (
+                                    ''
+                                )}
+                            </NavLink>
+                            {item.subs ? (
+                                <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
+                                    {item.subs.map((sub, index1) => (
+                                        <li key={`sub-${sub.eventKey}`} title={translate(sub.title)}>
+                                            <NavLink
+                                                className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
+                                                to={sub.url}
+                                                activeClassName="selected"
+                                                onClick={menuSelect}
+                                                data-event-key={sub.eventKey}
+                                            >
+                                                <span>{translate(sub.title)}</span>
+                                            </NavLink>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                ''
+                            )}
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );
 
-    const childrenWithProps = React.Children.map(children, (child) => (!!child && React.cloneElement(child, { ...rest })));
+    const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { ...rest }));
 
     return (
-        <Nav
-            as="aside"
-            className={['sidebar', 'flex-column', collapse ? 'collapse' : '']}
-        >
+        <Nav as="aside" className={['sidebar', 'flex-column', collapse ? 'collapse' : '']}>
             <div className="w-100">
-                <Button
-                    variant="default"
-                    onClick={toggleCollapse}
-                    className="toggle-collapse mx-auto"
-                >
+                <Button variant="default" onClick={toggleCollapse} className="toggle-collapse mx-auto">
                     <FontAwesomeIcon icon={faBars} />
                 </Button>
             </div>
@@ -186,13 +171,16 @@ const SideBar = (props) => {
 };
 
 SideBar.propTypes = {
-    resWidthHideSidebar: PropTypes.number,
     config: PropTypes.object,
-    location: PropTypes.object
+    location: PropTypes.object,
+    resWidthHideSidebar: PropTypes.number,
+    singleExpand: PropTypes.bool,
+    initialExpanded: PropTypes.arrayOf(PropTypes.string)
 };
 
 SideBar.defaultProps = {
-    resWidthHideSidebar: 1366
+    resWidthHideSidebar: 1366,
+    singleExpand: true
 };
 
 export default SideBar;
