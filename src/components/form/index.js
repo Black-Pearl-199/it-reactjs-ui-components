@@ -35,3 +35,4 @@ export {
 
 export * from './MyCustomInput';
 export * from './MyDatePicking';
+export * from './MyBootstrapInput';

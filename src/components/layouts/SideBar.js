@@ -8,8 +8,11 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import Guardian from '../../utils/Guardian';
 
 import { useOnClickOutside } from '../../configurations/hooks';
+
+const GotG = Guardian.getInstance();
 
 const findInSubs = (items, eventKey) => items.filter((item) => item.subs !== undefined).find((item) => find(item.subs, { eventKey }) !== undefined);
 const filterInSubs = (items, eventKey) => items
@@ -101,7 +104,7 @@ const SideBar = (props) => {
             <ul className="sidebar-list">
                 {items.map((item, index) => {
                     const expanded = expandedKeys.indexOf(item.eventKey) > -1;
-                    return (
+                    return GotG.hasAnyAuthorities(item.permissions) && (
                         <li
                             key={`menu-${item.eventKey}`}
                             title={translate(item.title)}
@@ -132,17 +135,19 @@ const SideBar = (props) => {
                             {item.subs ? (
                                 <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
                                     {item.subs.map((sub, index1) => (
-                                        <li key={`sub-${sub.eventKey}`} title={translate(sub.title)}>
-                                            <NavLink
-                                                className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
-                                                to={sub.url}
-                                                activeClassName="selected"
-                                                onClick={menuSelect}
-                                                data-event-key={sub.eventKey}
-                                            >
-                                                <span>{translate(sub.title)}</span>
-                                            </NavLink>
-                                        </li>
+                                        GotG.hasAnyAuthorities(sub.permissions) && (
+                                            <li key={`sub-${sub.eventKey}`} title={translate(sub.title)}>
+                                                <NavLink
+                                                    className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
+                                                    to={sub.url}
+                                                    activeClassName="selected"
+                                                    onClick={menuSelect}
+                                                    data-event-key={sub.eventKey}
+                                                >
+                                                    <span>{translate(sub.title)}</span>
+                                                </NavLink>
+                                            </li>
+                                        )
                                     ))}
                                 </ul>
                             ) : (

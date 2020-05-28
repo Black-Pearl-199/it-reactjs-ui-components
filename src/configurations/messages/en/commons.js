@@ -2,6 +2,7 @@ export default {
     yes: 'Yes',
     no: 'No',
     and: 'and',
+    all: 'All',
     message: {
         delete: 'Do you really want to delete this %{resourceName}?',
         save: 'Do you really want to add this %{resourceName}?',

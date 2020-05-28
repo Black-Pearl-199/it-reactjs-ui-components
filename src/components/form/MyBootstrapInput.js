@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 import * as queryString from 'query-string';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
+export const CHECKBOX_ALL = 'checkbox-all';
 registerLocale('vi', vi);
 
 const sanitizeRestProps = ({
@@ -42,7 +43,7 @@ const renderInput = ({
     inputId, translatedLabel, composeInputClasses, ...props
 }) => {
     const {
-        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, groupClasses, ...rest
+        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, groupClasses, hasAllOption, ...rest
     } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
@@ -82,6 +83,7 @@ const renderInput = ({
             }
             // checkbox group
             if (type === 'checkbox-group') {
+                const allOptionChecked = inputValue && (inputValue.length === choices.length);
                 return (
                     <div
                         name={source}
@@ -93,6 +95,21 @@ const renderInput = ({
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
                     >
+                        {hasAllOption && (
+                            <div className={groupClasses} key={`${JSON.stringify(choices)}-all-option`}>
+                                <input
+                                    className="form-check-input"
+                                    type="checkbox"
+                                    value={CHECKBOX_ALL}
+                                    checked={allOptionChecked}
+                                    key={`${JSON.stringify(choices)}-all-option`}
+                                    id={`${JSON.stringify(choices)}-all-option`}
+                                />
+                                <label className="form-check-label mr-2" htmlFor={`${JSON.stringify(choices)}-all-option`}>
+                                    {translate('time_range.all')}
+                                </label>
+                            </div>
+                        )}
                         {uniqBy(choices, optionValue)
                             .map((choice, index) => (
                                 <div className={groupClasses} key={index}>
@@ -100,7 +117,7 @@ const renderInput = ({
                                         className="form-check-input"
                                         type="checkbox"
                                         value={choice[optionValue]}
-                                        checked={inputValue.includes(choice[optionValue])}
+                                        checked={allOptionChecked || inputValue.includes(choice[optionValue])}
                                         key={`${index}-${choice[optionValue]}`}
                                         id={`${index}-${choice[optionValue]}`}
                                     />
@@ -264,20 +281,27 @@ const MyBootstrapInput = (props) => {
             const params = queryString.parse(props.location.search);
             const { filter } = params;
             const filterObject = filter ? JSON.parse(filter) : {};
-            const checkboxValue = filterObject[source] || [];
+            let checkboxValue = filterObject[source] || [];
             const { target } = e;
-            newValue = checkboxValue;
+            // newValue = checkboxValue;
             let flag = false;
 
-            checkboxValue.forEach((checkbox, index) => {
-                if (checkbox === target.value && !target.checked) {
-                    newValue.splice(index, 1);
-                    flag = true;
+            if (target.checked) {
+                checkboxValue.push(target.value);
+            } else if (!target.checked && target.value === CHECKBOX_ALL) {
+                checkboxValue = [];
+            } else {
+                checkboxValue.forEach((checkbox, index) => {
+                    if (checkbox === target.value && !target.checked) {
+                        checkboxValue.splice(index, 1);
+                        flag = true;
+                    }
+                });
+                if (!flag) {
+                    checkboxValue.push(target.value);
                 }
-            });
-            if (!flag) {
-                newValue.push(target.value);
             }
+            newValue = checkboxValue;
         } else {
             const { target } = e;
             if (target.type !== 'checkbox') newValue = target.value;
