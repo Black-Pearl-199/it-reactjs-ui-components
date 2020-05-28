@@ -1,49 +1,22 @@
 import classNames from 'classnames';
 import { vi } from 'date-fns/locale';
 import isReact from 'is-react';
-import { get, uniqBy } from 'lodash';
+import get from 'lodash/get';
+import uniqBy from 'lodash/uniqBy';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import * as queryString from 'query-string';
-import React from 'react';
 import { useTranslate } from 'react-admin';
+import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
-
+import * as queryString from 'query-string';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
 registerLocale('vi', vi);
 
 const sanitizeRestProps = ({
-    submit,
-    optionText,
-    optionValue,
-    label,
-    formatDate,
-    isRequired,
-    setFilter,
-    setPagination,
-    pagination,
-    setSort,
-    translateChoice,
-    basePath,
-    hasList,
-    hasCreate,
-    hasEdit,
-    hasShow,
-    loaded,
-    selectedIds,
-    loading,
-    ITCrudGetList,
-    invalid,
-    pristine,
-    handleSubmit,
-    submitOnEnter,
-    saving,
-    handleSubmitWithRedirect,
-    convertValue,
-    ...rest
+    submit, optionText, optionValue, label, formatDate, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest
 }) => rest;
 
 function onChangeRaw(e) {
@@ -65,23 +38,11 @@ function onChangeRaw(e) {
 
 const textareaStyle = { resize: 'none' };
 
-const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
+const renderInput = ({
+    inputId, translatedLabel, composeInputClasses, ...props
+}) => {
     const {
-        component,
-        type,
-        source,
-        hideLabel,
-        skipFormat,
-        choices,
-        allowEmpty,
-        submit,
-        value,
-        labelClasses,
-        emptyChoiceLabel,
-        translate,
-        formatText = translate,
-        groupClasses,
-        ...rest
+        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, groupClasses, ...rest
     } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
@@ -90,8 +51,9 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
     // console.log('received value', value);
     // console.log('rest props', props);
     if (!defaultValue) {
-        defaultValue = component === 'input' && type !== 'checkbox' ? '' : undefined;
+        defaultValue = (component === 'input' && type !== 'checkbox') ? '' : undefined;
     }
+    let showText = null;
     let inputValue = value !== undefined ? value : defaultValue;
     const { optionText = 'name', optionValue = 'id' } = props;
     switch (component) {
@@ -109,7 +71,10 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                             className={classNames('form-check-input', composeInputClasses)}
                             {...sanitizeProps}
                         />
-                        <label className={classNames('form-check-label', labelClasses)} htmlFor={inputId}>
+                        <label
+                            className={classNames('form-check-label', labelClasses)}
+                            htmlFor={inputId}
+                        >
                             {translatedLabel}
                         </label>
                     </div>
@@ -128,21 +93,22 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
                     >
-                        {uniqBy(choices, optionValue).map((choice, index) => (
-                            <div className={groupClasses || 'formcheck'} key={index}>
-                                <input
-                                    className="form-check-input"
-                                    type="checkbox"
-                                    value={choice[optionValue]}
-                                    checked={inputValue.includes(choice[optionValue])}
-                                    key={index}
-                                    id={index}
-                                />
-                                <label className="form-check-label mr-2" htmlFor={index}>
-                                    {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
-                                </label>
-                            </div>
-                        ))}
+                        {uniqBy(choices, optionValue)
+                            .map((choice, index) => (
+                                <div className={groupClasses} key={index}>
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value={choice[optionValue]}
+                                        checked={inputValue.includes(choice[optionValue])}
+                                        key={`${index}-${choice[optionValue]}`}
+                                        id={`${index}-${choice[optionValue]}`}
+                                    />
+                                    <label className="form-check-label mr-2" htmlFor={`${index}-${choice[optionValue]}`}>
+                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                    </label>
+                                </div>
+                            ))}
                     </div>
                 );
             }
@@ -175,7 +141,6 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
             // remove duplicate choices
             // const { optionText = 'name', optionValue = 'id' } = props;
             // {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
-            let showText = null;
             if (hideLabel === true) showText = translatedLabel;
             else if (emptyChoiceLabel) showText = translate(emptyChoiceLabel);
             return (
@@ -189,19 +154,29 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                     disabled={sanitizeProps.readOnly}
                     placeholder={!hideLabel ? translatedLabel : null}
                 >
-                    {allowEmpty ? <option value="">{showText}</option> : null}
-                    {uniqBy(choices, optionValue).map((choice, index) => {
-                        const text = optionText === '.' ? choice : get(choice, optionText);
-                        return (
-                            <option value={choice[optionValue]} key={index}>
-                                {formatText && !skipFormat ? formatText(text) : text}
-                            </option>
-                        );
-                    })}
+                    {allowEmpty ? (
+                        <option
+                            value=""
+                        >
+                            {showText}
+                        </option>
+                    ) : null}
+                    {uniqBy(choices, optionValue)
+                        .map((choice, index) => {
+                            const text = optionText === '.' ? choice : get(choice, optionText);
+                            return (
+                                <option
+                                    value={choice[optionValue]}
+                                    key={index}
+                                >
+                                    {formatText && !skipFormat ? formatText(text) : text}
+                                </option>
+                            );
+                        })}
                 </select>
             );
         case 'date':
-            inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
+            inputValue = (typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date') ? defaultValue : value;
             // console.log('date input value', inputValue, typeof inputValue);
             return (
                 <DatePicker
@@ -251,31 +226,20 @@ const MyBootstrapInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
     const {
-        label,
-        labelClasses,
-        inputClasses,
-        groupClasses,
-        alignCenter,
-        formatDate,
-        className,
-        inputValue,
-        onInputChange,
-        small,
-        readOnly,
-        input,
-        checkConvert,
-        formClassName,
-        ...rest
+        label, labelClasses, inputClasses, groupClasses, alignCenter, formatDate, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest
     } = props;
-    const { resource, source, component, hideLabel, type } = rest;
+    const {
+        resource, source, component, hideLabel, type
+    } = rest;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const inputId = `input-${source}`;
-    const composeInputClasses = classNames(type !== 'checkbox' ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : '');
+    // console.log('source', source);
+    const composeInputClasses = classNames(type !== 'checkbox' && type !== 'checkbox-group' ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : '');
     // console.log('-----------type', type, source, composeInputClasses);
     // console.log('MyBootstrapInput', input);
     // console.log(props);
-    let value = input && input.value ? input.value : inputValue && inputValue[source];
+    let value = input && input.value ? input.value : (inputValue && inputValue[source]);
     if (component === 'input' && type === 'checkbox' && checkConvert) {
         value = value === checkConvert.true;
     }
@@ -287,17 +251,11 @@ const MyBootstrapInput = (props) => {
                 newValue = moment(e);
                 if (source === 'start_date' || source === 'startDate') {
                     newValue.set({
-                        hour: 0,
-                        minute: 0,
-                        second: 0,
-                        milliseconds: 0
+                        hour: 0, minute: 0, second: 0, milliseconds: 0
                     });
                 } else if (source === 'end_date' || source === 'endDate') {
                     newValue.set({
-                        hour: 23,
-                        minute: 59,
-                        second: 59,
-                        milliseconds: 999
+                        hour: 23, minute: 59, second: 59, milliseconds: 999
                     });
                 }
                 newValue = newValue.format(formatDate);
@@ -310,7 +268,7 @@ const MyBootstrapInput = (props) => {
             const { target } = e;
             newValue = checkboxValue;
             let flag = false;
-            // eslint-disable-next-line array-callback-return
+
             checkboxValue.forEach((checkbox, index) => {
                 if (checkbox === target.value && !target.checked) {
                     newValue.splice(index, 1);
@@ -342,24 +300,23 @@ const MyBootstrapInput = (props) => {
                 </label>
             ) : null}
             <div className={inputClasses}>
-                {isReact.component(component) || isReact.element(component)
-                    ? React.cloneElement(component, {
-                        onChange,
-                        value,
-                        resource
-                    })
-                    : renderInput({
-                        ...rest,
-                        labelClasses,
-                        translate,
-                        inputId,
-                        composeInputClasses,
-                        translatedLabel,
-                        onChange,
-                        value,
-                        readOnly: loading || readOnly,
-                        disabled: loading || readOnly
-                    })}
+                {
+                    (isReact.component(component) || isReact.element(component)) ? (React.cloneElement(component, {
+                        onChange, value, resource
+                    }))
+                        : renderInput({
+                            ...rest,
+                            labelClasses,
+                            translate,
+                            inputId,
+                            composeInputClasses,
+                            translatedLabel,
+                            onChange,
+                            value,
+                            readOnly: loading || readOnly,
+                            disabled: loading || readOnly
+                        })
+                }
             </div>
         </div>
     );
@@ -394,7 +351,6 @@ MyBootstrapInput.propTypes = {
 MyBootstrapInput.defaultProps = {
     component: 'input',
     type: 'text',
-    skipFormat: true,
     hideLabel: false,
     small: true,
     alignCenter: true,

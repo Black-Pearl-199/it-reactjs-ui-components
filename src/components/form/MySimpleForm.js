@@ -138,7 +138,7 @@ const SimpleFormView = ({
         if (setFormRef) {
             setFormRef(rest.form);
         }
-    }, [setFormRef, rest.form]);
+    }, []);
 
     return (
         <form
