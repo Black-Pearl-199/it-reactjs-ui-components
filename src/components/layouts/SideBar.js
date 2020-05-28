@@ -107,7 +107,7 @@ const SideBar = (props) => {
                     return GotG.hasAnyAuthorities(item.permissions) && (
                         <li
                             key={`menu-${item.eventKey}`}
-                            title={translate(item.title)}
+                            title={!item.skipTranslate ? translate(item.title) : item.title}
                             className={classNames(
                                 'sidebar-list-item',
                                 item.subs ? 'with-sub-menu' : '',
@@ -123,7 +123,7 @@ const SideBar = (props) => {
                                 data-event-key={item.eventKey}
                             >
                                 {item.icon ? <FontAwesomeIcon icon={item.icon} /> : ''}
-                                <span>{translate(item.title)}</span>
+                                <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                 {item.subs ? (
                                     <b onClick={toggleExpand} data-event-key={item.eventKey}>
                                         <FontAwesomeIcon icon={faAngleUp} />
@@ -136,7 +136,7 @@ const SideBar = (props) => {
                                 <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
                                     {item.subs.map((sub, index1) => (
                                         GotG.hasAnyAuthorities(sub.permissions) && (
-                                            <li key={`sub-${sub.eventKey}`} title={translate(sub.title)}>
+                                            <li key={`sub-${sub.eventKey}`} title={!item.skipTranslate ? translate(item.title) : item.title}>
                                                 <NavLink
                                                     className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
                                                     to={sub.url}
@@ -144,7 +144,7 @@ const SideBar = (props) => {
                                                     onClick={menuSelect}
                                                     data-event-key={sub.eventKey}
                                                 >
-                                                    <span>{translate(sub.title)}</span>
+                                                    <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                                 </NavLink>
                                             </li>
                                         )
