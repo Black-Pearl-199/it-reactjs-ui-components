@@ -122,7 +122,7 @@ const SideBar = (props) => {
                                 onClick={menuSelect}
                                 data-event-key={item.eventKey}
                             >
-                                {item.icon ? <FontAwesomeIcon icon={item.icon} /> : ''}
+                                {item.icon ? <i className={item.icon} /> : ''}
                                 <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                 {item.subs ? (
                                     <b onClick={toggleExpand} data-event-key={item.eventKey}>
