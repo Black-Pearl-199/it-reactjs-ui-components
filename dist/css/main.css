@@ -1220,12 +1220,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
   color: #ffffff;
 }
 
-.sidebar-list-item:not(.with-sub-menu) a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
+.sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
   background-color: #2C5641;
   color: #ffffff;
 }
 
-.sidebar-list-item:not(.with-sub-menu) a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
+.sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
   background-color: #2C5641;
 }
 

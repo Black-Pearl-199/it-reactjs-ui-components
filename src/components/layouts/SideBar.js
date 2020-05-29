@@ -8,9 +8,25 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import Guardian from '../../utils/Guardian';
+import { Guardian } from 'it-reactjs-ui-components';
 
-import { useOnClickOutside } from '../../configurations/hooks';
+const useOnClickOutside = (ref, callback) => {
+    const { current } = ref;
+    useEffect(() => {
+        const handleClick = (e) => {
+            if (current && !current.contains(e.target)) {
+                callback();
+            }
+        };
+
+        document.addEventListener('click', handleClick);
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+        };
+    }, [current, callback]);
+};
+
 
 const GotG = Guardian.getInstance();
 
@@ -52,19 +68,21 @@ const SideBar = (props) => {
     }, [resWidthHideSidebar]);
 
     const menuSelect = (e) => {
-        // console.log(e.currentTarget.dataset['eventKey']);
+        console.log('menu select', e.currentTarget.dataset.eventKey);
         const { eventKey } = e.currentTarget.dataset;
         const menuItem = find(items, { eventKey });
         // console.log('menu select', menuItem);
         if (menuItem) {
             // select primary menu item and it has a subs -> expand sub
-            if (menuItem.subs) {
+            if (menuItem.subs && !menuItem.allowRoute) {
                 e.stopPropagation();
                 e.preventDefault();
             }
             const eventKeyIndex = expandedKeys.indexOf(eventKey);
+            // if menu prevent close, keep it open
             if (eventKeyIndex > -1) {
-                expandedKeys.splice(eventKeyIndex, 1);
+                // nếu cho phép điều hướng ở menu thì giữ trạng thái expand
+                if (!menuItem.allowRoute) expandedKeys.splice(eventKeyIndex, 1);
                 setExpandedKeys([...expandedKeys]);
             } else if (singleExpand) setExpandedKeys([eventKey]);
             else setExpandedKeys([...expandedKeys, eventKey]);
@@ -116,13 +134,15 @@ const SideBar = (props) => {
                             )}
                         >
                             <NavLink
+                                exact={!collapse}
                                 className="sidebar-list-link"
                                 to={item.url}
                                 activeClassName="selected"
                                 onClick={menuSelect}
                                 data-event-key={item.eventKey}
                             >
-                                {item.icon ? <i className={item.icon} /> : ''}
+                                {item.icon && <i className={item.icon} />}
+                                {item.iconComp && <FontAwesomeIcon icon={item.iconComp} />}
                                 <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                 {item.subs ? (
                                     <b onClick={toggleExpand} data-event-key={item.eventKey}>
@@ -134,9 +154,9 @@ const SideBar = (props) => {
                             </NavLink>
                             {item.subs ? (
                                 <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
-                                    {item.subs.map((sub, index1) => (
+                                    {item.subs.map((sub) => (
                                         GotG.hasAnyAuthorities(sub.permissions) && (
-                                            <li key={`sub-${sub.eventKey}`} title={!item.skipTranslate ? translate(item.title) : item.title}>
+                                            <li key={`sub-${sub.eventKey}`} title={!sub.skipTranslate ? translate(sub.title) : sub.title}>
                                                 <NavLink
                                                     className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
                                                     to={sub.url}
@@ -144,7 +164,7 @@ const SideBar = (props) => {
                                                     onClick={menuSelect}
                                                     data-event-key={sub.eventKey}
                                                 >
-                                                    <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
+                                                    <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
                                                 </NavLink>
                                             </li>
                                         )

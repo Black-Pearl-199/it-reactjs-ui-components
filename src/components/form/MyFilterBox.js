@@ -1,15 +1,15 @@
 import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { debounce } from 'lodash';
-import isEmpty from 'lodash/isEmpty';
+import { debounce, isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
 import { stringify } from 'query-string';
-import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import React, { useEffect, useRef, useState } from 'react';
+import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { ITCrudGetList } from '../../configurations/actions';
 // import { inputValidate } from '../../configurations/validation';
 import { hasCustomParams, selectQuery } from '../../utils';

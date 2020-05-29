@@ -79,7 +79,7 @@ $angle-right: "\f101";
 		}
 	}
 
-	&:not(.with-sub-menu), .sidebar.collapse & {
+	&, .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
 				background-color: $main-color-hover;
