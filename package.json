@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.6",
+  "version": "0.2.8",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -45,6 +45,7 @@
     "react-onclickoutside": "^6.9.0",
     "react-router": "^5.1.2",
     "react-router-redux": "^4.0.8",
+    "react-scripts": "^3.4.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
@@ -69,7 +70,10 @@
     "prewebpack": "npm run version",
     "version": "node -p -e \"'export default \\'' + require('./package.json').version + '\\';'\" > src/version.js",
     "lint": "eslint ./src",
-    "lint:fix": "eslint --fix ./src"
+    "lint:fix": "eslint --fix ./src",
+    "analyze:dist": "source-map-explorer 'dist/index.js'",
+    "prestart": "npm run version",
+    "start": "react-scripts start"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
@@ -82,9 +86,9 @@
     "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "babel-eslint": "10.0.3",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^24.9.0",
-    "babel-loader": "8.0.6",
+    "babel-loader": "^8.1.0",
     "babel-plugin-named-asset-import": "^0.3.6",
     "babel-plugin-transform-imports": "^2.0.0",
     "babel-preset-react-app": "^9.1.1",
@@ -131,11 +135,8 @@
     "terser-webpack-plugin": "2.3.4",
     "ts-pnp": "1.1.5",
     "url-loader": "2.3.0",
-    "webpack": "4.41.5",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "3.10.2",
-    "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "webpack": "4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "eslintConfig": {
     "extends": "react-app"

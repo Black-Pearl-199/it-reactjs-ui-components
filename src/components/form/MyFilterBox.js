@@ -141,7 +141,7 @@ const MyFilterBox = (props) => {
         if (initData) {
             onSubmit(undefined, true);
         }
-    }, [initData]);
+    }, []);
 
     useEffect(() => {
         if (triggerSubmit) {

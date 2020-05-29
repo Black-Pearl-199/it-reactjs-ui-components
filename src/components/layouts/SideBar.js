@@ -8,7 +8,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { Guardian } from 'it-reactjs-ui-components';
+import Guardian from '../../utils/Guardian';
 
 const useOnClickOutside = (ref, callback) => {
     const { current } = ref;
@@ -68,7 +68,7 @@ const SideBar = (props) => {
     }, [resWidthHideSidebar]);
 
     const menuSelect = (e) => {
-        console.log('menu select', e.currentTarget.dataset.eventKey);
+        // console.log('menu select', e.currentTarget.dataset.eventKey);
         const { eventKey } = e.currentTarget.dataset;
         const menuItem = find(items, { eventKey });
         // console.log('menu select', menuItem);
@@ -141,8 +141,7 @@ const SideBar = (props) => {
                                 onClick={menuSelect}
                                 data-event-key={item.eventKey}
                             >
-                                {item.icon && <i className={item.icon} />}
-                                {item.iconComp && <FontAwesomeIcon icon={item.iconComp} />}
+                                {item.icon && (typeof item.icon === 'string' ? <i className={item.icon} /> : <FontAwesomeIcon icon={item.icon} />)}
                                 <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                 {item.subs ? (
                                     <b onClick={toggleExpand} data-event-key={item.eventKey}>
