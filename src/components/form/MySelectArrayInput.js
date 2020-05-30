@@ -6,7 +6,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
-import clsx from 'clsx';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
@@ -123,7 +122,7 @@ const MySelectArrayInput = (props) => {
                             <Checkbox
                                 color="default"
                                 className={classesCheckbox.root}
-                                checkedIcon={<span className={clsx(classesCheckbox.icon, classesCheckbox.checkedIcon)} />}
+                                checkedIcon={<span className={classNames(classesCheckbox.icon, classesCheckbox.checkedIcon)} />}
                                 icon={<span className={classesCheckbox.icon} />}
                                 checked={
                                     multipleSelectValue.findIndex(

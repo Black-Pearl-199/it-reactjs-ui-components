@@ -51,7 +51,6 @@ const sanitizeRestProps = ({
     valid,
     validate,
     validating,
-    _reduxForm,
     ...props
 }) => props;
 
@@ -134,9 +133,10 @@ const SimpleFormView = ({
     setFormRef,
     ...rest
 }) => {
+    const { form } = rest;
     useEffect(() => {
         if (setFormRef) {
-            setFormRef(rest.form);
+            setFormRef(form);
         }
     }, []);
 
@@ -156,6 +156,7 @@ const SimpleFormView = ({
                             resource={resource}
                             variant={input.props.variant || variant}
                             margin={input.props.margin || margin}
+                            form={form}
                         />
                     )
                 )}

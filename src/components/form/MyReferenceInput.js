@@ -4,8 +4,6 @@ import * as PropTypes from 'prop-types';
 import { useTranslate, Labeled, useInput, useReferenceInputController } from 'react-admin';
 import React, { Children, useEffect, useState } from 'react';
 
-import { useForm } from 'react-final-form';
-
 import ReferenceError from './ReferenceError';
 
 const SORT_ASC = 'ASC';
@@ -73,33 +71,35 @@ const ReferenceInputView = (props) => {
         source,
         warning,
         defaultValue,
+        onChange,
+        form,
         ...rest
     } = props;
     if (Children.count(children) !== 1) {
         throw new Error('<ReferenceInput> only accepts a single child');
     }
 
-    const [firstInit, setFirstInit] = useState(true);
-    const form = useForm();
+    const [firstInit, setFirstInit] = useState(!allowEmpty);
+    const value = get(rest.record, source);
+    const { inputValue, optionValue = 'id' } = rest;
     useEffect(() => {
         if (firstInit && !loading) {
             setFirstInit(false);
-            const { optionValue = 'id' } = rest;
             // console.log(choices, source, rest.optionValue);
-            let value = get(rest.record, source);
-            if (!value) {
-                if (rest.inputValue) {
-                    value = get(rest.inputValue, source);
+            let formInitValue = value;
+            if (!formInitValue) {
+                if (inputValue) {
+                    formInitValue = get(inputValue, source);
                     // if (rest.onInputChange) rest.onInputChange({source: value});
-                } else value = get(choices[0], optionValue);
+                } else formInitValue = get(choices[0], optionValue);
             }
             // console.log('init reference input with value', value);
-            form.change(source, defaultValue || value);
+            if (form) form.change(source, defaultValue || formInitValue);
 
-            // if (onChange) onChange(value);
+            if (onChange) onChange(formInitValue);
             // if (change) change(REDUX_FORM_NAME, source, value);
         }
-    }, [firstInit, loading, rest, source, form, choices, defaultValue]);
+    }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value]);
 
     if (loading) {
         return (

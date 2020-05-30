@@ -137,6 +137,7 @@ const SideBar = (props) => {
                                 exact={!collapse}
                                 className="sidebar-list-link"
                                 to={item.url}
+                                isActive={item.isActive}
                                 activeClassName="selected"
                                 onClick={menuSelect}
                                 data-event-key={item.eventKey}
@@ -159,6 +160,7 @@ const SideBar = (props) => {
                                                 <NavLink
                                                     className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
                                                     to={sub.url}
+                                                    isActive={sub.isActive}
                                                     activeClassName="selected"
                                                     onClick={menuSelect}
                                                     data-event-key={sub.eventKey}

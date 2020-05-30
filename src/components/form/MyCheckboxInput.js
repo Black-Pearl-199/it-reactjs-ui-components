@@ -1,5 +1,5 @@
 import Checkbox from '@material-ui/core/Checkbox';
-import clsx from 'clsx';
+import classnames from 'classnames';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import classNames from 'classnames';
 import { get } from 'lodash';
@@ -62,7 +62,7 @@ const MyCheckboxInput = (props) => {
                 control={(
                     <Checkbox
                         className={classes.root}
-                        checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+                        checkedIcon={<span className={classnames(classes.icon, classes.checkedIcon)} />}
                         icon={<span className={classes.icon} />}
                         disabled={props.readOnly}
                         checked={checked}

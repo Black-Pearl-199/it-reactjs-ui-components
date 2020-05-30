@@ -1,23 +1,49 @@
 import classNames from 'classnames';
 import { vi } from 'date-fns/locale';
 import isReact from 'is-react';
-import get from 'lodash/get';
-import uniqBy from 'lodash/uniqBy';
+import { get, uniqBy } from 'lodash';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import { useTranslate } from 'react-admin';
 import React from 'react';
+import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
-import * as queryString from 'query-string';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
-export const CHECKBOX_ALL = 'checkbox-all';
+export const CHECKBOX_EMPTY = '.checkbox-empty';
 registerLocale('vi', vi);
 
 const sanitizeRestProps = ({
-    submit, optionText, optionValue, label, formatDate, isRequired, setFilter, setPagination, pagination, setSort, translateChoice, basePath, hasList, hasCreate, hasEdit, hasShow, loaded, selectedIds, loading, ITCrudGetList, invalid, pristine, handleSubmit, submitOnEnter, saving, handleSubmitWithRedirect, convertValue, ...rest
+    submit,
+    optionText,
+    optionValue,
+    label,
+    formatDate,
+    isRequired,
+    setFilter,
+    setPagination,
+    pagination,
+    setSort,
+    translateChoice,
+    basePath,
+    hasList,
+    hasCreate,
+    hasEdit,
+    hasShow,
+    loaded,
+    selectedIds,
+    loading,
+    ITCrudGetList,
+    invalid,
+    pristine,
+    handleSubmit,
+    submitOnEnter,
+    saving,
+    handleSubmitWithRedirect,
+    convertValue,
+    defaultValue,
+    ...rest
 }) => rest;
 
 function onChangeRaw(e) {
@@ -39,11 +65,23 @@ function onChangeRaw(e) {
 
 const textareaStyle = { resize: 'none' };
 
-const renderInput = ({
-    inputId, translatedLabel, composeInputClasses, ...props
-}) => {
+const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     const {
-        component, type, source, hideLabel, skipFormat, choices, allowEmpty, submit, value, labelClasses, emptyChoiceLabel, translate, formatText = translate, groupClasses, hasAllOption, ...rest
+        component,
+        type,
+        source,
+        hideLabel,
+        skipFormat,
+        choices,
+        allowEmpty,
+        submit,
+        value,
+        labelClasses,
+        emptyChoiceLabel,
+        translate,
+        formatText = translate,
+        groupClasses,
+        ...rest
     } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
@@ -52,9 +90,11 @@ const renderInput = ({
     // console.log('received value', value);
     // console.log('rest props', props);
     if (!defaultValue) {
-        defaultValue = (component === 'input' && type !== 'checkbox') ? '' : undefined;
+        defaultValue = ((component === 'input' && type !== 'checkbox') || component === 'select') ? '' : undefined;
     }
     let showText = null;
+    if (hideLabel === true) showText = translatedLabel;
+    else if (emptyChoiceLabel) showText = translate(emptyChoiceLabel);
     let inputValue = value !== undefined ? value : defaultValue;
     const { optionText = 'name', optionValue = 'id' } = props;
     switch (component) {
@@ -72,10 +112,7 @@ const renderInput = ({
                             className={classNames('form-check-input', composeInputClasses)}
                             {...sanitizeProps}
                         />
-                        <label
-                            className={classNames('form-check-label', labelClasses)}
-                            htmlFor={inputId}
-                        >
+                        <label className={classNames('form-check-label', labelClasses)} htmlFor={inputId}>
                             {translatedLabel}
                         </label>
                     </div>
@@ -83,7 +120,6 @@ const renderInput = ({
             }
             // checkbox group
             if (type === 'checkbox-group') {
-                const allOptionChecked = inputValue && (inputValue.length === choices.length);
                 return (
                     <div
                         name={source}
@@ -91,41 +127,43 @@ const renderInput = ({
                         value={inputValue}
                         className={classNames('d-flex justify-content-between mx-3', composeInputClasses)}
                         title={translatedLabel}
-                        {...sanitizeProps}
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
                     >
-                        {hasAllOption && (
-                            <div className={groupClasses} key={`${JSON.stringify(choices)}-all-option`}>
+                        {allowEmpty && (
+                            <div className={groupClasses}>
                                 <input
                                     className="form-check-input"
                                     type="checkbox"
-                                    value={CHECKBOX_ALL}
-                                    checked={allOptionChecked}
-                                    key={`${JSON.stringify(choices)}-all-option`}
-                                    id={`${JSON.stringify(choices)}-all-option`}
+                                    value={CHECKBOX_EMPTY}
+                                    checked={!inputValue || inputValue.length === 0}
+                                    id={`${source}-clear`}
+                                    {...sanitizeProps}
                                 />
-                                <label className="form-check-label mr-2" htmlFor={`${JSON.stringify(choices)}-all-option`}>
-                                    {translate('time_range.all')}
+                                <label className="form-check-label mr-2" htmlFor={`${source}-clear`}>
+                                    {showText}
                                 </label>
                             </div>
                         )}
-                        {uniqBy(choices, optionValue)
-                            .map((choice, index) => (
-                                <div className={groupClasses} key={index}>
+                        {uniqBy(choices, optionValue).map((choice) => {
+                            const choiceValue = choice[optionValue];
+                            const inputId = `${source}-${choiceValue}`;
+                            return (
+                                <div className={groupClasses} key={inputId}>
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        value={choice[optionValue]}
-                                        checked={allOptionChecked || inputValue.includes(choice[optionValue])}
-                                        key={`${index}-${choice[optionValue]}`}
-                                        id={`${index}-${choice[optionValue]}`}
+                                        value={choiceValue}
+                                        checked={inputValue && inputValue.includes(choiceValue)}
+                                        id={inputId}
+                                        {...sanitizeProps}
                                     />
-                                    <label className="form-check-label mr-2" htmlFor={`${index}-${choice[optionValue]}`}>
+                                    <label className="form-check-label mr-2" htmlFor={inputId}>
                                         {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
                                     </label>
                                 </div>
-                            ))}
+                            );
+                        })}
                     </div>
                 );
             }
@@ -158,8 +196,7 @@ const renderInput = ({
             // remove duplicate choices
             // const { optionText = 'name', optionValue = 'id' } = props;
             // {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
-            if (hideLabel === true) showText = translatedLabel;
-            else if (emptyChoiceLabel) showText = translate(emptyChoiceLabel);
+            console.log('UIIIIII - MyBootstrapInput select value', inputValue, typeof inputValue);
             return (
                 <select
                     name={source}
@@ -171,29 +208,19 @@ const renderInput = ({
                     disabled={sanitizeProps.readOnly}
                     placeholder={!hideLabel ? translatedLabel : null}
                 >
-                    {allowEmpty ? (
-                        <option
-                            value=""
-                        >
-                            {showText}
-                        </option>
-                    ) : null}
-                    {uniqBy(choices, optionValue)
-                        .map((choice, index) => {
-                            const text = optionText === '.' ? choice : get(choice, optionText);
-                            return (
-                                <option
-                                    value={choice[optionValue]}
-                                    key={index}
-                                >
-                                    {formatText && !skipFormat ? formatText(text) : text}
-                                </option>
-                            );
-                        })}
+                    {allowEmpty ? <option value="">{showText}</option> : null}
+                    {uniqBy(choices, optionValue).map((choice) => {
+                        const text = optionText === '.' ? choice : get(choice, optionText);
+                        return (
+                            <option value={choice[optionValue]} key={`${source}-${choice[optionValue]}`}>
+                                {formatText && !skipFormat ? formatText(text) : text}
+                            </option>
+                        );
+                    })}
                 </select>
             );
         case 'date':
-            inputValue = (typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date') ? defaultValue : value;
+            inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
             // console.log('date input value', inputValue, typeof inputValue);
             return (
                 <DatePicker
@@ -243,20 +270,34 @@ const MyBootstrapInput = (props) => {
     const translate = useTranslate();
     const loading = useSelector((state) => state.admin.loading > 0);
     const {
-        label, labelClasses, inputClasses, groupClasses, alignCenter, formatDate, className, inputValue, onInputChange, small, readOnly, input, checkConvert, formClassName, ...rest
+        label,
+        labelClasses,
+        inputClasses,
+        groupClasses,
+        alignCenter,
+        formatDate,
+        className,
+        inputValue,
+        onInputChange,
+        small,
+        readOnly,
+        input,
+        checkConvert,
+        formClassName,
+        ...rest
     } = props;
-    const {
-        resource, source, component, hideLabel, type
-    } = rest;
+    const { resource, source, component, hideLabel, type } = rest;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const inputId = `input-${source}`;
     // console.log('source', source);
-    const composeInputClasses = classNames(type !== 'checkbox' && type !== 'checkbox-group' ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : '');
+    const composeInputClasses = classNames(
+        type !== 'checkbox' && type !== 'checkbox-group' ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : ''
+    );
     // console.log('-----------type', type, source, composeInputClasses);
     // console.log('MyBootstrapInput', input);
     // console.log(props);
-    let value = input && input.value ? input.value : (inputValue && inputValue[source]);
+    let value = input && input.value ? input.value : inputValue && inputValue[source];
     if (component === 'input' && type === 'checkbox' && checkConvert) {
         value = value === checkConvert.true;
     }
@@ -268,37 +309,34 @@ const MyBootstrapInput = (props) => {
                 newValue = moment(e);
                 if (source === 'start_date' || source === 'startDate') {
                     newValue.set({
-                        hour: 0, minute: 0, second: 0, milliseconds: 0
+                        hour: 0,
+                        minute: 0,
+                        second: 0,
+                        milliseconds: 0
                     });
                 } else if (source === 'end_date' || source === 'endDate') {
                     newValue.set({
-                        hour: 23, minute: 59, second: 59, milliseconds: 999
+                        hour: 23,
+                        minute: 59,
+                        second: 59,
+                        milliseconds: 999
                     });
                 }
                 newValue = newValue.format(formatDate);
             } else newValue = undefined;
         } else if (component === 'input' && type === 'checkbox-group') {
-            const params = queryString.parse(props.location.search);
-            const { filter } = params;
-            const filterObject = filter ? JSON.parse(filter) : {};
-            let checkboxValue = filterObject[source] || [];
+            let checkboxValue = value;
             const { target } = e;
             // newValue = checkboxValue;
-            let flag = false;
-
             if (target.checked) {
-                checkboxValue.push(target.value);
-            } else if (!target.checked && target.value === CHECKBOX_ALL) {
-                checkboxValue = [];
-            } else {
-                checkboxValue.forEach((checkbox, index) => {
-                    if (checkbox === target.value && !target.checked) {
-                        checkboxValue.splice(index, 1);
-                        flag = true;
-                    }
-                });
-                if (!flag) {
-                    checkboxValue.push(target.value);
+                if (target.value === CHECKBOX_EMPTY) {
+                    checkboxValue = undefined;
+                } else if (checkboxValue) checkboxValue.push(target.value);
+                else checkboxValue = [target.value];
+            } else if (!target.checked) {
+                if (checkboxValue) {
+                    const valueIndex = checkboxValue.indexOf(target.value);
+                    if (valueIndex > -1) checkboxValue.splice(valueIndex, 1);
                 }
             }
             newValue = checkboxValue;
@@ -324,23 +362,24 @@ const MyBootstrapInput = (props) => {
                 </label>
             ) : null}
             <div className={inputClasses}>
-                {
-                    (isReact.component(component) || isReact.element(component)) ? (React.cloneElement(component, {
-                        onChange, value, resource
-                    }))
-                        : renderInput({
-                            ...rest,
-                            labelClasses,
-                            translate,
-                            inputId,
-                            composeInputClasses,
-                            translatedLabel,
-                            onChange,
-                            value,
-                            readOnly: loading || readOnly,
-                            disabled: loading || readOnly
-                        })
-                }
+                {isReact.component(component) || isReact.element(component)
+                    ? React.cloneElement(component, {
+                        onChange,
+                        value,
+                        resource
+                    })
+                    : renderInput({
+                        ...rest,
+                        labelClasses,
+                        translate,
+                        inputId,
+                        composeInputClasses,
+                        translatedLabel,
+                        onChange,
+                        value,
+                        readOnly: loading || readOnly,
+                        disabled: loading || readOnly
+                    })}
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ export const cleanObject = (obj) => {
     const result = { ...obj };
     Object.entries(result).forEach(([key, val]) => {
         if (val && typeof val === 'object') cleanObject(val);
-        else if (val == null) delete result[key];
+        else if (val === null || val === undefined) delete result[key];
     });
     return result;
 };

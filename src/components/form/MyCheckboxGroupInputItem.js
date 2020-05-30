@@ -1,7 +1,7 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { useChoices } from 'react-admin';
 import React from 'react';
@@ -43,7 +43,7 @@ const CheckboxGroupInputItem = (props) => {
                     id={`${id}_${getChoiceValue(choice)}`}
                     color="default"
                     className={classes.root}
-                    checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+                    checkedIcon={<span className={classNames(classes.icon, classes.checkedIcon)} />}
                     icon={<span className={classes.icon} />}
                     checked={
                         value

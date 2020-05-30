@@ -182,7 +182,7 @@ const MyCheckboxGroupInput = (props) => {
             if (isChecked) {
                 finalFormOnChange([...(value || []), ...[newValue]]);
             } else {
-                finalFormOnChange(value.filter((v) => v != newValue)); // eslint-disable-line eqeqeq
+                finalFormOnChange(value.filter((v) => v != newValue)); // eslint-disable-line
             }
             finalFormOnBlur(); // HACK: See https://github.com/final-form/react-final-form/issues/365#issuecomment-515045503
         },
