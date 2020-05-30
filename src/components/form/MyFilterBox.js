@@ -71,9 +71,9 @@ const MyFilterBox = (props) => {
         filterRef,
         ...rest
     } = props;
-    console.log('filter box form data', form);
+    // console.log('filter box form data', form);
     const setFilter = useCallback((filter) => {
-        console.log('set filter', filter);
+        // console.log('set filter', filter);
         setForm(filter);
     }, []);
 
