@@ -43,6 +43,8 @@ const sanitizeRestProps = ({
     handleSubmitWithRedirect,
     convertValue,
     defaultValue,
+    location,
+    resource,
     ...rest
 }) => rest;
 

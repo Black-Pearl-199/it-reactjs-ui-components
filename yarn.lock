@@ -10612,17 +10612,12 @@ ra-i18n-polyglot@^3.3.0, ra-i18n-polyglot@^3.5.5:
     node-polyglot "^2.2.2"
     ra-core "^3.5.5"
 
-ra-language-english@^3.2.0, ra-language-english@^3.5.5:
+ra-language-english@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/ra-language-english/-/ra-language-english-3.5.5.tgz#d5ff06b21b0260a8ea06d2eedfaaac465da5b4be"
   integrity sha512-aFf3fcOorj+SWV/Y3aXzrFGJYFAYPVZ2RieiEcmkkJ5AKji3hUETn25sUDAomDKt9+04PuUjOqatQ62Yz9Q+Zw==
   dependencies:
     ra-core "^3.5.5"
-
-ra-language-vietnamese@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ra-language-vietnamese/-/ra-language-vietnamese-2.0.0.tgz#be0e45d194ebc4c27e6406ea8d8d009f63f47cda"
-  integrity sha512-wvZYPty/BQlQvfc4urHVWcaehD1FORvYPJF4x6idDuxBuj+sldZ0Gjaf2066NYe1nHle1UKNSeL3+LQxIE28Mg==
 
 ra-ui-materialui@^3.5.5:
   version "3.5.5"
@@ -10680,7 +10675,7 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-admin@^3.5.2:
+react-admin@~3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/react-admin/-/react-admin-3.5.5.tgz#f3ebb2bf8d8262e87b6a3ef31e78b42f5c26464c"
   integrity sha512-Xqz3u3cmM6xOAK3EUMssNU6bgm6TCJD4bu+tkoIw3H8Gk+vJQ0hcAsyL4SKXV1tqelMSicMN4fzLJNJhTeE8Tw==
@@ -10825,7 +10820,7 @@ react-is@^16.12.0, react-is@^16.3.2, react-is@^16.5.2, react-is@^16.6.0, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-jss@^10.0.4:
+react-jss@~10.1.1:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-10.1.1.tgz#1877b3c8587eb39ef37d0ea58cdb4d0ac469cf5f"
   integrity sha512-GCSKkyj6/bDNNgK1KtaU1FbTAKJ7CQE83p34qKpCc4tVPRi1wCfopyKot1cW/YYJizqltc2MaKzGqFK5eZhBSQ==
