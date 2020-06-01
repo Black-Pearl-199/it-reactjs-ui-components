@@ -82,10 +82,14 @@
 	//height: 31px;
 	height: 32px;
 	width: 32px;
-	// padding: unset !important;
+	padding: unset !important;
 	margin: 0 auto;
-    border-radius: 99px !important;
-    display: flex;
+	border-radius: 99px !important;
+	display: flex;
+
+	svg, i {
+		margin: auto;
+	}
 	//font-weight: 300;
 }
 

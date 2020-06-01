@@ -31,13 +31,6 @@ export default {
         startDate: 'Start date',
         endDate: 'End date'
     },
-    priority: {
-        1: '1',
-        2: '2',
-        3: '3',
-        4: '4',
-        5: '5'
-    },
     deleteReason: 'Reasons for delete',
     'no-access': 'You don\'t have permissions to access this page. Please go back or contact Administrators!',
     'Username/Password invalid': 'Username or password is not correct. Please try again.',
