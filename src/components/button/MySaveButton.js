@@ -1,15 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
 
 import { ITCrudCreate, showEnhanceNotification } from '../../configurations';
-import { buttonGreenStyles } from '../MyCustomStyles';
+import MyCustomStyles from '../MyCustomStyles';
 import SaveButton from './SaveButton';
 
 const MySaveButton = (props) => {
-    const classes = makeStyles(buttonGreenStyles)();
+    const classes = MyCustomStyles.useButtonGreenStyles();
     const translate = useTranslate();
     const dispatch = useDispatch();
     const {
@@ -29,11 +28,7 @@ const MySaveButton = (props) => {
     const handleSave = useCallback(
         (values, redirect) => {
             const resourceName = translate(`resources.${resource}.name`);
-            const {
-                message = 'commons.message.save',
-                type = 'actions',
-                messageArgs = {}
-            } = customNotification;
+            const { message = 'commons.message.save', type = 'actions', messageArgs = {} } = customNotification;
 
             const sendRequest = (values) => {
                 const data = convertValue ? convertValue(values) : values;
@@ -95,7 +90,20 @@ const MySaveButton = (props) => {
                 );
             }
         },
-        [action, basePath, beforeSubmit, callback, convertValue, customNotification, dispatch, filter, hideNotification, label, resource, translate]
+        [
+            action,
+            basePath,
+            beforeSubmit,
+            callback,
+            convertValue,
+            customNotification,
+            dispatch,
+            filter,
+            hideNotification,
+            label,
+            resource,
+            translate
+        ]
     );
 
     // override handleSubmitWithRedirect with custom logic

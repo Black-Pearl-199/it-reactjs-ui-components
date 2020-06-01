@@ -1,14 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
+
 import { ITCrudUpdate, showEnhanceNotification } from '../../configurations';
-import { buttonGreenStyles } from '../MyCustomStyles';
+import MyCustomStyles from '../MyCustomStyles';
 import SaveButton from './SaveButton';
 
 const MyUpdateButton = (props) => {
-    const classes = makeStyles(buttonGreenStyles)();
+    const classes = MyCustomStyles.useButtonGreenStyles();
     const translate = useTranslate();
     const dispatch = useDispatch();
     const {
@@ -30,11 +30,7 @@ const MyUpdateButton = (props) => {
     const handleSave = useCallback(
         (values, redirect) => {
             const resourceName = translate(`resources.${resource}.name`);
-            const {
-                message = 'commons.message.edit',
-                type = 'actions',
-                messageArgs = {}
-            } = customNotification;
+            const { message = 'commons.message.edit', type = 'actions', messageArgs = {} } = customNotification;
             const sendRequest = (values) => {
                 const data = convertValue ? convertValue(values) : values;
                 const meta = hideNotification
@@ -96,7 +92,22 @@ const MyUpdateButton = (props) => {
                 );
             }
         },
-        [action, basePath, beforeSubmit, callback, changeEditState, convertValue, customNotification, dispatch, editing, filter, hideNotification, label, resource, translate]
+        [
+            action,
+            basePath,
+            beforeSubmit,
+            callback,
+            changeEditState,
+            convertValue,
+            customNotification,
+            dispatch,
+            editing,
+            filter,
+            hideNotification,
+            label,
+            resource,
+            translate
+        ]
     );
 
     // override handleSubmitWithRedirect with custom logic

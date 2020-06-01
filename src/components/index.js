@@ -10,3 +10,4 @@ export * from './MyCustomStyles';
 
 export { default as DeleteBox } from './DeleteBox';
 export { default as LanguageSwitcher } from './LanguageSwitcher';
+export { default as MyCustomStyles } from './MyCustomStyles';

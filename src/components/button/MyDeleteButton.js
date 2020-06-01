@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import ActionDelete from '@material-ui/icons/Delete';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';

@@ -1,6 +1,5 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { makeStyles } from '@material-ui/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -8,13 +7,11 @@ import { useTranslate } from 'react-admin';
 
 import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
-import { tableStyles } from '../MyCustomStyles';
+import MyCustomStyles from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
 
-const useStyles = makeStyles(tableStyles);
-
 const MySearchableDataGrid = (props) => {
-    const classes = useStyles();
+    const classes = MyCustomStyles.useTableStyles();
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
 
@@ -22,15 +19,7 @@ const MySearchableDataGrid = (props) => {
         setTextSearch(e.currentTarget.value);
     };
 
-    const {
-        data,
-        ids,
-        searchEnable,
-        exportable,
-        exporter,
-        customAction,
-        ...rest
-    } = props;
+    const { data, ids, searchEnable, exportable, exporter, customAction, ...rest } = props;
     // const {translate} = this.props;
     const { resource, fields } = props;
     let newData = data;
@@ -60,10 +49,7 @@ const MySearchableDataGrid = (props) => {
                 {searchEnable ? (
                     <div className="input-group input-group-sm input-group-itech-search mb-1">
                         <div className="input-group-prepend">
-                            <span
-                                className="input-group-text"
-                                id="inputSearchAddon"
-                            >
+                            <span className="input-group-text" id="inputSearchAddon">
                                 <FontAwesomeIcon icon={faSearch} />
                             </span>
                         </div>
@@ -87,13 +73,7 @@ const MySearchableDataGrid = (props) => {
                     data={newData}
                     ids={newIds}
                     classes={classes}
-                    className={classNames(
-                        'mb-0',
-                        'table-striped',
-                        'table-bordered',
-                        'table',
-                        'table-sm'
-                    )}
+                    className={classNames('mb-0', 'table-striped', 'table-bordered', 'table', 'table-sm')}
                 />
             </div>
             {/* </div> */}

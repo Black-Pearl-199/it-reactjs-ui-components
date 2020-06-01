@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import classNames from 'classnames';
@@ -7,10 +6,11 @@ import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
-import { checkboxStyles } from '../MyCustomStyles';
+
+import MyCustomStyles from '../MyCustomStyles';
 
 const MyCheckboxInput = (props) => {
-    const classes = makeStyles(checkboxStyles)();
+    const classes = MyCustomStyles.useCheckboxStyles();
     const translate = useTranslate();
     const {
         source,

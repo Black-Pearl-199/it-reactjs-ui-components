@@ -1,3 +1,5 @@
+import { makeStyles } from '@material-ui/core/styles';
+
 import variables from '../assets/scss/abstracts/_export.scss';
 
 // style config cho các component Card/CardContainer/CardContainerInner của react-admin
@@ -413,4 +415,26 @@ export const checkboxStyles = {
         height: 20,
         width: 20
     }
+};
+
+const useButtonGreenStyles = makeStyles(buttonGreenStyles);
+const useCheckboxStyles = makeStyles(
+    { ...checkboxStyles },
+    { name: 'RaCheckboxGroupInputItem' }
+);
+const useInputStyles = makeStyles(inputStyles);
+const useListStylesNoActions = makeStyles(listStylesNoActions);
+const useListStylesNoActionsList = makeStyles(listStylesNoActionsList);
+const usePaginationStyles = makeStyles(paginationStyles);
+const useTableStyles = makeStyles(tableStyles);
+
+
+export default {
+    useButtonGreenStyles,
+    useCheckboxStyles,
+    useInputStyles,
+    useListStylesNoActions,
+    useListStylesNoActionsList,
+    usePaginationStyles,
+    useTableStyles
 };

@@ -1,28 +1,21 @@
-import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 
 import { RedirectCreateButton } from '../button';
-import { paginationStyles } from '../MyCustomStyles';
+import MyCustomStyles from '../MyCustomStyles';
 import Pagination from './Pagination';
 
-const sanitizeProps = ({
-    setPage, setPerPage, perPage, page, total, ...rest
-}) => rest;
-const classes = makeStyles(paginationStyles);
+const sanitizeProps = ({ setPage, setPerPage, perPage, page, total, ...rest }) => rest;
 
-const MyCustomPagination = ((props) => {
+const MyCustomPagination = (props) => {
     // console.log('custom pagination', props)
-    const {
-        children, basePath, createBtn, ...rest
-    } = props;
+    const { children, basePath, createBtn, ...rest } = props;
+    const classes = MyCustomStyles.usePaginationStyles();
 
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { ...sanitizeProps(rest) }));
 
     return (
-        <div
-            className="d-flex flex-row-reverse flex-nowrap flex-grow-1 flex-shrink-1 justify-content-between py-1"
-        >
+        <div className="d-flex flex-row-reverse flex-nowrap flex-grow-1 flex-shrink-1 justify-content-between py-1">
             <Pagination {...rest} className={classes.pagination} />
             <div className="d-flex flex-column justify-content-around my-auto">
                 {childrenWithProps}
@@ -30,7 +23,7 @@ const MyCustomPagination = ((props) => {
             </div>
         </div>
     );
-});
+};
 
 MyCustomPagination.propTypes = {
     basePath: PropTypes.string,

@@ -10,7 +10,8 @@ import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField } from 'react-final-form';
-import { checkboxStyles } from '../MyCustomStyles';
+
+import MyCustomStyles from '../MyCustomStyles';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -30,8 +31,6 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const useStyleCheckbox = makeStyles(checkboxStyles);
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 20;
 const MenuProps = {
@@ -46,7 +45,7 @@ const MenuProps = {
 const MySelectArrayInput = (props) => {
     const classes = useStyles();
     const translate = useTranslate();
-    const classesCheckbox = useStyleCheckbox();
+    const classesCheckbox = MyCustomStyles.useCheckboxStyles();
     const {
         source,
         choices,
@@ -63,12 +62,8 @@ const MySelectArrayInput = (props) => {
         hidden
     } = props;
     const defaultValue = (record && record[source]) || [];
-    const labelDisplay = translate(
-        label || `resources.${resource}.fields.${source}`
-    );
-    const [multipleSelectValue, setMultipleSelectValue] = useState(
-        defaultValue
-    );
+    const labelDisplay = translate(label || `resources.${resource}.fields.${source}`);
+    const [multipleSelectValue, setMultipleSelectValue] = useState(defaultValue);
     const {
         input: { onChange }
     } = useField(source);
@@ -79,24 +74,10 @@ const MySelectArrayInput = (props) => {
     };
 
     return (
-        <div
-            className={classNames(
-                'form-group',
-                groupClasses,
-                hidden ? 'd-none' : null
-            )}
-        >
+        <div className={classNames('form-group', groupClasses, hidden ? 'd-none' : null)}>
             {/* <InputLabel id="mutiple-checkbox-label">{labelDisplay}</InputLabel> */}
             {!hideLabel ? (
-                <label
-                    className={classNames(
-                        'col-form-label',
-                        labelClasses,
-                        required ? 'label-required' : null
-                    )}
-                >
-                    {labelDisplay}
-                </label>
+                <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)}>{labelDisplay}</label>
             ) : null}
             <div className={inputClasses}>
                 <Select
@@ -124,11 +105,7 @@ const MySelectArrayInput = (props) => {
                                 className={classesCheckbox.root}
                                 checkedIcon={<span className={classNames(classesCheckbox.icon, classesCheckbox.checkedIcon)} />}
                                 icon={<span className={classesCheckbox.icon} />}
-                                checked={
-                                    multipleSelectValue.findIndex(
-                                        (selectedValue) => selectedValue === item[optionValue]
-                                    ) > -1
-                                }
+                                checked={multipleSelectValue.findIndex((selectedValue) => selectedValue === item[optionValue]) > -1}
                             />
                             <ListItemText primary={item[optionText]} />
                         </MenuItem>

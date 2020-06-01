@@ -1,30 +1,15 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { useChoices } from 'react-admin';
 import React from 'react';
-import { checkboxStyles } from '../MyCustomStyles';
+import { useChoices } from 'react-admin';
 
-const useStyles = makeStyles(
-    { ...checkboxStyles },
-    { name: 'RaCheckboxGroupInputItem' }
-);
+import MyCustomStyles from '../MyCustomStyles';
 
 const CheckboxGroupInputItem = (props) => {
-    const {
-        classes: classesOverride,
-        id,
-        choice,
-        onChange,
-        optionText,
-        optionValue,
-        translateChoice,
-        value,
-        ...rest
-    } = props;
-    const classes = useStyles(props);
+    const { classes: classesOverride, id, choice, onChange, optionText, optionValue, translateChoice, value, ...rest } = props;
+    const classes = MyCustomStyles.useCheckboxStyles(props);
     const { getChoiceText, getChoiceValue } = useChoices({
         optionText,
         optionValue,
@@ -47,8 +32,7 @@ const CheckboxGroupInputItem = (props) => {
                     icon={<span className={classes.icon} />}
                     checked={
                         value
-                            ? value.find((v) => v === getChoiceValue(choice)) // eslint-disable-line eqeqeq
-                                !== undefined
+                            ? value.find((v) => v === getChoiceValue(choice)) !== undefined // eslint-disable-line eqeqeq
                             : false
                     }
                     value={String(getChoiceValue(choice))}

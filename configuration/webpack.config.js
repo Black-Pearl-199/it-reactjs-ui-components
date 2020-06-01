@@ -5,6 +5,7 @@ const path = require('path');
 module.exports = (env, argv) => {
     const config = {
         externals: {
+            '@material-ui/core': '@material-ui/core',
             exceljs: 'exceljs',
             react: 'react',
             'react-admin': 'react-admin',
