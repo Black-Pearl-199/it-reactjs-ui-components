@@ -5,7 +5,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
-import adminSaga from './sideEffects/adminSaga';
+import sideEffects from './sideEffects';
 
 const defaultPersistConfig = {
     key: 'persist-state-key',
@@ -65,7 +65,7 @@ const createAdminStore = ({
     const saga = function* rootSaga() {
         yield all(
             [
-                adminSaga(dataProvider, authProvider),
+                sideEffects(dataProvider, authProvider),
                 // add your own sagas here
                 customSideEffect(dataProvider)
             ].map(fork)

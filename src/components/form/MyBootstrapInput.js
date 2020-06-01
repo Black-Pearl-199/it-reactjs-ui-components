@@ -196,7 +196,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
             // remove duplicate choices
             // const { optionText = 'name', optionValue = 'id' } = props;
             // {hideLabel === true ? `(${translatedLabel})` : (emptyChoiceLabel ? `${translate(emptyChoiceLabel)}` : null)}
-            console.log('UIIIIII - MyBootstrapInput select value', inputValue, typeof inputValue);
+            // console.log('UIIIIII - MyBootstrapInput select value', inputValue, typeof inputValue);
             return (
                 <select
                     name={source}

@@ -1,5 +1,5 @@
+import { makeStyles } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
-import classnames from 'classnames';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import classNames from 'classnames';
 import { get } from 'lodash';
@@ -7,7 +7,6 @@ import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
-import { makeStyles } from '@material-ui/core';
 import { checkboxStyles } from '../MyCustomStyles';
 
 const MyCheckboxInput = (props) => {
@@ -30,9 +29,7 @@ const MyCheckboxInput = (props) => {
     const form = useForm();
     const defaultValue = get(form.getState().values, source, false);
     const [checked, setChecked] = useState(defaultValue);
-    const labelDisplay = translate(
-        label || `resources.${resource}.fields.${source}`
-    );
+    const labelDisplay = translate(label || `resources.${resource}.fields.${source}`);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
@@ -40,29 +37,15 @@ const MyCheckboxInput = (props) => {
     };
 
     return (
-        <div
-            className={classNames(
-                'form-group',
-                groupClasses,
-                hidden ? 'd-none' : null
-            )}
-        >
+        <div className={classNames('form-group', groupClasses, hidden ? 'd-none' : null)}>
             {!hideLabel ? (
-                <label
-                    className={classNames(
-                        'col-form-label',
-                        labelClasses,
-                        required ? 'label-required' : null
-                    )}
-                >
-                    {labelDisplay}
-                </label>
+                <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)}>{labelDisplay}</label>
             ) : null}
             <FormControlLabel
                 control={(
                     <Checkbox
                         className={classes.root}
-                        checkedIcon={<span className={classnames(classes.icon, classes.checkedIcon)} />}
+                        checkedIcon={<span className={classNames(classes.icon, classes.checkedIcon)} />}
                         icon={<span className={classes.icon} />}
                         disabled={props.readOnly}
                         checked={checked}

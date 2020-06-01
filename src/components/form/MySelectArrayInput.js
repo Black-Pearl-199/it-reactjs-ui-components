@@ -117,8 +117,8 @@ const MySelectArrayInput = (props) => {
                     )}
                     MenuProps={MenuProps}
                 >
-                    {choices.map((item, key) => (
-                        <MenuItem key={key} value={item[optionValue]}>
+                    {choices.map((item) => (
+                        <MenuItem key={item[optionValue]} value={item[optionValue]}>
                             <Checkbox
                                 color="default"
                                 className={classesCheckbox.root}

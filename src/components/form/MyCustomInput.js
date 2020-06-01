@@ -87,7 +87,7 @@ export const MyCustomInput = (props) => {
                                         {choices.map((choice, index) => (
                                             <option
                                                 value={choice[optionValue]}
-                                                key={index}
+                                                key={choice[optionValue]}
                                             >
                                                 {translate && !skipFormat ? translate(choice[optionText]) : choice[optionText]}
                                             </option>

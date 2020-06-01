@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -71,8 +71,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "analyze:dist": "source-map-explorer 'dist/index.js'",
-    "prestart": "npm run version",
-    "start": "react-scripts start"
+    "example": "react-scripts start"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
