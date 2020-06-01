@@ -7,7 +7,12 @@ import { BooleanInput, useTranslate } from 'react-admin';
 import { Field } from 'react-final-form';
 import { useSelector } from 'react-redux';
 
-import MyCustomStyles from '../MyCustomStyles';
+import { inputStyles } from '../MyCustomStyles';
+
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(inputStyles, { name: 'Bass-MCI' });
 
 export const MyTextInput = (props) => <MyCustomInput {...props} component="input" />;
 
@@ -17,7 +22,7 @@ const composeValidators = (validators) => (value, allValues) => validators.reduc
 export const MyBooleanInput = ({ disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, ...rest }) => {
     const { resource } = rest;
     const translate = useTranslate();
-    const classes = MyCustomStyles.useInputStyles();
+    const classes = useStyles(rest);
     return (
         <div className={classNames('form-group', groupClasses)}>
             <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)}>

@@ -7,10 +7,15 @@ import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
 
-import MyCustomStyles from '../MyCustomStyles';
+import { checkboxStyles } from '../MyCustomStyles';
+
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(checkboxStyles, { name: 'RaCheckboxGroupInputItem' });
 
 const MyCheckboxInput = (props) => {
-    const classes = MyCustomStyles.useCheckboxStyles();
+    const classes = useStyles();
     const translate = useTranslate();
     const {
         source,

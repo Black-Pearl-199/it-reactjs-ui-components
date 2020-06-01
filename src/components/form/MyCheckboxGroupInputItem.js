@@ -5,11 +5,16 @@ import * as PropTypes from 'prop-types';
 import React from 'react';
 import { useChoices } from 'react-admin';
 
-import MyCustomStyles from '../MyCustomStyles';
+import { checkboxStyles } from '../MyCustomStyles';
+
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(checkboxStyles, { name: 'RaCheckboxGroupInputItem' });
 
 const CheckboxGroupInputItem = (props) => {
     const { classes: classesOverride, id, choice, onChange, optionText, optionValue, translateChoice, value, ...rest } = props;
-    const classes = MyCustomStyles.useCheckboxStyles(props);
+    const classes = useStyles(props);
     const { getChoiceText, getChoiceValue } = useChoices({
         optionText,
         optionValue,

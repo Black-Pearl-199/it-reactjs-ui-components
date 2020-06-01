@@ -4,14 +4,18 @@ import Input from '@material-ui/core/Input';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField } from 'react-final-form';
 
-import MyCustomStyles from '../MyCustomStyles';
+import { checkboxStyles } from '../MyCustomStyles';
+
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useCheckboxStyles = makeStyles(checkboxStyles, { name: 'Bass-MSAI' });
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -31,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 20;
 const MenuProps = {
@@ -45,7 +50,7 @@ const MenuProps = {
 const MySelectArrayInput = (props) => {
     const classes = useStyles();
     const translate = useTranslate();
-    const classesCheckbox = MyCustomStyles.useCheckboxStyles();
+    const classesCheckbox = useCheckboxStyles();
     const {
         source,
         choices,

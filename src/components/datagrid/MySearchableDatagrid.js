@@ -7,11 +7,15 @@ import { useTranslate } from 'react-admin';
 
 import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
-import MyCustomStyles from '../MyCustomStyles';
+import { tableStyles } from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(tableStyles);
 
 const MySearchableDataGrid = (props) => {
-    const classes = MyCustomStyles.useTableStyles();
+    const classes = useStyles(tableStyles);
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
 

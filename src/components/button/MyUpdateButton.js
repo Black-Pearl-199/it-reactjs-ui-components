@@ -4,11 +4,15 @@ import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
 
 import { ITCrudUpdate, showEnhanceNotification } from '../../configurations';
-import MyCustomStyles from '../MyCustomStyles';
+import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
+// eslint-disable-next-line import/order
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(buttonGreenStyles);
 
 const MyUpdateButton = (props) => {
-    const classes = MyCustomStyles.useButtonGreenStyles();
+    const classes = useStyles();
     const translate = useTranslate();
     const dispatch = useDispatch();
     const {

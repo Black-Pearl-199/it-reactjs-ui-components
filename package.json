@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -36,7 +36,6 @@
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.13.1",
     "react-final-form-arrays": "^3.1.1",
-    "react-jss": "~10.1.1",
     "react-maskedinput": "^4.0.1",
     "react-onclickoutside": "^6.9.0",
     "react-router": "^5.1.2",
