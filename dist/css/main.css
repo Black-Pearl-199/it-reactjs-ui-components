@@ -121,9 +121,14 @@
 .btn-itech-icon {
   height: 32px;
   width: 32px;
+  padding: unset !important;
   margin: 0 auto;
   border-radius: 99px !important;
   display: flex;
+}
+
+.btn-itech-icon svg, .btn-itech-icon i {
+  margin: auto;
 }
 
 .btn-itech-icon-primary {
@@ -1172,6 +1177,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   margin-top: 5px;
   width: 100%;
   color: #ffffff;
+  border-radius: 0;
 }
 
 .sidebar .toggle-collapse:hover {
