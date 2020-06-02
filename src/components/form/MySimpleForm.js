@@ -29,6 +29,7 @@ const sanitizeRestProps = ({
     initialize,
     initialized,
     initialValues,
+    modifiedSinceLastSubmit,
     pristine,
     pure,
     redirect,
