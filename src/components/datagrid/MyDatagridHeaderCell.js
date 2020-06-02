@@ -4,8 +4,8 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import { FieldTitle, useTranslate } from 'react-admin';
 import React from 'react';
+import { FieldTitle, useTranslate } from 'react-admin';
 import shouldUpdate from 'recompose/shouldUpdate';
 
 // remove the sort icons when not active
@@ -32,33 +32,15 @@ const useStyles = makeStyles(
 );
 
 const DatagridHeaderCell = (props) => {
-    const {
-        className,
-        classes: classesOverride,
-        field,
-        currentSort,
-        updateSort,
-        resource,
-        isSorting,
-        ...rest
-    } = props;
+    const { className, classes: classesOverride, field, currentSort, updateSort, resource, isSorting, ...rest } = props;
     const classes = useStyles(props);
     const translate = useTranslate();
     return (
-        <TableCell
-            className={classnames(className, field.props.headerClassName)}
-            align={field.props.textAlign}
-            variant="head"
-            {...rest}
-        >
+        <TableCell className={classnames(className, field.props.headerClassName)} align={field.props.textAlign} variant="head" {...rest}>
             {field.props.sortable !== false && (field.props.sortBy || field.props.source) ? (
                 <Tooltip
                     title={translate('ra.action.sort')}
-                    placement={
-                        field.props.textAlign === 'right'
-                            ? 'bottom-end'
-                            : 'bottom-start'
-                    }
+                    placement={field.props.textAlign === 'right' ? 'bottom-end' : 'bottom-start'}
                     enterDelay={300}
                 >
                     <TableSortLabel
@@ -68,19 +50,11 @@ const DatagridHeaderCell = (props) => {
                         onClick={updateSort}
                         classes={classes}
                     >
-                        <FieldTitle
-                            label={field.props.label}
-                            source={field.props.source}
-                            resource={resource}
-                        />
+                        <FieldTitle label={field.props.label} source={field.props.source} resource={resource} />
                     </TableSortLabel>
                 </Tooltip>
             ) : (
-                <FieldTitle
-                    label={field.props.label}
-                    source={field.props.source}
-                    resource={resource}
-                />
+                <FieldTitle label={field.props.label} source={field.props.source} resource={resource} />
             )}
         </TableCell>
     );

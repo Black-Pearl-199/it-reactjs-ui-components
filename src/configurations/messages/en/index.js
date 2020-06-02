@@ -24,6 +24,7 @@ export default {
         other: 'Other',
         this_week: 'This week',
         this_month: 'This month',
+        last_month: 'Last month',
         hour: 'hour(s)',
         day: 'Day',
         week: 'Week',

@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import isReact from 'is-react';
 import * as PropTypes from 'prop-types';
@@ -8,9 +9,6 @@ import { Field } from 'react-final-form';
 import { useSelector } from 'react-redux';
 
 import { inputStyles } from '../MyCustomStyles';
-
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(inputStyles, { name: 'Bass-MCI' });
 

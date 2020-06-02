@@ -4,6 +4,7 @@ import Input from '@material-ui/core/Input';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -11,9 +12,6 @@ import { useTranslate } from 'react-admin';
 import { useField } from 'react-final-form';
 
 import { checkboxStyles } from '../MyCustomStyles';
-
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
 
 const useCheckboxStyles = makeStyles(checkboxStyles, { name: 'Bass-MSAI' });
 
@@ -34,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3)
     }
 }));
-
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 20;

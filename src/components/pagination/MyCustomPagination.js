@@ -1,12 +1,10 @@
+import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 
 import { RedirectCreateButton } from '../button';
-import Pagination from './Pagination';
 import { paginationStyles } from '../MyCustomStyles';
-
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
+import Pagination from './Pagination';
 
 const useStyles = makeStyles(paginationStyles, { name: 'Bass-MCP' });
 

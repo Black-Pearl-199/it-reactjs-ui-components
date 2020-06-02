@@ -1,5 +1,6 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -9,8 +10,6 @@ import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
 import { tableStyles } from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(tableStyles);
 

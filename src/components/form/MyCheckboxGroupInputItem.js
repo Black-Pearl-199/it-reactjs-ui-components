@@ -1,5 +1,6 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
@@ -7,10 +8,7 @@ import { useChoices } from 'react-admin';
 
 import { checkboxStyles } from '../MyCustomStyles';
 
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(checkboxStyles, { name: 'RaCheckboxGroupInputItem' });
+const useStyles = makeStyles(checkboxStyles, { name: 'Bass-MCBGII' });
 
 const CheckboxGroupInputItem = (props) => {
     const { classes: classesOverride, id, choice, onChange, optionText, optionValue, translateChoice, value, ...rest } = props;

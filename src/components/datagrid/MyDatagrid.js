@@ -1,11 +1,10 @@
-import Checkbox from '@material-ui/core/Checkbox/index';
-import { makeStyles } from '@material-ui/core/styles/index';
-import TableCell from '@material-ui/core/TableCell/index';
+import Checkbox from '@material-ui/core/Checkbox';
+import { makeStyles } from '@material-ui/core/styles';
+import TableCell from '@material-ui/core/TableCell';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { DatagridLoading, sanitizeListRestProps } from 'react-admin';
-
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
 
@@ -54,10 +53,10 @@ const useStyles = makeStyles(() => ({
         width: 32
     },
     expandIcon: {
-    //     transform: 'rotate(-90deg)',
-    //     transition: theme.transitions.create('transform', {
-    //         duration: theme.transitions.duration.shortest
-    //     })
+        //     transform: 'rotate(-90deg)',
+        //     transition: theme.transitions.create('transform', {
+        //         duration: theme.transitions.duration.shortest
+        //     })
     },
     expanded: {
         transform: 'rotate(0deg)'
@@ -175,10 +174,7 @@ const MyDatagrid = (props) => {
      * the datagrid displays the current data.
      */
     return (
-        <table
-            className={classNames(classes.table, className)}
-            {...sanitizeListRestProps(rest)}
-        >
+        <table className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
             <thead className={classNames(classes.thead, 'table-itech-thread')}>
                 <tr className={classNames(classes.row, classes.headerRow)}>
                     {expand && <TableCell className={classes.expandHeader} />}
@@ -187,13 +183,7 @@ const MyDatagrid = (props) => {
                             <Checkbox
                                 className="select-all"
                                 color="primary"
-                                checked={
-                                    selectedIds.length > 0
-                                    && ids.length > 0
-                                    && !ids.find(
-                                        (it) => selectedIds.indexOf(it) === -1
-                                    )
-                                }
+                                checked={selectedIds.length > 0 && ids.length > 0 && !ids.find((it) => selectedIds.indexOf(it) === -1)}
                                 onChange={handleSelectAll}
                             />
                         </TableCell>
@@ -203,10 +193,7 @@ const MyDatagrid = (props) => {
                             className={classes.headerCell}
                             currentSort={currentSort}
                             field={field}
-                            isSorting={
-                                currentSort.field
-                                    === (field.props.sortBy || field.props.source)
-                            }
+                            isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
                             key={field.props.source || index}
                             resource={resource}
                             updateSort={updateSort}

@@ -1,8 +1,7 @@
 import TablePagination from '@material-ui/core/TablePagination';
 import * as PropTypes from 'prop-types';
-import { sanitizeListRestProps, Responsive, useTranslate } from 'react-admin';
 import React, { useEffect } from 'react';
-
+import { Responsive, sanitizeListRestProps, useTranslate } from 'react-admin';
 import { pure } from 'recompose';
 
 import PaginationActions from './PaginationActions';
@@ -47,15 +46,7 @@ const Pagination = pure((props) => {
         total: count
     });
 
-    const {
-        loading,
-        perPage,
-        rowsPerPageOptions,
-        total,
-        labelPerPage,
-        labelLimit,
-        ...rest
-    } = props;
+    const { loading, perPage, rowsPerPageOptions, total, labelPerPage, labelLimit, ...rest } = props;
 
     if (!loading && total === 0) {
         return <PaginationLimit labelLimit={labelLimit} />;

@@ -1,5 +1,4 @@
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons/faChevronLeft';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { makeStyles } from '@material-ui/core/styles';
 import * as PropTypes from 'prop-types';
@@ -7,16 +6,17 @@ import React from 'react';
 import { useTranslate } from 'react-admin';
 import { pure } from 'recompose';
 
-const classes = (theme) => makeStyles({
+const useStyles = makeStyles((theme) => ({
     actions: {
         flexShrink: 0,
         color: theme.palette.text.secondary,
         marginLeft: 20
     },
     hellip: { padding: '1.2em' }
-});
+}));
 
 const PaginationActions = (props) => {
+    const classes = useStyles(props);
     /**
      * Warning: material-ui's page is 0-based
      */
@@ -62,18 +62,14 @@ const PaginationActions = (props) => {
 
     const prevPage = (event) => {
         if (props.page === 0) {
-            throw new Error(
-                translate('ra.navigation.page_out_from_begin')
-            );
+            throw new Error(translate('ra.navigation.page_out_from_begin'));
         }
         props.onChangePage(event, props.page - 1);
     };
 
     const nextPage = (event) => {
         if (props.page > getNbPages() - 1) {
-            throw new Error(
-                translate('ra.navigation.page_out_from_end')
-            );
+            throw new Error(translate('ra.navigation.page_out_from_end'));
         }
         props.onChangePage(event, props.page + 1);
     };
@@ -104,13 +100,10 @@ const PaginationActions = (props) => {
                 data-page={pageNum - 1}
                 onClick={gotoPage}
             >
-                <div className="page-link">
-                    {pageNum}
-                </div>
+                <div className="page-link">{pageNum}</div>
             </li>
         )));
     };
-
 
     const { page } = props;
 

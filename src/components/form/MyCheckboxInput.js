@@ -1,5 +1,6 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
@@ -8,9 +9,6 @@ import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
 
 import { checkboxStyles } from '../MyCustomStyles';
-
-// eslint-disable-next-line import/order
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(checkboxStyles, { name: 'RaCheckboxGroupInputItem' });
 

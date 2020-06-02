@@ -130,15 +130,16 @@ const SimpleFormView = ({
     toolbar,
     undoable,
     variant,
-    setFormRef,
+    formRef,
     ...rest
 }) => {
     const { form } = rest;
     useEffect(() => {
-        if (setFormRef) {
-            setFormRef(form);
+        if (formRef) {
+            // eslint-disable-next-line no-param-reassign
+            formRef.current = form;
         }
-    }, []);
+    }, [formRef, form]);
 
     return (
         <form
@@ -202,7 +203,7 @@ SimpleFormView.propTypes = {
     handleSubmitWithRedirect: PropTypes.func,
     margin: PropTypes.any,
     variant: PropTypes.any,
-    setFormRef: PropTypes.func
+    formRef: PropTypes.object
 };
 
 SimpleFormView.defaultProps = {

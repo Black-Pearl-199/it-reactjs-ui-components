@@ -23,6 +23,7 @@ export default {
         other: 'Khác',
         this_week: 'Tuần này',
         this_month: 'Tháng này',
+        last_month: 'Tháng trước',
         hour: 'giờ',
         day: 'Ngày',
         week: 'Tuần',

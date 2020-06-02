@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
 import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
 import { isEmpty } from 'lodash';
@@ -7,7 +8,6 @@ import * as PropTypes from 'prop-types';
 import React, { cloneElement, useContext } from 'react';
 import { FormContext, useNotify, useTranslate } from 'react-admin';
 import { useForm } from 'react-final-form';
-import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(
     (theme) => ({

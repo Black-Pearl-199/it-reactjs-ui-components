@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import ActionDelete from '@material-ui/icons/Delete';
-import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
@@ -33,14 +33,7 @@ const MyDeleteButton = (props) => {
 
     const handleDelete = (event) => {
         event.stopPropagation();
-        const {
-            resource,
-            record,
-            basePath,
-            redirect,
-            undoable,
-            onClick
-        } = props;
+        const { resource, record, basePath, redirect, undoable, onClick } = props;
         const resourceName = translate(`resources.${resource}.name`);
         if (undoable) {
             dispatch(
@@ -76,11 +69,7 @@ const MyDeleteButton = (props) => {
         <Button
             onClick={handleDelete}
             label={label}
-            className={classNames(
-                'ra-delete-button',
-                classes.deleteButton,
-                className
-            )}
+            className={classNames('ra-delete-button', classes.deleteButton, className)}
             key="button"
         >
             {icon}
@@ -93,11 +82,7 @@ MyDeleteButton.propTypes = {
     className: PropTypes.string,
     label: PropTypes.string,
     record: PropTypes.object,
-    redirect: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.func
-    ]),
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     resource: PropTypes.string.isRequired,
     undoable: PropTypes.bool,
     icon: PropTypes.element,
