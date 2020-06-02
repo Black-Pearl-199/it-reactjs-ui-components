@@ -8,25 +8,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+
+import { useOnClickOutside } from '../../configurations/hooks';
 import Guardian from '../../utils/Guardian';
-
-const useOnClickOutside = (ref, callback) => {
-    const { current } = ref;
-    useEffect(() => {
-        const handleClick = (e) => {
-            if (current && !current.contains(e.target)) {
-                callback();
-            }
-        };
-
-        document.addEventListener('click', handleClick);
-
-        return () => {
-            document.removeEventListener('click', handleClick);
-        };
-    }, [current, callback]);
-};
-
 
 const GotG = Guardian.getInstance();
 
@@ -122,66 +106,76 @@ const SideBar = (props) => {
             <ul className="sidebar-list">
                 {items.map((item, index) => {
                     const expanded = expandedKeys.indexOf(item.eventKey) > -1;
-                    return GotG.hasAnyAuthorities(item.permissions) && (
-                        <li
-                            key={`menu-${item.eventKey}`}
-                            title={!item.skipTranslate ? translate(item.title) : item.title}
-                            className={classNames(
-                                'sidebar-list-item',
-                                item.subs ? 'with-sub-menu' : '',
-                                expanded ? 'ba-sidebar-item-expanded' : '',
-                                item.disabled ? 'isDisabled' : ''
-                            )}
-                        >
-                            <NavLink
-                                exact={!collapse}
-                                className="sidebar-list-link"
-                                to={item.url}
-                                isActive={item.isActive}
-                                activeClassName="selected"
-                                onClick={menuSelect}
-                                data-event-key={item.eventKey}
+                    return (
+                        GotG.hasAnyAuthorities(item.permissions) && (
+                            <li
+                                key={`menu-${item.eventKey}`}
+                                title={!item.skipTranslate ? translate(item.title) : item.title}
+                                className={classNames(
+                                    'sidebar-list-item',
+                                    item.subs ? 'with-sub-menu' : '',
+                                    expanded ? 'ba-sidebar-item-expanded' : '',
+                                    item.disabled ? 'isDisabled' : ''
+                                )}
                             >
-                                {item.icon && (typeof item.icon === 'string' ? <i className={item.icon} /> : <FontAwesomeIcon icon={item.icon} />)}
-                                <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
+                                <NavLink
+                                    exact={!collapse}
+                                    className="sidebar-list-link"
+                                    to={item.url}
+                                    isActive={item.isActive}
+                                    activeClassName="selected"
+                                    onClick={menuSelect}
+                                    data-event-key={item.eventKey}
+                                >
+                                    {item.icon
+                                        && (typeof item.icon === 'string' ? (
+                                            <i className={item.icon} />
+                                        ) : (
+                                            <FontAwesomeIcon icon={item.icon} />
+                                        ))}
+                                    <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
+                                    {item.subs ? (
+                                        <b onClick={toggleExpand} data-event-key={item.eventKey}>
+                                            <FontAwesomeIcon icon={faAngleUp} />
+                                        </b>
+                                    ) : (
+                                        ''
+                                    )}
+                                </NavLink>
                                 {item.subs ? (
-                                    <b onClick={toggleExpand} data-event-key={item.eventKey}>
-                                        <FontAwesomeIcon icon={faAngleUp} />
-                                    </b>
+                                    <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
+                                        {item.subs.map(
+                                            (sub) => GotG.hasAnyAuthorities(sub.permissions) && (
+                                                <li
+                                                    key={`sub-${sub.eventKey}`}
+                                                    title={!sub.skipTranslate ? translate(sub.title) : sub.title}
+                                                >
+                                                    <NavLink
+                                                        className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
+                                                        to={sub.url}
+                                                        isActive={sub.isActive}
+                                                        activeClassName="selected"
+                                                        onClick={menuSelect}
+                                                        data-event-key={sub.eventKey}
+                                                    >
+                                                        <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
+                                                    </NavLink>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
                                 ) : (
                                     ''
                                 )}
-                            </NavLink>
-                            {item.subs ? (
-                                <ul className={['sidebar-sublist', expanded ? 'expanded' : ''].join(' ')}>
-                                    {item.subs.map((sub) => (
-                                        GotG.hasAnyAuthorities(sub.permissions) && (
-                                            <li key={`sub-${sub.eventKey}`} title={!sub.skipTranslate ? translate(sub.title) : sub.title}>
-                                                <NavLink
-                                                    className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
-                                                    to={sub.url}
-                                                    isActive={sub.isActive}
-                                                    activeClassName="selected"
-                                                    onClick={menuSelect}
-                                                    data-event-key={sub.eventKey}
-                                                >
-                                                    <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
-                                                </NavLink>
-                                            </li>
-                                        )
-                                    ))}
-                                </ul>
-                            ) : (
-                                ''
-                            )}
-                        </li>
+                            </li>
+                        )
                     );
                 })}
             </ul>
         </div>
     );
 
-    const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { ...rest }));
+    const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { ...rest, collapse }));
 
     return (
         <Nav as="aside" className={['sidebar', 'flex-column', collapse ? 'collapse' : '']}>
