@@ -6,6 +6,7 @@ import * as PropTypes from 'prop-types';
 import { stringify } from 'query-string';
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { changeListParams, showNotification, useTranslate } from 'react-admin';
+import { Form } from 'react-final-form';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { ITCrudGetList } from '../../configurations/actions';
@@ -234,44 +235,48 @@ const MyFilterBox = (props) => {
     }));
     // 'card', 'panel-itech',
     return (
-        <form onSubmit={onSubmit} ref={formRef} className={classNames('row', 'my-1', className)}>
-            <div className="d-flex flex-wrap w-100">
-                {renderChildren}
-                <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
-                    {hasClear ? (
-                        <div className="col-form-label mr-3">
-                            <Button
-                                variant="itech"
-                                className="btn-itech-secondary btn-itech-fixed"
-                                type="reset"
-                                disabled={loading}
-                                size="sm"
-                                onClick={resetFilter}
-                            >
-                                <FontAwesomeIcon icon={faEraser} />
+        <Form onSubmit={formEnter}>
+            {() => (
+                <form onSubmit={onSubmit} ref={formRef} className={classNames('row', 'my-1', className)}>
+                    <div className="d-flex flex-wrap w-100">
+                        {renderChildren}
+                        <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
+                            {hasClear ? (
+                                <div className="col-form-label mr-3">
+                                    <Button
+                                        variant="itech"
+                                        className="btn-itech-secondary btn-itech-fixed"
+                                        type="reset"
+                                        disabled={loading}
+                                        size="sm"
+                                        onClick={resetFilter}
+                                    >
+                                        <FontAwesomeIcon icon={faEraser} />
                                 &ensp;
-                                {translate('button.clear')}
-                            </Button>
-                        </div>
-                    ) : (
-                        ''
-                    )}
-                    <div className="col-form-label">
-                        <Button
-                            variant="itech"
-                            disabled={loading}
-                            size="sm"
-                            onClick={formEnter}
-                            className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
-                        >
-                            <FontAwesomeIcon icon={faSearch} />
+                                        {translate('button.clear')}
+                                    </Button>
+                                </div>
+                            ) : (
+                                ''
+                            )}
+                            <div className="col-form-label">
+                                <Button
+                                    variant="itech"
+                                    disabled={loading}
+                                    size="sm"
+                                    onClick={formEnter}
+                                    className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
+                                >
+                                    <FontAwesomeIcon icon={faSearch} />
                             &ensp;
-                            {translate('button.search')}
-                        </Button>
+                                    {translate('button.search')}
+                                </Button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </form>
+                </form>
+            )}
+        </Form>
     );
 };
 
