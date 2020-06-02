@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { debounce, isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
 import { stringify } from 'query-string';
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';

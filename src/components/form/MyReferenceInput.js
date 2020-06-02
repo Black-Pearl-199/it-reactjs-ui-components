@@ -259,21 +259,11 @@ const MyReferenceInput = ({
     ...props
 }) => {
     const translate = useTranslate();
-    const inputProps = useInput({
-        format,
-        onBlur,
-        onChange,
-        onFocus,
-        parse,
-        validate,
-        translate,
-        ...props
-    });
     return (
         <ReferenceInputView
-            {...inputProps}
+            translate={translate}
             {...props}
-            {...useReferenceInputController({ ...props, ...inputProps })}
+            {...useReferenceInputController({ ...props, translate })}
         />
     );
 };
