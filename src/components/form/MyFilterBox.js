@@ -26,6 +26,7 @@ const sanitizeRestProps = ({
     hasEdit,
     hasShow,
     defaultSort,
+    defaultPerPage,
     ...rest
 }) => rest;
 
@@ -69,6 +70,7 @@ const MyFilterBox = (props) => {
         inputValidate,
         invalidMessagePrefix,
         filterRef,
+        defaultPerPage,
         ...rest
     } = props;
     // console.log('filter box form data', form);
@@ -136,7 +138,7 @@ const MyFilterBox = (props) => {
             filter = { ...filter, ...permanentFilter };
             const { field: defaultSortField, order: defaultSortOrder } = defaultSort;
 
-            const { page = 1, perPage = 10, sort = defaultSortField, order = defaultSortOrder } = query;
+            const { page = 1, perPage = defaultPerPage, sort = defaultSortField, order = defaultSortOrder } = query;
             const pagination = {
                 page,
                 perPage
@@ -290,7 +292,8 @@ MyFilterBox.propTypes = {
     hasClear: PropTypes.bool,
     inputValidate: PropTypes.object,
     invalidMessagePrefix: PropTypes.string,
-    filterRef: PropTypes.object
+    filterRef: PropTypes.object,
+    defaultPerPage: PropTypes.number
 };
 
 MyFilterBox.defaultProps = {
@@ -299,7 +302,8 @@ MyFilterBox.defaultProps = {
     initData: false,
     defaultSort: { field: 'id', order: SORT_DESC },
     inputValidate: {},
-    invalidMessagePrefix: 'validation.invalid.'
+    invalidMessagePrefix: 'validation.invalid.',
+    defaultPerPage: 10
 };
 
 export default MyFilterBox;
