@@ -86,25 +86,20 @@ const PaginationActions = (props) => {
         props.onChangePage(event, page);
     };
 
-    const renderPageNums = () => {
-        const { classes } = props;
-
-        return range().map((pageNum, index) => (pageNum === '.' ? (
-            <span key={`hyphen_${index}`} className={classes.hellip}>
-                &hellip;
-            </span>
-        ) : (
-            <li
-                className={`page-number page-item ${pageNum === props.page + 1 ? 'active' : ''}`}
-                key={pageNum}
-                data-page={pageNum - 1}
-                onClick={gotoPage}
-            >
-                <div className="page-link">{pageNum}</div>
-            </li>
-        )));
-    };
-
+    const renderPageNums = () => range().map((pageNum, index) => (pageNum === '.' ? (
+        <span key={`hyphen_${index}`} className={classes.hellip}>
+            &hellip;
+        </span>
+    ) : (
+        <li
+            className={`page-number page-item ${pageNum === props.page + 1 ? 'active' : ''}`}
+            key={pageNum}
+            data-page={pageNum - 1}
+            onClick={gotoPage}
+        >
+            <div className="page-link">{pageNum}</div>
+        </li>
+    )));
     const { page } = props;
 
     const nbPages = getNbPages();
@@ -146,8 +141,8 @@ PaginationActions.propTypes = {
     count: PropTypes.number.isRequired,
     onChangePage: PropTypes.func.isRequired,
     page: PropTypes.number.isRequired,
-    rowsPerPage: PropTypes.number.isRequired,
-    classes: PropTypes.object
+    rowsPerPage: PropTypes.number.isRequired
+    // classes: PropTypes.object
 };
 
 export default pure(PaginationActions);
