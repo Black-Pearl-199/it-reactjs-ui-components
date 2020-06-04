@@ -302,7 +302,7 @@ MyFilterBox.defaultProps = {
     initData: false,
     defaultSort: { field: 'id', order: SORT_DESC },
     inputValidate: {},
-    invalidMessagePrefix: 'validation.invalid.',
+    invalidMessagePrefix: 'validation.invalid',
     defaultPerPage: 10
 };
 
