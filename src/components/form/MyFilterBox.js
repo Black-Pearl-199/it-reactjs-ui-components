@@ -27,8 +27,11 @@ const sanitizeRestProps = ({
     hasShow,
     defaultSort,
     defaultPerPage,
+    checkTriggerSubmit,
     ...rest
 }) => rest;
+
+const checkTriggerSubmit = (e, component, type) => (component !== 'input' || type !== 'text');
 
 const MyFilterBox = (props) => {
     const stateProps = useSelector((state) => {
@@ -71,6 +74,7 @@ const MyFilterBox = (props) => {
         invalidMessagePrefix,
         filterRef,
         defaultPerPage,
+        checkTriggerSubmit,
         ...rest
     } = props;
     // console.log('filter box form data', form);
@@ -199,7 +203,7 @@ const MyFilterBox = (props) => {
         // console.log('my filter box update', e, component, type);
         setForm({ ...form, ...e });
         // if (component !== 'input' || type !== 'text') onSubmit();
-        if (component !== 'input' || type !== 'text') setTriggerSubmit(true);
+        if (checkTriggerSubmit(e, component, type)) setTriggerSubmit(true);
     };
 
     const formEnter = (e) => {
@@ -293,7 +297,8 @@ MyFilterBox.propTypes = {
     inputValidate: PropTypes.object,
     invalidMessagePrefix: PropTypes.string,
     filterRef: PropTypes.object,
-    defaultPerPage: PropTypes.number
+    defaultPerPage: PropTypes.number,
+    checkTriggerSubmit: PropTypes.func
 };
 
 MyFilterBox.defaultProps = {
@@ -303,7 +308,8 @@ MyFilterBox.defaultProps = {
     defaultSort: { field: 'id', order: SORT_DESC },
     inputValidate: {},
     invalidMessagePrefix: 'validation.invalid',
-    defaultPerPage: 10
+    defaultPerPage: 10,
+    checkTriggerSubmit
 };
 
 export default MyFilterBox;
