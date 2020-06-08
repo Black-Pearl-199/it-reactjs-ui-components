@@ -63,6 +63,8 @@ const MyDatePicking = (props) => {
         todayEnd.setHours(23, 59, 59, 999);
         const thisMonthStart = moment(todayStart).startOf('month').toDate();
         const lastMonthStart = moment(add(thisMonthStart, -2)).startOf('month').toDate();
+        const thisWeekStart = moment(todayStart).startOf('isoWeek').toDate();
+        const lastWeekStart = moment(add(todayStart, -7)).startOf('isoWeek').toDate();
         if (inputValue) {
             const startDate = inputValue[startDateName];
             const endDate = inputValue[endDateName];
@@ -72,45 +74,31 @@ const MyDatePicking = (props) => {
                 setCurrentActive(DATE_RANGE.OTHER);
             } else {
                 if (formatDate) {
-                    todayStart = moment(
-                        moment(todayStart).format(formatDate)
-                    ).toDate();
-                    todayEnd = moment(
-                        moment(todayEnd).format(formatDate)
-                    ).toDate();
+                    todayStart = moment(moment(todayStart).format(formatDate)).toDate();
+                    todayEnd = moment(moment(todayEnd).format(formatDate)).toDate();
                 }
                 const start = moment(startDate).toDate();
                 const end = moment(endDate).toDate();
-                const lastWeekStart = moment(add(todayStart, -7))
-                    .startOf('isoWeek')
-                    .toDate();
-                if (
-                    start.getTime() === todayStart.getTime()
-                    && end.getTime() === todayEnd.getTime()
-                ) {
+                if (start.getTime() === todayStart.getTime() && end.getTime() === todayEnd.getTime()) {
                     setCurrentActive(DATE_RANGE.TODAY);
-                } else if (
-                    start.getTime() + 86400000 === todayStart.getTime()
-                    && end.getTime() + 86400000 === todayEnd.getTime()
-                ) {
+                } else if (start.getTime() + 86400000 === todayStart.getTime() && end.getTime() + 86400000 === todayEnd.getTime()) {
                     setCurrentActive(DATE_RANGE.YESTERDAY);
+                } else if (start.getTime() === thisWeekStart.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_WEEK)) {
+                    setCurrentActive(DATE_RANGE.THIS_WEEK);
                 } else if (
                     start.getTime() === lastWeekStart.getTime()
                     && lastWeekStart.getTime() + 86400000 * 7 === end.getTime()
+                    && dateButtons.indexOf(DATE_RANGE.LAST_WEEK)
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_WEEK);
-                } else if (
-                    start.getTime() === thisMonthStart.getTime()
-                ) {
+                } else if (start.getTime() === thisMonthStart.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_MONTH)) {
                     setCurrentActive(DATE_RANGE.THIS_MONTH);
-                } else if (
-                    start.getTime() === lastMonthStart.getTime()
-                ) {
+                } else if (start.getTime() === lastMonthStart.getTime()) {
                     setCurrentActive(DATE_RANGE.LAST_MONTH);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
-    }, [inputValue, formatDate, endDateName, startDateName]);
+    }, [inputValue, formatDate, endDateName, startDateName, dateButtons]);
 
     const changeInput = (newInputValues) => {
         let startDate = newInputValues[startDateName];
@@ -120,11 +108,14 @@ const MyDatePicking = (props) => {
             if (startDate) startDate = isFunction ? formatDate(startDate) : moment(startDate).format(formatDate);
             if (endDate) endDate = isFunction ? formatDate(endDate) : moment(endDate).format(formatDate);
         }
-        props.onInputChange({
-            ...newInputValues,
-            [startDateName]: startDate,
-            [endDateName]: endDate
-        }, autoSubmit && submit);
+        props.onInputChange(
+            {
+                ...newInputValues,
+                [startDateName]: startDate,
+                [endDateName]: endDate
+            },
+            autoSubmit && submit
+        );
     };
 
     const selectDateRange = (e) => {
@@ -148,9 +139,7 @@ const MyDatePicking = (props) => {
                 });
                 break;
             case DATE_RANGE.LAST_WEEK:
-                const lastWeekStart = moment(add(todayStart, -7))
-                    .startOf('isoWeek')
-                    .toDate();
+                const lastWeekStart = moment(add(todayStart, -7)).startOf('isoWeek').toDate();
                 changeInput({
                     [startDateName]: lastWeekStart,
                     [endDateName]: add(lastWeekStart, 7)
@@ -164,9 +153,7 @@ const MyDatePicking = (props) => {
                 });
                 break;
             case DATE_RANGE.THIS_WEEK:
-                const thisWeekStart = moment(todayStart)
-                    .startOf('isoWeek')
-                    .toDate();
+                const thisWeekStart = moment(todayStart).startOf('isoWeek').toDate();
                 changeInput({
                     [startDateName]: thisWeekStart,
                     [endDateName]: add(thisWeekStart, 7)
@@ -174,22 +161,16 @@ const MyDatePicking = (props) => {
                 // setState({ weekStart: thisWeekStart });
                 break;
             case DATE_RANGE.NEXT_WEEK:
-                const nextWeekStart = moment(add(todayStart, 7))
-                    .startOf('isoWeek')
-                    .toDate();
+                const nextWeekStart = moment(add(todayStart, 7)).startOf('isoWeek').toDate();
                 changeInput({
-                    [startDateName]: moment(nextWeekStart)
-                        .startOf('isoWeek')
-                        .toDate(),
+                    [startDateName]: moment(nextWeekStart).startOf('isoWeek').toDate(),
                     [endDateName]: add(nextWeekStart, 7)
                 });
                 // setState({ weekStart: nextWeekStart });
                 break;
             case DATE_RANGE.THIS_MONTH:
                 changeInput({
-                    [startDateName]: moment(todayEnd)
-                        .startOf('month')
-                        .toDate(),
+                    [startDateName]: moment(todayEnd).startOf('month').toDate(),
                     [endDateName]: todayEnd
                 });
                 break;
@@ -209,30 +190,18 @@ const MyDatePicking = (props) => {
         setShowInput(selectType === DATE_RANGE.OTHER);
     };
 
-
     return (
         <div className={groupClasses}>
-            {!hideLabel && (
-                <label className={classNames('col-form-label', labelClasses)}>
-                    {translate(label)}
-                </label>
-            )}
+            {!hideLabel && <label className={classNames('col-form-label', labelClasses)}>{translate(label)}</label>}
             {!hideButton && (
-                <div
-                    className={buttonClasses}
-                    role="group"
-                    aria-label="Select study date range"
-                >
+                <div className={buttonClasses} role="group" aria-label="Select study date range">
                     {dateButtons.map((button) => (
                         <Button
                             key={button}
                             variant="pick-date"
                             size="sm"
                             disabled={disabled}
-                            className={classNames(
-                                'btn-itech-secondary',
-                                currentActive === button ? 'active' : ''
-                            )}
+                            className={classNames('btn-itech-secondary', currentActive === button ? 'active' : '')}
                             onClick={selectDateRange}
                             data-select-type={button}
                             type="button"
@@ -242,13 +211,7 @@ const MyDatePicking = (props) => {
                     ))}
                 </div>
             )}
-            <div
-                className={classNames(
-                    alwaysShowInput || showInput
-                        ? inputGroupClasses
-                        : 'd-none'
-                )}
-            >
+            <div className={classNames(alwaysShowInput || showInput ? inputGroupClasses : 'd-none')}>
                 <MyBootstrapInput
                     source={startDateName}
                     component="date"
@@ -304,13 +267,7 @@ MyDatePicking.propTypes = {
 MyDatePicking.defaultProps = {
     startDateName: 'startDate',
     endDateName: 'endDate',
-    dateButtons: [
-        DATE_RANGE.TODAY,
-        DATE_RANGE.YESTERDAY,
-        DATE_RANGE.LAST_WEEK,
-        DATE_RANGE.ALL,
-        DATE_RANGE.OTHER
-    ],
+    dateButtons: [DATE_RANGE.TODAY, DATE_RANGE.YESTERDAY, DATE_RANGE.LAST_WEEK, DATE_RANGE.ALL, DATE_RANGE.OTHER],
     defaultRange: DATE_RANGE.ALL,
     buttonClasses: 'group-btn-pick-date',
     inputGroupClasses: 'mt-2 row',
