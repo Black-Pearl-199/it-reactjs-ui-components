@@ -8,8 +8,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { useDebouncedCallback } from 'use-debounce';
+
 import { ITCrudGetList } from '../../configurations/actions';
-// import { inputValidate } from '../../configurations/validation';
 import { hasCustomParams, selectQuery } from '../../utils';
 
 const SORT_DESC = 'DESC';
@@ -31,7 +32,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-const checkTriggerSubmit = (e, component, type) => (component !== 'input' || type !== 'text');
+const checkTriggerSubmit = (e, component, type) => component !== 'input' || type !== 'text';
 
 const MyFilterBox = (props) => {
     const stateProps = useSelector((state) => {
@@ -125,7 +126,7 @@ const MyFilterBox = (props) => {
         return formValidated;
     };
 
-    const onSubmit = debounce((e, firstInit) => {
+    const [onSubmit] = useDebouncedCallback((e, firstInit) => {
         if (e) e.preventDefault();
         if (checkFormValidate()) {
             const { initFilter, defaultSort, convertValue, resource } = props;
@@ -197,7 +198,7 @@ const MyFilterBox = (props) => {
             setTriggerSubmit(false);
             onSubmit();
         }
-    }, [triggerSubmit]);
+    }, [triggerSubmit, onSubmit]);
 
     const onChange = (e, component, type) => {
         // console.log('my filter box update', e, component, type);
