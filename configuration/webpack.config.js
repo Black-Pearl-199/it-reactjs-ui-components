@@ -6,14 +6,26 @@ module.exports = (env, argv) => {
     const config = {
         externals: {
             '@material-ui/core': '@material-ui/core',
+            'connected-react-router': 'connected-react-router',
             exceljs: 'exceljs',
+            'final-form': 'final-form',
+            'final-form-arrays': 'final-form-arrays',
+            moment: 'moment',
+            'moment-timezone': 'moment-timezone',
+            'prop-types': 'prop-types',
             react: 'react',
             'react-admin': 'react-admin',
             'react-bootstrap': 'react-bootstrap',
             'react-dom': 'react-dom',
             'react-final-form': 'react-final-form',
             'react-redux': 'react-redux',
-            'react-router-dom': 'react-router-dom'
+            'react-router': 'react-router',
+            'react-router-dom': 'react-router-dom',
+            'react-router-redux': 'react-router-redux',
+            recompose: 'recompose',
+            redux: 'redux',
+            'redux-persist': 'redux-persist',
+            'redux-saga': 'redux-saga'
         },
         // This is where our app starts. This is why we have done all this importing
         // and exporting, to get to here

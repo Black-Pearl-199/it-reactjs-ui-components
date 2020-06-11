@@ -16,7 +16,19 @@ const MyControlField = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const translate = useTranslate();
-    const { className, hasEdit, hasDelete, basePath, resource, record, urlFormat, deleteMessage, getNotificationName } = props;
+    const {
+        className,
+        hasEdit,
+        hasDelete,
+        basePath,
+        resource,
+        record,
+        urlFormat,
+        deleteMessage,
+        deleteCallback,
+        getNotificationName,
+        optimisticDelete
+    } = props;
     const { id } = record;
 
     let url = '';
@@ -28,11 +40,11 @@ const MyControlField = (props) => {
 
     const resourceName = getNotificationName(record, resource, translate);
 
-    const editCallback = useCallback(() => {
+    const onEdit = useCallback(() => {
         history.push(url);
     }, [history, url]);
 
-    const deleteCallback = useCallback(() => {
+    const onDelete = useCallback(() => {
         dispatch(
             showNotification(deleteMessage, NOTIFICATION_TYPE.INFO, {
                 actions: [
@@ -45,7 +57,9 @@ const MyControlField = (props) => {
                                     id,
                                     record,
                                     basePath,
-                                    resourceName
+                                    resourceName,
+                                    callback: deleteCallback,
+                                    optimistic: optimisticDelete
                                 })
                             );
                         }
@@ -56,17 +70,17 @@ const MyControlField = (props) => {
                 }
             })
         );
-    }, [basePath, deleteMessage, dispatch, id, record, resource, resourceName]);
+    }, [basePath, deleteMessage, dispatch, id, record, resource, resourceName, deleteCallback, optimisticDelete]);
 
     return (
         <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>
             {hasEdit && (
-                <MyIconButton popLabel="ra.action.edit" onClick={editCallback} className={hasDelete && 'mr-1'}>
+                <MyIconButton popLabel="ra.action.edit" onClick={onEdit} className={hasDelete && 'mr-1'}>
                     <FontAwesomeIcon icon={faEdit} />
                 </MyIconButton>
             )}
             {hasDelete && (
-                <MyIconButton popLabel="ra.action.delete" onClick={deleteCallback} className={hasEdit && 'ml-1'}>
+                <MyIconButton popLabel="ra.action.delete" onClick={onDelete} className={hasEdit && 'ml-1'}>
                     <FontAwesomeIcon icon={faTrash} />
                 </MyIconButton>
             )}
@@ -84,7 +98,9 @@ MyControlField.propTypes = {
     deleteMessage: PropTypes.string,
     // eslint-disable-next-line react/no-unused-prop-types
     label: PropTypes.string,
-    getNotificationName: PropTypes.func
+    getNotificationName: PropTypes.func,
+    optimisticDelete: PropTypes.bool,
+    deleteCallback: PropTypes.func
 };
 
 MyControlField.defaultProps = {
@@ -92,7 +108,8 @@ MyControlField.defaultProps = {
     hasDelete: true,
     deleteMessage: 'commons.message.delete',
     label: 'ra.action.editDelete',
-    getNotificationName
+    getNotificationName,
+    optimisticDelete: false
 };
 
 export default MyControlField;
