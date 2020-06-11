@@ -1,5 +1,5 @@
-import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { debounce, isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
@@ -254,8 +254,8 @@ const MyFilterBox = (props) => {
                                 size="sm"
                                 onClick={resetFilter}
                             >
-                                <FontAwesomeIcon icon={faEraser} />
-                                &ensp;
+                                {/* <FontAwesomeIcon icon={faEraser} />
+                                &ensp; */}
                                 {translate('button.clear')}
                             </Button>
                         </div>
@@ -270,8 +270,8 @@ const MyFilterBox = (props) => {
                             onClick={formEnter}
                             className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
                         >
-                            <FontAwesomeIcon icon={faSearch} />
-                            &ensp;
+                            {/* <FontAwesomeIcon icon={faSearch} />
+                            &ensp; */}
                             {translate('button.search')}
                         </Button>
                     </div>

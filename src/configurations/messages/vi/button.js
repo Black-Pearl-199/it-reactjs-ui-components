@@ -1,6 +1,6 @@
 export default {
     search: 'Tìm kiếm',
-    clear: 'Xóa',
+    clear: 'Xóa tìm kiếm',
     add: 'Lưu',
     logout: 'Đăng xuất',
     view: 'Xem',
