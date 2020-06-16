@@ -1,5 +1,4 @@
-import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { find, get } from 'lodash';
@@ -17,16 +16,15 @@ export const ALL_TYPE = [FIELD_BOOLEAN, FIELD_DATE, FIELD_SELECT, FIELD_TEXT, FI
 
 const defaultDateFormat = 'DD-MM-YYYY';
 
-const renderField = ({
-    type, value, choices, translateChoice, translate, children, ...rest
-}) => {
+const renderField = ({ type, value, choices, translateChoice, translate, children, ...rest }) => {
     // console.log('render field type', type, 'value', value, typeof value);
     switch (type) {
         case FIELD_BOOLEAN:
             if (choices) {
                 const convertVal = choices[value ? 1 : 0];
                 return translateChoice ? translate(convertVal) : convertVal;
-            } return value ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faTimes} />;
+            }
+            return value ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faTimes} />;
         case FIELD_DATE:
             let date = value;
             // console.log(date);
@@ -34,12 +32,13 @@ const renderField = ({
                 const { dateFormat = defaultDateFormat } = rest;
                 date = moment(date).tz('Asia/Ho_Chi_Minh');
                 return date.format(dateFormat);
-            } return date;
+            }
+            return date;
         case FIELD_SELECT:
             const { optionId = 'id', optionValue = 'name' } = rest;
             const valueObj = find(choices, { [optionId]: value }) || {};
             const presentValue = valueObj[optionValue];
-            return (translateChoice && presentValue) ? translate(presentValue) : presentValue;
+            return translateChoice && presentValue ? translate(presentValue) : presentValue;
         case FIELD_ARRAY:
             // console.log(children, value);
             const data = (value && value.reduce((prev, item) => ({ ...prev, [JSON.stringify(item)]: item }), {})) || {};
@@ -57,9 +56,7 @@ const renderField = ({
 
 const MyField = (props) => {
     const translate = useTranslate();
-    const {
-        record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, skipTranslateLabel, ...rest
-    } = props;
+    const { record, resource, source, groupClasses, labelClasses, fieldClasses, hideLabel, label, skipTranslateLabel, ...rest } = props;
     const translatedLabel = !hideLabel && `${label && !skipTranslateLabel ? translate(label) : translate(`resources.${resource}.fields.${source}`)}: `;
     const labelNotTranslate = label;
     const value = get(record, source);

@@ -159,11 +159,11 @@
 	}
 
 	&-dark {
-		background: $cyan;
+		background: $text-color;
 		color: $white !important;
 	
 		&:hover {
-			background-color: $cyan-lighter;
+			background-color: $text-color-lighter;
 		}
 	}
 

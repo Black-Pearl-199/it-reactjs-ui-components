@@ -1,4 +1,4 @@
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GetApp from '@material-ui/icons/GetApp';
 import ExcelJS from 'exceljs';

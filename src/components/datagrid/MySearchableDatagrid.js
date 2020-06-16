@@ -1,4 +1,4 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';

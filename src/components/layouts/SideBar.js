@@ -1,5 +1,4 @@
-import { faAngleUp } from '@fortawesome/free-solid-svg-icons/faAngleUp';
-import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { faAngleUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { debounce, find } from 'lodash';

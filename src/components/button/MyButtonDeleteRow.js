@@ -1,4 +1,4 @@
-import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as PropTypes from 'prop-types';
 import React from 'react';
