@@ -1,6 +1,6 @@
 export default {
     search: 'Search',
-    clear: 'Clear',
+    clear: 'Delete search',
     add: 'Add',
     no: 'No',
     edit: 'Edit',

@@ -1,7 +1,7 @@
 import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { debounce, isEmpty } from 'lodash';
+import { isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
 import { stringify } from 'query-string';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -76,6 +76,7 @@ const MyFilterBox = (props) => {
         filterRef,
         defaultPerPage,
         checkTriggerSubmit,
+        icon,
         ...rest
     } = props;
     // console.log('filter box form data', form);
@@ -255,8 +256,11 @@ const MyFilterBox = (props) => {
                                 size="sm"
                                 onClick={resetFilter}
                             >
-                                <FontAwesomeIcon icon={faEraser} />
-                                &ensp;
+                                {icon && (
+                                    <>
+                                        <FontAwesomeIcon icon={faEraser} />
+                                    </>
+                                )}
                                 {translate('button.clear')}
                             </Button>
                         </div>
@@ -271,8 +275,11 @@ const MyFilterBox = (props) => {
                             onClick={formEnter}
                             className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
                         >
-                            <FontAwesomeIcon icon={faSearch} />
-                            &ensp;
+                            {icon && (
+                                <>
+                                    <FontAwesomeIcon icon={faSearch} />
+                                </>
+                            )}
                             {translate('button.search')}
                         </Button>
                     </div>
@@ -299,7 +306,8 @@ MyFilterBox.propTypes = {
     invalidMessagePrefix: PropTypes.string,
     filterRef: PropTypes.object,
     defaultPerPage: PropTypes.number,
-    checkTriggerSubmit: PropTypes.func
+    checkTriggerSubmit: PropTypes.func,
+    icon: PropTypes.bool
 };
 
 MyFilterBox.defaultProps = {
