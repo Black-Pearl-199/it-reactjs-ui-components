@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 export const RedirectCreateButton = (props) => {
     const translate = useTranslate();
     const {
-        basePath, resource, path = 'create', label, icon
+        basePath, resource, path = 'create', label, icon, className
     } = props;
     return (
         <div className="my-auto">
             <Link
                 to={`${basePath}/${path}`}
-                className="btn btn-sm btn-shadow btn-itech-dark btn-itech-sm text-decoration-none d-block"
+                className={className || 'btn btn-sm btn-shadow btn-itech-dark btn-itech btn-itech-fixed text-decoration-none d-block'}
             >
                 {icon && (
                     <>
@@ -32,7 +32,8 @@ RedirectCreateButton.propTypes = {
     resource: PropTypes.string,
     path: PropTypes.string,
     label: PropTypes.string,
-    icon: PropTypes.any
+    icon: PropTypes.any,
+    className: PropTypes.string
 };
 
 export default RedirectCreateButton;
