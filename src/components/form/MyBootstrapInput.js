@@ -127,7 +127,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         name={source}
                         id={inputId}
                         value={inputValue}
-                        className={classNames('d-flex justify-content-between mx-3', composeInputClasses)}
+                        className={classNames('d-flex justify-content-between flex-wrap mx-3', composeInputClasses)}
                         title={translatedLabel}
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
@@ -368,7 +368,8 @@ const MyBootstrapInput = (props) => {
                     ? React.cloneElement(component, {
                         onChange,
                         value,
-                        resource
+                        resource,
+                        groupClasses
                     })
                     : renderInput({
                         ...rest,
@@ -377,6 +378,7 @@ const MyBootstrapInput = (props) => {
                         inputId,
                         composeInputClasses,
                         translatedLabel,
+                        groupClasses,
                         onChange,
                         value,
                         readOnly: loading || readOnly,

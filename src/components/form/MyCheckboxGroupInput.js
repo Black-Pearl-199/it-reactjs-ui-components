@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
-import { useInput } from 'react-admin';
+import { useInput, useTranslate } from 'react-admin';
 import React, { useCallback } from 'react';
 import MyCheckboxGroupInputItem from './MyCheckboxGroupInputItem';
 
@@ -133,7 +133,6 @@ const MyCheckboxGroupInput = (props) => {
         resource,
         row,
         source,
-        translate,
         translateChoice,
         validate,
         required,
@@ -165,8 +164,8 @@ const MyCheckboxGroupInput = (props) => {
     });
 
     // console.log('value', value);
-
-    const labelDisplay = translate(label || `resources.${resource}.fields.${source}`);
+    const translate = useTranslate();
+    const labelDisplay = hideLabel ? '' : translate(label || `resources.${resource}.fields.${source}`);
 
     const handleCheck = useCallback(
         (event, isChecked) => {
@@ -246,7 +245,7 @@ MyCheckboxGroupInput.propTypes = {
     groupClasses: PropTypes.string,
     inputClasses: PropTypes.string,
     labelClasses: PropTypes.string,
-    translate: PropTypes.func.isRequired,
+    // translate: PropTypes.func.isRequired,
     hideLabel: PropTypes.bool,
     required: PropTypes.bool,
     record: PropTypes.object,

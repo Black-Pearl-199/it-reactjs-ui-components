@@ -32,7 +32,7 @@ const MyCheckboxInput = (props) => {
     const form = useForm();
     const defaultValue = get(form.getState().values, source, false);
     const [checked, setChecked] = useState(defaultValue);
-    const labelDisplay = translate(label || `resources.${resource}.fields.${source}`);
+    const labelDisplay = hideLabel ? '' : translate(label || `resources.${resource}.fields.${source}`);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
