@@ -1,11 +1,13 @@
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { Button } from 'react-bootstrap';
+import { faSave } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 // import ContentSave from '@material-ui/icons/Save';
 import classnames from 'classnames';
 import { isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
-import React, { cloneElement, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FormContext, useNotify, useTranslate } from 'react-admin';
 import { useForm } from 'react-final-form';
 
@@ -28,19 +30,20 @@ const SaveButton = (props) => {
     const form = useForm();
     const {
         className,
-        classes: classesOverride,
-        invalid,
+        // classes: classesOverride,
+        // invalid,
         label = 'ra.action.save',
-        pristine,
+        // pristine,
         redirect,
         saving,
         submitOnEnter,
-        variant = 'contained',
+        variant = 'itech',
+        size = 'sm',
         icon = defaultIcon,
         onClick,
         handleSubmitWithRedirect,
-        onSave,
-        ...rest
+        onSave
+        // ...rest
     } = props;
     const classes = useStyles(props);
     const notify = useNotify();
@@ -89,44 +92,51 @@ const SaveButton = (props) => {
     const displayedLabel = label && translate(label, { _: label });
     return (
         <Button
-            className={classnames(classes.button, className)}
+            className={classnames(classes.button, 'btn-itech-primary btn-itech-fixed', className)}
             variant={variant}
+            size={size}
             type={type}
             onClick={handleClick}
-            color={saving ? 'default' : 'primary'}
-            aria-label={displayedLabel}
-            {...sanitizeRestProps(rest)}
+            // color={saving ? 'default' : 'primary'}
+            // aria-label={displayedLabel}
+            // {...sanitizeRestProps(rest)}
         >
-            {saving ? (
+            {/* {saving ? (
                 <CircularProgress size={18} thickness={2} className={classes.leftIcon} />
             ) : (
                 cloneElement(icon, {
                     className: classnames(classes.leftIcon, classes.icon)
                 })
+            )} */}
+            {icon && (
+                <>
+                    <FontAwesomeIcon icon={icon} />
+                </>
             )}
             {displayedLabel}
         </Button>
     );
 };
 
-const defaultIcon = <></>;
+const defaultIcon = faSave;
 
-const sanitizeRestProps = ({ basePath, handleSubmit, record, resource, undoable, ...rest }) => rest;
+// const sanitizeRestProps = ({ basePath, handleSubmit, record, resource, undoable, ...rest }) => rest;
 
 SaveButton.propTypes = {
     className: PropTypes.string,
-    classes: PropTypes.object,
+    // classes: PropTypes.object,
     handleSubmitWithRedirect: PropTypes.func,
     onSave: PropTypes.func,
-    invalid: PropTypes.bool,
+    // invalid: PropTypes.bool,
     label: PropTypes.string,
-    pristine: PropTypes.bool,
+    // pristine: PropTypes.bool,
     redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     saving: PropTypes.bool,
     submitOnEnter: PropTypes.bool,
-    variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+    variant: PropTypes.string,
     icon: PropTypes.element,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    size: PropTypes.string
 };
 
 export default SaveButton;
