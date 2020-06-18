@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.2.25] - 2020-06-18
 ### Changed
 - Change css for SaveButton, MyDeleteBox [@TinVan2]
+- Replace Button from material-ui by react-bootstrap [@TinVan2]
 
 ## [0.2.24] - 2020-06-18
 ### Changed

@@ -21,7 +21,7 @@ const MyEditToolbar = (props) => {
     return (
         <Toolbar
             {...rest}
-            className={classNames('px-3', 'py-1', 'd-flex', 'flex-row-reverse', 'mt-0', className)}
+            className={classNames('px-3', 'py-1', 'd-flex', 'mt-0', className)}
         >
             {!hideEditButton && (
                 <MyUpdateButton
