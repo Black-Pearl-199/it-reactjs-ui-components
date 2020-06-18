@@ -5,16 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.2.25] - 2020-06-18
-### Changed
-- Change css for SaveButton, MyDeleteBox [@TinVan2]
-- Replace Button from material-ui by react-bootstrap [@TinVan2]
-
-## [0.2.24] - 2020-06-18
 ### Removed
 - Remove unused components: DeleteBox, MyDeleteButton - [@tunglt1810]
 ### Changed
-- Change name of MyDeleteBox to MyDeleteButton - [@tunglt1810]
+- Change css for SaveButton, MyDeleteBox - [@TinVan2]
+- Replace Button from material-ui by react-bootstrap - [@TinVan2]
 - Change MyDeleteButton modal show input reason to show notification confirm - [@tunglt1810]
+- Change name of MyDeleteBox to MyDeleteButton - [@tunglt1810]
+
+## [0.2.24] - 2020-06-18
+### Changed
 - Change css for RedirectCreateButton when text is long [@TinVan2]
 
 ## [0.2.23] - 2020-06-17
