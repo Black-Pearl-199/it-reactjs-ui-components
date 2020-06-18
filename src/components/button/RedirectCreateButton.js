@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export const RedirectCreateButton = (props) => {
     const translate = useTranslate();
     const {
-        basePath, resource, path = 'create', label, icon, className
+        basePath, resource, path = 'create', label, icon, className, labelClasses
     } = props;
     return (
         <div className="my-auto">
@@ -21,7 +21,9 @@ export const RedirectCreateButton = (props) => {
                         &nbsp;
                     </>
                 )}
-                {label ? translate(label) : (`${translate('ra.action.add')} ${translate(`resources.${resource}.name`)}`)}
+                <div className={labelClasses || 'btn-redirect-create-resource'}>
+                    {label ? translate(label) : (`${translate('ra.action.add')} ${translate(`resources.${resource}.name`)}`)}
+                </div>
             </Link>
         </div>
     );
@@ -33,7 +35,8 @@ RedirectCreateButton.propTypes = {
     path: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.any,
-    className: PropTypes.string
+    className: PropTypes.string,
+    labelClasses: PropTypes.string
 };
 
 export default RedirectCreateButton;

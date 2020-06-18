@@ -1,94 +1,55 @@
 import * as PropTypes from 'prop-types';
-import React, { useState, useCallback } from 'react';
-import { useTranslate } from 'react-admin';
-import { Button, Container, Modal } from 'react-bootstrap';
+import React, { useCallback } from 'react';
+import { showNotification, useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
 
 import { ITCrudDelete } from '../../configurations/actions';
 import { getNotificationName } from '../../utils';
-import MyBootstrapInput from '../form/MyBootstrapInput';
+import { NOTIFICATION_TYPE } from '../messageBox';
 
-const MyDeleteButton = ({ ...props }) => {
+const MyDeleteButton = (props) => {
     // console.log('deleteBox props', props);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}, getNotificationName } = props;
+    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}, deleteMessage } = props;
     const resourceName = getNotificationName({ values: record }, resource, translate);
-    const [inputValue, setInputValue] = useState({ reason: '' });
-    const [showPopup, setShowPopup] = useState(false);
 
-    const onReasonChange = useCallback((e) => {
-        setInputValue({ ...inputValue, ...e });
-    }, [inputValue]);
-
-    const showConfirm = useCallback((e) => {
-        e.preventDefault();
-        setShowPopup(true);
-    }, []);
-    const hidePopup = useCallback(() => {
-        setShowPopup(false);
-    }, []);
-
-    const onDelete = () => {
-        hidePopup();
+    const onDelete = useCallback(() => {
         dispatch(
-            ITCrudDelete({
-                resource,
-                previousData: record,
-                id,
-                redirectTo: redirect,
-                reason: inputValue.reason,
-                basePath,
-                resourceName,
-                optimistic,
-                callback
+            showNotification(deleteMessage, NOTIFICATION_TYPE.INFO, {
+                actions: [
+                    {
+                        label: 'button.delete',
+                        callback: () => {
+                            dispatch(
+                                ITCrudDelete({
+                                    redirect,
+                                    resource,
+                                    id,
+                                    record,
+                                    basePath,
+                                    resourceName,
+                                    callback,
+                                    optimistic
+                                })
+                            );
+                        }
+                    }
+                ],
+                messageArgs: {
+                    resourceName
+                }
             })
         );
-    };
+    }, [redirect, basePath, deleteMessage, dispatch, id, record, resource, resourceName, callback, optimistic]);
 
     return (
         <div className={`px-3 ${fixed ? 'position-fixed' : ''}`}>
             <div>
-                <button type="button" className="btn btn-itech btn-itech-secondary btn-itech-fixed" onClick={showConfirm}>
+                <button type="button" className="btn btn-itech btn-itech-secondary btn-itech-fixed" onClick={onDelete}>
                     {translate('button.delete')}
                 </button>
             </div>
-            <Modal show={showPopup} onHide={hidePopup} centered size="md">
-                <Modal.Header>
-                    <span
-                        dangerouslySetInnerHTML={{
-                            __html: translate('commons.message.delete', { resourceName })
-                        }}
-                    />
-                </Modal.Header>
-                <Modal.Body>
-                    <Container fluid className="justify-content-between">
-                        <MyBootstrapInput
-                            label="deleteReason"
-                            source="reason"
-                            small={false}
-                            inputValue={inputValue}
-                            onInputChange={onReasonChange}
-                            groupClasses="row"
-                            inputClasses="flex-grow-1"
-                            labelClasses="label-required col-4 pl-0"
-                        />
-                    </Container>
-                </Modal.Body>
-                <Modal.Footer className="d-flex flex-row-reverse justify-content-around">
-                    <Button
-                        variant="itech"
-                        className="btn-danger btn-itech-fixed"
-                        onClick={onDelete}
-                        disabled={inputValue.reason.length < 3}
-                    >
-                        {translate('button.delete')}
-                    </Button>
-                    <Button variant="itech" className="btn-itech-secondary btn-itech-fixed mr-3" onClick={hidePopup}>
-                        {translate('commons.no')}
-                    </Button>
-                </Modal.Footer>
-            </Modal>
         </div>
     );
 };
@@ -102,12 +63,14 @@ MyDeleteButton.propTypes = {
     basePath: PropTypes.string,
     optimistic: PropTypes.bool,
     record: PropTypes.object,
-    getNotificationName: PropTypes.func
+    getNotificationName: PropTypes.func,
+    deleteMessage: PropTypes.string
 };
 
 MyDeleteButton.defaultProps = {
     fixed: false,
-    getNotificationName
+    getNotificationName,
+    deleteMessage: 'commons.message.delete'
 };
 
 export default MyDeleteButton;

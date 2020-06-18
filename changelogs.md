@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Removed
 - Remove unused components: DeleteBox, MyDeleteButton - [@tunglt1810]
 ### Changed
-- Change export level at [index](/src/index.js) to support auto complete - [@tunglt1810]
 - Change name of MyDeleteBox to MyDeleteButton - [@tunglt1810]
+- Change MyDeleteButton modal show input reason to show notification confirm - [@tunglt1810]
+- Change css for RedirectCreateButton when text is long [@TinVan2]
 
 ## [0.2.23] - 2020-06-17
 ### Changed
