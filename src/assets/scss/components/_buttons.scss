@@ -208,7 +208,22 @@
 			border-color: $green-itech-dark;
 			background-color: $form-background-color-focus !important;
 		}
-	}
+    }
+    
+    &-delete {
+        background: $red;
+        color: $white !important;
+
+        &:hover {
+            color: $white;
+            background-color: $red-1-light;
+        }
+
+        &:active {
+            background: $google-color;
+        }
+
+    }
 }
 
 .btn-sm {

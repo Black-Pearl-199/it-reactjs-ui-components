@@ -248,6 +248,20 @@
   background-color: rgba(33, 156, 119, 0.2) !important;
 }
 
+.btn-itech-delete {
+  background: red;
+  color: #fff !important;
+}
+
+.btn-itech-delete:hover {
+  color: #fff;
+  background-color: #e9322d;
+}
+
+.btn-itech-delete:active {
+  background: #dd4b39;
+}
+
 .btn-sm {
   line-height: 1.2;
 }

@@ -35,7 +35,8 @@ const SaveButton = (props) => {
         redirect,
         saving,
         submitOnEnter,
-        variant = 'contained',
+        variant = 'itech',
+        size = 'sm',
         icon = defaultIcon,
         onClick,
         handleSubmitWithRedirect,
@@ -89,8 +90,9 @@ const SaveButton = (props) => {
     const displayedLabel = label && translate(label, { _: label });
     return (
         <Button
-            className={classnames(classes.button, className)}
+            className={classnames(classes.button, 'btn-itech-primary btn-itech-fixed', className)}
             variant={variant}
+            size={size}
             type={type}
             onClick={handleClick}
             color={saving ? 'default' : 'primary'}
@@ -124,9 +126,10 @@ SaveButton.propTypes = {
     redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     saving: PropTypes.bool,
     submitOnEnter: PropTypes.bool,
-    variant: PropTypes.oneOf(['text', 'outlined', 'contained']),
+    variant: PropTypes.oneOf(['text', 'outlined', 'contained', 'itech']),
     icon: PropTypes.element,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    size: PropTypes.string
 };
 
 export default SaveButton;

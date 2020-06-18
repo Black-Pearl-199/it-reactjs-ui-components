@@ -49,9 +49,14 @@ const MyDeleteBox = ({ ...props }) => {
     return (
         <div className={`px-3 ${fixed ? 'position-fixed' : ''}`}>
             <div>
-                <button type="button" className="btn btn-itech btn-itech-secondary btn-itech-fixed" onClick={showConfirm}>
+                <Button
+                    variant="itech"
+                    size="sm"
+                    className="btn-itech-delete btn-itech-fixed"
+                    onClick={showConfirm}
+                >
                     {translate('button.delete')}
-                </button>
+                </Button>
             </div>
             <Modal show={showPopup} onHide={hidePopup} centered size="md">
                 <Modal.Header>

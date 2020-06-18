@@ -286,6 +286,7 @@ const MyBootstrapInput = (props) => {
         input,
         checkConvert,
         formClassName,
+        groupCheckboxClasses,
         ...rest
     } = props;
     const { resource, source, component, hideLabel, type } = rest;
@@ -376,6 +377,7 @@ const MyBootstrapInput = (props) => {
                         translate,
                         inputId,
                         composeInputClasses,
+                        groupCheckboxClasses,
                         translatedLabel,
                         onChange,
                         value,
