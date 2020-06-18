@@ -290,6 +290,13 @@
   color: #0056b3;
 }
 
+.btn-redirect-create-resource {
+  width: 112px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
 }

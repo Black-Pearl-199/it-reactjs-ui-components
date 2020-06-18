@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.0.23] - 2020-06-17
+## [0.2.24] - 2020-06-18
+### Changed
+- Change css for RedirectCreateButton when text is long [@TinVan2]
+
+## [0.2.23] - 2020-06-17
 ### Changed
 - Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel" [@TinVan2]
 - Change groupClasses of checkbox-group of MyBootstrapInput [@TinVan2]
