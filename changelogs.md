@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.0.23] - 2020-06-17
 ### Changed
-- Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel"
-- Change groupClasses of checkbox-group of MyBootstrapInput
+- Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel" [@TinVan2]
+- Change groupClasses of checkbox-group of MyBootstrapInput [@TinVan2]
 
 ## [0.2.22] - 2020-06-16
 ### Changed
