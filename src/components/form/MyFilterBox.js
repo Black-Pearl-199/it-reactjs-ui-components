@@ -192,6 +192,7 @@ const MyFilterBox = (props) => {
         if (initData) {
             onSubmit(undefined, true);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

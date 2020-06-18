@@ -223,7 +223,8 @@ const MyDatagrid = (props) => {
                         resource,
                         rowStyle,
                         selectedIds,
-                        version
+                        version,
+                        total
                     },
                     children
                 )

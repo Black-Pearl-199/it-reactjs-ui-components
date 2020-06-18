@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
 
-import MyDeleteBox from './MyDeleteBox';
+import MyDeleteButton from './MyDeleteButton';
 import MyUpdateButton from './MyUpdateButton';
 import RevertEditButton from './RevertEditButton';
 
@@ -43,7 +43,7 @@ const MyEditToolbar = (props) => {
             {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
             {customButton || null}
             {deletable ? (
-                <MyDeleteBox
+                <MyDeleteButton
                     id={id}
                     basePath={basePath}
                     record={record}

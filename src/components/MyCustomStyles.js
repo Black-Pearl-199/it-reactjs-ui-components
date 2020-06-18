@@ -414,3 +414,16 @@ export const checkboxStyles = {
         width: 20
     }
 };
+
+export default {
+    listStylesNoActions,
+    listStylesNoActionsList,
+    paginationStyles,
+    buttonStyles,
+    buttonGreenStyles,
+    inputFormControlStyles,
+    filterStyles,
+    tableStyles,
+    inputStyles,
+    checkboxStyles
+};

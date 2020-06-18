@@ -1,98 +1,113 @@
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
-import ActionDelete from '@material-ui/icons/Delete';
-import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import React from 'react';
-import { startUndoable, useTranslate } from 'react-admin';
+import React, { useState, useCallback } from 'react';
+import { useTranslate } from 'react-admin';
+import { Button, Container, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { ITCrudDelete } from '../../configurations/actions/CrudActions';
+import { ITCrudDelete } from '../../configurations/actions';
+import { getNotificationName } from '../../utils';
+import MyBootstrapInput from '../form/MyBootstrapInput';
 
-const useStyles = makeStyles((theme) => ({
-    deleteButton: {
-        color: theme.palette.error.main,
-        '&:hover': {
-            backgroundColor: fade(theme.palette.error.main, 0.12),
-            // Reset on mouse devices
-            '@media (hover: none)': {
-                backgroundColor: 'transparent'
-            }
-        }
-    }
-}));
-
-// const sanitizeRestProps = ({basePath, classes, dispatchCrudDelete, filterValues, label, resource, selectedIds, startUndoable, undoable, redirect, translate, ...rest}) => rest;
-
-const MyDeleteButton = (props) => {
-    const classes = useStyles(props);
+const MyDeleteButton = ({ ...props }) => {
+    // console.log('deleteBox props', props);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const dispatchCrudDelete = dispatch(ITCrudDelete);
+    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}, getNotificationName } = props;
+    const resourceName = getNotificationName({ values: record }, resource, translate);
+    const [inputValue, setInputValue] = useState({ reason: '' });
+    const [showPopup, setShowPopup] = useState(false);
 
-    const handleDelete = (event) => {
-        event.stopPropagation();
-        const { resource, record, basePath, redirect, undoable, onClick } = props;
-        const resourceName = translate(`resources.${resource}.name`);
-        if (undoable) {
-            dispatch(
-                startUndoable(
-                    dispatchCrudDelete({
-                        resource,
-                        id: record.id,
-                        record,
-                        basePath,
-                        redirect,
-                        resourceName
-                    })
-                )
-            );
-        } else {
-            dispatchCrudDelete({
+    const onReasonChange = useCallback((e) => {
+        setInputValue({ ...inputValue, ...e });
+    }, [inputValue]);
+
+    const showConfirm = useCallback((e) => {
+        e.preventDefault();
+        setShowPopup(true);
+    }, []);
+    const hidePopup = useCallback(() => {
+        setShowPopup(false);
+    }, []);
+
+    const onDelete = () => {
+        hidePopup();
+        dispatch(
+            ITCrudDelete({
                 resource,
-                id: record.id,
-                record,
+                previousData: record,
+                id,
+                redirectTo: redirect,
+                reason: inputValue.reason,
                 basePath,
-                redirect,
-                resourceName
-            });
-        }
-
-        if (typeof onClick === 'function') {
-            onClick();
-        }
+                resourceName,
+                optimistic,
+                callback
+            })
+        );
     };
 
-    const { label = 'ra.action.delete', className, icon } = props;
     return (
-        <Button
-            onClick={handleDelete}
-            label={label}
-            className={classNames('ra-delete-button', classes.deleteButton, className)}
-            key="button"
-        >
-            {icon}
-        </Button>
+        <div className={`px-3 ${fixed ? 'position-fixed' : ''}`}>
+            <div>
+                <button type="button" className="btn btn-itech btn-itech-secondary btn-itech-fixed" onClick={showConfirm}>
+                    {translate('button.delete')}
+                </button>
+            </div>
+            <Modal show={showPopup} onHide={hidePopup} centered size="md">
+                <Modal.Header>
+                    <span
+                        dangerouslySetInnerHTML={{
+                            __html: translate('commons.message.delete', { resourceName })
+                        }}
+                    />
+                </Modal.Header>
+                <Modal.Body>
+                    <Container fluid className="justify-content-between">
+                        <MyBootstrapInput
+                            label="deleteReason"
+                            source="reason"
+                            small={false}
+                            inputValue={inputValue}
+                            onInputChange={onReasonChange}
+                            groupClasses="row"
+                            inputClasses="flex-grow-1"
+                            labelClasses="label-required col-4 pl-0"
+                        />
+                    </Container>
+                </Modal.Body>
+                <Modal.Footer className="d-flex flex-row-reverse justify-content-around">
+                    <Button
+                        variant="itech"
+                        className="btn-danger btn-itech-fixed"
+                        onClick={onDelete}
+                        disabled={inputValue.reason.length < 3}
+                    >
+                        {translate('button.delete')}
+                    </Button>
+                    <Button variant="itech" className="btn-itech-secondary btn-itech-fixed mr-3" onClick={hidePopup}>
+                        {translate('commons.no')}
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
     );
 };
 
 MyDeleteButton.propTypes = {
-    basePath: PropTypes.string,
-    className: PropTypes.string,
-    label: PropTypes.string,
-    record: PropTypes.object,
-    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.func]),
     resource: PropTypes.string.isRequired,
-    undoable: PropTypes.bool,
-    icon: PropTypes.element,
-    onClick: PropTypes.func
+    id: PropTypes.any.isRequired,
+    fixed: PropTypes.bool,
+    callback: PropTypes.func,
+    redirect: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    basePath: PropTypes.string,
+    optimistic: PropTypes.bool,
+    record: PropTypes.object,
+    getNotificationName: PropTypes.func
 };
 
 MyDeleteButton.defaultProps = {
-    redirect: 'list',
-    undoable: false,
-    icon: <ActionDelete />
+    fixed: false,
+    getNotificationName
 };
 
 export default MyDeleteButton;

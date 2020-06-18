@@ -46,7 +46,7 @@ export const getNotificationName = (record, resource, translate) => `${translate
 
 /**
  * Inspect an object and check values of all attributes,
- * TODO : need to support full text search and regex search
+ * TODO: need to support full text search and regex search
  * @param {Object} obj - object need to search
  * @param {String} val - string to search
  * @return {Boolean} true if obj contain val in all of values

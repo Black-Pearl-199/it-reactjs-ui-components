@@ -4,7 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.0.23] - 2020-06-17
+## [0.2.24] - 2020-06-18
+### Removed
+- Remove unused components: DeleteBox, MyDeleteButton - [@tunglt1810]
+### Changed
+- Change export level at [index](/src/index.js) to support auto complete - [@tunglt1810]
+- Change name of MyDeleteBox to MyDeleteButton - [@tunglt1810]
+
+## [0.2.23] - 2020-06-17
 ### Changed
 - Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel" [@TinVan2]
 - Change groupClasses of checkbox-group of MyBootstrapInput [@TinVan2]

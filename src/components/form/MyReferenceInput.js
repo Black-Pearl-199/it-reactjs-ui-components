@@ -1,7 +1,7 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { useTranslate, Labeled, useInput, useReferenceInputController } from 'react-admin';
+import { useTranslate, Labeled, useReferenceInputController } from 'react-admin';
 import React, { Children, useEffect, useState } from 'react';
 
 import ReferenceError from './ReferenceError';
@@ -93,7 +93,7 @@ const ReferenceInputView = (props) => {
                     // if (rest.onInputChange) rest.onInputChange({source: value});
                 } else formInitValue = get(choices[0], optionValue);
             }
-            // console.log('init reference input with value', value);
+            console.log('init reference input with value', defaultValue, formInitValue);
             if (form) form.change(source, defaultValue || formInitValue);
 
             if (onChange) onChange(formInitValue);
