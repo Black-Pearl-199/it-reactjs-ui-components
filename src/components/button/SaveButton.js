@@ -13,9 +13,9 @@ import { useForm } from 'react-final-form';
 
 const useStyles = makeStyles(
     (theme) => ({
-        button: {
-            position: 'relative'
-        },
+        // button: {
+        //     position: 'relative'
+        // },
         leftIcon: {
             marginRight: theme.spacing(1)
         },
@@ -39,7 +39,7 @@ const SaveButton = (props) => {
         submitOnEnter,
         variant = 'itech',
         size = 'sm',
-        icon = defaultIcon,
+        icon,
         onClick,
         handleSubmitWithRedirect,
         onSave
@@ -117,8 +117,6 @@ const SaveButton = (props) => {
         </Button>
     );
 };
-
-const defaultIcon = faSave;
 
 // const sanitizeRestProps = ({ basePath, handleSubmit, record, resource, undoable, ...rest }) => rest;
 
