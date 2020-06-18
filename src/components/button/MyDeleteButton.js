@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { showNotification, useTranslate } from 'react-admin';
+import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { ITCrudDelete } from '../../configurations/actions';
@@ -46,9 +47,9 @@ const MyDeleteButton = (props) => {
     return (
         <div className={`px-3 ${fixed ? 'position-fixed' : ''}`}>
             <div>
-                <button type="button" className="btn btn-itech btn-itech-secondary btn-itech-fixed" onClick={onDelete}>
+                <Button variant="itech" size="sm" className="btn-itech-delete btn-itech-fixed" onClick={onDelete}>
                     {translate('button.delete')}
-                </button>
+                </Button>
             </div>
         </div>
     );
@@ -63,13 +64,11 @@ MyDeleteButton.propTypes = {
     basePath: PropTypes.string,
     optimistic: PropTypes.bool,
     record: PropTypes.object,
-    getNotificationName: PropTypes.func,
     deleteMessage: PropTypes.string
 };
 
 MyDeleteButton.defaultProps = {
     fixed: false,
-    getNotificationName,
     deleteMessage: 'commons.message.delete'
 };
 
