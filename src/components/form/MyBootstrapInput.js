@@ -82,7 +82,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
         emptyChoiceLabel,
         translate,
         formatText = translate,
-        groupClasses,
+        groupCheckboxClasses,
         ...rest
     } = props;
     let { defaultValue } = props;
@@ -127,15 +127,15 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         name={source}
                         id={inputId}
                         value={inputValue}
-                        className={classNames('d-flex justify-content-between flex-wrap mx-3', composeInputClasses)}
+                        className={classNames('col-12 form-inline px-0', composeInputClasses)}
                         title={translatedLabel}
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
                     >
                         {allowEmpty && (
-                            <div className={groupClasses}>
+                            <div className={groupCheckboxClasses}>
                                 <input
-                                    className="form-check-input"
+                                    className="form-check-input mt-1"
                                     type="checkbox"
                                     value={CHECKBOX_EMPTY}
                                     checked={!inputValue || inputValue.length === 0}
@@ -151,9 +151,9 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                             const choiceValue = choice[optionValue];
                             const inputId = `${source}-${choiceValue}`;
                             return (
-                                <div className={groupClasses} key={inputId}>
+                                <div className={groupCheckboxClasses} key={inputId}>
                                     <input
-                                        className="form-check-input"
+                                        className="form-check-input mt-1"
                                         type="checkbox"
                                         value={choiceValue}
                                         checked={inputValue && inputValue.includes(choiceValue)}
@@ -264,7 +264,7 @@ renderInput.propTypes = {
     optionText: PropTypes.string,
     optionValue: PropTypes.string,
     translate: PropTypes.func,
-    groupClasses: PropTypes.string
+    groupCheckboxClasses: PropTypes.string
 };
 
 // input not null khi sử dụng ReferenceInput
@@ -368,8 +368,7 @@ const MyBootstrapInput = (props) => {
                     ? React.cloneElement(component, {
                         onChange,
                         value,
-                        resource,
-                        groupClasses
+                        resource
                     })
                     : renderInput({
                         ...rest,
@@ -378,7 +377,6 @@ const MyBootstrapInput = (props) => {
                         inputId,
                         composeInputClasses,
                         translatedLabel,
-                        groupClasses,
                         onChange,
                         value,
                         readOnly: loading || readOnly,
@@ -400,6 +398,7 @@ MyBootstrapInput.propTypes = {
     onInputChange: PropTypes.func,
     inputValue: PropTypes.object,
     groupClasses: PropTypes.string,
+    groupCheckboxClasses: PropTypes.string,
     inputClasses: PropTypes.string,
     labelClasses: PropTypes.string,
     defaultValue: PropTypes.any,
