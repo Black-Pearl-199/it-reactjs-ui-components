@@ -15,12 +15,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.2.24] - 2020-06-18
 ### Changed
-- Change css for RedirectCreateButton when text is long [@TinVan2]
+- Change css for RedirectCreateButton when text is long - [@TinVan2]
 
 ## [0.2.23] - 2020-06-17
 ### Changed
-- Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel" [@TinVan2]
-- Change groupClasses of checkbox-group of MyBootstrapInput [@TinVan2]
+- Change labelDisplay of MyCheckboxInput and MyCheckboxGroupInput when has "hideLabel" - [@TinVan2]
+- Change groupClasses of checkbox-group of MyBootstrapInput - [@TinVan2]
 
 ## [0.2.22] - 2020-06-16
 ### Changed
