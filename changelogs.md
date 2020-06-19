@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.2.28] - 2020-06-19
 ### Changed
-- MyDeleteButton: remove default className px-3 and support className props - [@tungl1810]
+- MyDeleteButton: remove default className px-3 and support className props - [@tunglt1810]
 - InputWrapper: moved out from MyCustomInput - [@tunglt1810]
 - DateRange: moved out from MyDatePicking - [@tunglt1810]
 - MyReferenceInput: remove required translate prop - [@tunglt1810]
