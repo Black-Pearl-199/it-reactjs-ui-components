@@ -1,3 +1,4 @@
+import _InputWrapper from './InputWrapper';
 import _FormHeading from './FormHeading';
 import _MyBootstrapField from './MyBootstrapField';
 import _MyBootstrapInput from './MyBootstrapInput';
@@ -14,6 +15,7 @@ import _MySimpleForm from './MySimpleForm';
 import _MySelectArrayInput from './MySelectArrayInput';
 
 export {
+    _InputWrapper as InputWrapper,
     _FormHeading as FormHeading,
     _MyBootstrapField as MyBootstrapField,
     _MyBootstrapInput as MyBootstrapInput,
@@ -30,6 +32,7 @@ export {
     _MySelectArrayInput as MySelectArrayInput
 };
 
+export { default as DATE_RANGE } from './DateRange';
+
 export * from './MyCustomInput';
-export * from './MyDatePicking';
 export * from './MyBootstrapInput';

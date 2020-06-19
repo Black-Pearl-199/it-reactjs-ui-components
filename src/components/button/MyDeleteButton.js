@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { showNotification, useTranslate } from 'react-admin';
@@ -12,7 +13,7 @@ const MyDeleteButton = (props) => {
     // console.log('deleteBox props', props);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}, deleteMessage } = props;
+    const { resource, id, callback, redirect = 'list', fixed, basePath, optimistic, record = {}, deleteMessage, className } = props;
     const resourceName = getNotificationName({ values: record }, resource, translate);
 
     const onDelete = useCallback(() => {
@@ -45,7 +46,7 @@ const MyDeleteButton = (props) => {
     }, [redirect, basePath, deleteMessage, dispatch, id, record, resource, resourceName, callback, optimistic]);
 
     return (
-        <div className={`px-3 ${fixed ? 'position-fixed' : ''}`}>
+        <div className={classNames(fixed ? 'position-fixed' : '', className)}>
             <div>
                 <Button variant="itech" size="sm" className="btn-itech-delete btn-itech-fixed" onClick={onDelete}>
                     {translate('button.delete')}

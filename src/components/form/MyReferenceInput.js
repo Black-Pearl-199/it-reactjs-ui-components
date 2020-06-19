@@ -289,7 +289,6 @@ MyReferenceInput.propTypes = {
         order: PropTypes.oneOf([SORT_ASC, SORT_DESC])
     }),
     source: PropTypes.string,
-    translate: PropTypes.func.isRequired,
     format: PropTypes.any,
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,

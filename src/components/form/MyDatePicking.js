@@ -4,6 +4,8 @@ import * as PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
+
+import DATE_RANGE from './DateRange';
 import MyBootstrapInput from './MyBootstrapInput';
 
 function add(date, day) {
@@ -11,21 +13,6 @@ function add(date, day) {
     newDate.setTime(date.getTime() + day * 24 * 60 * 60 * 1000);
     return newDate;
 }
-
-export const DATE_RANGE = {
-    ALL: 'all',
-    TODAY: 'today',
-    YESTERDAY: 'yesterday',
-    LAST_WEEK: 'last_week',
-    OTHER: 'other',
-    THIS_WEEK: 'this_week',
-    THIS_MONTH: 'this_month',
-    LAST_MONTH: 'last_month',
-    DAY: 'day',
-    WEEK: 'week',
-    MONTH: 'month',
-    NEXT_WEEK: 'next_week'
-};
 
 const MyDatePicking = (props) => {
     const translate = useTranslate();

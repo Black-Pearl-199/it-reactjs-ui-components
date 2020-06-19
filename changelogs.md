@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.28] - 2020-06-19
+### Changed
+- MyDeleteButton: remove default className px-3 and support className props - [@tungl1810]
+- InputWrapper: moved out from MyCustomInput - [@tunglt1810]
+- DateRange: moved out from MyDatePicking - [@tunglt1810]
+- MyReferenceInput: remove required translate prop - [@tunglt1810]
+### Removed
+- MyEditToolBar: remove default className px-3 - [@tunglt1810]
+- MySaveToolBar: remove default className px-3 - [@tunglt1810]
+
 ## [0.2.27] - 2020-06-19
 ### Added
 - MyBootstrapInput support render label required - [@tunglt1810]

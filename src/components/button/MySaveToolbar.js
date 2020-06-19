@@ -13,7 +13,7 @@ const MySaveToolbar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
     return (
-        <Toolbar {...rest} className={classNames('px-3 py-1 d-flex flex-row-reverse mt-0', className)}>
+        <Toolbar {...rest} className={classNames('py-1', 'd-flex', 'mt-0', className)}>
             {!hideSaveButton && (
                 <MySaveButton
                     redirect={redirect}
