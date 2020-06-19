@@ -1,6 +1,5 @@
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import GetApp from '@material-ui/icons/GetApp';
 import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import { get } from 'lodash';
@@ -101,7 +100,7 @@ const MyExportExcelButton = (props) => {
     };
 
     const {
-        label, icon, ...rest
+        label, ...rest
     } = props;
     return (
         <Button
@@ -127,7 +126,6 @@ MyExportExcelButton.propTypes = {
     maxResults: PropTypes.number.isRequired,
     resource: PropTypes.string.isRequired,
     sort: PropTypes.object,
-    icon: PropTypes.element,
     total: PropTypes.number,
     fields: PropTypes.array.isRequired,
     extension: PropTypes.string,
@@ -139,7 +137,6 @@ MyExportExcelButton.propTypes = {
 MyExportExcelButton.defaultProps = {
     label: 'ra.action.exportExcel',
     maxResults: 1000,
-    icon: <GetApp />,
     fields: [],
     extension: 'xlsx'
 };

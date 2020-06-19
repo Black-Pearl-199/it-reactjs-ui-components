@@ -1,6 +1,5 @@
-import { addField } from 'react-admin';
-
 import _FormHeading from './FormHeading';
+import _MyBootstrapField from './MyBootstrapField';
 import _MyBootstrapInput from './MyBootstrapInput';
 import _MyCheckboxInput from './MyCheckboxInput';
 import _MyCheckboxGroupInput from './MyCheckboxGroupInput';
@@ -14,11 +13,9 @@ import _MyReferenceArrayInput from './MyReferenceArrayInput';
 import _MySimpleForm from './MySimpleForm';
 import _MySelectArrayInput from './MySelectArrayInput';
 
-const MyBootstrapField = addField(_MyBootstrapInput);
-
 export {
     _FormHeading as FormHeading,
-    MyBootstrapField,
+    _MyBootstrapField as MyBootstrapField,
     _MyBootstrapInput as MyBootstrapInput,
     _MyCheckboxInput as MyCheckboxInput,
     _MyCheckboxGroupInput as MyCheckboxGroupInput,

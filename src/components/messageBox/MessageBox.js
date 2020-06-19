@@ -95,7 +95,6 @@ const MessageBox = (props) => {
                             variant="itech"
                             size="sm"
                             className={action.className ? action.className : 'btn-itech-primary btn-itech-sm ml-2'}
-                            const
                             onClick={() => {
                                 dispatch(hideNotification());
                                 action.callback();

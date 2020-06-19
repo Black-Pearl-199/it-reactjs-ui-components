@@ -33,7 +33,7 @@ const MyUpdateButton = (props) => {
     const handleSave = useCallback(
         (values, redirect) => {
             const resourceName = translate(`resources.${resource}.name`);
-            const { message = 'commons.message.edit', type = 'actions', messageArgs = {} } = customNotification;
+            const { message = 'commons.message.edit', type = 'info', messageArgs = {} } = customNotification;
             const sendRequest = (values) => {
                 const data = convertValue ? convertValue(values) : values;
                 const meta = hideNotification

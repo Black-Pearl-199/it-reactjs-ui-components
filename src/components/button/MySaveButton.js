@@ -31,7 +31,7 @@ const MySaveButton = (props) => {
     const handleSave = useCallback(
         (values, redirect) => {
             const resourceName = translate(`resources.${resource}.name`);
-            const { message = 'commons.message.save', type = 'actions', messageArgs = {} } = customNotification;
+            const { message = 'commons.message.save', type = 'info', messageArgs = {} } = customNotification;
 
             const sendRequest = (values) => {
                 const data = convertValue ? convertValue(values) : values;

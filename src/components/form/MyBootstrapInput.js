@@ -45,6 +45,7 @@ const sanitizeRestProps = ({
     defaultValue,
     location,
     resource,
+    required,
     ...rest
 }) => rest;
 
@@ -287,6 +288,7 @@ const MyBootstrapInput = (props) => {
         checkConvert,
         formClassName,
         groupCheckboxClasses,
+        required,
         ...rest
     } = props;
     const { resource, source, component, hideLabel, type } = rest;
@@ -360,7 +362,7 @@ const MyBootstrapInput = (props) => {
     return (
         <div className={classNames(groupClasses, alignCenter ? 'align-items-center' : null)}>
             {!hideLabel ? (
-                <label className={classNames('col-form-label', labelClasses)} htmlFor={inputId}>
+                <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)} htmlFor={inputId}>
                     {translatedLabel}
                 </label>
             ) : null}
@@ -414,7 +416,7 @@ MyBootstrapInput.propTypes = {
     input: PropTypes.any,
     formClassName: PropTypes.string,
     formatDate: PropTypes.string,
-    location: PropTypes.object
+    required: PropTypes.bool
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
