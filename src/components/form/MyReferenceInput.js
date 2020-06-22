@@ -93,7 +93,7 @@ const ReferenceInputView = (props) => {
                     // if (rest.onInputChange) rest.onInputChange({source: value});
                 } else formInitValue = get(choices[0], optionValue);
             }
-            console.log('init reference input with value', defaultValue, formInitValue);
+            // console.log('init reference input with value', defaultValue, formInitValue);
             if (form) form.change(source, defaultValue || formInitValue);
 
             if (onChange) onChange(formInitValue);
@@ -155,7 +155,7 @@ ReferenceInputView.propTypes = {
     classes: PropTypes.object,
     className: PropTypes.string,
     error: PropTypes.string,
-    input: PropTypes.object.isRequired,
+    input: PropTypes.object,
     loading: PropTypes.bool,
     label: PropTypes.string,
     meta: PropTypes.object,
@@ -259,11 +259,25 @@ const MyReferenceInput = ({
     ...props
 }) => {
     const translate = useTranslate();
+    const inputProps = { input: props.input || {} };
+    // if (props.form) {
+    //     // eslint-disable-next-line react-hooks/rules-of-hooks
+    //     inputProps = useInput({
+    //         format,
+    //         onBlur,
+    //         onChange,
+    //         onFocus,
+    //         parse,
+    //         validate,
+    //         ...props
+    //     });
+    //     console.log('final form props for reference input', inputProps);
+    // }
     return (
         <ReferenceInputView
             translate={translate}
             {...props}
-            {...useReferenceInputController({ ...props, translate })}
+            {...useReferenceInputController({ ...props, ...inputProps, translate })}
         />
     );
 };
@@ -276,7 +290,7 @@ MyReferenceInput.propTypes = {
     classes: PropTypes.object,
     filter: PropTypes.object,
     filterToQuery: PropTypes.func.isRequired,
-    input: PropTypes.object.isRequired,
+    input: PropTypes.object,
     label: PropTypes.string,
     meta: PropTypes.object,
     onChange: PropTypes.func,

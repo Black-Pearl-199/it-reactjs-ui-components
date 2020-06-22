@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.29] - 2020-06-19
+### Added
+- MyReferenceInput: remove default input prop to support useInput hook in children input - [@tunglt1810]
+- MyGroupingInput: support pass form input prop to children input - [@tunglt1810]
+
 ## [0.2.28] - 2020-06-19
 ### Changed
 - MyDeleteButton: remove default className px-3 and support className props - [@tunglt1810]

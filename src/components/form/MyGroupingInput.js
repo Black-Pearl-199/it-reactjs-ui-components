@@ -5,7 +5,7 @@ import { FormInput } from 'react-admin';
 
 const MyGroupingInput = (props) => {
     const {
-        basePath, record, resource, children, heading, groupClasses, innerClasses, border
+        basePath, record, resource, children, heading, groupClasses, innerClasses, border, ...rest
     } = props;
     // console.log('grouping input record', JSON.parse(JSON.stringify(record)));
 
@@ -13,7 +13,8 @@ const MyGroupingInput = (props) => {
         basePath,
         input,
         record,
-        resource
+        resource,
+        ...rest
     }))));
 
     return (
