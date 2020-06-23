@@ -95,8 +95,6 @@ const createAdminStore = ({
     const persistor = persistStore(store);
     sagaMiddleware.run(saga);
 
-    window.store = store;
-
     return { store, persistor };
 };
 

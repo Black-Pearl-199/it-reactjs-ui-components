@@ -4,7 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.2.29] - 2020-06-19
+## [0.2.30] - 2020-06-23
+### Removed
+- createAdminStore: now remove attach store to global window api - [@tunglt1810]
+
+## [0.2.29] - 2020-06-22
 ### Added
 - MyReferenceInput: remove default input prop to support useInput hook in children input - [@tunglt1810]
 - MyGroupingInput: support pass form input prop to children input - [@tunglt1810]
