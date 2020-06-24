@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.31] - 2020-06-24
+### Changed
+- _buttons.scss : support btn-pick-date button same size in MyDatePicking - [@tunglt1810]
+- MyFilterBox: now support update filter for array of resource, but only use the first resource to init filter data - [@tunglt1810]
+
 ## [0.2.30] - 2020-06-23
 ### Removed
 - createAdminStore: now remove attach store to global window api - [@tunglt1810]

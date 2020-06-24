@@ -36,7 +36,9 @@ const checkTriggerSubmit = (e, component, type) => component !== 'input' || type
 
 const MyFilterBox = (props) => {
     const stateProps = useSelector((state) => {
-        const resourceState = state.admin.resources[props.resource];
+        const resource = Array.isArray(props.resource) ? props.resource[0] : props.resource;
+        // nếu resource là array thì dùng resource đầu tiên để lấy filter từ store
+        const resourceState = state.admin.resources[resource];
         return {
             query: props.location && selectQuery(props),
             params: resourceState && resourceState.list.params,
@@ -171,19 +173,22 @@ const MyFilterBox = (props) => {
                 const currentSearchStr = JSON.parse(JSON.stringify(location)).search;
                 const searchEqual = currentSearchStr === `?${search}`;
                 const newLocation = Object.assign(location, { search });
+                const resourceArray = Array.isArray(resource) ? resource : [resource];
                 history.push(newLocation);
-                dispatch(changeListParams(resource, newParams));
+                resourceArray.forEach((resourceName) => {
+                    dispatch(changeListParams(resourceName, newParams));
 
-                // search ko update thì là refresh page
-                if (searchEqual) {
-                    const crudGetListParams = {
-                        resource,
-                        pagination,
-                        sort: sortQuery,
-                        filter
-                    };
-                    dispatch(ITCrudGetList(crudGetListParams));
-                }
+                    // search ko update thì là refresh page
+                    if (searchEqual) {
+                        const crudGetListParams = {
+                            resource: resourceName,
+                            pagination,
+                            sort: sortQuery,
+                            filter
+                        };
+                        dispatch(ITCrudGetList(crudGetListParams));
+                    }
+                });
             }
         }
     }, 500);
@@ -299,7 +304,7 @@ MyFilterBox.propTypes = {
     initData: PropTypes.bool,
     defaultSort: PropTypes.shape({ field: PropTypes.string, order: PropTypes.oneOf(['ASC', 'DESC']) }),
     convertValue: PropTypes.func,
-    resource: PropTypes.string.isRequired,
+    resource: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
     history: PropTypes.object,
     location: PropTypes.object,
     hasClear: PropTypes.bool,

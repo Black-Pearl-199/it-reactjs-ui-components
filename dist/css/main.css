@@ -270,6 +270,9 @@
   height: 26px;
   background: #CCCCCC;
   color: #333333 !important;
+  flex: 1 1 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .btn-pick-date.active {
