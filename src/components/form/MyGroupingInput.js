@@ -5,7 +5,7 @@ import { FormInput } from 'react-admin';
 
 const MyGroupingInput = (props) => {
     const {
-        basePath, record, resource, children, heading, groupClasses, innerClasses, border, ...rest
+        basePath, record, resource, children, heading, groupClasses, innerClasses, border, form
     } = props;
     // console.log('grouping input record', JSON.parse(JSON.stringify(record)));
 
@@ -14,7 +14,7 @@ const MyGroupingInput = (props) => {
         input,
         record,
         resource,
-        ...rest
+        form
     }))));
 
     return (
@@ -50,7 +50,8 @@ MyGroupingInput.propTypes = {
     record: PropTypes.object,
     resource: PropTypes.string,
     border: PropTypes.bool,
-    heading: PropTypes.string
+    heading: PropTypes.string,
+    form: PropTypes.object
 };
 MyGroupingInput.defaultProps = {
     border: true

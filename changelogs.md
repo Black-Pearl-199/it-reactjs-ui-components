@@ -4,12 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.33] - 2020-06-24
+### Changed
+- RedirectCreateButton: change default label - [@TinVan2]
+- MyGroupingInput: pass form prop to children - [@tunglt1810]
+
 ## [0.2.32] - 2020-06-24
 ### Added
 - Add MyList, MyCreate, MyEdit with custom styles for List, Edit, Create component of react-admin - [@tunglt1810]
-
-### Changed
-- RedirectCreateButton: use default label -> "Them moi"
 
 ## [0.2.31] - 2020-06-24
 ### Changed
