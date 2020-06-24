@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Add MyList, MyCreate, MyEdit with custom styles for List, Edit, Create component of react-admin - [@tunglt1810]
 
+### Changed
+- RedirectCreateButton: use default label -> "Them moi"
+
 ## [0.2.31] - 2020-06-24
 ### Changed
 - _buttons.scss : support btn-pick-date button same size in MyDatePicking - [@tunglt1810]

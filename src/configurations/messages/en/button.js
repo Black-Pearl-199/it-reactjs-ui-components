@@ -18,5 +18,6 @@ export default {
     help: 'Help',
     changePassword: 'Change Password',
     choose: 'Choose',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
+    createNew: 'Create New'
 };

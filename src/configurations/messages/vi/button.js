@@ -16,5 +16,6 @@ export default {
     update: 'Cập nhật',
     changePassword: 'Đổi mật khẩu',
     choose: 'Chọn',
-    confirm: 'Xác nhận'
+    confirm: 'Xác nhận',
+    createNew: 'Thêm mới'
 };
