@@ -2,12 +2,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import classNames from 'classnames';
+import { push } from 'connected-react-router';
 import PropTypes from 'prop-types';
-import { linkToRecord, DatagridCell } from 'react-admin';
 import React, { isValidElement, useEffect, useState } from 'react';
-
+import { DatagridCell, linkToRecord } from 'react-admin';
 import { useDispatch } from 'react-redux';
-import { push } from 'react-router-redux';
 
 import ExpandRowButton from './ExpandRowButton';
 import ROW_CLICK from './RowClick';
@@ -129,10 +128,7 @@ const MyDatagridRow = (props) => {
                 {...sanitizeRestProps(rest)}
             >
                 {expand && (
-                    <TableCell
-                        padding="none"
-                        className={classes.expandIconCell}
-                    >
+                    <TableCell padding="none" className={classes.expandIconCell}>
                         <ExpandRowButton
                             classes={classes}
                             expanded={expanded}
@@ -143,26 +139,17 @@ const MyDatagridRow = (props) => {
                 )}
                 {hasBulkActions && (
                     <TableCell padding="none">
-                        <Checkbox
-                            color="primary"
-                            className={`select-item ${classes.checkbox}`}
-                            checked={selected}
-                            onClick={handleToggle}
-                        />
+                        <Checkbox color="primary" className={`select-item ${classes.checkbox}`} checked={selected} onClick={handleToggle} />
                     </TableCell>
                 )}
                 {React.Children.map(children, (field, index) => (isValidElement(field) ? (
                     <DatagridCell
                         key={`${id}-${field.props.source || index}`}
-                        className={classNames(
-                            `column-${field.props.source}`,
-                            classes.rowCell
-                        )}
+                        className={classNames(`column-${field.props.source}`, classes.rowCell)}
                         record={record}
                         {...{ field, basePath, resource }}
                     />
-                ) : null
-                ))}
+                ) : null))}
             </TableRow>
             {expand && expanded && (
                 <TableRow key={`${id}-expand`} id={`${id}-expand`}>

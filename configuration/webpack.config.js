@@ -21,7 +21,6 @@ module.exports = (env, argv) => {
             'react-redux': 'react-redux',
             'react-router': 'react-router',
             'react-router-dom': 'react-router-dom',
-            'react-router-redux': 'react-router-redux',
             recompose: 'recompose',
             redux: 'redux',
             'redux-persist': 'redux-persist',
