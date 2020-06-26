@@ -3,12 +3,13 @@ import { vi } from 'date-fns/locale';
 import isReact from 'is-react';
 import { get, uniqBy } from 'lodash';
 import moment from 'moment';
-import * as PropTypes from 'prop-types';
+import { any, arrayOf, bool, func, object, shape, string } from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
+
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
 export const CHECKBOX_EMPTY = '.checkbox-empty';
@@ -93,7 +94,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
     // console.log('received value', value);
     // console.log('rest props', props);
     if (!defaultValue) {
-        defaultValue = ((component === 'input' && type !== 'checkbox') || component === 'select') ? '' : undefined;
+        defaultValue = (component === 'input' && type !== 'checkbox') || component === 'select' ? '' : undefined;
     }
     let showText = null;
     if (hideLabel === true) showText = translatedLabel;
@@ -246,26 +247,26 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
 };
 
 renderInput.propTypes = {
-    inputId: PropTypes.any,
-    translatedLabel: PropTypes.string,
-    composeInputClasses: PropTypes.any,
-    component: PropTypes.string,
-    type: PropTypes.string,
-    source: PropTypes.string,
-    hideLabel: PropTypes.bool,
-    skipFormat: PropTypes.bool,
-    choices: PropTypes.object,
-    allowEmpty: PropTypes.bool,
-    submit: PropTypes.func,
-    value: PropTypes.any,
-    labelClasses: PropTypes.string,
-    emptyChoiceLabel: PropTypes.string,
-    formatText: PropTypes.function,
-    defaultValue: PropTypes.any,
-    optionText: PropTypes.string,
-    optionValue: PropTypes.string,
-    translate: PropTypes.func,
-    groupCheckboxClasses: PropTypes.string
+    inputId: any,
+    translatedLabel: string,
+    composeInputClasses: any,
+    component: string,
+    type: string,
+    source: string,
+    hideLabel: bool,
+    skipFormat: bool,
+    choices: object,
+    allowEmpty: bool,
+    submit: func,
+    value: any,
+    labelClasses: string,
+    emptyChoiceLabel: string,
+    formatText: func,
+    defaultValue: any,
+    optionText: string,
+    optionValue: string,
+    translate: func,
+    groupCheckboxClasses: string
 };
 
 // input not null khi sử dụng ReferenceInput
@@ -289,6 +290,7 @@ const MyBootstrapInput = (props) => {
         formClassName,
         groupCheckboxClasses,
         required,
+        handleChoiceOption,
         ...rest
     } = props;
     const { resource, source, component, hideLabel, type } = rest;
@@ -357,6 +359,9 @@ const MyBootstrapInput = (props) => {
         if (onInputChange) {
             onInputChange({ [source]: newValue }, component, type);
         }
+        if (handleChoiceOption && component === 'select') {
+            handleChoiceOption(rest.choices.find({ [rest.optionValue]: newValue }));
+        }
     };
 
     return (
@@ -391,32 +396,33 @@ const MyBootstrapInput = (props) => {
     );
 };
 MyBootstrapInput.propTypes = {
-    label: PropTypes.string,
-    allowEmpty: PropTypes.any,
-    alwaysOn: PropTypes.any,
-    component: PropTypes.any,
-    type: PropTypes.string,
-    hideLabel: PropTypes.bool,
-    skipFormat: PropTypes.bool,
-    choices: PropTypes.arrayOf(PropTypes.object),
-    onInputChange: PropTypes.func,
-    inputValue: PropTypes.object,
-    groupClasses: PropTypes.string,
-    groupCheckboxClasses: PropTypes.string,
-    inputClasses: PropTypes.string,
-    labelClasses: PropTypes.string,
-    defaultValue: PropTypes.any,
-    small: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    alignCenter: PropTypes.bool,
-    emptyChoiceLabel: PropTypes.string,
-    formatText: PropTypes.func,
-    checkConvert: PropTypes.shape({ true: PropTypes.any, false: PropTypes.any }),
-    convertValue: PropTypes.func,
-    input: PropTypes.any,
-    formClassName: PropTypes.string,
-    formatDate: PropTypes.string,
-    required: PropTypes.bool
+    label: string,
+    allowEmpty: any,
+    alwaysOn: any,
+    component: any,
+    type: string,
+    hideLabel: bool,
+    skipFormat: bool,
+    choices: arrayOf(object),
+    onInputChange: func,
+    inputValue: object,
+    groupClasses: string,
+    groupCheckboxClasses: string,
+    inputClasses: string,
+    labelClasses: string,
+    defaultValue: any,
+    small: bool,
+    readOnly: bool,
+    alignCenter: bool,
+    emptyChoiceLabel: string,
+    formatText: func,
+    checkConvert: shape({ true: any, false: any }),
+    convertValue: func,
+    input: any,
+    formClassName: string,
+    formatDate: string,
+    required: bool,
+    handleChoiceOption: func
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
