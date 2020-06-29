@@ -1,17 +1,24 @@
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { ReferenceArrayInputController, useTranslate, Labeled } from 'react-admin';
-import React from 'react';
+import { useTranslate, Labeled, useReferenceArrayInputController } from 'react-admin';
+import React, { Children, useEffect, useState } from 'react';
 
 import ReferenceError from './ReferenceError';
 
+const SORT_ASC = 'ASC';
+const SORT_DESC = 'DESC';
+
 const sanitizeRestProps = ({
-    alwaysOn,
+    allowEmpty,
     basePath,
+    choices,
+    className,
     component,
-    crudGetMany,
     crudGetMatching,
+    crudGetMany,
     defaultValue,
+    filter,
     filterToQuery,
     formClassName,
     initializeForm,
@@ -20,52 +27,91 @@ const sanitizeRestProps = ({
     label,
     locale,
     meta,
-    optionText,
+    onChange,
     optionValue,
+    optionText,
     perPage,
     record,
+    reference,
     referenceSource,
-    resource,
-    allowEmpty,
-    source,
-    textAlign,
-    translate,
-    translateChoice,
-    ...rest
-}) => rest;
-
-const ReferenceArrayInputView = ({
-    allowEmpty,
-    basePath,
-    children,
-    choices,
-    className,
-    error,
-    input,
-    loading,
-    isRequired,
-    label,
-    meta,
-    onChange,
-    options,
     resource,
     setFilter,
     setPagination,
     setSort,
+    sort,
     source,
-    warning,
+    textAlign,
+    translate,
+    translateChoice,
+    validation,
+    //    change,
     ...rest
-}) => {
-    const translate = useTranslate();
-    const translatedLabel = translate(
-        label || `resources.${resource}.fields.${source}`,
-        { _: label }
-    );
+}) => rest;
+
+const ReferenceArrayInputView = (props) => {
+    const {
+        allowEmpty,
+        basePath,
+        children,
+        choices,
+        classes,
+        className,
+        error,
+        helperText,
+        id,
+        input,
+        isRequired,
+        loading,
+        label,
+        meta,
+        resource,
+        setFilter,
+        setPagination,
+        setSort,
+        source,
+        warning,
+        defaultValue,
+        onChange,
+        form,
+        ...rest
+    } = props;
+    if (Children.count(children) !== 1) {
+        throw new Error('<ReferenceArrayInput> only accepts a single child');
+    }
+
+    const [firstInit, setFirstInit] = useState(!allowEmpty);
+    const value = get(rest.record, source);
+    const { inputValue, optionValue = 'id' } = rest;
+    useEffect(() => {
+        if (firstInit && !loading) {
+            setFirstInit(false);
+            // console.log(choices, source, rest.optionValue);
+            let formInitValue = value;
+            if (!formInitValue) { // check form data của MyFilterBox
+                if (inputValue) {
+                    formInitValue = get(inputValue, source);
+                }
+                if (!formInitValue) {
+                    formInitValue = formInitValue || [get(choices[0], optionValue)];
+                }
+            }
+            // console.log('init reference input with value', defaultValue, formInitValue);
+            if (form) form.change(source, formInitValue || defaultValue);
+
+            if (onChange) onChange(formInitValue || defaultValue);
+
+            if (rest.onInputChange) {
+                // console.log('init fill data for filterbox', { [source]: formInitValue || defaultValue });
+                rest.onInputChange({ [source]: formInitValue || defaultValue });
+            }
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value]);
 
     if (loading) {
         return (
             <Labeled
-                label={translatedLabel}
+                label={label}
                 source={source}
                 resource={resource}
                 className={className}
@@ -77,32 +123,34 @@ const ReferenceArrayInputView = ({
     }
 
     if (error) {
-        return <ReferenceError label={translatedLabel} error={error} />;
+        return <ReferenceError label={label} error={error} />;
     }
 
+    const finalMeta = warning
+        ? {
+            ...meta,
+            error: warning
+        }
+        : meta;
+
+    const sanitizeRest = sanitizeRestProps(rest);
     return React.cloneElement(children, {
         allowEmpty,
-        basePath,
-        choices,
+        classes,
         className,
-        error,
         input,
         isRequired,
-        label: translatedLabel,
-        meta: {
-            ...meta,
-            helperText: warning || false
-        },
-        onChange,
-        options,
+        label,
         resource,
+        meta: finalMeta,
+        source,
+        choices,
+        basePath,
         setFilter,
         setPagination,
         setSort,
-        source,
         translateChoice: false,
-        limitChoicesToValue: true,
-        ...sanitizeRestProps(rest)
+        ...sanitizeRest
     });
 };
 
@@ -111,48 +159,51 @@ ReferenceArrayInputView.propTypes = {
     basePath: PropTypes.string,
     children: PropTypes.element,
     choices: PropTypes.array,
+    classes: PropTypes.object,
     className: PropTypes.string,
     error: PropTypes.string,
+    input: PropTypes.object,
     loading: PropTypes.bool,
-    input: PropTypes.object.isRequired,
     label: PropTypes.string,
     meta: PropTypes.object,
     onChange: PropTypes.func,
-    options: PropTypes.object,
     resource: PropTypes.string.isRequired,
     setFilter: PropTypes.func,
     setPagination: PropTypes.func,
     setSort: PropTypes.func,
     source: PropTypes.string,
+    translate: PropTypes.func.isRequired,
     warning: PropTypes.string
 };
 
 /**
- * An Input component for fields containing a list of references to another resource.
- * Useful for 'hasMany' relationship.
+ * An Input component for choosing a reference record. Useful for foreign keys.
+ *
+ * This component fetches the possible values in the reference resource
+ * (using the `CRUD_GET_MATCHING` REST method), then delegates rendering
+ * to a subcomponent, to which it passes the possible choices
+ * as the `choices` attribute.
+ *
+ * Use it with a selector component as child, like `<AutocompleteInput>`,
+ * `<SelectInput>`, or `<RadioButtonGroupInput>`.
  *
  * @example
- * The post object has many tags, so the post resource looks like:
- * {
- *    id: 1234,
- *    tag_ids: [ "1", "23", "4" ]
- * }
- *
- * MyReferenceArrayInput component fetches the current resources (using the
- * `CRUD_GET_MANY` REST method) as well as possible resources (using the
- * `CRUD_GET_MATCHING` REST method) in the reference endpoint. It then
- * delegates rendering to a subcomponent, to which it passes the possible
- * choices as the `choices` attribute.
- *
- * Use it with a selector component as child, like `<SelectArrayInput>`
- * or <CheckboxGroupInput>.
- *
- * @example
- * export const PostEdit = (props) => (
+ * export const CommentEdit = (props) => (
  *     <Edit {...props}>
  *         <SimpleForm>
- *             <MyReferenceArrayInput source="tag_ids" reference="tags">
- *                 <SelectArrayInput optionText="name" />
+ *             <MyReferenceArrayInput label="Post" source="post_id" reference="posts">
+ *                 <AutocompleteInput optionText="title" />
+ *             </MyReferenceArrayInput>
+ *         </SimpleForm>
+ *     </Edit>
+ * );
+ *
+ * @example
+ * export const CommentEdit = (props) => (
+ *     <Edit {...props}>
+ *         <SimpleForm>
+ *             <MyReferenceArrayInput label="Post" source="post_id" reference="posts">
+ *                 <SelectInput optionText="title" />
  *             </MyReferenceArrayInput>
  *         </SimpleForm>
  *     </Edit>
@@ -163,10 +214,10 @@ ReferenceArrayInputView.propTypes = {
  *
  * @example
  * <MyReferenceArrayInput
- *      source="tag_ids"
- *      reference="tags"
+ *      source="post_id"
+ *      reference="posts"
  *      perPage={100}>
- *     <SelectArrayInput optionText="name" />
+ *     <SelectInput optionText="title" />
  * </MyReferenceArrayInput>
  *
  * By default, orders the possible values by id desc. You can change this order
@@ -174,10 +225,10 @@ ReferenceArrayInputView.propTypes = {
  *
  * @example
  * <MyReferenceArrayInput
- *      source="tag_ids"
- *      reference="tags"
- *      sort={{ field: 'name', order: 'ASC' }}>
- *     <SelectArrayInput optionText="name" />
+ *      source="post_id"
+ *      reference="posts"
+ *      sort={{ field: 'title', order: 'ASC' }}>
+ *     <SelectInput optionText="title" />
  * </MyReferenceArrayInput>
  *
  * Also, you can filter the query used to populate the possible values. Use the
@@ -185,42 +236,56 @@ ReferenceArrayInputView.propTypes = {
  *
  * @example
  * <MyReferenceArrayInput
- *      source="tag_ids"
- *      reference="tags"
- *      filter={{ is_public: true }}>
- *     <SelectArrayInput optionText="name" />
+ *      source="post_id"
+ *      reference="posts"
+ *      filter={{ is_published: true }}>
+ *     <SelectInput optionText="title" />
  * </MyReferenceArrayInput>
  *
- * The enclosed component may filter results. MyReferenceArrayInput passes a
- * `setFilter` function as prop to its child component. It uses the value to
- * create a filter for the query - by default { q: [searchText] }. You can
- * customize the mapping searchText => searchQuery by setting a custom
- * `filterToQuery` function prop:
+ * The enclosed component may filter results. MyReferenceArrayInput passes a `setFilter`
+ * function as prop to its child component. It uses the value to create a filter
+ * for the query - by default { q: [searchText] }. You can customize the mapping
+ * searchText => searchQuery by setting a custom `filterToQuery` function prop:
  *
  * @example
  * <MyReferenceArrayInput
- *      source="tag_ids"
- *      reference="tags"
- *      filterToQuery={searchText => ({ name: searchText })}>
- *     <SelectArrayInput optionText="name" />
+ *      source="post_id"
+ *      reference="posts"
+ *      filterToQuery={searchText => ({ title: searchText })}>
+ *     <SelectInput optionText="title" />
  * </MyReferenceArrayInput>
  */
-const MyReferenceArrayInput = ({ children, ...props }) => {
-    if (React.Children.count(children) !== 1) {
-        throw new Error(
-            '<MyReferenceArrayInput> only accepts a single child (like <Datagrid>)'
-        );
-    }
 
+const MyReferenceArrayInput = ({
+    format,
+    onBlur,
+    onChange,
+    onFocus,
+    parse,
+    validate,
+    ...props
+}) => {
+    const translate = useTranslate();
+    const inputProps = { input: props.input || {} };
+    // if (props.form) {
+    //     // eslint-disable-next-line react-hooks/rules-of-hooks
+    //     inputProps = useInput({
+    //         format,
+    //         onBlur,
+    //         onChange,
+    //         onFocus,
+    //         parse,
+    //         validate,
+    //         ...props
+    //     });
+    //     console.log('final form props for reference input', inputProps);
+    // }
     return (
-        <ReferenceArrayInputController {...props}>
-            {(controllerProps) => (
-                <ReferenceArrayInputView
-                    {...props}
-                    {...{ children, ...controllerProps }}
-                />
-            )}
-        </ReferenceArrayInputController>
+        <ReferenceArrayInputView
+            translate={translate}
+            {...props}
+            {...useReferenceArrayInputController({ ...props, ...inputProps, translate })}
+        />
     );
 };
 
@@ -229,27 +294,38 @@ MyReferenceArrayInput.propTypes = {
     basePath: PropTypes.string,
     children: PropTypes.element.isRequired,
     className: PropTypes.string,
+    classes: PropTypes.object,
     filter: PropTypes.object,
     filterToQuery: PropTypes.func.isRequired,
-    input: PropTypes.object.isRequired,
+    input: PropTypes.object,
     label: PropTypes.string,
     meta: PropTypes.object,
+    onChange: PropTypes.func,
     perPage: PropTypes.number,
+    record: PropTypes.object,
     reference: PropTypes.string.isRequired,
     resource: PropTypes.string.isRequired,
     sort: PropTypes.shape({
         field: PropTypes.string,
-        order: PropTypes.oneOf(['ASC', 'DESC'])
+        order: PropTypes.oneOf([SORT_ASC, SORT_DESC])
     }),
-    source: PropTypes.string
+    source: PropTypes.string,
+    format: PropTypes.any,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
+    parse: PropTypes.any,
+    validate: PropTypes.any
 };
 
 MyReferenceArrayInput.defaultProps = {
     allowEmpty: false,
     filter: {},
-    filterToQuery: (searchText) => ({ q: searchText }),
+    filterToQuery: (searchText) => {
+        if (searchText !== undefined && searchText !== '') return { title: searchText };
+        return {};
+    },
     perPage: 25,
-    sort: { field: 'id', order: 'DESC' }
+    sort: { field: 'id', order: SORT_DESC }
 };
 
 export default MyReferenceArrayInput;

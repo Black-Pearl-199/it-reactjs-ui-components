@@ -87,18 +87,23 @@ const ReferenceInputView = (props) => {
             setFirstInit(false);
             // console.log(choices, source, rest.optionValue);
             let formInitValue = value;
-            if (!formInitValue) {
+            if (!formInitValue) { // check form data của MyFilterBox
                 if (inputValue) {
                     formInitValue = get(inputValue, source);
-                    // if (rest.onInputChange) rest.onInputChange({source: value});
-                } else formInitValue = get(choices[0], optionValue);
+                }
+                formInitValue = formInitValue || get(choices[0], optionValue);
             }
             // console.log('init reference input with value', defaultValue, formInitValue);
-            if (form) form.change(source, defaultValue || formInitValue);
+            if (form) form.change(source, formInitValue || defaultValue);
 
-            if (onChange) onChange(formInitValue);
-            // if (change) change(REDUX_FORM_NAME, source, value);
+            if (onChange) onChange(formInitValue || defaultValue);
+
+            if (rest.onInputChange) {
+                // console.log('init fill data for filterbox', { [source]: formInitValue || defaultValue });
+                rest.onInputChange({ [source]: formInitValue || defaultValue });
+            }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value]);
 
     if (loading) {
