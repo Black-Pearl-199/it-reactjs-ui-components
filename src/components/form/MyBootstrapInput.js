@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { vi } from 'date-fns/locale';
 import isReact from 'is-react';
-import { get, uniqBy } from 'lodash';
+import { find, get, uniqBy } from 'lodash';
 import moment from 'moment';
 import { any, arrayOf, bool, func, object, shape, string } from 'prop-types';
 import React from 'react';
@@ -360,7 +360,11 @@ const MyBootstrapInput = (props) => {
             onInputChange({ [source]: newValue }, component, type);
         }
         if (handleChoiceOption && component === 'select') {
-            handleChoiceOption(rest.choices.find({ [rest.optionValue]: newValue }));
+            const key = rest.optionValue || 'id';
+            let choice = find(rest.choices, { [key]: newValue });
+            const parsedValue = parseInt(newValue, 10);
+            if (!choice && !isNaN(parsedValue)) choice = find(rest.choices, { [key]: parsedValue });
+            handleChoiceOption(choice);
         }
     };
 
