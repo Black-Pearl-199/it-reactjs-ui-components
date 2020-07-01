@@ -118,6 +118,12 @@
   border-radius: 99px;
 }
 
+.btn-itech-md {
+  min-width: 100px !important;
+  margin: 0;
+  border-radius: 99px;
+}
+
 .btn-itech-icon {
   height: 32px;
   width: 32px;
