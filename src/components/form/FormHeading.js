@@ -28,7 +28,7 @@ const FormHeading = (props) => {
 };
 
 FormHeading.propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     history: PropTypes.object,
     basePath: PropTypes.string,
     skipTran: PropTypes.bool,

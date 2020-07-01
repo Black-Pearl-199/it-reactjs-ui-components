@@ -83,7 +83,7 @@ const MessageBox = (props) => {
                     <Button
                         size="sm"
                         variant="itech"
-                        className="btn-itech-sm btn-itech-dark"
+                        className="btn-itech-sm btn-itech-dark btn-itech-fixed"
                         ref={btnCloseRef}
                         onClick={handleRequestClose}
                     >
@@ -94,7 +94,7 @@ const MessageBox = (props) => {
                             key={index}
                             variant="itech"
                             size="sm"
-                            className={action.className ? action.className : 'btn-itech-primary btn-itech-sm ml-2'}
+                            className={action.className ? action.className : 'btn-itech-primary btn-itech-sm ml-2  btn-itech-fixed'}
                             onClick={() => {
                                 dispatch(hideNotification());
                                 action.callback();
