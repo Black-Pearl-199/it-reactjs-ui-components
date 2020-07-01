@@ -83,7 +83,7 @@ const MessageBox = (props) => {
                     <Button
                         size="sm"
                         variant="itech"
-                        className="btn-itech-sm btn-itech-dark btn-itech-fixed"
+                        className="btn-itech-md btn-itech-dark btn-itech-fixed"
                         ref={btnCloseRef}
                         onClick={handleRequestClose}
                     >
