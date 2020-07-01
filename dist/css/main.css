@@ -124,6 +124,12 @@
   border-radius: 99px;
 }
 
+.btn-itech-xl {
+  min-width: 129px !important;
+  margin: 0;
+  border-radius: 99px;
+}
+
 .btn-itech-icon {
   height: 32px;
   width: 32px;
