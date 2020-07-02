@@ -99,9 +99,8 @@ module.exports = (env, argv) => {
             minimize: argv.mode !== 'development'
         },
         devtool: 'source-map',
-        // watch: true,
         watchOptions: {
-            aggregateTimeout: 5000,
+            aggregateTimeout: 1000,
             ignored: ['../node_modules/**', '../dist/**']
         }
     };
