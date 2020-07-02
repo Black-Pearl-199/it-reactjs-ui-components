@@ -21,6 +21,7 @@ export default {
             remove: 'Xóa',
             remove_filter: 'Bỏ bộ lọc',
             save: 'Lưu',
+            saveAs: 'Lưu mới',
             search: 'Tìm kiếm',
             show: 'Hiển thị',
             sort: 'Sắp xếp',

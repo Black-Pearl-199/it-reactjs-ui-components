@@ -21,6 +21,7 @@ export default {
             remove: 'Remove',
             remove_filter: 'Remove this filter',
             save: 'Save',
+            saveAs: 'Save as',
             search: 'Search',
             show: 'Show',
             sort: 'Sort',

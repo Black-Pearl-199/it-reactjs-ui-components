@@ -319,6 +319,20 @@
   color: #0056b3;
 }
 
+.radius-0 {
+  border-radius: 0;
+}
+
+.radius-top-0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.radius-bot-0 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
 }
@@ -373,6 +387,10 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .flex-1 {
   flex: 1;
+}
+
+.flex-0 {
+  flex: 1 1 0px;
 }
 
 .field-inline div.ra-field > div {
