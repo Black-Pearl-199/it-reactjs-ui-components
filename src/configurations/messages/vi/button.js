@@ -12,6 +12,7 @@ export default {
     next: 'Tiếp theo',
     close: 'Đóng',
     no: 'Không',
+    yes: 'Có',
     actions: 'Hành động',
     update: 'Cập nhật',
     changePassword: 'Đổi mật khẩu',

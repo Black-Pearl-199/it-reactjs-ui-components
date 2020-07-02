@@ -3,6 +3,7 @@ export default {
     clear: 'Delete search',
     add: 'Add',
     no: 'No',
+    yes: 'Yes',
     edit: 'Edit',
     logout: 'Logout',
     view: 'View',

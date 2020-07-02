@@ -18,13 +18,16 @@ const MyCheckboxInput = (props) => {
     const {
         source,
         label,
+        inputLabel,
+        hiddenInputLabel,
         resource,
         // record,
         hideLabel,
         labelClasses,
         required,
         groupClasses,
-        hidden
+        hidden,
+        skipTranslate
     } = props;
     const {
         input: { onChange }
@@ -33,6 +36,8 @@ const MyCheckboxInput = (props) => {
     const defaultValue = get(form.getState().values, source, false);
     const [checked, setChecked] = useState(defaultValue);
     const labelDisplay = hideLabel ? '' : translate(label || `resources.${resource}.fields.${source}`);
+    // eslint-disable-next-line no-nested-ternary
+    const inputLabelDisplay = hiddenInputLabel ? '' : (skipTranslate ? inputLabel : translate(inputLabel));
 
     const handleChange = (event) => {
         setChecked(event.target.checked);
@@ -58,7 +63,7 @@ const MyCheckboxInput = (props) => {
                     />
                 )}
                 className="mx-1"
-                label={null}
+                label={inputLabelDisplay}
             />
         </div>
     );
@@ -74,14 +79,19 @@ MyCheckboxInput.propTypes = {
     readOnly: PropTypes.bool,
     labelClasses: PropTypes.string,
     groupClasses: PropTypes.string,
-    hidden: PropTypes.bool
+    hidden: PropTypes.bool,
+    inputLabel: PropTypes.string,
+    hiddenInputLabel: PropTypes.bool,
+    skipTranslate: PropTypes.bool
 };
 
 MyCheckboxInput.defaultProps = {
     // record: {},
+    hiddenInputLabel: true,
     hideLabel: false,
     readOnly: false,
-    hidden: false
+    hidden: false,
+    skipTranslate: false
 };
 
 export default MyCheckboxInput;
