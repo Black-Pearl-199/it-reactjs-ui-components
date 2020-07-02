@@ -87,7 +87,7 @@ module.exports = (env, argv) => {
             // You can do fun things here like use the [hash] keyword to generate unique
             // filenames, but for this purpose rinse.js is fine. This file and path will
             // be what you put in package.json's "main" field
-            filename: `index${argv.mode === 'development' ? '.dev' : ''}.js`,
+            filename: 'index.js',
             chunkFilename: '[it-reactjs-ui-components].bundle.js',
             // This field determines how things are importable when installed from other
             // sources. UMD may not be correct now and there is an open issue to fix this,
@@ -98,7 +98,12 @@ module.exports = (env, argv) => {
         optimization: {
             minimize: argv.mode !== 'development'
         },
-        devtool: 'source-map'
+        devtool: 'source-map',
+        // watch: true,
+        watchOptions: {
+            aggregateTimeout: 5000,
+            ignored: ['../node_modules/**', '../dist/**']
+        }
     };
 
     return config;

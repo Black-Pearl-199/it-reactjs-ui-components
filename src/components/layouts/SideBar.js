@@ -118,7 +118,7 @@ const SideBar = (props) => {
                                 )}
                             >
                                 <NavLink
-                                    exact={!collapse}
+                                    exact={item.exact ? !collapse : false}
                                     className="sidebar-list-link"
                                     to={item.url}
                                     isActive={item.isActive}
@@ -157,6 +157,12 @@ const SideBar = (props) => {
                                                         onClick={menuSelect}
                                                         data-event-key={sub.eventKey}
                                                     >
+                                                        {sub.icon
+                                                            && (typeof sub.icon === 'string' ? (
+                                                                <i className={item.icon} />
+                                                            ) : (
+                                                                <FontAwesomeIcon icon={item.icon} />
+                                                            ))}
                                                         <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
                                                     </NavLink>
                                                 </li>
