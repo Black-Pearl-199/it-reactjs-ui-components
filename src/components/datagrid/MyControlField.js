@@ -27,7 +27,8 @@ const MyControlField = (props) => {
         deleteMessage,
         deleteCallback,
         getNotificationName,
-        optimisticDelete
+        optimisticDelete,
+        enableTooltip
     } = props;
     const { id } = record;
 
@@ -75,12 +76,12 @@ const MyControlField = (props) => {
     return (
         <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>
             {hasEdit && (
-                <MyIconButton popLabel="ra.action.edit" onClick={onEdit} className={hasDelete && 'mr-1'}>
+                <MyIconButton enableTooltip={enableTooltip} popLabel="ra.action.edit" onClick={onEdit} className={hasDelete && 'mr-1'}>
                     <FontAwesomeIcon icon={faEdit} />
                 </MyIconButton>
             )}
             {hasDelete && (
-                <MyIconButton popLabel="ra.action.delete" onClick={onDelete} className={hasEdit && 'ml-1'}>
+                <MyIconButton enableTooltip={enableTooltip} popLabel="ra.action.delete" onClick={onDelete} className={hasEdit && 'ml-1'}>
                     <FontAwesomeIcon icon={faTrash} />
                 </MyIconButton>
             )}
@@ -100,7 +101,8 @@ MyControlField.propTypes = {
     label: PropTypes.string,
     getNotificationName: PropTypes.func,
     optimisticDelete: PropTypes.bool,
-    deleteCallback: PropTypes.func
+    deleteCallback: PropTypes.func,
+    enableTooltip: PropTypes.bool
 };
 
 MyControlField.defaultProps = {
@@ -109,7 +111,8 @@ MyControlField.defaultProps = {
     deleteMessage: 'commons.message.delete',
     label: 'ra.action.editDelete',
     getNotificationName,
-    optimisticDelete: false
+    optimisticDelete: false,
+    enableTooltip: true
 };
 
 export default MyControlField;
