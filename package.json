@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.37",
+  "version": "0.2.38",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -45,7 +45,8 @@
     "use-debounce": "^3.4.2"
   },
   "scripts": {
-    "build": "npm-run-all --parallel webpack css",
+    "build": "npm-run-all --parallel webpack:prod css",
+    "build:dev": "npm-run-all --parallel webpack:dev css",
     "css": "npm-run-all css-compile css-prefix css-minify",
     "css-main": "npm-run-all css-lint css-compile-main css-prefix-main css-minify-main css-copy",
     "css-compile": "npm-run-all --parallel css-compile-*",
@@ -56,15 +57,16 @@
     "css-minify-main": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/main.min.css dist/css/main.css",
     "css-prefix": "npm-run-all --parallel css-prefix-*",
     "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"dist/css/*.min.css\"",
-    "webpack": "npm-run-all --parallel webpack-*",
-    "webpack-dev": "webpack --mode development --config configuration/webpack.config.js",
-    "webpack-prod": "webpack --mode production --config configuration/webpack.config.js",
+    "webpack:dev": "webpack --mode development --config configuration/webpack.config.js",
+    "webpack:prod": "webpack --mode production --config configuration/webpack.config.js",
+    "dev": "webpack --watch --mode development --config configuration/webpack.config.js",
     "prewebpack": "npm run version",
     "version": "node -p -e \"'export default \\'' + require('./package.json').version + '\\';'\" > src/version.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "analyze:dist": "source-map-explorer 'dist/index.js'",
-    "example": "react-scripts start"
+    "example": "react-scripts start",
+    "watch": "webpack --watch --mode development --config configuration/webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",

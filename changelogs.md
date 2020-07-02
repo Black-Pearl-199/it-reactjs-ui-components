@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.2.38] - 2020-07-02
 ### Added
 - Add enableTooltip in MyControlField - [@Khánh]
+### Changed
+- Change exact in SideBar and add icon for subMenu - [@Tin]
 
 ## [0.2.37] - 2020-07-01
 ### Changed
