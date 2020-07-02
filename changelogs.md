@@ -4,16 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.2.38] - 2020-07-02
+## [0.2.39] - 2020-07-02
 ### Added
-- Add enableTooltip in MyControlField - [@Khánh]
+- Add enableTooltip in MyControlField - [@khanhITECH]
+- Css: add css for flex box item support same size and border radius shorthand class - [@tunglt1810]
+- Messages: add label for save as button - [@tunglt1810]
+
+## [0.2.38] - 2020-07-02
 ### Changed
-- Change exact in SideBar and add icon for subMenu - [@Tin]
+- Change exact in SideBar and add icon for subMenu - [@TinVan2]
 
 ## [0.2.37] - 2020-07-01
 ### Changed
-- Change type of title in FormHeading - [@Tin]
-- Change size of MessageBox - [@Tin]
+- Change type of title in FormHeading - [@TinVan2]
+- Change size of MessageBox - [@TinVan2]
 
 ## [0.2.36] - 2020-06-29
 ### Added
