@@ -8,11 +8,12 @@ import { uuidv4 } from '../../utils';
 
 const MyIconButton = (props) => {
     const translate = useTranslate();
-    const { children, popLabel, className, ...rest } = props;
+    const { children, popLabel, className, enableTooltip, ...rest } = props;
     return (
         <OverlayTrigger
             placement="top"
-            overlay={(
+            overlay={
+            enableTooltip && (
                 <Tooltip className="itech-tooltip" id={uuidv4()}>
                     {translate(popLabel)}
                 </Tooltip>
@@ -27,7 +28,8 @@ const MyIconButton = (props) => {
 
 MyIconButton.propTypes = {
     popLabel: PropTypes.string,
-    translate: PropTypes.func
+    translate: PropTypes.func,
+    enableTooltip: PropTypes.bool
 };
 
 export default MyIconButton;

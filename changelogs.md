@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.2.38] - 2020-07-02
+### Added
+- Add enableTooltip in MyControlField - [@Khánh]
 ### Changed
 - Change exact in SideBar and add icon for subMenu - [@Tin]
 
