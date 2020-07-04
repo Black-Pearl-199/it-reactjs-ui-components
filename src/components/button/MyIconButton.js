@@ -13,11 +13,13 @@ const MyIconButton = (props) => {
         <OverlayTrigger
             placement="top"
             overlay={
-            enableTooltip && (
-                <Tooltip className="itech-tooltip" id={uuidv4()}>
-                    {translate(popLabel)}
-                </Tooltip>
-            )}
+                enableTooltip ? (
+                    <Tooltip className="itech-tooltip" id={uuidv4()}>
+                        {translate(popLabel)}
+                    </Tooltip>
+                )
+                    : <div />
+            }
         >
             <Button variant="itech-icon" size="sm" className={classNames('btn-itech-icon-primary', className)} {...rest}>
                 {children}
