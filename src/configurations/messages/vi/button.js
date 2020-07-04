@@ -5,7 +5,7 @@ export default {
     logout: 'Đăng xuất',
     view: 'Xem',
     back: 'Quay lại',
-    edit: 'Sửa',
+    edit: 'Thay đổi',
     pushToTele: 'Gửi ca chụp',
     deleteMany: 'Xóa các %{resource_name} đã chọn',
     delete: 'Xóa',

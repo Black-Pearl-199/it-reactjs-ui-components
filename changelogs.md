@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fix enableTooltip in MyControlField - [@khanhITech]
 
+### Changed
+- Change 'Sửa' -> 'Thay đổi' - [@khanhITech]
+
 ## [0.2.39] - 2020-07-02
 ### Added
 - Add enableTooltip in MyControlField - [@khanhITECH]
