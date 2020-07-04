@@ -6,6 +6,7 @@ export default {
     view: 'Xem',
     back: 'Quay lại',
     edit: 'Sửa',
+    change: 'Thay đổi',
     pushToTele: 'Gửi ca chụp',
     deleteMany: 'Xóa các %{resource_name} đã chọn',
     delete: 'Xóa',

@@ -185,7 +185,7 @@ const SideBar = (props) => {
     return (
         <Nav as="aside" className={['sidebar', 'flex-column', collapse ? 'collapse' : '']}>
             <div className="w-100">
-                <Button variant="default" onClick={toggleCollapse} className="toggle-collapse mx-auto">
+                <Button variant="default" onClick={toggleCollapse} className="toggle-collapse mx-auto px-0">
                     <FontAwesomeIcon icon={faBars} />
                 </Button>
             </div>

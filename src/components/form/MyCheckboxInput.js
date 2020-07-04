@@ -63,7 +63,7 @@ const MyCheckboxInput = (props) => {
                     />
                 )}
                 className="mx-1"
-                label={inputLabelDisplay}
+                label={<span style={{ color: '#333333' }}>{inputLabelDisplay}</span>}
             />
         </div>
     );

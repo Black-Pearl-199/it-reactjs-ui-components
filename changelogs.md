@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.40] - 2020-07-04
+### Changed
+- Change main-color, main-color-hover - [@Tin]
+- Change width of Sidebar, sidebar-width -> 240px, sidebar-width-collapse: 30px, distance between icon and text sidebar-item-pad-left: 8px; - [@Tin]
+- Change css of button delete - [@Tin]
+
+## [0.2.40] - 2020-07-03
+### Changed
+- Change css, label in MyCheckboxInput - [@Tin]
+
 ## [0.2.39] - 2020-07-02
 ### Added
 - Add enableTooltip in MyControlField - [@khanhITECH]

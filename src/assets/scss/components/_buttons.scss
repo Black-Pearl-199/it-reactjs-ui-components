@@ -140,7 +140,7 @@
 	
 	&-icon-secondary {
 		box-shadow: none;
-		color: $grey-1;
+		color: $grey-dark !important;
 	
 		&:hover, &:active, &.active {
 			background: $grey-1 !important;
@@ -163,7 +163,7 @@
 
 	&-secondary {
 		background: $grey-1;
-		color: $grey-normal !important;
+		color: $grey-dark !important;
 	
 		i::before {
 			color: $grey-normal;
@@ -227,16 +227,16 @@
     }
     
     &-delete {
-        background: $red;
-        color: $white !important;
+        background: $grey-1;
+        color: $black !important;
 
         &:hover {
             color: $white;
-            background-color: $red-1-light;
+            background-color: $grey-normal;
         }
 
         &:active {
-            background: $google-color;
+            background: $grey-2;
         }
 
     }

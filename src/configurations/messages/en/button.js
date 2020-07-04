@@ -5,6 +5,7 @@ export default {
     no: 'No',
     yes: 'Yes',
     edit: 'Edit',
+    change: 'Change',
     logout: 'Logout',
     view: 'View',
     back: 'Go back',
