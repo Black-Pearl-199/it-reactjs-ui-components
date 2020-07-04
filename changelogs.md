@@ -9,10 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Change main-color, main-color-hover - [@Tin]
 - Change width of Sidebar, sidebar-width -> 240px, sidebar-width-collapse: 30px, distance between icon and text sidebar-item-pad-left: 8px; - [@Tin]
 - Change css of button delete - [@Tin]
-
-## [0.2.40] - 2020-07-03
-### Changed
-- Change css, label in MyCheckboxInput - [@Tin]
+- Change 'Sửa' -> 'Thay đổi' - [@khanhITech]
+### Fixed
+- Fix enableTooltip in MyControlField - [@khanhITech]
 
 ## [0.2.39] - 2020-07-02
 ### Added
