@@ -6,6 +6,7 @@ module.exports = (env, argv) => {
     const config = {
         externals: {
             '@material-ui/core': '@material-ui/core',
+            '@material-ui/icons': '@material-ui/icons',
             'connected-react-router': 'connected-react-router',
             exceljs: 'exceljs',
             'final-form': 'final-form',

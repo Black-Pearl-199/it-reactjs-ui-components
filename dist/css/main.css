@@ -1,9 +1,3 @@
-.alert-itech {
-  background: rgba(219, 11, 11, 0.05);
-  border: 1px solid rgba(219, 11, 11, 0.2);
-  border-radius: 8px;
-}
-
 .image-attachment {
   width: 100px;
   height: 100px;
@@ -1702,10 +1696,6 @@ a {
   margin-left: 15px;
 }
 
-.al-copy {
-  float: left;
-}
-
 .al-footer-right {
   float: right;
   margin-right: 12px;
@@ -1775,13 +1765,6 @@ a {
   .al-content {
     padding: 8px 20px;
   }
-}
-
-.vis-hidden {
-  visibility: hidden;
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
 }
 
 .icon-up, .icon-down {
@@ -1871,12 +1854,6 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.home-page {
-  position: relative;
-  display: flex;
-  flex: auto;
 }
 
 body {

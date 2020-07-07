@@ -3,5 +3,6 @@ export default {
     UN_SELECT_ONE: 'unSelectOne',
     EDIT: 'edit',
     SHOW: 'show',
-    EXPAND: 'expand'
+    EXPAND: 'expand',
+    TOGGLE_SELECTION: 'toggleSelection'
 };

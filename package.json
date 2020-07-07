@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.41",
+  "version": "0.2.42",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -59,7 +59,9 @@
     "css-prefix-main": "postcss --config configuration/postcss.config.js --replace \"dist/css/*.css\" \"dist/css/*.min.css\"",
     "webpack:dev": "webpack --mode development --config configuration/webpack.config.js",
     "webpack:prod": "webpack --mode production --config configuration/webpack.config.js",
-    "dev": "webpack --watch --mode development --config configuration/webpack.config.js",
+    "watch-webpack": "webpack --watch --mode development --config configuration/webpack.config.js",
+    "watch-css": "node-sass --output-style expanded --precision 6 src/assets/scss/ -wo dist/css/",
+    "dev": "npm-run-all --parallel watch-*",
     "prebuild": "npm run version",
     "version": "node -p -e \"'export default \\'' + require('./package.json').version + '\\';'\" > src/version.js",
     "lint": "eslint ./src",
@@ -198,6 +200,7 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
     "connected-react-router": "^6.7.0",
     "exceljs": "^3.8.2",
     "final-form": "^4.20.0",

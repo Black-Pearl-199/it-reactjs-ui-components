@@ -7,6 +7,7 @@ import MyDatagridRow from './MyDatagridRow';
 
 const MyDatagridBodyView = ({
     basePath,
+    checkToggle,
     children,
     classes,
     className,
@@ -32,6 +33,7 @@ const MyDatagridBodyView = ({
             row,
             {
                 basePath,
+                checkToggle,
                 classes,
                 className: classNames(classes.row, {
                     [classes.rowEven]: rowIndex % 2 === 0,
@@ -58,6 +60,7 @@ const MyDatagridBodyView = ({
 
 MyDatagridBodyView.propTypes = {
     basePath: PropTypes.string,
+    checkToggle: PropTypes.func,
     classes: PropTypes.object,
     className: PropTypes.string,
     children: PropTypes.node,

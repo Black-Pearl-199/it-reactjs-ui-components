@@ -3,13 +3,19 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import classNames from 'classnames';
 import { push } from 'connected-react-router';
-import PropTypes from 'prop-types';
-import React, { isValidElement, useEffect, useState } from 'react';
-import { DatagridCell, linkToRecord } from 'react-admin';
+import { any, bool, func, node, object, oneOfType, string } from 'prop-types';
+import React, { isValidElement, useCallback, useEffect, useState } from 'react';
+import { DatagridCell, linkToRecord, useExpanded } from 'react-admin';
 import { useDispatch } from 'react-redux';
 
 import ExpandRowButton from './ExpandRowButton';
 import ROW_CLICK from './RowClick';
+
+const computeNbColumns = (expand, children, hasBulkActions) => (expand
+    ? 1 // show expand button
+          + (hasBulkActions ? 1 : 0) // checkbox column
+          + React.Children.toArray(children).filter((child) => !!child).length // non-null children
+    : 0); // we don't need to compute columns if there is no expand panel;
 
 const sanitizeRestProps = ({
     basePath,
@@ -29,80 +35,9 @@ const sanitizeRestProps = ({
 }) => rest;
 
 const MyDatagridRow = (props) => {
-    const [expanded, setExpanded] = useState(false);
-    const [colSpan, setColSpan] = useState(computeColSpan(props));
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        const newColSpan = computeColSpan(props);
-        if (colSpan !== newColSpan) {
-            setColSpan(newColSpan);
-        }
-    }, [colSpan, props]);
-
-    const handleToggleExpanded = (event) => {
-        setExpanded(!expanded);
-        event.stopPropagation();
-    };
-
-    const handleToggle = (event) => {
-        props.onToggleItem(props.id);
-        event.stopPropagation();
-    };
-
-    const handleClick = async (event) => {
-        const { basePath, rowClick, id, record } = props;
-
-        if (!rowClick) return;
-
-        if (typeof rowClick === 'function') {
-            const path = await rowClick(id, basePath, record);
-            handleRedirection(path, event);
-            return;
-        }
-
-        handleRedirection(rowClick, event);
-    };
-
-    const handleRedirection = (path, event) => {
-        const { basePath, id } = props;
-
-        if (path === ROW_CLICK.EDIT) {
-            dispatch(push(linkToRecord(basePath, id)));
-            return;
-        }
-        if (path === ROW_CLICK.SHOW) {
-            dispatch(push(linkToRecord(basePath, id, 'show')));
-            return;
-        }
-        if (path === ROW_CLICK.EXPAND) {
-            handleToggleExpanded(event);
-            return;
-        }
-        if (path === ROW_CLICK.SELECT_ONE) {
-            props.onSelect([props.id]);
-            return;
-        }
-        if (path === ROW_CLICK.UN_SELECT_ONE) {
-            props.onSelect([]);
-            return;
-        }
-        if (!path) return;
-
-        dispatch(push(path));
-    };
-
-    function computeColSpan(props) {
-        const { children, hasBulkActions } = props;
-        return (
-            1 // show expand button
-            + (hasBulkActions ? 1 : 0) // checkbox column
-            + React.Children.toArray(children).filter((child) => !!child).length // non-null children
-        );
-    }
-
     const {
         basePath,
+        checkToggle,
         children,
         classes,
         className,
@@ -110,13 +45,81 @@ const MyDatagridRow = (props) => {
         hasBulkActions,
         hover,
         id,
+        onSelect,
+        onToggleItem,
         record,
         resource,
+        rowClick,
         selected,
         style,
         styles,
         ...rest
     } = props;
+
+    const [expanded, toggleExpanded] = useExpanded(resource, id);
+    const [nbColumns, setNbColumns] = useState(computeNbColumns(expand, children, hasBulkActions));
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        // Fields can be hidden dynamically based on permissions;
+        // The expand panel must span over the remaining columns
+        // So we must recompute the number of columns to span on
+        const newNbColumns = computeNbColumns(expand, children, hasBulkActions);
+        if (newNbColumns !== nbColumns) {
+            setNbColumns(newNbColumns);
+        }
+    }, [expand, nbColumns, children, hasBulkActions]);
+
+    const handleToggleExpand = useCallback(
+        (event) => {
+            toggleExpanded();
+            event.stopPropagation();
+        },
+        [toggleExpanded]
+    );
+
+    const handleToggleSelection = useCallback(
+        (event) => {
+            if (!checkToggle || checkToggle(id)) onToggleItem(id);
+            event.stopPropagation();
+        },
+        [checkToggle, id, onToggleItem]
+    );
+
+    const handleClick = useCallback(
+        async (event) => {
+            if (!rowClick) return;
+            event.persist();
+
+            const effect = typeof rowClick === 'function' ? await rowClick(id, basePath, record) : rowClick;
+
+            switch (effect) {
+                case ROW_CLICK.EDIT:
+                    dispatch(push(linkToRecord(basePath, id)));
+                    break;
+                case ROW_CLICK.SHOW:
+                    dispatch(push(linkToRecord(basePath, id, 'show')));
+                    break;
+                case ROW_CLICK.EXPAND:
+                    handleToggleExpand(event);
+                    break;
+                case ROW_CLICK.TOGGLE_SELECTION:
+                    handleToggleSelection(event);
+                    break;
+                case ROW_CLICK.SELECT_ONE:
+                    onSelect([id]);
+                    break;
+                case ROW_CLICK.UN_SELECT_ONE:
+                    onSelect([]);
+                    break;
+                default:
+                    if (effect) dispatch(push(effect));
+                    break;
+            }
+        },
+        [basePath, dispatch, handleToggleExpand, handleToggleSelection, id, onSelect, record, rowClick]
+    );
+
     return (
         <>
             <TableRow
@@ -133,13 +136,18 @@ const MyDatagridRow = (props) => {
                             classes={classes}
                             expanded={expanded}
                             expandContentId={`${id}-expand`}
-                            onClick={handleToggleExpanded}
+                            onClick={handleToggleExpand}
                         />
                     </TableCell>
                 )}
                 {hasBulkActions && (
                     <TableCell padding="none">
-                        <Checkbox color="primary" className={`select-item ${classes.checkbox}`} checked={selected} onClick={handleToggle} />
+                        <Checkbox
+                            color="primary"
+                            className={`select-item ${classes.checkbox}`}
+                            checked={selected}
+                            onClick={handleToggleSelection}
+                        />
                     </TableCell>
                 )}
                 {React.Children.map(children, (field, index) => (isValidElement(field) ? (
@@ -153,7 +161,7 @@ const MyDatagridRow = (props) => {
             </TableRow>
             {expand && expanded && (
                 <TableRow key={`${id}-expand`} id={`${id}-expand`}>
-                    <TableCell colSpan={colSpan}>
+                    <TableCell colSpan={nbColumns}>
                         {React.cloneElement(expand, {
                             record,
                             basePath,
@@ -168,22 +176,23 @@ const MyDatagridRow = (props) => {
 };
 
 MyDatagridRow.propTypes = {
-    basePath: PropTypes.string,
-    children: PropTypes.node,
-    classes: PropTypes.object,
-    className: PropTypes.string,
-    expand: PropTypes.node,
-    hasBulkActions: PropTypes.bool.isRequired,
-    hover: PropTypes.bool,
-    id: PropTypes.any,
-    onToggleItem: PropTypes.func,
-    onSelect: PropTypes.func,
-    record: PropTypes.object.isRequired,
-    resource: PropTypes.string,
-    rowClick: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    selected: PropTypes.bool,
-    style: PropTypes.object,
-    styles: PropTypes.object
+    basePath: string,
+    checkToggle: func,
+    children: node,
+    classes: object,
+    className: string,
+    expand: node,
+    hasBulkActions: bool.isRequired,
+    hover: bool,
+    id: any,
+    onToggleItem: func,
+    onSelect: func,
+    record: object.isRequired,
+    resource: string,
+    rowClick: oneOfType([string, func]),
+    selected: bool,
+    style: object,
+    styles: object
 };
 
 MyDatagridRow.defaultProps = {

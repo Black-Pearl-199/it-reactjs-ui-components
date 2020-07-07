@@ -4,14 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.42] - 2020-07-07
+### Removed
+- Removed unused css - [@tunglt1810]
+### Added
+- Datagrid support check row can toggle-able - [@tunglt1810]
+
 ## [0.2.41] - 2020-07-04
 ### Changed
-- Change main-color, main-color-hover - [@Tin]
-- Change width of Sidebar, sidebar-width -> 240px, sidebar-width-collapse: 30px, distance between icon and text sidebar-item-pad-left: 8px; - [@Tin]
-- Change css of button delete - [@Tin]
-- Change 'Sửa' -> 'Thay đổi' - [@khanhITech]
+- Change main-color, main-color-hover - [@TinVan2]
+- Change width of Sidebar, sidebar-width -> 240px, sidebar-width-collapse: 30px, distance between icon and text sidebar-item-pad-left: 8px; - [@TinVan2]
+- Change css of button delete - [@TinVan2]
+- Change 'Sửa' -> 'Thay đổi' - [@khanhITECH]
 ### Fixed
-- Fix enableTooltip in MyControlField - [@khanhITech]
+- Fix enableTooltip in MyControlField - [@khanhITECH]
 
 ## [0.2.39] - 2020-07-02
 ### Added

@@ -120,6 +120,7 @@ const MyDatagrid = (props) => {
     const {
         basePath,
         body,
+        checkToggle,
         children,
         className,
         currentSort,
@@ -209,6 +210,7 @@ const MyDatagrid = (props) => {
                     body,
                     {
                         basePath,
+                        checkToggle,
                         className: classes.tbody,
                         classes,
                         expand,
@@ -236,6 +238,7 @@ const MyDatagrid = (props) => {
 MyDatagrid.propTypes = {
     basePath: PropTypes.string,
     body: PropTypes.element.isRequired,
+    checkToggle: PropTypes.func,
     children: PropTypes.node.isRequired,
     classes: PropTypes.object,
     className: PropTypes.string,
