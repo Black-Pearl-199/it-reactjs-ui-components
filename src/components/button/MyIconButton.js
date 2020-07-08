@@ -10,21 +10,28 @@ const MyIconButton = (props) => {
     const translate = useTranslate();
     const { children, popLabel, className, enableTooltip, ...rest } = props;
     return (
-        <OverlayTrigger
-            placement="top"
-            overlay={
-                enableTooltip ? (
-                    <Tooltip className="itech-tooltip" id={uuidv4()}>
-                        {translate(popLabel)}
-                    </Tooltip>
-                )
-                    : <div />
-            }
-        >
-            <Button variant="itech-icon" size="sm" className={classNames('btn-itech-icon-primary', className)} {...rest}>
-                {children}
-            </Button>
-        </OverlayTrigger>
+        enableTooltip
+            ? (
+                <OverlayTrigger
+                    placement="top"
+                    overlay={
+                        (
+                            <Tooltip className="itech-tooltip" id={uuidv4()}>
+                                {translate(popLabel)}
+                            </Tooltip>
+                        )
+                    }
+                >
+                    <Button variant="itech-icon" size="sm" className={classNames('btn-itech-icon-primary', className)} {...rest}>
+                        {children}
+                    </Button>
+                </OverlayTrigger>
+            )
+            : (
+                <Button variant="itech-icon" size="sm" className={classNames('btn-itech-icon-primary', className)} {...rest}>
+                    {children}
+                </Button>
+            )
     );
 };
 
