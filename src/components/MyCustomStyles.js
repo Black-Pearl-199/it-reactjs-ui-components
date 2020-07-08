@@ -110,7 +110,7 @@ export const listStylesNoActionsList = {
         boxShadow: 'none !important',
         borderRadius: '0.25rem',
         overflow: 'hidden',
-        marginTop: 0, // fix khi bulkButtonAction is checked
+        marginTop: '0 !important', // fix khi bulkButtonAction is checked
         // overflowY: 'inherit',
         '&>div': {
             marginRight: 'auto',
