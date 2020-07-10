@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.2.45] - 2020-07-10
 ### Added
-- Add Stanalone List - [@khanhITECH] 
+- Add MyStandaloneList: render list and control query param by local state and does not interact with search on url - [@khanhITECH] 
 ### Changed
 - change datagrid folder to list - [@khanhITECH]
 
