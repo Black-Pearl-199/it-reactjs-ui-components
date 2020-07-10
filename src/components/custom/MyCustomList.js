@@ -1,13 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {
-} from 'ra-core';
-import {ListView} from 'react-admin';
-import {useListController} from './useListController';
+import { ListView } from 'react-admin';
+import { useListController } from './useListController';
 
 export const TitlePropType = PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.element,
+    PropTypes.element
 ]);
 
 /**
@@ -55,9 +53,7 @@ export const TitlePropType = PropTypes.oneOfType([
  *     </List>
  * );
  */
-const MyCustomList = props => {
-    return <ListView {...props} {...useListController(props)} />;
-};
+const MyCustomList = (props) => <ListView {...props} {...useListController(props)} />;
 
 MyCustomList.propTypes = {
     // the props you can change
@@ -74,7 +70,7 @@ MyCustomList.propTypes = {
     perPage: PropTypes.number.isRequired,
     sort: PropTypes.shape({
         field: PropTypes.string,
-        order: PropTypes.string,
+        order: PropTypes.string
     }),
     title: TitlePropType,
     // the props managed by react-admin
@@ -86,12 +82,12 @@ MyCustomList.propTypes = {
     location: PropTypes.object,
     match: PropTypes.object,
     path: PropTypes.string,
-    resource: PropTypes.string.isRequired,
+    resource: PropTypes.string.isRequired
 };
 
 MyCustomList.defaultProps = {
     filter: {},
-    perPage: 10,
+    perPage: 10
 };
 
 export default MyCustomList;

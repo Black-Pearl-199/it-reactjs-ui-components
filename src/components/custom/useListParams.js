@@ -1,17 +1,18 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import lodashDebounce from 'lodash/debounce';
 import set from 'lodash/set';
-import { changeListParams } from 'ra-core';
-import { Sort, removeKey, removeEmpty } from 'ra-core';
-import queryReducer from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
-import { SORT_ASC, SET_SORT, SET_PAGE, SET_PER_PAGE, SET_FILTER } from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { removeKey, removeEmpty } from 'ra-core';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import queryReducer, { SORT_ASC, SET_SORT, SET_PAGE, SET_PER_PAGE, SET_FILTER } from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
+
 
 const emptyObject = {};
 
 const defaultSort = {
     field: 'id',
-    order: SORT_ASC,
+    order: SORT_ASC
 };
 
 const defaultParams = {};
@@ -70,11 +71,9 @@ const useListParams = ({
     filterDefaultValues,
     sort = defaultSort,
     perPage = 10,
-    debounce = 500,
+    debounce = 500
 }) => {
-
     const [params, setParams] = useState(defaultParams);
-    const dispatch = useDispatch();
     const requestSignature = [
         resource,
         params,
@@ -84,17 +83,16 @@ const useListParams = ({
     ];
 
     const query = useMemo(
-        () =>
-            getQuery({
-                params,
-                filterDefaultValues,
-                sort,
-                perPage
-            }),
+        () => getQuery({
+            params,
+            filterDefaultValues,
+            sort,
+            perPage
+        }),
         requestSignature // eslint-disable-line react-hooks/exhaustive-deps
     );
 
-    const changeParams = useCallback(action => {
+    const changeParams = useCallback((action) => {
         const newParams = queryReducer(query, action);
         setParams(newParams);
         // history.push({ search: '' });
@@ -102,8 +100,7 @@ const useListParams = ({
     }, requestSignature); // eslint-disable-line react-hooks/exhaustive-deps
 
     const setSort = useCallback(
-        (newSort) =>
-            changeParams({ type: SET_SORT, payload: { sort: newSort } }),
+        (newSort) => changeParams({ type: SET_SORT, payload: { sort: newSort } }),
         requestSignature // eslint-disable-line react-hooks/exhaustive-deps
     );
 
@@ -113,8 +110,7 @@ const useListParams = ({
     );
 
     const setPerPage = useCallback(
-        (newPerPage) =>
-            changeParams({ type: SET_PER_PAGE, payload: newPerPage }),
+        (newPerPage) => changeParams({ type: SET_PER_PAGE, payload: newPerPage }),
         requestSignature // eslint-disable-line react-hooks/exhaustive-deps
     );
 
@@ -123,30 +119,27 @@ const useListParams = ({
 
     const debouncedSetFilters = lodashDebounce(
         (newFilters, newDisplayedFilters) => {
-            let payload = {
+            const payload = {
                 filter: removeEmpty(newFilters),
-                displayedFilters: undefined,
+                displayedFilters: undefined
             };
             if (newDisplayedFilters) {
                 payload.displayedFilters = Object.keys(
                     newDisplayedFilters
-                ).reduce((filters, filter) => {
-                    return newDisplayedFilters[filter]
-                        ? { ...filters, [filter]: true }
-                        : filters;
-                }, {});
+                ).reduce((filters, filter) => (newDisplayedFilters[filter]
+                    ? { ...filters, [filter]: true }
+                    : filters), {});
             }
             changeParams({
                 type: SET_FILTER,
-                payload,
+                payload
             });
         },
         debounce
     );
 
     const setFilters = useCallback(
-        (filters, displayedFilters) =>
-            debouncedSetFilters(filters, displayedFilters),
+        (filters, displayedFilters) => debouncedSetFilters(filters, displayedFilters),
         requestSignature // eslint-disable-line react-hooks/exhaustive-deps
     );
 
@@ -154,7 +147,7 @@ const useListParams = ({
         const newFilters = removeKey(filterValues, filterName);
         const newDisplayedFilters = {
             ...displayedFilterValues,
-            [filterName]: undefined,
+            [filterName]: undefined
         };
 
         setFilters(newFilters, newDisplayedFilters);
@@ -164,7 +157,7 @@ const useListParams = ({
         const newFilters = set(filterValues, filterName, defaultValue);
         const newDisplayedFilters = {
             ...displayedFilterValues,
-            [filterName]: true,
+            [filterName]: true
         };
         setFilters(newFilters, newDisplayedFilters);
     }, requestSignature); // eslint-disable-line react-hooks/exhaustive-deps
@@ -174,7 +167,7 @@ const useListParams = ({
             displayedFilters: displayedFilterValues,
             filterValues,
             requestSignature,
-            ...query,
+            ...query
         },
         {
             changeParams,
@@ -183,8 +176,8 @@ const useListParams = ({
             setSort,
             setFilters,
             hideFilter,
-            showFilter,
-        },
+            showFilter
+        }
     ];
 };
 
@@ -201,17 +194,15 @@ const useListParams = ({
  *
  * @param {Object} params
  */
-export const hasCustomParams = (params) => {
-    return (
-        params &&
-        params.filter &&
-        (Object.keys(params.filter).length > 0 ||
-            params.order != null ||
-            params.page !== 1 ||
-            params.perPage != null ||
-            params.sort != null)
-    );
-};
+export const hasCustomParams = (params) => (
+    params
+        && params.filter
+        && (Object.keys(params.filter).length > 0
+            || params.order != null
+            || params.page !== 1
+            || params.perPage != null
+            || params.sort != null)
+);
 
 /**
  * Merge list params from 3 different sources:
@@ -223,11 +214,10 @@ export const getQuery = ({
     filterDefaultValues,
     params,
     sort,
-    perPage,
+    perPage
 }) => {
-    const query =
-        hasCustomParams(params)
-            ? { ...params } : { filter: filterDefaultValues || {} };
+    const query = hasCustomParams(params)
+        ? { ...params } : { filter: filterDefaultValues || {} };
 
     if (!query.sort) {
         query.sort = sort.field;
@@ -242,16 +232,15 @@ export const getQuery = ({
     return {
         ...query,
         page: getNumberOrDefault(query.page, 1),
-        perPage: getNumberOrDefault(query.perPage, 10),
+        perPage: getNumberOrDefault(query.perPage, 10)
     };
 };
 
 export const getNumberOrDefault = (
     possibleNumber,
     defaultValue
-) =>
-    (typeof possibleNumber === 'string'
-        ? parseInt(possibleNumber, 10)
-        : possibleNumber) || defaultValue;
+) => (typeof possibleNumber === 'string'
+    ? parseInt(possibleNumber, 10)
+    : possibleNumber) || defaultValue;
 
 export default useListParams;

@@ -2,15 +2,14 @@ import { isValidElement, ReactElement, useEffect, useMemo } from 'react';
 import inflection from 'inflection';
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
-import {useCheckMinimumRequiredProps, useTranslate,
-    useNotify, useGetList, CRUD_GET_LIST, useVersion, useRecordSelection } from 'react-admin';
+import { useCheckMinimumRequiredProps, useTranslate,
+    useNotify, useGetList, CRUD_GET_LIST, useVersion, useRecordSelection, SORT_ASC } from 'react-admin';
 
-import {SORT_ASC} from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
 import useListParams from './useListParams';
 
 const defaultSort = {
     field: 'id',
-    order: SORT_ASC,
+    order: SORT_ASC
 };
 
 const defaultData = {};
@@ -45,7 +44,7 @@ export const useListController = (
         sort = defaultSort,
         perPage = 10,
         filter,
-        debounce = 500,
+        debounce = 500
     } = props;
 
     if (filter && isValidElement(filter)) {
@@ -76,19 +75,18 @@ export const useListController = (
         resource,
         {
             page: query.page,
-            perPage: query.perPage,
+            perPage: query.perPage
         },
         { field: query.sort, order: query.order },
         { ...query.filter, ...filter },
         {
             action: CRUD_GET_LIST,
-            onFailure: error =>
-                notify(
-                    typeof error === 'string'
-                        ? error
-                        : error.message || 'ra.notification.http_error',
-                    'warning'
-                ),
+            onFailure: (error) => notify(
+                typeof error === 'string'
+                    ? error
+                    : error.message || 'ra.notification.http_error',
+                'warning'
+            )
         }
     );
 
@@ -107,8 +105,8 @@ export const useListController = (
 
     useEffect(() => {
         if (
-            query.page <= 0 ||
-            (!loading && query.page > 1 && (ids || []).length === 0)
+            query.page <= 0
+            || (!loading && query.page > 1 && (ids || []).length === 0)
         ) {
             // query for a page that doesn't exist, set page to 1
             queryModifiers.setPage(1);
@@ -118,17 +116,17 @@ export const useListController = (
     const currentSort = useMemo(
         () => ({
             field: query.sort,
-            order: query.order,
+            order: query.order
         }),
         [query.sort, query.order]
     );
 
     const resourceName = translate(`resources.${resource}.name`, {
         smart_count: 2,
-        _: inflection.humanize(inflection.pluralize(resource)),
+        _: inflection.humanize(inflection.pluralize(resource))
     });
     const defaultTitle = translate('ra.page.list', {
-        name: resourceName,
+        name: resourceName
     });
 
     return {
@@ -156,7 +154,7 @@ export const useListController = (
         setSort: queryModifiers.setSort,
         showFilter: queryModifiers.showFilter,
         total: typeof total === 'undefined' ? defaultTotal : total,
-        version,
+        version
     };
 };
 
@@ -186,7 +184,7 @@ export const injectedProps = [
     'setSort',
     'showFilter',
     'total',
-    'version',
+    'version'
 ];
 
 export default useListController;
