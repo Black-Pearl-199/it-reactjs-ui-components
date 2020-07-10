@@ -4,6 +4,7 @@ export { default as MyDatagridRow } from './MyDatagridRow';
 export * from './MyField';
 export { default as MyField } from './MyField';
 export { default as MySearchableDataGrid } from './MySearchableDatagrid';
+export { default as MyStandaloneList } from './MyStandaloneList';
 export * from './MyVariantFields';
 export { default as ROW_CLICK } from './RowClick';
 export { default as SelectedCounting } from './SelectedCounting';
