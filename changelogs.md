@@ -6,7 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.2.45] - 2020-07-09
 ### Added
-- Add Custom List - [@Khánh] 
+- Add Stanalone List - [@Khánh] 
+### Changed
+- change datagrid folder to list - [@Khánh]
 
 ## [0.2.44] - 2020-07-08
 ### Fixed

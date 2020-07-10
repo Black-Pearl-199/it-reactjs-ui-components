@@ -1,4 +1,4 @@
-import { isValidElement, ReactElement, useEffect, useMemo } from 'react';
+import { isValidElement, useEffect, useMemo } from 'react';
 import inflection from 'inflection';
 import { useSelector } from 'react-redux';
 import get from 'lodash/get';
@@ -94,7 +94,7 @@ export const useListController = (
         state.admin.resources,
         [resource, 'data'],
         defaultData
-    ))
+    ));
 
     // When the user changes the page/sort/filter, this controller runs the
     // useGetList hook again. While the result of this new call is loading,

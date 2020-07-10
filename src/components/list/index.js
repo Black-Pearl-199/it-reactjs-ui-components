@@ -7,3 +7,4 @@ export { default as MySearchableDataGrid } from './MySearchableDatagrid';
 export * from './MyVariantFields';
 export { default as ROW_CLICK } from './RowClick';
 export { default as SelectedCounting } from './SelectedCounting';
+export { default as MyStanaloneList } from './MyStanaloneList';
