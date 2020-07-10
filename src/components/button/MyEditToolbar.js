@@ -40,8 +40,8 @@ const MyEditToolbar = (props) => {
                 />
             )}
             {childrenWithProps}
-            {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
             {customButton || null}
+            {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
             {deletable ? (
                 <MyDeleteButton
                     id={id}
