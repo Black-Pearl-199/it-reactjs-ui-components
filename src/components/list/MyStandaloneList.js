@@ -53,9 +53,9 @@ export const TitlePropType = PropTypes.oneOfType([
  *     </List>
  * );
  */
-const MyStanaloneList = (props) => <ListView {...props} {...useListController(props)} />;
+const MyStandaloneList = (props) => <ListView {...props} {...useListController(props)} />;
 
-MyStanaloneList.propTypes = {
+MyStandaloneList.propTypes = {
     // the props you can change
     actions: PropTypes.element,
     aside: PropTypes.element,
@@ -85,9 +85,9 @@ MyStanaloneList.propTypes = {
     resource: PropTypes.string.isRequired
 };
 
-MyStanaloneList.defaultProps = {
+MyStandaloneList.defaultProps = {
     filter: {},
     perPage: 10
 };
 
-export default MyStanaloneList;
+export default MyStandaloneList;
