@@ -1,7 +1,7 @@
-import { array, string } from 'prop-types';
+import { array, string, bool } from 'prop-types';
 import React, { useCallback } from 'react';
 import { useSetLocale, useTranslate } from 'react-admin';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Dropdown, Tooltip, OverlayTrigger, DropdownButton } from 'react-bootstrap';
 
 import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
 
@@ -13,10 +13,12 @@ const LanguageSwitcher = (props) => {
         size,
         buttons,
         localStorageKey,
+        hasIcon,
         ...rest
     } = props;
     const translate = useTranslate();
-    const setLocale = useSetLocale();
+    const currentLanguage = localStorage.getItem(localStorageKey);
+    const setLocale = useSetLocale(currentLanguage);
 
     const onSelectLanguage = useCallback(
         (languageKey, event) => {
@@ -34,12 +36,28 @@ const LanguageSwitcher = (props) => {
             e.stopPropagation();
         }, []
     );
+    const title = hasIcon ? (
+        <OverlayTrigger
+            placement="bottom"
+            overlay={(
+                <Tooltip className="itech-tooltip" id="button-language">
+                    {translate('language.name')}
+                </Tooltip>
+            )}
+        >
+            <span
+                className="btn btn-itech-icon btn-itech-icon-secondary"
+            >
+                <i className="fa fa-globe-asia" />
+            </span>
+        </OverlayTrigger>
+    ) : translate('language.name');
 
     return (
         <div onClick={fixPropagationEvent} className="my-auto">
             <DropdownButton
                 alignRight
-                title={translate('language.name')}
+                title={title}
                 id={id}
                 variant={variant}
                 size={size}
@@ -50,7 +68,7 @@ const LanguageSwitcher = (props) => {
                     <Dropdown.Item
                         as="button"
                         eventKey={button.eventKey}
-                        className="font-875rem"
+                        className="font-1rem"
                         key={button.eventKey}
                     >
                         {button.text}
@@ -67,7 +85,8 @@ LanguageSwitcher.propTypes = {
     id: string,
     size: string,
     variant: string,
-    localStorageKey: string
+    localStorageKey: string,
+    hasIcon: bool
 };
 
 LanguageSwitcher.defaultProps = {
