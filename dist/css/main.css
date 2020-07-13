@@ -327,6 +327,10 @@
   border-bottom-right-radius: 0;
 }
 
+.button-main-color {
+  color: #2E3E47 !important;
+}
+
 div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
 }

@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.48] - 2020-07-13
+- LanguageSwitcher: change render title for synchronize style - [@TinVan2]
+
 ## [0.2.47] - 2020-07-13
 ### Changed
 - LanguageSwitcher: change render title for synchronize style - [@tunglt1810]

@@ -45,7 +45,11 @@ const LanguageSwitcher = (props) => {
                 </Tooltip>
             )}
         >
-            <i className="fa fa-globe-asia font-1rem" />
+            <span
+                className="btn btn-itech-icon btn-itech-icon-secondary button-main-color"
+            >
+                <i className="fa fa-globe-asia" />
+            </span>
         </OverlayTrigger>
     ) : translate('language.name');
 
