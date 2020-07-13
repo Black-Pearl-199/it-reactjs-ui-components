@@ -4,12 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.47] - 2020-07-13
+### Changed
+- LanguageSwitcher: change render title for synchronize style - [@tunglt1810]
+
 ## [0.2.46] - 2020-07-10
 ### Changed
 - change size = 'sm' for RevertEditButton and move change order of RevertEditButton and customButotn - [@TinVan2]
 ### Fixed
 - Fix display values of MySelectArrayInpu - [@TinVan2]
-- Change display of LanguageSwitcher - support display icon -[@Tin]
+- Change display of LanguageSwitcher - support display icon -[@TinVan2]
 
 ## [0.2.45] - 2020-07-10
 ### Added
