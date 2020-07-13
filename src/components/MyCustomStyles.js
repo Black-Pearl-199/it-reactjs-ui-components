@@ -109,7 +109,7 @@ export const listStylesNoActionsList = {
         backgroundColor: 'transparent !important',
         boxShadow: 'none !important',
         borderRadius: '0.25rem',
-        overflow: 'hidden',
+        overflow: 'hidden !important',
         marginTop: '0 !important', // fix khi bulkButtonAction is checked
         // overflowY: 'inherit',
         '&>div': {
