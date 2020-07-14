@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 
 import { useOnClickOutside } from '../../configurations/hooks';
 import Guardian from '../../utils/Guardian';
+import { preventDefaultOnClick } from '../../utils';
 
 const GotG = Guardian.getInstance();
 
@@ -58,8 +59,11 @@ const SideBar = (props) => {
         if (menuItem) {
             // select primary menu item and it has a subs -> expand sub
             if (menuItem.subs && !menuItem.allowRoute) {
-                e.stopPropagation();
-                e.preventDefault();
+                preventDefaultOnClick(e);
+            }
+            if (typeof menuItem.onClick === 'function') {
+                preventDefaultOnClick(e);
+                menuItem.onClick();
             }
             const eventKeyIndex = expandedKeys.indexOf(eventKey);
             // if menu prevent close, keep it open
