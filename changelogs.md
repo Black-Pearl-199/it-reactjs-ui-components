@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Sidebar: support custom action from menu item config - [@tunglt1810]
 - listStylesNoActionsList: overflow attribute of content is now fixed hidden - [@tunglt1810]
+- Replace scss variables by css variable for custom theme css - [@TinVan2] 
 
 ## [0.2.48] - 2020-07-13
 ### Changed
