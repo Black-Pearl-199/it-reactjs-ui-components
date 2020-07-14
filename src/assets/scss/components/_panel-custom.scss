@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 
 .panel-itech {
-	background-color: $white;
+	background-color: var(--white);
 	//overflow: hidden;
 	padding: 0.25rem 0.5rem;
 	@include shadow-1;

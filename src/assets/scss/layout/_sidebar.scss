@@ -4,13 +4,13 @@ $angle-left: "\f100";
 $angle-right: "\f101";
 
 .sidebar {
-	width: $sidebar-width;
-	top: $top-height;
-	height: calc(100vh - #{$top-height});
+	width: var(--sidebar-width);
+	top: var(--top-height);
+	height: calc(100vh - var(--top-height));
 	left: 0;
 	z-index: 904;
 	display: flex;
-	background-color: $sidebar;
+	background-color: var(--sidebar);
 	font-size: 13px;
 	//height: 100%;
 	//position: fixed;
@@ -19,10 +19,10 @@ $angle-right: "\f101";
 
 	&.collapse {
 		display: flex;
-		width: $sidebar-width-collapse !important;
+		width: var(--sidebar-width-collapse) !important;
 
 		+ .main {
-			width: calc(100% - #{$sidebar-width-collapse});
+			width: calc(100% - var(--sidebar-width-collapse));
 		}
 
 		.sidebar-list-item:not(:hover) {
@@ -33,11 +33,11 @@ $angle-right: "\f101";
 	& .toggle-collapse {
 		margin-top: 5px;
 		width: 100%;
-		color: $sidebar-text;
+		color: var(--sidebar-text);
 		border-radius: 0;
 
 		&:hover {
-			background-color: $main-color-hover;
+			background-color: var(--main-color-hover);
 		}
 
 		&:focus {
@@ -69,17 +69,17 @@ $angle-right: "\f101";
 	position: relative;
 	float: none;
 	padding: 0;
-	max-width: $sidebar-width;
-	@include transition($transitionTime, ease, width);
+	max-width: var(--sidebar-width);
+	@include transition(var(--transitionTime), ease, width);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: $main-color-hover;
+		background-color: var(--main-color-hover);
 
 		a.sidebar-list-link {
-			color: $sidebar-text;
+			color: var(--sidebar-text);
 
 			b {
-				color: $sidebar-text;
+				color: var(--sidebar-text);
 			}
 		}
 	}
@@ -87,11 +87,11 @@ $angle-right: "\f101";
 	&, .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
-				background-color: $main-color-hover;
-				color: $sidebar-text;
+				background-color: var(--main-color-hover);
+				color: var(--sidebar-text);
 
 				&:hover {
-					background-color: $main-color-hover;
+					background-color: var(--main-color-hover);
 				}
 			}
 		}
@@ -100,11 +100,11 @@ $angle-right: "\f101";
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: $main-color-hover;
-				color: $sidebar-text;
+				background-color: var(--main-color-hover);
+				color: var(--sidebar-text);
 
 				&:hover {
-					background-color: $main-color-hover;
+					background-color: var(--main-color-hover);
 				}
 			}
 		}
@@ -119,17 +119,17 @@ $angle-right: "\f101";
 				opacity: 1;
 				position: absolute;
 				top: 0;
-				left: $sidebar-width-collapse;
+				left: var(--sidebar-width-collapse);
 				border-left: 1px solid white;
-				background-color: $sidebar;
-				width: $sidebar-width;
+				background-color: var(--sidebar);
+				width: var(--sidebar-width);
 				z-index: 100;
 				height: auto;
 				pointer-events: inherit;
 				cursor: pointer;
 
 				.sidebar-list-link {
-					padding-left: $sidebar-item-pad-left;
+					padding-left: var(--sidebar-item-pad-left);
 				}
 			}
 		}
@@ -156,19 +156,19 @@ $angle-right: "\f101";
 
 a.sidebar-list-link {
 	display: block;
-	height: $sidebar-item-height;
-	padding-left: $sidebar-item-pad-left;
+	height: var(--sidebar-item-height);
+	padding-left: var(--sidebar-item-pad-left);
 	text-shadow: none;
 	text-decoration: none;
-	color: $sidebar-text;
-	line-height: $sidebar-item-height;
+	color: var(--sidebar-text);
+	line-height: var(--sidebar-item-height);
 	white-space: nowrap;
 	overflow: hidden;
 	cursor: pointer;
-	@include transition($transitionTime, ease, width);
+	@include transition (var(--transitionTime), ease, width);
 
 	&:hover {
-		background-color: $main-color-hover;
+		background-color: var(--main-color-hover);
 
 		// b {
 			//background-color: $green-itech-light;
@@ -176,7 +176,7 @@ a.sidebar-list-link {
 	}
 
 	& i, & svg {
-		margin-right: $sidebar-item-pad-left;
+		margin-right: var(--sidebar-item-pad-left);
 		width: 1rem !important;
 		display: inline-block;
 		@include transition(0.2s, linear, transform);
@@ -195,9 +195,9 @@ a.sidebar-list-link {
 		top: 12px;
 		padding: 0;
 		text-align: center;
-		color: $sidebar-text;
+		color: var(--sidebar-text);
 		//transition: transform 0.2s linear;
-		@include transition($transitionTime, ease, visibility);
+		@include transition(var(--transitionTime), ease, visibility);
 
 		.sidebar.collapse & {
 			visibility: hidden;
@@ -227,14 +227,14 @@ a.sidebar-list-link {
 	position: relative;
 	height: auto;
 
-	@include transition($transitionTime, ease, height, opacify);
+	@include transition(var(--transitionTime), ease, height, opacify);
 
 	&:not(.expanded), .sidebar.collapse & {
 		height: 0;
 		opacity: 0;
 		pointer-events: none;
 		cursor: default;
-		@include transition($transitionTime, ease, height);
+		@include transition(var(--transitionTime), ease, height);
 	}
 
 	&.expanded {
@@ -253,30 +253,30 @@ a.sidebar-list-link {
 			text-shadow: none;
 			font-size: 13px;
 			text-decoration: none;
-			color: $sidebar-text;
-			padding-left: $sidebar-width-collapse;
-			height: $sidebar-item-height;
-			line-height: $sidebar-item-height;
+			color: var(--sidebar-text);
+			padding-left: var(--sidebar-width-collapse);
+			height: var(--sidebar-item-height);
+			line-height: var(--sidebar-item-height);
 
 			&:hover {
-				background-color: $main-color-hover !important;
+				background-color: var(--main-color-hover) !important;
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
-			background-color: $main-color-hover;
+			background-color: var(--main-color-hover);
 
 			&:hover {
-				color: $sidebar-text;
+				color: var(--sidebar-text);
 			}
 		}
 
 		&:not(.with-sub-menu) {
 			a.sidebar-list-link {
 				&.selected {
-					background-color: $main-color-hover;
-					color: $sidebar-text;
+					background-color: var(--main-color-hover);
+					color: var(--sidebar-text);
 				}
 			}
 		}
@@ -292,11 +292,11 @@ a.sidebar-list-link {
 	background: $main-color-hover;
 	position: absolute;
 	top: -150px;
-	left: $sidebar-width - 4px;
-	@include transition($transitionTime, ease, all);
+	left: var(--sidebar-width) - 4px;
+	@include transition(var(--transitionTime), ease, all);
 	//transition: all 0.5s ease;
 	//transition-property: top, height;
-	height: $sidebar-item-height;
+	height: var(--sidebar-item-height);
 	display: block;
 }
 
@@ -307,7 +307,7 @@ a.sidebar-list-link {
 
 @mixin sidebar-collapsed() {
 	.sidebar {
-		width: $sidebar-width-collapse;
+		width: var(--sidebar-width-collapse);
 
 		.fa-angle-down, .fa-angle-up {
 			opacity: 0;
@@ -316,7 +316,7 @@ a.sidebar-list-link {
 		.sidebar-sublist {
 			position: absolute;
 			top: -1px;
-			left: $sidebar-width-collapse;
+			left: var(--sidebar-width-collapse);
 			@include bg-translucent-dark(0.8);
 			width: 0;
 			display: block;
@@ -337,8 +337,8 @@ a.sidebar-list-link {
 				}
 
 				a {
-					padding-left: $sidebar-item-pad-left;
-					padding-right: $sidebar-item-pad-left;
+					padding-left: var(--sidebar-item-pad-left);
+					padding-right: var(--sidebar-item-pad-left);
 					min-width: 130px;
 					white-space: nowrap;
 				}
@@ -362,7 +362,7 @@ a.sidebar-list-link {
 
 @mixin sidebar-overlap() {
 	.sidebar {
-		width: $sidebar-width;
+		width: var(--sidebar-width);
 		@include bg-translucent-dark(0.75);
 		transition: width 0.5s ease;
 
@@ -381,7 +381,7 @@ a.sidebar-list-link {
 		}
 
 		.sidebar-hover-elem, .sidebar-select-elem {
-			left: $sidebar-width - 4;
+			left: var(--sidebar-width) - 4;
 			transition: left 0.5s ease;
 		}
 	}

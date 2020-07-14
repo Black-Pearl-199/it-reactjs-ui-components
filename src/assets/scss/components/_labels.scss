@@ -1,13 +1,13 @@
 @import '../abstracts/variables';
 
 .label-filter {
-	font-size: $fontSize875;
+	font-size: var(--fontSize875);
 	font-weight: bold;
 	padding-bottom: 0.25rem;
 }
 
 .label-filter-sm {
-	font-size: $fontSize875;
+	font-size: var(--fontSize875);
 	font-weight: bold;
 	padding-top: 0;
 	padding-bottom: 0;
@@ -22,5 +22,5 @@
 .info-title-label {
 	font-size: .8rem;
 	text-transform: uppercase;
-	color: $info-title;
+	color: var(--info-title);
 }

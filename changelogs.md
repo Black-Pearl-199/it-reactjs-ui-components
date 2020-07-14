@@ -4,11 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.50] - 2020-07-14
+### Changed
+- changed styles of sidebar to support scroll inside list of items - [@tunglt1810]
+
 ## [0.2.49] - 2020-07-13
 ### Changed
 - Sidebar: support custom action from menu item config - [@tunglt1810]
 - listStylesNoActionsList: overflow attribute of content is now fixed hidden - [@tunglt1810]
-- changed styles of sidebar to support scroll inside list of items - [@tunglt1810]
+- Replace scss variables by css variable for custom theme css - [@TinVan2] 
 
 ## [0.2.48] - 2020-07-13
 ### Changed
