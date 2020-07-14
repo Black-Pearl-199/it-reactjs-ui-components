@@ -6,7 +6,7 @@ $angle-right: "\f101";
 .sidebar {
 	width: $sidebar-width;
 	top: $top-height;
-	min-height: calc(100vh - #{$top-height});
+	height: calc(100vh - #{$top-height});
 	left: 0;
 	z-index: 904;
 	display: flex;
@@ -18,11 +18,15 @@ $angle-right: "\f101";
 	@include transition($transitionTime, ease, width);
 
 	&.collapse {
-		display: block;
+		display: flex;
 		width: $sidebar-width-collapse !important;
 
 		+ .main {
 			width: calc(100% - #{$sidebar-width-collapse});
+		}
+
+		.sidebar-list-item:not(:hover) {
+			width: $sidebar-width-collapse !important;
 		}
 	}
 
@@ -45,7 +49,7 @@ $angle-right: "\f101";
 
 .sidebar-list {
 	margin: 0;
-	padding: 18px 0 0 0;
+	padding: 0;
 	list-style: none;
 	text-transform: uppercase;
 }

@@ -1,6 +1,7 @@
 import { faAngleUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import isReact from 'is-react';
 import { debounce, find } from 'lodash';
 import * as PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -28,7 +29,7 @@ const filterInSubs = (items, eventKey) => items
 const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
-    const { children, config, resWidthHideSidebar, singleExpand, initialExpanded, ...rest } = props;
+    const { children, config, resWidthHideSidebar, singleExpand, initialExpanded, menuClasses, menuHeader, listItemClasses, ...rest } = props;
     const { items, collapse: collapseInit } = config;
     const [collapse, setCollapse] = useState(collapseInit);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
@@ -105,9 +106,10 @@ const SideBar = (props) => {
     useOnClickOutside(ref, clickOutsideCallback);
 
     const menus = (
-        <div ref={ref}>
-            <ul className="sidebar-list">
-                {items.map((item, index) => {
+        <div className={classNames(menuClasses, 'over-y-auto over-x-hidden')}>
+            {isReact.component(menuHeader) || isReact.element(menuHeader) ? React.cloneElement(menuHeader, { collapse }) : menuHeader}
+            <ul className={classNames('sidebar-list', listItemClasses)}>
+                {items.map((item) => {
                     const expanded = expandedKeys.indexOf(item.eventKey) > -1;
                     return (
                         GotG.hasAnyAuthorities(item.permissions) && (
@@ -116,9 +118,9 @@ const SideBar = (props) => {
                                 title={!item.skipTranslate ? translate(item.title) : item.title}
                                 className={classNames(
                                     'sidebar-list-item',
-                                    item.subs ? 'with-sub-menu' : '',
-                                    expanded ? 'ba-sidebar-item-expanded' : '',
-                                    item.disabled ? 'isDisabled' : ''
+                                    item.subs && 'with-sub-menu',
+                                    expanded && 'ba-sidebar-item-expanded',
+                                    item.disabled && 'isDisabled'
                                 )}
                             >
                                 <NavLink
@@ -187,7 +189,7 @@ const SideBar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { ...rest, collapse }));
 
     return (
-        <Nav as="aside" className={['sidebar', 'flex-column', collapse ? 'collapse' : '']}>
+        <Nav as="aside" className={['sidebar', 'flex-column', 'flex-nowrap', collapse ? 'collapse' : '']} ref={ref}>
             <div className="w-100">
                 <Button variant="default" onClick={toggleCollapse} className="toggle-collapse mx-auto px-0">
                     <FontAwesomeIcon icon={faBars} />
@@ -204,7 +206,10 @@ SideBar.propTypes = {
     location: PropTypes.object,
     resWidthHideSidebar: PropTypes.number,
     singleExpand: PropTypes.bool,
-    initialExpanded: PropTypes.arrayOf(PropTypes.string)
+    initialExpanded: PropTypes.arrayOf(PropTypes.string),
+    listItemClasses: PropTypes.string,
+    menuClasses: PropTypes.string,
+    menuHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.func])
 };
 
 SideBar.defaultProps = {
