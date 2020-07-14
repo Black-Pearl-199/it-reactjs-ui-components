@@ -83,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 	--red-1-light: #{$red-1-light};
 
 	--default-text: #{$default-text};
-	--input-background: #{$input-background};
+    --input-background: #{$input-background};
+    --text-color-lighter: #{$text-color-lighter};
 
 	// --------------------- NEW COLOR RE-DESIGN------------------------
 	--form-background-color: #{$form-background-color};

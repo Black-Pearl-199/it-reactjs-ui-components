@@ -241,9 +241,9 @@ a {
 	position: absolute;
 	width: 100%;
 	left: 0;
-	top: $top-height;
-	height: calc(100% - #{$top-height});
-	max-height: calc(100% - #{$top-height});
+	top: var(--top-height);
+	height: calc(100% - var(--top-height));
+	max-height: calc(100% - var(--top-height));
 	overflow: auto;
 }
 

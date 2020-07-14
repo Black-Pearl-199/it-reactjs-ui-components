@@ -2,7 +2,7 @@
 
 .version {
 	z-index: 9999;
-	color: $white;
+	color: var(--white);
 	font-size: small;
 	line-height: normal;
 	position: fixed;

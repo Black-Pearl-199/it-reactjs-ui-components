@@ -1,33 +1,33 @@
 @import "../abstracts/variables";
 
 .itech-tabs {
-	background-color: $sidebar;
-	height: $top-height + 1px;
+	background-color: var(--sidebar);
+	height: var(--top-height) + 1px;
 	width: 100%;
 	min-width: $resMin;
 	flex: 1;
 
 	& .nav-link {
-		height: $tab-height;
+		height: var(--tab-height);
 		text-decoration: none;
-		color: $sidebar-text;
+		color: var(--sidebar-text);
 		border-radius: 0;
 		border: none;
 		padding: 0.5rem 0.75rem;
-		margin-top: $top-height - $tab-height;
+		margin-top: var(--top-height) - var(--tab-height);
 
 		&:hover {
-			color: $green-itech-light;
+			color: var(--green-itech-light);
 		}
 
 		&.active {
-			background-color: $green-itech-light;
-			color: $sidebar-text;
+			background-color: var(--green-itech-light);
+			color: var(--sidebar-text);
 
 			.tab-close {
 				svg:hover {
-					background-color: $green-itech-light;
-					color: $sidebar;
+					background-color: var(--green-itech-light);
+					color: var(--sidebar);
 				}
 			}
 		}
@@ -39,12 +39,12 @@
 		.tab-close {
 			svg {
 				margin-left: 0.75rem;
-				color: $sidebar-text;
+				color: var(--sidebar-text);
 
 				&:hover {
 					border-radius: 50%;
-					background-color: $sidebar;
-					color: $green-itech-light;
+					background-color: var(--sidebar);
+					color: var(--green-itech-light);
 				}
 			}
 		}

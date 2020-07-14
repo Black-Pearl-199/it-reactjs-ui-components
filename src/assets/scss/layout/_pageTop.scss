@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 904;
   box-shadow: $shadow;
-  height: $top-height;
+  height: var(--top-height);
   width: 100%;
   min-width: $resMin;
   //padding: 0 32px 0 40px;
@@ -109,7 +109,7 @@ a.collapse-menu-link {
 
 .search {
   text-shadow: none;
-  color: $sidebar-text;
+  color: var(--sidebar-text);
   font-size: 13px;
   line-height: 25px;
   transition: all 0.5s ease;

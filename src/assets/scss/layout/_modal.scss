@@ -1,7 +1,7 @@
 @import '../abstracts/variables';
 
 .modal-itech-background {
-    background: $black-half-opacity;
+    background: var(--black-half-opacity);
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -15,15 +15,15 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: $white;
-    box-shadow: $shadow;
+    background: var(--white);
+    box-shadow: var(--shadow);
     width: 50vw;
     font-size: 14px;
 
     .modal-itech-header {
         height: 66px;
-        background: $text-color;
-        color: $white;
+        background: var(--text-color);
+        color: var(--white);
         padding: 15px;
         text-transform: uppercase;
         text-align: center;
@@ -33,7 +33,7 @@
         padding: 20px 40px 30px 40px;
 
         .modal-panel {
-            background: $grey-light;
+            background: var(--grey-light);
             padding: 15px 15px 15px 20px;
 
             label,
@@ -68,7 +68,7 @@
     .modal-pushing-body {
         height: 50%;
         display: block;
-        background: $modal-itech-background;
+        background: var(--modal-itech-background);
         overflow-y: scroll;
         padding: 35px 30px;
 

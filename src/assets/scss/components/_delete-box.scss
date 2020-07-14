@@ -2,14 +2,14 @@
 
 .delete-box {
     position: absolute;
-    height: $delete-box-height;
+    height: var(--delete-box-height);
     width: 100%;
     bottom: 0;
-    background: $cyan;
-    color: $white;
+    background: var(--cyan);
+    color: var(--white);
     left: 0;
 }
 
 .has-delete-box {
-    margin-bottom: $delete-box-height;
+    margin-bottom: var(--delete-box-height);
 }
