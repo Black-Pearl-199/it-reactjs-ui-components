@@ -1,0 +1,10 @@
+@import '../abstracts/mixins';
+@import '../abstracts/variables';
+
+.scroll-sm {
+	@include scrollbars-size(4px);
+}
+
+.scroll-secondary {
+	@include scrollbars-color($grey-1, $text-color);
+}
