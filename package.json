@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.50",
+  "version": "0.2.51",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {

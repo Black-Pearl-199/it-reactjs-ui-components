@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.51] - 2020-07-15
+### Changed
+- Sidebar: change default scrollable to list menu item and heading still visible on top - [@tunglt1810]
+- reduce menu item height - [@tunglt1810]
+### Added
+- add atomic css class for scroll bar: size, color - [@tunglt1810]
+- add sidebar heading class - [@tunglt1810]
+### Removed
+- sidebar menu item: remove default uppercase - [@tunglt1810]
+
 ## [0.2.50] - 2020-07-14
 ### Changed
 - changed styles of sidebar to support scroll inside list of items - [@tunglt1810]

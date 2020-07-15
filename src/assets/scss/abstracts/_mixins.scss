@@ -2,12 +2,14 @@
   background: rgba(0, 0, 0, $opacity);
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+@mixin scrollbars-size($size) {
   ::-webkit-scrollbar {
     width: $size;
     height: $size;
   }
+}
 
+@mixin scrollbars-color($foreground-color, $background-color) {
   ::-webkit-scrollbar-thumb {
     background: $foreground-color;
     cursor: pointer;
@@ -17,11 +19,16 @@
     background: $background-color;
   }
 
-  // For Internet Explorer
-  body {
+  & {
     scrollbar-face-color: $foreground-color;
     scrollbar-track-color: $background-color;
   }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  @include scrollbars-size($size);
+
+  @include scrollbars-color($foreground-color, $background-color);
 }
 
 @mixin transition($time, $type, $prop...) {

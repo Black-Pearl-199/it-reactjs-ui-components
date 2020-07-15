@@ -794,6 +794,25 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   }
 }
 
+.scroll-sm ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.scroll-secondary ::-webkit-scrollbar-thumb {
+  background: #CCCCCC;
+  cursor: pointer;
+}
+
+.scroll-secondary ::-webkit-scrollbar-track {
+  background: #2E3E47;
+}
+
+.scroll-secondary {
+  scrollbar-face-color: #CCCCCC;
+  scrollbar-track-color: #2E3E47;
+}
+
 .table {
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
 }
@@ -1233,11 +1252,14 @@ ul.dropdown-menu.side-sub-menu-itech li {
   box-shadow: none;
 }
 
+.sidebar-heading {
+  background-color: var(--sidebar-heading);
+}
+
 .sidebar-list {
   margin: 0;
   padding: 0;
   list-style: none;
-  text-transform: uppercase;
 }
 
 /*.sidebar-sublist .subitem-submenu-list {
@@ -1623,11 +1645,6 @@ a.sidebar-list-link b {
   background: rgba(0, 0, 0, 0);
 }
 
-body {
-  scrollbar-face-color: #d9d9d9;
-  scrollbar-track-color: rgba(0, 0, 0, 0);
-}
-
 html {
   position: relative;
   min-width: 320px;
@@ -1862,6 +1879,10 @@ a {
   overflow-y: auto;
 }
 
+.over-y-hidden {
+  overflow-y: hidden;
+}
+
 .main-page {
   display: flex;
   flex-direction: column;
@@ -1975,8 +1996,9 @@ h1, h2, h3, h4, h5, h6 {
   --dribble-color: #F26798;
   --behace-color: #0093FA;
   --sidebar: #2E3E47;
+  --sidebar-heading: #2b4b63;
   --sidebar-text: #ffffff;
-  --sidebar-item-height: 42px;
+  --sidebar-item-height: 32px;
   --sidebar-width: 240px;
   --sidebar-width-collapse: 30px;
   --sidebar-item-pad-left: 8px;

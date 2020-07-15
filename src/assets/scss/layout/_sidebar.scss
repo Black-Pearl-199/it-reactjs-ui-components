@@ -47,11 +47,15 @@ $angle-right: "\f101";
 
 }
 
+.sidebar-heading {
+	background-color: var(--sidebar-heading);	
+}
+
 .sidebar-list {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	text-transform: uppercase;
+	// text-transform: uppercase;
 }
 
 /*.sidebar-sublist .subitem-submenu-list {
