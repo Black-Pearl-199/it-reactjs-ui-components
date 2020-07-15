@@ -5,9 +5,9 @@ $angle-right: "\f101";
 
 .sidebar {
 	width: var(--sidebar-width);
-	top: var(--top-height);
-	height: calc(100vh - var(--top-height));
-	left: 0;
+	// top: var(--top-height);
+	// height: calc(100vh - var(--top-height));
+	// left: 0;
 	z-index: 904;
 	display: flex;
 	background-color: var(--sidebar);
@@ -190,13 +190,13 @@ a.sidebar-list-link {
 		display: block;
 		opacity: 1;
 		width: 14px;
-		height: 14px;
+		height: 18px;
 		line-height: 14px;
 		text-shadow: none;
 		font-size: 18px;
 		position: absolute;
 		right: 8px;
-		top: 12px;
+		top: calc((var(--sidebar-item-height) - 18px) /2);
 		padding: 0;
 		text-align: center;
 		color: var(--sidebar-text);
