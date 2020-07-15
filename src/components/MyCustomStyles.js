@@ -331,7 +331,8 @@ export const tableStyles = {
         '& thead': {
             '& th': {
                 verticalAlign: 'inherit',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                display: 'block'
             },
             '& td': {
                 fontWeight: 'bold',
@@ -348,6 +349,12 @@ export const tableStyles = {
             '& > span': {
                 padding: '0',
                 fontSize: '1rem'
+            }
+        },
+        '$ tbody': {
+            '& tr': {
+                display: 'block',
+                height: '25px !important'
             }
         }
     }

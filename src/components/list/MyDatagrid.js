@@ -1,6 +1,8 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import Table from '@material-ui/core/Table';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { Children, cloneElement, isValidElement } from 'react';
@@ -60,6 +62,9 @@ const useStyles = makeStyles(() => ({
     },
     expanded: {
         transform: 'rotate(0deg)'
+    },
+    container: {
+        maxHeight: 600
     }
 }));
 
@@ -175,63 +180,65 @@ const MyDatagrid = (props) => {
      * the datagrid displays the current data.
      */
     return (
-        <table className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
-            <thead className={classNames(classes.thead, 'table-itech-thread')}>
-                <tr className={classNames(classes.row, classes.headerRow)}>
-                    {expand && <TableCell className={classes.expandHeader} />}
-                    {hasBulkActions && (
-                        <TableCell padding="none" style={{ width: '1%' }}>
-                            <Checkbox
-                                className="select-all"
-                                color="primary"
-                                checked={selectedIds.length > 0 && ids.length > 0 && !ids.find((it) => selectedIds.indexOf(it) === -1)}
-                                onChange={handleSelectAll}
+        <TableContainer className={classes.container}>
+            <Table stickyHeader aria-label="sticky table" className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
+                <thead className={classNames(classes.thead, 'table-itech-thread')}>
+                    <tr className={classNames(classes.row, classes.headerRow)}>
+                        {expand && <TableCell className={classes.expandHeader} />}
+                        {hasBulkActions && (
+                            <TableCell padding="none" style={{ width: '1%' }}>
+                                <Checkbox
+                                    className="select-all"
+                                    color="primary"
+                                    checked={selectedIds.length > 0 && ids.length > 0 && !ids.find((it) => selectedIds.indexOf(it) === -1)}
+                                    onChange={handleSelectAll}
+                                />
+                            </TableCell>
+                        )}
+                        {Children.map(children, (field, index) => (isValidElement(field) ? (
+                            <MyDatagridHeaderCell
+                                className={classes.headerCell}
+                                currentSort={currentSort}
+                                field={field}
+                                isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
+                                key={field.props.source || index}
+                                resource={resource}
+                                updateSort={updateSort}
+                                style={field.props.headerStyle}
                             />
-                        </TableCell>
-                    )}
-                    {Children.map(children, (field, index) => (isValidElement(field) ? (
-                        <MyDatagridHeaderCell
-                            className={classes.headerCell}
-                            currentSort={currentSort}
-                            field={field}
-                            isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
-                            key={field.props.source || index}
-                            resource={resource}
-                            updateSort={updateSort}
-                            style={field.props.headerStyle}
-                        />
-                    ) : null))}
-                </tr>
-            </thead>
-            {ids.length === 0 || total === 0 ? (
-                <tbody />
-            ) : (
-                cloneElement(
-                    body,
-                    {
-                        basePath,
-                        checkToggle,
-                        className: classes.tbody,
-                        classes,
-                        expand,
-                        rowClick,
-                        data,
-                        hasBulkActions,
-                        hover,
-                        ids,
-                        loading,
-                        onToggleItem,
-                        onSelect,
-                        resource,
-                        rowStyle,
-                        selectedIds,
-                        version,
-                        total
-                    },
-                    children
-                )
-            )}
-        </table>
+                        ) : null))}
+                    </tr>
+                </thead>
+                {ids.length === 0 || total === 0 ? (
+                    <tbody />
+                ) : (
+                    cloneElement(
+                        body,
+                        {
+                            basePath,
+                            checkToggle,
+                            className: classes.tbody,
+                            classes,
+                            expand,
+                            rowClick,
+                            data,
+                            hasBulkActions,
+                            hover,
+                            ids,
+                            loading,
+                            onToggleItem,
+                            onSelect,
+                            resource,
+                            rowStyle,
+                            selectedIds,
+                            version,
+                            total
+                        },
+                        children
+                    )
+                )}
+            </Table>
+        </TableContainer>
     );
 };
 
