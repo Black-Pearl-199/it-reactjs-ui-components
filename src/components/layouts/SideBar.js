@@ -221,7 +221,7 @@ SideBar.propTypes = {
     listItemClasses: PropTypes.string,
     menuClasses: PropTypes.string,
     menuHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.func]),
-    toggle: PropTypes.element
+    toggle: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
 };
 
 SideBar.defaultProps = {
