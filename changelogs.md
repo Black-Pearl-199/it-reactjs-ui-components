@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.53] - 2020-07-16
+### Added
+- DefaultToggle component for Sidebar - [@tunglt1810]
+- Add css for selected and hover text color for menu item - [@tunglt1810]
+- Add style for side heading and side toggle icon - [@tunglt1810]
+### Changed
+- Sidebar supports custom ToggleComponent - [@tunglt1810]
+- MyIconButton supports custom className - [@tunglt1810]
+- Fixed css border in atomic class border - [@tunglt1810]
+
 ## [0.2.52] - 2020-07-15
 ### Fixed
 - Fix padding of AngleUp icon of menu item which has sub items - [@tunglt1810]

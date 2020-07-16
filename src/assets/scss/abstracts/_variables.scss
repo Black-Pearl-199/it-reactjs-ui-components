@@ -29,10 +29,10 @@ $grey-background: #E5E5E5; //Main background - Background Dropdown
 $modal-itech-background:  #F7F9FC;
 
 $main-color-opacity: rgba(55, 107, 81, 0.1);
-// $main-color: #376B51;
-// $main-color-hover: #2C5641;
-$main-color: #2E3E47;
-$main-color-hover: #495057;
+$main-color: #376B51;
+$main-color-hover: #2C5641;
+// $main-color: #2E3E47;
+// $main-color-hover: #495057;
 $main-color-lighter: rgb(108, 119, 112);
 $main-color-lighter-1: #C8E7D2;
 $main-color-dark: #376B51;
@@ -66,8 +66,9 @@ $dribble-color: #F26798;
 $behace-color: #0093FA;
 
 $sidebar: $main-color;
-$sidebar-heading: #2b4b63;
+$sidebar-heading: $main-color;
 $sidebar-text: $default-text;
+$sidebar-text-selected: $default-text;
 $sidebar-item-height: 32px;
 $sidebar-width: 240px;
 $sidebar-width-collapse: 30px;

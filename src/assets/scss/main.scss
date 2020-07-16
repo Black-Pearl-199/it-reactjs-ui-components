@@ -131,6 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 	--sidebar: #{$sidebar};
 	--sidebar-heading: #{$sidebar-heading};
 	--sidebar-text: #{$sidebar-text};
+	--sidebar-text-selected: #($sidebar-text-selected);
 	--sidebar-item-height: #{$sidebar-item-height};
 	--sidebar-width: #{$sidebar-width};
 	--sidebar-width-collapse: #{$sidebar-width-collapse};

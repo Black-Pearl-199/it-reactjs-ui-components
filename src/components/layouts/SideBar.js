@@ -1,4 +1,4 @@
-import { faAngleUp, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import isReact from 'is-react';
@@ -6,12 +6,13 @@ import { debounce, find } from 'lodash';
 import * as PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslate } from 'react-admin';
-import { Button, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 import { useOnClickOutside } from '../../configurations/hooks';
-import Guardian from '../../utils/Guardian';
 import { preventDefaultOnClick } from '../../utils';
+import Guardian from '../../utils/Guardian';
+import DefaultToggle from './DefaultToggle';
 
 const GotG = Guardian.getInstance();
 
@@ -29,7 +30,19 @@ const filterInSubs = (items, eventKey) => items
 const SideBar = (props) => {
     const translate = useTranslate();
     const ref = useRef();
-    const { children, config, resWidthHideSidebar, singleExpand, initialExpanded, menuClasses, menuHeader, listItemClasses, ...rest } = props;
+    const {
+        children,
+        className,
+        toggle: ToggleComponent,
+        config,
+        resWidthHideSidebar,
+        singleExpand,
+        initialExpanded,
+        menuClasses,
+        menuHeader,
+        listItemClasses,
+        ...rest
+    } = props;
     const { items, collapse: collapseInit } = config;
     const [collapse, setCollapse] = useState(collapseInit);
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
@@ -134,11 +147,11 @@ const SideBar = (props) => {
                                         data-event-key={item.eventKey}
                                     >
                                         {item.icon
-                                        && (typeof item.icon === 'string' ? (
-                                            <i className={item.icon} />
-                                        ) : (
-                                            <FontAwesomeIcon icon={item.icon} />
-                                        ))}
+                                            && (typeof item.icon === 'string' ? (
+                                                <i className={item.icon} />
+                                            ) : (
+                                                <FontAwesomeIcon icon={item.icon} />
+                                            ))}
                                         <span>{!item.skipTranslate ? translate(item.title) : item.title}</span>
                                         {item.subs ? (
                                             <b onClick={toggleExpand} data-event-key={item.eventKey}>
@@ -165,11 +178,11 @@ const SideBar = (props) => {
                                                             data-event-key={sub.eventKey}
                                                         >
                                                             {sub.icon
-                                                            && (typeof sub.icon === 'string' ? (
-                                                                <i className={item.icon} />
-                                                            ) : (
-                                                                <FontAwesomeIcon icon={item.icon} />
-                                                            ))}
+                                                                    && (typeof sub.icon === 'string' ? (
+                                                                        <i className={item.icon} />
+                                                                    ) : (
+                                                                        <FontAwesomeIcon icon={item.icon} />
+                                                                    ))}
                                                             <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
                                                         </NavLink>
                                                     </li>
@@ -191,12 +204,8 @@ const SideBar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { ...rest, collapse }));
 
     return (
-        <Nav as="aside" className={['sidebar', 'd-flex', 'flex-column', 'flex-nowrap', collapse ? 'collapse' : '']} ref={ref}>
-            <div className="w-100">
-                <Button variant="default" onClick={toggleCollapse} className="toggle-collapse mx-auto px-0">
-                    <FontAwesomeIcon icon={faBars} />
-                </Button>
-            </div>
+        <Nav as="aside" className={[className, 'sidebar', 'd-flex', 'flex-column', 'flex-nowrap', collapse ? 'collapse' : '']} ref={ref}>
+            <ToggleComponent collapse={collapse} toggleCollapse={toggleCollapse} />
             {menus}
             {childrenWithProps}
         </Nav>
@@ -211,12 +220,14 @@ SideBar.propTypes = {
     initialExpanded: PropTypes.arrayOf(PropTypes.string),
     listItemClasses: PropTypes.string,
     menuClasses: PropTypes.string,
-    menuHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.func])
+    menuHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.func]),
+    toggle: PropTypes.element
 };
 
 SideBar.defaultProps = {
     resWidthHideSidebar: 1366,
-    singleExpand: true
+    singleExpand: true,
+    toggle: DefaultToggle
 };
 
 export default SideBar;

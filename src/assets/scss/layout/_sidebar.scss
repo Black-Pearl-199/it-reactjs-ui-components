@@ -12,6 +12,7 @@ $angle-right: "\f101";
 	display: flex;
 	background-color: var(--sidebar);
 	font-size: 13px;
+	box-shadow: var(--shadow);
 	//height: 100%;
 	//position: fixed;
 
@@ -31,8 +32,8 @@ $angle-right: "\f101";
 	}
 
 	& .toggle-collapse {
-		margin-top: 5px;
 		width: 100%;
+		background-color: var(--main-color);
 		color: var(--sidebar-text);
 		border-radius: 0;
 
@@ -49,6 +50,18 @@ $angle-right: "\f101";
 
 .sidebar-heading {
 	background-color: var(--sidebar-heading);	
+	box-shadow: var(--shadow);
+	height: var(--sidebar-item-height);
+}
+
+.btn-icon-toggle {
+	background: var(--sidebar);
+	color: var(--sidebar-text);
+
+	&:hover {
+		background-color: var(--sidebar-text);
+		color: var(--sidebar)
+	}
 }
 
 .sidebar-list {
@@ -80,11 +93,15 @@ $angle-right: "\f101";
 		background-color: var(--main-color-hover);
 
 		a.sidebar-list-link {
-			color: var(--sidebar-text);
+			color: var(--sidebar-text-selected);
 
 			b {
-				color: var(--sidebar-text);
+				color: var(--sidebar-text-selected);
 			}
+
+			i::before{
+				color: var(--sidebar-text-selected);
+			}		
 		}
 	}
 
@@ -92,11 +109,15 @@ $angle-right: "\f101";
 		a.sidebar-list-link {
 			&.selected {
 				background-color: var(--main-color-hover);
-				color: var(--sidebar-text);
+				color: var(--sidebar-text-selected);
 
 				&:hover {
 					background-color: var(--main-color-hover);
 				}
+
+				i::before, svg{
+					color: var(--sidebar-text-selected);
+				}		
 			}
 		}
 	}
@@ -105,7 +126,7 @@ $angle-right: "\f101";
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
 				background-color: var(--main-color-hover);
-				color: var(--sidebar-text);
+				color: var(--sidebar-text-selected);
 
 				&:hover {
 					background-color: var(--main-color-hover);
@@ -139,8 +160,8 @@ $angle-right: "\f101";
 		}
 	}
 
-	i::before{
-		color: white;
+	i::before, svg{
+		color: var(--sidebar-text);
 	}
 }
 
@@ -173,7 +194,11 @@ a.sidebar-list-link {
 
 	&:hover {
 		background-color: var(--main-color-hover);
+		color: var(--sidebar-text-selected);
 
+		i::before, svg {
+			color: var(--sidebar-text-selected);
+		}
 		// b {
 			//background-color: $green-itech-light;
 		// }
@@ -272,7 +297,7 @@ a.sidebar-list-link {
 			background-color: var(--main-color-hover);
 
 			&:hover {
-				color: var(--sidebar-text);
+				color: var(--sidebar-text-selected);
 			}
 		}
 
@@ -280,7 +305,7 @@ a.sidebar-list-link {
 			a.sidebar-list-link {
 				&.selected {
 					background-color: var(--main-color-hover);
-					color: var(--sidebar-text);
+					color: var(--sidebar-text-selected);
 				}
 			}
 		}
