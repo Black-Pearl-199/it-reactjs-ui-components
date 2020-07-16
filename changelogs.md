@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.55] - 2020-07-16
+### Changed
+- MyIconButton supports config tooltip placement - [@tunglt1810]
+
 ## [0.2.54] - 2020-07-16
 ## Fixed
 - Fix toggle's prop type of SideBar - [@tunglt1810]

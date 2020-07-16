@@ -1,14 +1,14 @@
-import * as PropTypes from 'prop-types';
+import { bool, func, string } from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const MyIconButton = (props) => {
     const translate = useTranslate();
-    const { children, popLabel, className, enableTooltip, ...rest } = props;
+    const { children, popLabel, className, enableTooltip, placement, ...rest } = props;
     return enableTooltip ? (
         <OverlayTrigger
-            placement="top"
+            placement={placement}
             overlay={(
                 <Tooltip className="itech-tooltip" id="icon-btn-tooltip">
                     {translate(popLabel)}
@@ -27,15 +27,17 @@ const MyIconButton = (props) => {
 };
 
 MyIconButton.propTypes = {
-    className: PropTypes.string,
-    popLabel: PropTypes.string,
-    translate: PropTypes.func,
-    enableTooltip: PropTypes.bool
+    className: string,
+    popLabel: string,
+    translate: func,
+    enableTooltip: bool,
+    placement: string
 };
 
 MyIconButton.defaultProps = {
     className: 'btn-itech-icon-primary',
-    enableTooltip: true
+    enableTooltip: true,
+    placement: 'top'
 };
 
 export default MyIconButton;
