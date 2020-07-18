@@ -1625,7 +1625,7 @@ a.sidebar-list-link b {
 }
 
 .nav-iTech .nav-link {
-  padding: .5rem;
+  padding: .5rem .5rem 1rem .5rem;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
@@ -1800,14 +1800,14 @@ a {
 
 .al-content {
   width: 100%;
-  padding: 20px;
+  padding: 20px 10px;
   position: relative;
   overflow-x: hidden;
 }
 
 @media screen and (max-width: 500px) {
   .al-content {
-    padding: 8px 20px;
+    padding: 8px 10px;
   }
 }
 

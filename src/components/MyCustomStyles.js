@@ -319,7 +319,7 @@ export const filterStyles = {
 
 export const tableStyles = {
     table: {
-        '& .MuiTableRow-root': { height: '2rem ! important' },
+        '& .MuiTableRow-root': { height: '1.3rem ! important' },
         '& .MuiIconButton-root ': {
             height: 'auto !important',
             width: 'auto !important'
@@ -340,8 +340,8 @@ export const tableStyles = {
                 borderColor: '#dee2e6'
             }
         },
-        '& th, & td': {
-            padding: '.3rem !important',
+        '& th, & td, & tr': {
+            padding: '0 .3rem !important',
             '&.column-undefined': {
                 paddingTop: '.1rem !important',
                 paddingBottom: '.1rem !important'

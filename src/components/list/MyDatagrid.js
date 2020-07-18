@@ -1,72 +1,95 @@
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import Table from '@material-ui/core/Table';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { DatagridLoading, sanitizeListRestProps } from 'react-admin';
+import { TableHead, Table, TableBody, TableRow } from '@material-ui/core';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
 
-const useStyles = makeStyles(() => ({
-    table: {
-        tableLayout: 'auto'
-    },
-    thead: {},
-    tbody: {
-        height: 'inherit'
-    },
-    headerRow: {},
-    headerCell: {
-        padding: '0 12px',
-        '&:last-child': {
-            padding: '0 12px'
+const useStyles = makeStyles((props) => {
+    const { heightCustom } = props;
+    // console.log('height Custom', heightCustom);
+    // console.log('height Custom', props);
+    const styles = {
+        table: {
+            tableLayout: 'auto'
+        },
+        thead: {},
+        tbody: {
+            height: 'inherit'
+        },
+        headerRow: {},
+        headerCell: {
+            padding: '0 12px',
+            position: 'sticky',
+            '&:last-child': {
+                padding: '0 12px'
+            }
+        },
+        checkbox: { height: '100%', width: 'auto' },
+        row: {
+            height: 'auto',
+            // "&:hover": {
+            //     backgroundColor: variables.rowHoverColor + " !important"
+            // },
+            '&.active': {
+                backgroundColor: '#c8e7d2 !important'
+                // color: "#fff"
+            }
+        },
+        clickableRow: {
+            cursor: 'pointer'
+        },
+        rowEven: {},
+        rowOdd: {},
+        rowCell: {
+            padding: '0 12px',
+            '&:last-child': {
+                padding: '0 12px'
+            }
+        },
+        expandHeader: {
+            padding: 0,
+            width: 32
+        },
+        expandIconCell: {
+            width: 32
+        },
+        expandIcon: {
+            //     transform: 'rotate(-90deg)',
+            //     transition: theme.transitions.create('transform', {
+            //         duration: theme.transitions.duration.shortest
+            //     })
+        },
+        expanded: {
+            transform: 'rotate(0deg)'
         }
-    },
-    checkbox: { height: '100%', width: 'auto' },
-    row: {
-        height: 'auto',
-        // "&:hover": {
-        //     backgroundColor: variables.rowHoverColor + " !important"
-        // },
-        '&.active': {
-            backgroundColor: '#c8e7d2 !important'
-            // color: "#fff"
-        }
-    },
-    clickableRow: {
-        cursor: 'pointer'
-    },
-    rowEven: {},
-    rowOdd: {},
-    rowCell: {
-        padding: '0 12px',
-        '&:last-child': {
-            padding: '0 12px'
-        }
-    },
-    expandHeader: {
-        padding: 0,
-        width: 32
-    },
-    expandIconCell: {
-        width: 32
-    },
-    expandIcon: {
-        //     transform: 'rotate(-90deg)',
-        //     transition: theme.transitions.create('transform', {
-        //         duration: theme.transitions.duration.shortest
-        //     })
-    },
-    expanded: {
-        transform: 'rotate(0deg)'
-    },
-    container: {
-        maxHeight: 600
+    };
+
+    if (heightCustom) {
+        styles.thead = {
+            '& tr': {
+                display: 'table',
+                width: '100%',
+                tableLayout: 'fixed'
+            }
+        };
+        styles.tbody = {
+            height: '400px',
+            display: 'block',
+            overflow: 'auto',
+            '& tr': {
+                display: 'table',
+                width: '100%',
+                tableLayout: 'fixed'
+            }
+        };
     }
-}));
+    return styles;
+});
 
 /**
  * The Datagrid component renders a list of records as a table.
@@ -180,65 +203,63 @@ const MyDatagrid = (props) => {
      * the datagrid displays the current data.
      */
     return (
-        <TableContainer className={classes.container}>
-            <Table stickyHeader aria-label="sticky table" className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
-                <thead className={classNames(classes.thead, 'table-itech-thread')}>
-                    <tr className={classNames(classes.row, classes.headerRow)}>
-                        {expand && <TableCell className={classes.expandHeader} />}
-                        {hasBulkActions && (
-                            <TableCell padding="none" style={{ width: '1%' }}>
-                                <Checkbox
-                                    className="select-all"
-                                    color="primary"
-                                    checked={selectedIds.length > 0 && ids.length > 0 && !ids.find((it) => selectedIds.indexOf(it) === -1)}
-                                    onChange={handleSelectAll}
-                                />
-                            </TableCell>
-                        )}
-                        {Children.map(children, (field, index) => (isValidElement(field) ? (
-                            <MyDatagridHeaderCell
-                                className={classes.headerCell}
-                                currentSort={currentSort}
-                                field={field}
-                                isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
-                                key={field.props.source || index}
-                                resource={resource}
-                                updateSort={updateSort}
-                                style={field.props.headerStyle}
+        <Table className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
+            <TableHead className={classNames(classes.thead, 'table-itech-thread')}>
+                <TableRow className={classNames(classes.row, classes.headerRow)}>
+                    {expand && <TableCell className={classes.expandHeader} />}
+                    {hasBulkActions && (
+                        <TableCell padding="none" style={{ width: '1%' }}>
+                            <Checkbox
+                                className="select-all"
+                                color="primary"
+                                checked={selectedIds.length > 0 && ids.length > 0 && !ids.find((it) => selectedIds.indexOf(it) === -1)}
+                                onChange={handleSelectAll}
                             />
-                        ) : null))}
-                    </tr>
-                </thead>
-                {ids.length === 0 || total === 0 ? (
-                    <tbody />
-                ) : (
-                    cloneElement(
-                        body,
-                        {
-                            basePath,
-                            checkToggle,
-                            className: classes.tbody,
-                            classes,
-                            expand,
-                            rowClick,
-                            data,
-                            hasBulkActions,
-                            hover,
-                            ids,
-                            loading,
-                            onToggleItem,
-                            onSelect,
-                            resource,
-                            rowStyle,
-                            selectedIds,
-                            version,
-                            total
-                        },
-                        children
-                    )
-                )}
-            </Table>
-        </TableContainer>
+                        </TableCell>
+                    )}
+                    {Children.map(children, (field, index) => (isValidElement(field) ? (
+                        <MyDatagridHeaderCell
+                            className={classes.headerCell}
+                            currentSort={currentSort}
+                            field={field}
+                            isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
+                            key={field.props.source || index}
+                            resource={resource}
+                            updateSort={updateSort}
+                            style={field.props.headerStyle}
+                        />
+                    ) : null))}
+                </TableRow>
+            </TableHead>
+            {ids.length === 0 || total === 0 ? (
+                <TableBody />
+            ) : (
+                cloneElement(
+                    body,
+                    {
+                        basePath,
+                        checkToggle,
+                        className: classes.tbody,
+                        classes,
+                        expand,
+                        rowClick,
+                        data,
+                        hasBulkActions,
+                        hover,
+                        ids,
+                        loading,
+                        onToggleItem,
+                        onSelect,
+                        resource,
+                        rowStyle,
+                        selectedIds,
+                        version,
+                        total
+                    },
+                    children
+                )
+            )}
+        </Table>
     );
 };
 
@@ -268,7 +289,8 @@ MyDatagrid.propTypes = {
     setSort: PropTypes.func,
     total: PropTypes.number,
     version: PropTypes.number,
-    loaded: PropTypes.bool
+    loaded: PropTypes.bool,
+    heightCustom: PropTypes.bool
 };
 
 MyDatagrid.defaultProps = {

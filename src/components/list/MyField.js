@@ -68,7 +68,7 @@ const MyField = (props) => {
                     {skipTranslateLabel ? labelNotTranslate : translatedLabel}
                 </label>
             ) : null}
-            <div className={classNames('font-1rem', fieldClasses)} id={fieldId}>
+            <div className={classNames('font-875rem', fieldClasses)} id={fieldId}>
                 {renderField({ value, translate, ...rest })}
             </div>
         </div>
