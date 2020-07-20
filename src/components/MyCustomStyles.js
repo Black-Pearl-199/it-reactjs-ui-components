@@ -375,7 +375,7 @@ export const myDataGridStyle = {
         padding: '0 12px',
         position: 'sticky',
         top: 0,
-        zIndex: 9999,
+        zIndex: 2,
         backgroundColor: '#376B51 !important',
         color: 'white !important',
         '&:last-child': {
