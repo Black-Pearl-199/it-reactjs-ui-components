@@ -831,7 +831,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .table thead.table-itech-thread th,
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
-  background-color: transparent !important;
+  background-color: transparent;
   color: var(--white) !important;
   font-weight: 500 !important;
   font-size: .75rem;

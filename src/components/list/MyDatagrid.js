@@ -8,88 +8,9 @@ import { DatagridLoading, sanitizeListRestProps } from 'react-admin';
 import { TableHead, Table, TableBody, TableRow } from '@material-ui/core';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
+import { myDataGridStyle } from '../MyCustomStyles';
 
-const useStyles = makeStyles((props) => {
-    const { heightCustom } = props;
-    // console.log('height Custom', heightCustom);
-    // console.log('height Custom', props);
-    const styles = {
-        table: {
-            tableLayout: 'auto'
-        },
-        thead: {},
-        tbody: {
-            height: 'inherit'
-        },
-        headerRow: {},
-        headerCell: {
-            padding: '0 12px',
-            position: 'sticky',
-            '&:last-child': {
-                padding: '0 12px'
-            }
-        },
-        checkbox: { height: '100%', width: 'auto' },
-        row: {
-            height: 'auto',
-            // "&:hover": {
-            //     backgroundColor: variables.rowHoverColor + " !important"
-            // },
-            '&.active': {
-                backgroundColor: '#c8e7d2 !important'
-                // color: "#fff"
-            }
-        },
-        clickableRow: {
-            cursor: 'pointer'
-        },
-        rowEven: {},
-        rowOdd: {},
-        rowCell: {
-            padding: '0 12px',
-            '&:last-child': {
-                padding: '0 12px'
-            }
-        },
-        expandHeader: {
-            padding: 0,
-            width: 32
-        },
-        expandIconCell: {
-            width: 32
-        },
-        expandIcon: {
-            //     transform: 'rotate(-90deg)',
-            //     transition: theme.transitions.create('transform', {
-            //         duration: theme.transitions.duration.shortest
-            //     })
-        },
-        expanded: {
-            transform: 'rotate(0deg)'
-        }
-    };
-
-    if (heightCustom) {
-        styles.thead = {
-            '& tr': {
-                display: 'table',
-                width: '100%',
-                tableLayout: 'fixed'
-            }
-        };
-        styles.tbody = {
-            height: '400px',
-            display: 'block',
-            overflow: 'auto',
-            '& tr': {
-                display: 'table',
-                width: '100%',
-                tableLayout: 'fixed'
-            }
-        };
-    }
-    return styles;
-});
+const useStyles = makeStyles((props) => myDataGridStyle);
 
 /**
  * The Datagrid component renders a list of records as a table.
@@ -171,6 +92,7 @@ const MyDatagrid = (props) => {
         ...rest
     } = props;
 
+
     /**
      * if loaded is false, the list displays for the first time, and the dataProvider hasn't answered yet
      * if loaded is true, the data for the list has at least been returned once by the dataProvider
@@ -203,12 +125,12 @@ const MyDatagrid = (props) => {
      * the datagrid displays the current data.
      */
     return (
-        <Table className={classNames(classes.table, className)} {...sanitizeListRestProps(rest)}>
+        <Table className={classNames(classes.root, className)} {...sanitizeListRestProps(rest)}>
             <TableHead className={classNames(classes.thead, 'table-itech-thread')}>
                 <TableRow className={classNames(classes.row, classes.headerRow)}>
-                    {expand && <TableCell className={classes.expandHeader} />}
+                    {expand && <TableCell className={classNames(classes.expandHeader, classes.headerCell)} />}
                     {hasBulkActions && (
-                        <TableCell padding="none" style={{ width: '1%' }}>
+                        <TableCell padding="none" className={classes.headerCell} style={{ width: '1%' }}>
                             <Checkbox
                                 className="select-all"
                                 color="primary"

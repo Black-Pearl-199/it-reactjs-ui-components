@@ -8,8 +8,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Change css of al-content to padding: 20px 10px - [@TinVan2]
 - MyField: font-size: font-875rem; - [@TinVan2]
+- Change padding of row in table - [@TinVan2]
 ### Added
 - Added useMeasure for calculator height component - [@TinVan2]
+- Added scroll for table with maxHeight - [@TinVan2]
 
 ## [0.2.55] - 2020-07-16
 ### Changed

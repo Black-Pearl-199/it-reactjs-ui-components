@@ -36,7 +36,7 @@ const DatagridHeaderCell = (props) => {
     const classes = useStyles(props);
     const translate = useTranslate();
     return (
-        <TableCell className={classnames(className, field.props.headerClassName)} align={field.props.textAlign} variant="head" {...rest}>
+        <TableCell className={classnames(className, field.props.headerClassName)} align={field.props.textAlign} {...rest}>
             {field.props.sortable !== false && (field.props.sortBy || field.props.source) ? (
                 <Tooltip
                     title={translate('ra.action.sort')}

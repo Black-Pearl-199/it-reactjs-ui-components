@@ -183,7 +183,7 @@ export const listStylesNoActionsList = {
         },
         '& button:not(.react-datepicker__navigation):not(.btn-pick-date), & a[role=button]': {
             borderRadius: '20px',
-            padding: '0.25rem 0.5rem'
+            padding: '0rem 0.5rem'
         },
         '&>.simple-form>div:first-child': {
             padding: '0 !important',
@@ -318,8 +318,8 @@ export const filterStyles = {
 };
 
 export const tableStyles = {
-    table: {
-        '& .MuiTableRow-root': { height: '1.3rem ! important' },
+    root: {
+        '& .MuiTableRow-root': { height: '27px !important' },
         '& .MuiIconButton-root ': {
             height: 'auto !important',
             width: 'auto !important'
@@ -331,20 +331,23 @@ export const tableStyles = {
         '& thead': {
             '& th': {
                 verticalAlign: 'inherit',
-                whiteSpace: 'nowrap',
-                display: 'block'
+                whiteSpace: 'nowrap'
             },
             '& td': {
                 fontWeight: 'bold',
                 backgroundColor: '#e9ecef',
-                borderColor: '#dee2e6'
+                borderColor: '#dee2e6',
+                border: '1px'
+            },
+            '$ tr': {
+                height: '25px !important'
             }
         },
         '& th, & td, & tr': {
             padding: '0 .3rem !important',
             '&.column-undefined': {
-                paddingTop: '.1rem !important',
-                paddingBottom: '.1rem !important'
+                paddingTop: '0rem !important',
+                paddingBottom: '0rem !important'
             },
             '& > span': {
                 padding: '0',
@@ -353,10 +356,69 @@ export const tableStyles = {
         },
         '$ tbody': {
             '& tr': {
-                display: 'block',
                 height: '25px !important'
             }
         }
+    }
+};
+
+export const myDataGridStyle = {
+    root: {
+        tableLayout: 'auto'
+    },
+    thead: {},
+    tbody: {
+        height: 'inherit'
+    },
+    headerRow: {},
+    headerCell: {
+        padding: '0 12px',
+        position: 'sticky',
+        top: 0,
+        zIndex: 9999,
+        backgroundColor: '#376B51 !important',
+        color: 'white !important',
+        '&:last-child': {
+            padding: '0 12px'
+        }
+    },
+    checkbox: { height: '100%', width: 'auto' },
+    row: {
+        height: 'auto',
+        // "&:hover": {
+        //     backgroundColor: variables.rowHoverColor + " !important"
+        // },
+        '&.active': {
+            backgroundColor: '#c8e7d2 !important'
+            // color: "#fff"
+        }
+    },
+    clickableRow: {
+        cursor: 'pointer'
+    },
+    rowEven: {},
+    rowOdd: {},
+    rowCell: {
+        padding: '0 12px',
+        '&:last-child': {
+            padding: '0 12px'
+        }
+    },
+    expandHeader: {
+        padding: 0,
+        width: 32
+    },
+    expandIconCell: {
+        width: 32
+    },
+    expandIcon: {
+        //     transform: 'rotate(-90deg)',
+        //     transition: theme.transitions.create('transform', {
+        //         duration: theme.transitions.duration.shortest
+        //     })
+    },
+    expanded: {
+        transform: 'rotate(0deg)'
     }
 };
 
@@ -422,6 +484,10 @@ export const checkboxStyles = {
     }
 };
 
+export const tableMaxHeight = {
+    maxHeight: '100%'
+};
+
 export default {
     listStylesNoActions,
     listStylesNoActionsList,
@@ -432,5 +498,6 @@ export default {
     filterStyles,
     tableStyles,
     inputStyles,
-    checkboxStyles
+    checkboxStyles,
+    tableMaxHeight
 };

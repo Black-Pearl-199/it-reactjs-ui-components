@@ -8,13 +8,13 @@ import { useTranslate } from 'react-admin';
 
 import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
-import { tableStyles } from '../MyCustomStyles';
+import { tableStyles, tableMaxHeight } from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
 
 const useStyles = makeStyles(tableStyles);
 
 const MySearchableDataGrid = (props) => {
-    const classes = useStyles(tableStyles);
+    const classes = useStyles();
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
 
@@ -32,7 +32,6 @@ const MySearchableDataGrid = (props) => {
         newIds = Object.keys(newData);
         // console.log('new data after filter', newData, newIds);
     }
-
     return (
         <div>
             {/* <div className='container-fluid my-2'> */}
@@ -70,7 +69,7 @@ const MySearchableDataGrid = (props) => {
                     ''
                 )}
             </div>
-            <div className="table-responsive">
+            <div className={classNames('table-responsive')} style={{ maxHeight: tableMaxHeight.maxHeight }}>
                 <MyDatagrid
                     {...rest}
                     data={newData}
