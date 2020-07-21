@@ -596,7 +596,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .nav-item {
-  -webkit-user-select: none;
   user-select: none;
   border-style: solid;
   border-width: 1px 1px 0 1px;
@@ -720,6 +719,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .panel-itech {
   background-color: var(--white);
   padding: 0.25rem 0.5rem;
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
@@ -754,6 +755,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   height: 100%;
   box-shadow: 0 0 10px var(--main-color), 0 0 5px var(--main-color);
   opacity: 1.0;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
 }
 
@@ -773,6 +776,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-top-color: var(--main-color);
   border-left-color: var(--main-color);
   border-radius: 50%;
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite;
 }
 
@@ -783,6 +787,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .nprogress-custom-parent #nprogress .spinner, .nprogress-custom-parent #nprogress .bar {
   position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes nprogress-spinner {
@@ -800,20 +813,22 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .scroll-secondary ::-webkit-scrollbar-thumb {
-  background: #CCCCCC;
+  background: #2E3E47;
   cursor: pointer;
 }
 
 .scroll-secondary ::-webkit-scrollbar-track {
-  background: #2E3E47;
+  background: #CCCCCC;
 }
 
 .scroll-secondary {
-  scrollbar-face-color: #CCCCCC;
-  scrollbar-track-color: #2E3E47;
+  scrollbar-face-color: #2E3E47;
+  scrollbar-track-color: #CCCCCC;
 }
 
 .table {
+  -webkit-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
 }
 
@@ -1800,14 +1815,14 @@ a {
 
 .al-content {
   width: 100%;
-  padding: 20px 10px;
+  padding: 0px 10px 10px 10px;
   position: relative;
   overflow-x: hidden;
 }
 
 @media screen and (max-width: 500px) {
   .al-content {
-    padding: 8px 10px;
+    padding: 5px 10px;
   }
 }
 
@@ -1819,7 +1834,6 @@ a {
 
 .disable-text-selection {
   -webkit-touch-callout: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1878,11 +1892,13 @@ a {
 }
 
 .col-1p5 {
+  -ms-flex: 0 0 12.5%;
   flex: 0 0 12.5%;
   max-width: 12.5%;
 }
 
 .col-10p5 {
+  -ms-flex: 0 0 87.5%;
   flex: 0 0 87.5%;
   max-width: 87.5%;
 }
@@ -2059,4 +2075,3 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
   pointer-events: none;
 }
-/*# sourceMappingURL=main.css.map */

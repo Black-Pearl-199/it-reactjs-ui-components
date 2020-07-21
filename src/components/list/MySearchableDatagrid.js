@@ -22,7 +22,7 @@ const MySearchableDataGrid = (props) => {
         setTextSearch(e.currentTarget.value);
     };
 
-    const { data, ids, searchEnable, exportable, exporter, customAction, ...rest } = props;
+    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, ...rest } = props;
     // const {translate} = this.props;
     const { resource, fields } = props;
     let newData = data;
@@ -69,7 +69,7 @@ const MySearchableDataGrid = (props) => {
                     ''
                 )}
             </div>
-            <div className={classNames('table-responsive')} style={{ maxHeight: tableMaxHeight.maxHeight }}>
+            <div className={classNames('table-responsive')} style={{ maxHeight: innerScroll ? tableMaxHeight.maxHeight : '100%' }}>
                 <MyDatagrid
                     {...rest}
                     data={newData}
@@ -95,12 +95,14 @@ MySearchableDataGrid.propTypes = {
     filterValues: PropTypes.object,
     total: PropTypes.number,
     resource: PropTypes.string,
-    fields: PropTypes.array
+    fields: PropTypes.array,
+    innerScroll: PropTypes.bool
 };
 
 MySearchableDataGrid.defaultProps = {
     searchEnable: true,
-    exportable: false
+    exportable: false,
+    innerScroll: true
 };
 
 export default MySearchableDataGrid;

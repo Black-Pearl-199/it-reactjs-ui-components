@@ -18,7 +18,7 @@ const FormHeading = (props) => {
                         &nbsp;&nbsp;
                     </>
                 )}
-                <h3 className="my-0">{skipTran ? title : translate(title)}</h3>
+                <h4 className="my-0">{skipTran ? title : translate(title)}</h4>
             </div>
             <div className="d-flex flex-row-reverse ml-auto">
                 {children}
