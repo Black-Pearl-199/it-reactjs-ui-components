@@ -6,5 +6,5 @@
 }
 
 .scroll-secondary {
-	@include scrollbars-color($grey-1, $text-color);
+	@include scrollbars-color($text-color, $grey-1);
 }

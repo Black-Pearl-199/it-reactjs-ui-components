@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.2.58] - 2020-07-21
 ### Fixed
 - Fix max height for table in MyList when page resize - [@tunglt1810]
+### Changed
+- Change fontSize of FormHeading - [@TinVan2]
+- Change color of scrollbars-color - [@TinVan2]
 
 ## [0.2.57] - 2020-07-20
 ### Changed
