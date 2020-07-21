@@ -354,7 +354,7 @@ export const tableStyles = {
                 fontSize: '1rem'
             }
         },
-        '$ tbody': {
+        '& tbody': {
             '& tr': {
                 height: '25px !important'
             }

@@ -7,15 +7,15 @@ import { listStylesNoActionsList, tableMaxHeight } from '../MyCustomStyles';
 
 const useStyles = makeStyles(listStylesNoActionsList, { name: 'Bass-LSNAL' });
 
-export default (props) => {
+export default React.memo((props) => {
     const [ref, { height }] = useMeasure();
     const classes = useStyles();
     if (height) {
         tableMaxHeight.maxHeight = `${height - 70}px`;
     }
     return (
-        <div ref={ref} className="w-100 h-100">
+        <div ref={ref} className="w-100 h-100 position-absolute pos-reset">
             <List {...props} classes={classes} />
         </div>
     );
-};
+});
