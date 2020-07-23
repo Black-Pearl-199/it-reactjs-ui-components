@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as useOnClickOutside } from './useOnClickOutside';
+export { default as useShallowEqualSelector } from './useShallowEqualSelector';

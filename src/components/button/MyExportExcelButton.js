@@ -4,25 +4,19 @@ import ExcelJS from 'exceljs';
 import { saveAs } from 'file-saver';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { crudGetAll, useTranslate } from 'react-admin';
 import React from 'react';
+import { crudGetAll, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useShallowEqualSelector } from '../../configurations/hooks';
 import { isEmpty } from '../../utils';
 
-const sanitizeRestProps = ({
-    basePath,
-    crudGetAll,
-    exporter,
-    maxResults,
-    resource,
-    sort,
-    ...rest
-}) => rest;
+const sanitizeRestProps = ({ basePath, crudGetAll, exporter, maxResults, resource, sort, ...rest }) => rest;
 
 const MyExportExcelButton = (props) => {
     const translate = useTranslate();
-    const { filter, total } = useSelector((state) => {
+    const { filter, total } = useShallowEqualSelector((state) => {
         const { total = 0 } = props;
         let { filter } = (state.admin.resources[props.resource] && state.admin.resources[props.resource].list.params) || {};
         if (isEmpty(filter)) {
@@ -36,27 +30,9 @@ const MyExportExcelButton = (props) => {
     const dispatch = useDispatch();
 
     const handleClick = () => {
-        const {
-            exporter,
-            maxResults,
-            sort,
-            resource,
-            onClick
-        } = props;
+        const { exporter, maxResults, sort, resource, onClick } = props;
         dispatch(
-            crudGetAll(
-                resource,
-                sort,
-                filter,
-                maxResults,
-                ({ payload: { data } }) => (exporter
-                    ? saveAsExcelConverted(
-                        exporter(
-                            data
-                        )
-                    )
-                    : saveAsExcel(data))
-            )
+            crudGetAll(resource, sort, filter, maxResults, ({ payload: { data } }) => (exporter ? saveAsExcelConverted(exporter(data)) : saveAsExcel(data)))
         );
 
         if (typeof onClick === 'function') {
@@ -69,16 +45,16 @@ const MyExportExcelButton = (props) => {
     };
 
     const saveAsExcel = async (data) => {
-        const {
-            fields, resource, extension, name
-        } = props;
+        const { fields, resource, extension, name } = props;
         const wb = new ExcelJS.Workbook();
 
         const ws = wb.addWorksheet(name);
 
         const columns = [];
         fields.map((field) => {
-            const header = field.resource ? translate(`resources.${field.resource}.fields.${field.name}`) : translate(`resources.${resource}.fields.${field.name}`);
+            const header = field.resource
+                ? translate(`resources.${field.resource}.fields.${field.name}`)
+                : translate(`resources.${resource}.fields.${field.name}`);
             return columns.push({
                 header,
                 key: field.name,
@@ -99,9 +75,7 @@ const MyExportExcelButton = (props) => {
         saveAs(new Blob([buf]), `${resource}.${extension}`);
     };
 
-    const {
-        label, ...rest
-    } = props;
+    const { label, ...rest } = props;
     return (
         <Button
             variant="itech"

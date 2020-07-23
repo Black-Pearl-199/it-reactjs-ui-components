@@ -15,7 +15,7 @@ const bodyMessageStyle = {
 const MessageBox = (props) => {
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const notification = useSelector((state) => getNotification(state));
+    const notification = useSelector(getNotification);
     const [open, setOpen] = useState(false);
     const btnCloseRef = useRef();
 
