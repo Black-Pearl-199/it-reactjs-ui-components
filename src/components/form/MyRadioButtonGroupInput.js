@@ -6,9 +6,11 @@ import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { getLoading } from '../../configurations/selectors';
+
 const MyRadioButtonGroupInput = (props) => {
     const translate = useTranslate();
-    const loading = useSelector((state) => state.admin.loading > 0);
+    const loading = useSelector(getLoading);
     const {
         groupClasses, label, hideLabel, labelClasses, buttonGroupsClasses, buttonClasses, resource, source, input, inputValue, onInputChange, choices, optionValue, optionText, allowEmpty, emptyChoiceLabel, disabled
     } = props;

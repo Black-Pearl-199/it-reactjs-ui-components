@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.60] - 2020-07-24
+### Added
+- Add radio group input to MyBootstrapInput - [@tunglt1810]
+### Changed
+- Replace TextField by label in ReferenceError - [@tunglt1810]
+- Move FormHeading to layout - [@tunglt1810]
+### Removed
+- Remove MyRadioGroupInput - [@tunglt1810]
+
 ## [0.2.59] - 2020-07-23
 ### Added
 - Add useShallowEqualSelector hook - [@tunglt1810]

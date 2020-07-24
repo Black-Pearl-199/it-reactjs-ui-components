@@ -1,10 +1,16 @@
-import TextField from '@material-ui/core/TextField';
 import * as PropTypes from 'prop-types';
-import React from 'react';
+import React, { useTranslate } from 'react';
 
-const ReferenceError = ({ label, error }) => (
-    <TextField error disabled label={label} value={error} margin="normal" />
-);
+const ReferenceError = ({ label, error }) => {
+    const translate = useTranslate();
+    return (
+        <label className="text-danger" disabled>
+            {translate(label)}
+            :&nbsp;
+            {error}
+        </label>
+    );
+};
 
 ReferenceError.propTypes = {
     error: PropTypes.string.isRequired,

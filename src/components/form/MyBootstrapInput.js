@@ -10,6 +10,7 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
 
+import { getLoading } from '../../configurations/selectors';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
 
 export const CHECKBOX_EMPTY = '.checkbox-empty';
@@ -50,7 +51,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-function onChangeRaw(e) {
+const onChangeRaw = (e) => {
     // console.log(this);
     const rawVal = e.target.value;
     // console.log('new raw', rawVal);
@@ -65,11 +66,11 @@ function onChangeRaw(e) {
     } catch (e) {
         // console.error(e);
     }
-}
+};
 
 const textareaStyle = { resize: 'none' };
 
-const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
+const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     const {
         component,
         type,
@@ -84,7 +85,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
         emptyChoiceLabel,
         translate,
         formatText = translate,
-        groupCheckboxClasses,
+        optionClasses,
         ...rest
     } = props;
     let { defaultValue } = props;
@@ -129,13 +130,13 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                         name={source}
                         id={inputId}
                         value={inputValue}
-                        className={classNames('col-12 form-inline px-0', composeInputClasses)}
+                        className={classNames('col-12 form-inline px-0', optionClasses.group)}
                         title={translatedLabel}
                         disabled={sanitizeProps.readOnly}
                         placeholder={!hideLabel ? translatedLabel : null}
                     >
                         {allowEmpty && (
-                            <div className={groupCheckboxClasses}>
+                            <div className={optionClasses.item}>
                                 <input
                                     className="form-check-input mt-1"
                                     type="checkbox"
@@ -153,7 +154,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                             const choiceValue = choice[optionValue];
                             const inputId = `${source}-${choiceValue}`;
                             return (
-                                <div className={groupCheckboxClasses} key={inputId}>
+                                <div className={optionClasses.item} key={inputId}>
                                     <input
                                         className="form-check-input mt-1"
                                         type="checkbox"
@@ -163,6 +164,40 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
                                         {...sanitizeProps}
                                     />
                                     <label className="form-check-label mr-2" htmlFor={inputId}>
+                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                    </label>
+                                </div>
+                            );
+                        })}
+                    </div>
+                );
+            }
+            if (type === 'radio-group') {
+                return (
+                    <div
+                        name={source}
+                        id={inputId}
+                        value={inputValue}
+                        className={optionClasses.group}
+                        title={translatedLabel}
+                        disabled={sanitizeProps.readOnly}
+                        placeholder={!hideLabel ? translatedLabel : null}
+                    >
+                        {uniqBy(choices, optionValue).map((choice) => {
+                            const choiceValue = choice[optionValue];
+                            const inputId = `${source}-${choiceValue}`;
+                            return (
+                                <div className={optionClasses.item} key={inputId}>
+                                    <input
+                                        className={classNames('form-check-input mt-1', optionClasses.input)}
+                                        type="radio"
+                                        value={choiceValue}
+                                        checked={inputValue === choiceValue}
+                                        id={inputId}
+                                        name={source}
+                                        {...sanitizeProps}
+                                    />
+                                    <label className={classNames('form-check-label mr-2', optionClasses.label)} htmlFor={inputId}>
                                         {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
                                     </label>
                                 </div>
@@ -246,7 +281,7 @@ const renderInput = ({ inputId, translatedLabel, composeInputClasses, ...props }
     }
 };
 
-renderInput.propTypes = {
+Input.propTypes = {
     inputId: any,
     translatedLabel: string,
     composeInputClasses: any,
@@ -255,7 +290,7 @@ renderInput.propTypes = {
     source: string,
     hideLabel: bool,
     skipFormat: bool,
-    choices: object,
+    choices: arrayOf(object),
     allowEmpty: bool,
     submit: func,
     value: any,
@@ -266,13 +301,16 @@ renderInput.propTypes = {
     optionText: string,
     optionValue: string,
     translate: func,
-    groupCheckboxClasses: string
+    optionClasses: shape({ group: string, item: string, input: string, label: string })
 };
+
+const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
+const haveBootstrapCss = (type) => extendInputType.indexOf(type) === -1;
 
 // input not null khi sử dụng ReferenceInput
 const MyBootstrapInput = (props) => {
     const translate = useTranslate();
-    const loading = useSelector((state) => state.admin.loading > 0);
+    const loading = useSelector(getLoading);
     const {
         label,
         labelClasses,
@@ -288,7 +326,6 @@ const MyBootstrapInput = (props) => {
         input,
         checkConvert,
         formClassName,
-        groupCheckboxClasses,
         required,
         handleChoiceOption,
         ...rest
@@ -299,7 +336,7 @@ const MyBootstrapInput = (props) => {
     const inputId = `input-${source}`;
     // console.log('source', source);
     const composeInputClasses = classNames(
-        type !== 'checkbox' && type !== 'checkbox-group' ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : ''
+        haveBootstrapCss(type) ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : ''
     );
     // console.log('-----------type', type, source, composeInputClasses);
     // console.log('MyBootstrapInput', input);
@@ -368,6 +405,19 @@ const MyBootstrapInput = (props) => {
         }
     };
 
+    const inputProps = {
+        ...rest,
+        labelClasses,
+        translate,
+        inputId,
+        composeInputClasses,
+        translatedLabel,
+        onChange,
+        value,
+        readOnly: loading || readOnly,
+        disabled: loading || readOnly
+    };
+
     return (
         <div className={classNames(groupClasses, alignCenter ? 'align-items-center' : null)}>
             {!hideLabel ? (
@@ -382,19 +432,7 @@ const MyBootstrapInput = (props) => {
                         value,
                         resource
                     })
-                    : renderInput({
-                        ...rest,
-                        labelClasses,
-                        translate,
-                        inputId,
-                        composeInputClasses,
-                        groupCheckboxClasses,
-                        translatedLabel,
-                        onChange,
-                        value,
-                        readOnly: loading || readOnly,
-                        disabled: loading || readOnly
-                    })}
+                    : <Input {...inputProps} />}
             </div>
         </div>
     );
@@ -411,7 +449,7 @@ MyBootstrapInput.propTypes = {
     onInputChange: func,
     inputValue: object,
     groupClasses: string,
-    groupCheckboxClasses: string,
+    optionClasses: shape({ group: string, item: string, input: string, label: string }),
     inputClasses: string,
     labelClasses: string,
     defaultValue: any,

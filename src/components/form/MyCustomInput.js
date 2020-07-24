@@ -8,6 +8,7 @@ import { BooleanInput, useTranslate } from 'react-admin';
 import { Field } from 'react-final-form';
 import { useSelector } from 'react-redux';
 
+import { getLoading } from '../../configurations/selectors';
 import { inputStyles } from '../MyCustomStyles';
 
 const useStyles = makeStyles(inputStyles, { name: 'Bass-MCI' });
@@ -73,7 +74,7 @@ export const MyCustomInput = (props) => {
         ...rest
     } = props;
     const { resource } = rest;
-    const loading = useSelector((state) => state.admin.loading > 0);
+    const loading = useSelector(getLoading);
     const translate = useTranslate();
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
     // console.log('errors from field', props)
