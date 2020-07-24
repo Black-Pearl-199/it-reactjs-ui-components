@@ -114,7 +114,7 @@ const MyUpdateButton = (props) => {
     );
 
     // override handleSubmitWithRedirect with custom logic
-    return <SaveButton {...rest} classes={classes} onSave={handleSave} label="button.change" />;
+    return <SaveButton {...rest} classes={classes} onSave={handleSave} label={label || 'button.change'} />;
 };
 
 MyUpdateButton.propTypes = {
