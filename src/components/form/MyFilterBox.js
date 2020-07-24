@@ -79,6 +79,7 @@ const MyFilterBox = (props) => {
         defaultPerPage,
         checkTriggerSubmit,
         icon,
+        customAction,
         ...rest
     } = props;
     // console.log('filter box form data', form);
@@ -252,6 +253,7 @@ const MyFilterBox = (props) => {
             <div className="d-flex flex-wrap w-100">
                 {renderChildren}
                 <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
+                    {customAction}
                     {hasClear ? (
                         <div className="col-form-label mr-3">
                             <Button
@@ -313,7 +315,8 @@ MyFilterBox.propTypes = {
     filterRef: PropTypes.object,
     defaultPerPage: PropTypes.number,
     checkTriggerSubmit: PropTypes.func,
-    icon: PropTypes.bool
+    icon: PropTypes.bool,
+    customAction: PropTypes.any
 };
 
 MyFilterBox.defaultProps = {
