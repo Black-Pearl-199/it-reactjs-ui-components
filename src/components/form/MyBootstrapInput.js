@@ -396,7 +396,7 @@ const MyBootstrapInput = (props) => {
         if (onInputChange) {
             onInputChange({ [source]: newValue }, component, type);
         }
-        if (handleChoiceOption && component === 'select') {
+        if (handleChoiceOption && Array.isArray(rest.choices)) {
             const key = rest.optionValue || 'id';
             let choice = find(rest.choices, { [key]: newValue });
             const parsedValue = parseInt(newValue, 10);
