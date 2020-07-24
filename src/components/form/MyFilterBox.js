@@ -7,10 +7,10 @@ import { stringify } from 'query-string';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { changeListParams, showNotification, useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useDebouncedCallback } from 'use-debounce';
-
 import { ITCrudGetList } from '../../configurations/actions';
+import { useShallowEqualSelector } from '../../configurations/hooks';
 import { hasCustomParams, selectQuery } from '../../utils';
 
 const SORT_DESC = 'DESC';
@@ -35,7 +35,7 @@ const sanitizeRestProps = ({
 const checkTriggerSubmit = (e, component, type) => component !== 'input' || type !== 'text';
 
 const MyFilterBox = (props) => {
-    const stateProps = useSelector((state) => {
+    const stateProps = useShallowEqualSelector((state) => {
         const resource = Array.isArray(props.resource) ? props.resource[0] : props.resource;
         // nếu resource là array thì dùng resource đầu tiên để lấy filter từ store
         const resourceState = state.admin.resources[resource];
@@ -198,7 +198,7 @@ const MyFilterBox = (props) => {
         if (initData) {
             onSubmit(undefined, true);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
