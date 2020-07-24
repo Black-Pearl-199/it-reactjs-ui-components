@@ -82,7 +82,6 @@ const MyFilterBox = (props) => {
         customAction,
         ...rest
     } = props;
-    // console.log('filter box form data', form);
     const setFilter = useCallback((filter) => {
         // console.log('set filter', filter);
         setForm(filter);
