@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.2.63] - 2020-07-24
+### Changed
+- Change line-height of header table by 200% font-size - [@TinVan2]
+
 ## [0.2.62] - 2020-07-24
 ### Changed
 - MyBootstrapInput new support handleChoiceOption if componen "select" -> have choices props - [@tunglt1810]

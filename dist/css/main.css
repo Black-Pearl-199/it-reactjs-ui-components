@@ -835,7 +835,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   color: var(--white) !important;
   font-weight: 500 !important;
   font-size: .75rem;
-  line-height: initial;
+  line-height: 200%;
 }
 
 .table-striped tbody tr {
