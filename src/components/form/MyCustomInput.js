@@ -1,48 +1,17 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import isReact from 'is-react';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-import { BooleanInput, useTranslate } from 'react-admin';
+import { useTranslate } from 'react-admin';
 import { Field } from 'react-final-form';
 import { useSelector } from 'react-redux';
 
 import { getLoading } from '../../configurations/selectors';
-import { inputStyles } from '../MyCustomStyles';
-
-const useStyles = makeStyles(inputStyles, { name: 'Bass-MCI' });
 
 export const MyTextInput = (props) => <MyCustomInput {...props} component="input" />;
 
 const composeValidators = (validators) => (value, allValues) => validators.reduce((error, validator) => error || validator(value, allValues), undefined);
-
-// tạm thời bỏ style={{padding: "0.375rem 0"}} của boolean input
-export const MyBooleanInput = ({ disabled, required, label, source, labelClasses, inputClasses, groupClasses, className, ...rest }) => {
-    const { resource } = rest;
-    const translate = useTranslate();
-    const classes = useStyles(rest);
-    return (
-        <div className={classNames('form-group', groupClasses)}>
-            <label className={classNames('col-form-label', labelClasses, required ? 'label-required' : null)}>
-                {label ? translate(label) : translate(`resources.${resource}.fields.${source}`)}
-            </label>
-            <div className={inputClasses}>
-                <BooleanInput source={source} className={classNames('w-100', className, classes.boolean)} {...rest} />
-            </div>
-        </div>
-    );
-};
-
-MyBooleanInput.propTypes = {
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    label: PropTypes.string,
-    source: PropTypes.string,
-    labelClasses: PropTypes.string,
-    inputClasses: PropTypes.string,
-    groupClasses: PropTypes.string
-};
 
 // formClassName ->> class name for wrapper of this input, default by react-admin -> remove it to not attach on children
 
@@ -149,79 +118,6 @@ MyCustomInput.defaultProps = {
     hideLabel: false,
     original: false,
     small: true
-};
-
-// div tag alternator
-export const MyDisabledInput = (props) => {
-    const newProps = { ...props, disabled: true };
-    return <MyTextInput {...newProps} />;
-};
-
-export const MyCustomInputGroup = ({
-    skipFormat,
-    label,
-    placeholder,
-    source,
-    labelClasses,
-    inputClasses,
-    groupClasses,
-    className,
-    basePath,
-    component,
-    choices,
-    allowEmpty,
-    ...rest
-}) => {
-    const { resource } = rest;
-    const translate = useTranslate();
-    // console.log(resource, label);
-    return (
-        <div className={classNames('input-group', 'input-group-sm', groupClasses)}>
-            <div className="input-group-prepend">
-                <span className="input-group-text" id={`addon-${source}`}>
-                    {label !== undefined ? translate(label) : translate(`resources.${resource}.fields.${source}`)}
-                </span>
-            </div>
-            <Field
-                name={source}
-                source={source}
-                component={component}
-                aria-describedby={`addon-${source}`}
-                className={classNames('form-control', 'form-control-sm', className)}
-                {...rest}
-            >
-                {component === 'select' ? (
-                    <>
-                        {allowEmpty ? <option /> : ''}
-                        {choices.map((choice) => (
-                            <option value={choice.id} key={choice.id}>
-                                {translate && skipFormat === false ? translate(choice.name) : choice.name}
-                            </option>
-                        ))}
-                    </>
-                ) : null}
-            </Field>
-        </div>
-    );
-};
-
-MyCustomInputGroup.propTypes = {
-    component: PropTypes.oneOfType([PropTypes.func, PropTypes.string, PropTypes.node]).isRequired,
-    choices: PropTypes.array,
-    allowEmpty: PropTypes.bool,
-    labelClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-    inputClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-    groupClasses: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-    skipFormat: PropTypes.bool,
-    label: PropTypes.string,
-    basePath: PropTypes.string,
-    placeholder: PropTypes.string,
-    source: PropTypes.string
-};
-MyCustomInputGroup.defaultProps = {
-    component: 'input',
-    allowEmpty: true,
-    skipFormat: true
 };
 
 export const MySelectInput = (props) => {

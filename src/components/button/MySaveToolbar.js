@@ -2,12 +2,22 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
-
 import MySaveButton from './MySaveButton';
 
 const MySaveToolbar = (props) => {
     const {
-        children, callback, className, beforeSubmit, convertValue, customAction, customButton, hideNotification, customNotification, hideSaveButton, ...rest
+        children,
+        callback,
+        className,
+        beforeSubmit,
+        convertValue,
+        customAction,
+        customButton,
+        hideNotification,
+        customNotification,
+        hideSaveButton,
+        buttonClasses,
+        ...rest
     } = props;
     const { invalid, redirect } = rest;
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
@@ -24,6 +34,7 @@ const MySaveToolbar = (props) => {
                     action={customAction}
                     hideNotification={hideNotification}
                     customNotification={customNotification}
+                    buttonClasses={buttonClasses}
                 />
             )}
             {childrenWithProps}
@@ -40,7 +51,8 @@ MySaveToolbar.propTypes = {
     hideNotification: PropTypes.bool,
     customNotification: PropTypes.object,
     customButton: PropTypes.any,
-    hideSaveButton: PropTypes.bool
+    hideSaveButton: PropTypes.bool,
+    buttonClasses: PropTypes.string
 };
 
 MySaveButton.defaultValues = {

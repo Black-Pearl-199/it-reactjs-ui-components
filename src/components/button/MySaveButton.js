@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
-
 import { ITCrudCreate, showEnhanceNotification } from '../../configurations/actions';
 import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
@@ -25,6 +24,7 @@ const MySaveButton = (props) => {
         customNotification = {},
         label,
         filter,
+        buttonClasses,
         ...rest
     } = props;
 
@@ -110,7 +110,7 @@ const MySaveButton = (props) => {
     );
 
     // override handleSubmitWithRedirect with custom logic
-    return <SaveButton {...rest} classes={classes} onSave={handleSave} label={label} />;
+    return <SaveButton {...rest} classes={classes} onSave={handleSave} label={label} className={buttonClasses} />;
 };
 
 MySaveButton.propTypes = {
@@ -124,7 +124,8 @@ MySaveButton.propTypes = {
     basePath: PropTypes.string,
     resource: PropTypes.string,
     label: PropTypes.string,
-    filter: PropTypes.object
+    filter: PropTypes.object,
+    buttonClasses: PropTypes.string
 };
 
 export default MySaveButton;

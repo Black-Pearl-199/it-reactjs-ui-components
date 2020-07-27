@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useDispatch } from 'react-redux';
-
 import { ITCrudUpdate, showEnhanceNotification } from '../../configurations';
 import { buttonGreenStyles } from '../MyCustomStyles';
 import SaveButton from './SaveButton';
@@ -27,6 +26,7 @@ const MyUpdateButton = (props) => {
         filter,
         editing,
         changeEditState,
+        buttonClasses,
         ...rest
     } = props;
 
@@ -114,7 +114,7 @@ const MyUpdateButton = (props) => {
     );
 
     // override handleSubmitWithRedirect with custom logic
-    return <SaveButton {...rest} classes={classes} onSave={handleSave} label={label || 'button.change'} />;
+    return <SaveButton {...rest} classes={classes} onSave={handleSave} label={label || 'button.change'} className={buttonClasses} />;
 };
 
 MyUpdateButton.propTypes = {
@@ -130,7 +130,8 @@ MyUpdateButton.propTypes = {
     label: PropTypes.string,
     filter: PropTypes.object,
     editing: PropTypes.bool,
-    changeEditState: PropTypes.func
+    changeEditState: PropTypes.func,
+    buttonClasses: PropTypes.string
 };
 
 export default MyUpdateButton;

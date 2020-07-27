@@ -9,7 +9,7 @@ import RevertEditButton from './RevertEditButton';
 
 const MyEditToolbar = (props) => {
     const {
-        children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, form, filter, ...rest
+        children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, filter, buttonClasses, ...rest
     } = props;
     const { redirect } = rest;
 
@@ -34,13 +34,13 @@ const MyEditToolbar = (props) => {
                     changeEditState={changeEditState}
                     callback={callback}
                     customNotification={customNotification}
-                    form={form}
                     filter={filter}
+                    buttonClasses={buttonClasses}
                     {...rest}
                 />
             )}
             {childrenWithProps}
-            {customButton || null}
+            {customButton}
             {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
             {deletable ? (
                 <MyDeleteButton
@@ -65,13 +65,13 @@ MyEditToolbar.propTypes = {
     changeEditState: PropTypes.func,
     hideNotification: PropTypes.bool,
     customNotification: PropTypes.object,
-    form: PropTypes.string,
     filter: PropTypes.object,
     invalid: PropTypes.bool,
     optimistic: PropTypes.bool,
     customButton: PropTypes.element,
     undoable: PropTypes.bool,
-    hideEditButton: PropTypes.bool
+    hideEditButton: PropTypes.bool,
+    buttonClasses: PropTypes.string
 };
 
 MyEditToolbar.defaultValues = {
