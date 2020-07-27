@@ -640,7 +640,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 #navItech {
-  transform: translate(0, 6px);
   flex: 1;
   flex-wrap: nowrap;
   overflow-x: overlay;
@@ -1626,7 +1625,7 @@ a.sidebar-list-link b {
 }
 
 .nav-iTech .nav-link {
-  padding: .5rem .5rem 1rem .5rem;
+  padding: .3rem .5rem;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
