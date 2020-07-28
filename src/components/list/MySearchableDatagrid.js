@@ -75,7 +75,7 @@ const MySearchableDataGrid = (props) => {
                     data={newData}
                     ids={newIds}
                     classes={classes}
-                    className={classNames('mb-0', 'table-striped', 'border-top-0', 'table', 'table-sm')}
+                    className={classNames('mb-0', 'table-striped', 'table-bordered border-top-0', 'table', 'table-sm')}
                 />
             </div>
             {/* </div> */}
