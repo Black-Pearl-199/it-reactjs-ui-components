@@ -32,6 +32,8 @@ const MySearchableDataGrid = (props) => {
         newIds = Object.keys(newData);
         // console.log('new data after filter', newData, newIds);
     }
+    // eslint-disable-next-line no-nested-ternary
+    const maxHeightTable = innerScroll ? (searchEnable ? tableMaxHeight.maxHeight - 30 : tableMaxHeight.maxHeight) : '100%';
     return (
         <div>
             {/* <div className='container-fluid my-2'> */}
@@ -69,7 +71,7 @@ const MySearchableDataGrid = (props) => {
                     ''
                 )}
             </div>
-            <div className={classNames('table-responsive')} style={{ maxHeight: innerScroll ? tableMaxHeight.maxHeight : '100%' }}>
+            <div className={classNames('table-responsive')} style={{ maxHeight: maxHeightTable }}>
                 <MyDatagrid
                     {...rest}
                     data={newData}

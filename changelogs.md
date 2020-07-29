@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [0.2.69] - 2020-07-29
+### Changed
+- Change max-height of table dependencies have quick search or pagination - [@TinVan2]
+
 ## [0.2.68] - 2020-07-28
 ### Changed
 - Change border for table - updated - [@TinVan2]
