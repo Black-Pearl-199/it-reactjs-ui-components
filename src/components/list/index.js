@@ -8,3 +8,4 @@ export { default as MyStandaloneList } from './MyStandaloneList';
 export * from './MyVariantFields';
 export { default as ROW_CLICK } from './RowClick';
 export { default as SelectedCounting } from './SelectedCounting';
+export { default as StandaloneListScrollable } from './StandaloneListScrollable';
