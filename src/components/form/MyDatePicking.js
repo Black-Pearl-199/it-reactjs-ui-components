@@ -17,7 +17,6 @@ function add(date, day) {
 const MyDatePicking = (props) => {
     const translate = useTranslate();
     const [openEndDate, setOpenEndDate] = useState(false);
-    const endDateRef = useRef();
 
     const {
         groupClasses,
@@ -38,7 +37,7 @@ const MyDatePicking = (props) => {
         inputLabel,
         startDateName,
         formatDate,
-        onTriggerSubmit,
+        handleOnBlur,
         ...rest
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
@@ -228,6 +227,7 @@ const MyDatePicking = (props) => {
                     formatDate={formatDate}
                     openEndDate={openEndDate}
                     onCalendarOpen={() => setOpenEndDate(false)}
+                    onBlur={handleOnBlur}
                 />
             </div>
         </div>
@@ -256,7 +256,7 @@ MyDatePicking.propTypes = {
     hideLabel: PropTypes.bool,
     inputValue: PropTypes.any,
     onInputChange: PropTypes.func,
-    onTriggerSubmit: PropTypes.func
+    handleOnBlur: PropTypes.func
 };
 MyDatePicking.defaultProps = {
     startDateName: 'startDate',

@@ -98,7 +98,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     useEffect(() => {
         if (openEndDate) {
             if (dateRef && dateRef.current) {
-                dateRef.current.setOpen(true);
+                dateRef.current.setFocus();
             }
         }
     }, [openEndDate]);
