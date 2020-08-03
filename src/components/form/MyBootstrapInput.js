@@ -4,7 +4,7 @@ import isReact from 'is-react';
 import { find, get, uniqBy } from 'lodash';
 import moment from 'moment';
 import { any, arrayOf, bool, func, object, shape, string } from 'prop-types';
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
@@ -71,6 +71,7 @@ const onChangeRaw = (e) => {
 const textareaStyle = { resize: 'none' };
 
 const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
+    const dateRef = useRef();
     const {
         component,
         type,
@@ -86,10 +87,21 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         translate,
         formatText = translate,
         optionClasses,
+        calendarClasses,
+        openEndDate,
+        onTriggerSubmit,
         ...rest
     } = props;
     let { defaultValue } = props;
     const sanitizeProps = sanitizeRestProps(rest);
+
+    useEffect(() => {
+        if (openEndDate) {
+            if (dateRef && dateRef.current) {
+                dateRef.current.setOpen(true);
+            }
+        }
+    }, [openEndDate]);
     // console.log(component, sanitizeProps);
     // console.log('input value 1=', inputValue, '-2=', value, '-3=', defaultValue);
     // console.log('received value', value);
@@ -264,12 +276,14 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
             return (
                 <DatePicker
                     name={source}
+                    ref={dateRef}
                     strictParsing
                     selected={inputValue ? moment(inputValue, dateStoreFormat).toDate() : defaultValue}
                     dateFormat={dateShowFormat}
                     showYearDropdown
                     {...sanitizeProps}
                     className={composeInputClasses}
+                    calendarClassName={calendarClasses}
                     onChangeRaw={onChangeRaw}
                     autoComplete="off"
                     customInput={<MaskedInput mask="11-11-1111" autoComplete="off" />}
@@ -284,7 +298,9 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
 Input.propTypes = {
     inputId: any,
     translatedLabel: string,
+    openEndDate: bool,
     composeInputClasses: any,
+    calendarClasses: string,
     component: string,
     type: string,
     source: string,
@@ -301,6 +317,7 @@ Input.propTypes = {
     optionText: string,
     optionValue: string,
     translate: func,
+    onTriggerSubmit: func,
     optionClasses: shape({ group: string, item: string, input: string, label: string })
 };
 
@@ -439,6 +456,7 @@ const MyBootstrapInput = (props) => {
 };
 MyBootstrapInput.propTypes = {
     label: string,
+    openEndDate: bool,
     allowEmpty: any,
     alwaysOn: any,
     component: any,
@@ -452,6 +470,7 @@ MyBootstrapInput.propTypes = {
     optionClasses: shape({ group: string, item: string, input: string, label: string }),
     inputClasses: string,
     labelClasses: string,
+    calendarClasses: string,
     defaultValue: any,
     small: bool,
     readOnly: bool,
@@ -464,7 +483,8 @@ MyBootstrapInput.propTypes = {
     formClassName: string,
     formatDate: string,
     required: bool,
-    handleChoiceOption: func
+    handleChoiceOption: func,
+    onTriggerSubmit: func
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',

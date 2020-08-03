@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 
@@ -16,6 +16,8 @@ function add(date, day) {
 
 const MyDatePicking = (props) => {
     const translate = useTranslate();
+    const [openEndDate, setOpenEndDate] = useState(false);
+    const endDateRef = useRef();
 
     const {
         groupClasses,
@@ -36,6 +38,7 @@ const MyDatePicking = (props) => {
         inputLabel,
         startDateName,
         formatDate,
+        onTriggerSubmit,
         ...rest
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
@@ -210,6 +213,7 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
+                    onCalendarClose={() => setOpenEndDate(true)}
                 />
                 <MyBootstrapInput
                     source={endDateName}
@@ -222,6 +226,8 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
+                    openEndDate={openEndDate}
+                    onCalendarOpen={() => setOpenEndDate(false)}
                 />
             </div>
         </div>
@@ -249,7 +255,8 @@ MyDatePicking.propTypes = {
     hideInputLabel: PropTypes.bool,
     hideLabel: PropTypes.bool,
     inputValue: PropTypes.any,
-    onInputChange: PropTypes.func
+    onInputChange: PropTypes.func,
+    onTriggerSubmit: PropTypes.func
 };
 MyDatePicking.defaultProps = {
     startDateName: 'startDate',
