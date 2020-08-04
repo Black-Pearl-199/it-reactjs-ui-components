@@ -1,7 +1,7 @@
 import variables from '../assets/scss/abstracts/_export.scss';
 
 // style config cho các component Card/CardContainer/CardContainerInner của react-admin
-export const listStylesNoActions = {
+export const formStyles = {
     card: {
         backgroundColor: 'transparent !important',
         boxShadow: 'none !important',
@@ -90,7 +90,8 @@ export const listStylesNoActions = {
         '&>.simple-form>div:first-child': {
             padding: '0 !important',
             display: 'flex',
-            flexWrap: 'wrap'
+            flexWrap: 'wrap',
+            height: '100%'
             // marginLeft: -15,
             // marginRight: -15
         },
@@ -489,7 +490,7 @@ export const tableMaxHeight = {
 };
 
 export default {
-    listStylesNoActions,
+    formStyles,
     listStylesNoActionsList,
     paginationStyles,
     buttonStyles,
