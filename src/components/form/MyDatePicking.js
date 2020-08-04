@@ -16,6 +16,7 @@ function add(date, day) {
 
 const MyDatePicking = (props) => {
     const translate = useTranslate();
+    const [openCalendar, setOpenCalendar] = useState(false);
 
     const {
         groupClasses,
@@ -36,6 +37,7 @@ const MyDatePicking = (props) => {
         inputLabel,
         startDateName,
         formatDate,
+        handleOnBlur,
         ...rest
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
@@ -210,6 +212,7 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
+                    onCalendarClose={() => setOpenCalendar(true)}
                 />
                 <MyBootstrapInput
                     source={endDateName}
@@ -222,6 +225,9 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
+                    openCalendar={openCalendar}
+                    onCalendarOpen={() => setOpenCalendar(false)}
+                    onBlur={handleOnBlur}
                 />
             </div>
         </div>
@@ -249,7 +255,8 @@ MyDatePicking.propTypes = {
     hideInputLabel: PropTypes.bool,
     hideLabel: PropTypes.bool,
     inputValue: PropTypes.any,
-    onInputChange: PropTypes.func
+    onInputChange: PropTypes.func,
+    handleOnBlur: PropTypes.func
 };
 MyDatePicking.defaultProps = {
     startDateName: 'startDate',

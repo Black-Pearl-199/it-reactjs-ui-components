@@ -88,7 +88,7 @@ const MyFilterBox = (props) => {
     }, []);
 
     useEffect(() => {
-        if (filterRef) filterRef.current = { setFilter };
+        if (filterRef) filterRef.current = { setFilter, setTriggerSubmit };
     }, [setFilter, filterRef]);
 
     const checkFormValidate = () => {
