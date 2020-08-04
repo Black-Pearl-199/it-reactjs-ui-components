@@ -88,7 +88,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         formatText = translate,
         optionClasses,
         calendarClasses,
-        openEndDate,
+        openCalendar,
         onTriggerSubmit,
         ...rest
     } = props;
@@ -96,12 +96,12 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     const sanitizeProps = sanitizeRestProps(rest);
 
     useEffect(() => {
-        if (openEndDate) {
+        if (openCalendar) {
             if (dateRef && dateRef.current) {
                 dateRef.current.setFocus();
             }
         }
-    }, [openEndDate]);
+    }, [openCalendar]);
     // console.log(component, sanitizeProps);
     // console.log('input value 1=', inputValue, '-2=', value, '-3=', defaultValue);
     // console.log('received value', value);
@@ -298,7 +298,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
 Input.propTypes = {
     inputId: any,
     translatedLabel: string,
-    openEndDate: bool,
+    openCalendar: bool,
     composeInputClasses: any,
     calendarClasses: string,
     component: string,
@@ -456,7 +456,7 @@ const MyBootstrapInput = (props) => {
 };
 MyBootstrapInput.propTypes = {
     label: string,
-    openEndDate: bool,
+    openCalendar: bool,
     allowEmpty: any,
     alwaysOn: any,
     component: any,

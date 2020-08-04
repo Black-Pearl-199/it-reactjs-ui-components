@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 
@@ -16,7 +16,7 @@ function add(date, day) {
 
 const MyDatePicking = (props) => {
     const translate = useTranslate();
-    const [openEndDate, setOpenEndDate] = useState(false);
+    const [openCalendar, setOpenCalendar] = useState(false);
 
     const {
         groupClasses,
@@ -212,7 +212,7 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
-                    onCalendarClose={() => setOpenEndDate(true)}
+                    onCalendarClose={() => setOpenCalendar(true)}
                 />
                 <MyBootstrapInput
                     source={endDateName}
@@ -225,8 +225,8 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled}
                     formatDate={formatDate}
-                    openEndDate={openEndDate}
-                    onCalendarOpen={() => setOpenEndDate(false)}
+                    openCalendar={openCalendar}
+                    onCalendarOpen={() => setOpenCalendar(false)}
                     onBlur={handleOnBlur}
                 />
             </div>
