@@ -30,5 +30,4 @@ export {
 
 export { default as DATE_RANGE } from './DateRange';
 
-export * from './MyCustomInput';
 export * from './MyBootstrapInput';
