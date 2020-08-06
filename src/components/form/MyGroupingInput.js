@@ -23,7 +23,7 @@ const MyGroupingInput = (props) => {
                 <div className={groupClasses}>
                     {heading
                         ? <label className="info-title-label mb-0">{heading}</label> : null}
-                    <div className="card panel-itech">
+                    <div className="card panel-itech h-100 overflow-auto">
                         <div className={classNames('card-body', innerClasses)}>
                             {inner}
                         </div>
