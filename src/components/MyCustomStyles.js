@@ -91,7 +91,7 @@ export const formStyles = {
             padding: '0 !important',
             display: 'flex',
             flexWrap: 'wrap',
-            height: '100%',
+            // height: '100%',
             overflow: 'auto'
             // marginLeft: -15,
             // marginRight: -15

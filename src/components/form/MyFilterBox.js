@@ -274,7 +274,7 @@ const MyFilterBox = (props) => {
                     ) : (
                         ''
                     )}
-                    <div className="col-form-label">
+                    <div className="col-form-label p-0">
                         <Button
                             variant="itech"
                             disabled={loading}
