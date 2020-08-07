@@ -80,6 +80,7 @@ const MyFilterBox = (props) => {
         checkTriggerSubmit,
         icon,
         customAction,
+        searchBtnClasses,
         ...rest
     } = props;
     const setFilter = useCallback((filter) => {
@@ -274,7 +275,7 @@ const MyFilterBox = (props) => {
                     ) : (
                         ''
                     )}
-                    <div className="col-form-label p-0">
+                    <div className={classNames('col-form-label', searchBtnClasses)}>
                         <Button
                             variant="itech"
                             disabled={loading}
@@ -315,7 +316,8 @@ MyFilterBox.propTypes = {
     defaultPerPage: PropTypes.number,
     checkTriggerSubmit: PropTypes.func,
     icon: PropTypes.bool,
-    customAction: PropTypes.any
+    customAction: PropTypes.any,
+    searchBtnClasses: PropTypes.string
 };
 
 MyFilterBox.defaultProps = {
