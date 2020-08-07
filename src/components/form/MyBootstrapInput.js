@@ -154,8 +154,8 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                                     type="checkbox"
                                     value={CHECKBOX_EMPTY}
                                     checked={!inputValue || inputValue.length === 0}
-                                    id={`${source}-clear`}
                                     {...sanitizeProps}
+                                    id={`${source}-clear`}
                                 />
                                 <label className="form-check-label mr-2" htmlFor={`${source}-clear`}>
                                     {showText}
@@ -172,8 +172,8 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                                         type="checkbox"
                                         value={choiceValue}
                                         checked={inputValue && inputValue.includes(choiceValue)}
-                                        id={inputId}
                                         {...sanitizeProps}
+                                        id={inputId}
                                     />
                                     <label className="form-check-label mr-2" htmlFor={inputId}>
                                         {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
@@ -205,9 +205,9 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                                         type="radio"
                                         value={choiceValue}
                                         checked={inputValue === choiceValue}
-                                        id={inputId}
                                         name={source}
                                         {...sanitizeProps}
+                                        id={inputId}
                                     />
                                     <label className={classNames('form-check-label mr-2', optionClasses.label)} htmlFor={inputId}>
                                         {!skipFormat ? translate(choice[optionText]) : choice[optionText]}

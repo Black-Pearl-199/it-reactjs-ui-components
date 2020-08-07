@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.2.73] - 2020-08-07
 ### Fixed
+- Override 'id' property for checkbox-group, radio-group in MyBootstrapInput when use MyBootstrapInput in MySimpleForm - [@TinVan2]
+
+## [0.2.73] - 2020-08-07
+### Fixed
 - Arrow function don't bind 'this' - [@TinVan2]
 
 ## [0.2.72] - 2020-08-06
