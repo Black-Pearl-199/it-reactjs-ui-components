@@ -6,10 +6,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 - Add css in simple form - [@khanhITECH]
+## [0.2.73] - 2020-08-07
+### Fixed
+- Arrow function don't bind 'this' - [@TinVan2]
+
+## [0.2.72] - 2020-08-06
+### Added
+- Add css to support fix height of form for MyCreate and MyEdit - [@khanhITECH]
+### Changed
+- Change name of style definition for form -[@khanhITECH]
+### Removed
+- Remove custom input base on react-admin input - [@tunglt1810]
 
 ## [0.2.71] - 2020-08-03
 ### Added
 - Update datepicker - [@khanhITECH]
+
 ## [0.2.70] - 2020-07-30
 ### Added
 - Add StandaloneList for scroll MyStandaloneList - [@TinVan2]

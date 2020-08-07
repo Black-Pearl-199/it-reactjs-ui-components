@@ -51,7 +51,7 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
-const onChangeRaw = (e) => {
+function onChangeRaw(e) {
     // console.log(this);
     const rawVal = e.target.value;
     // console.log('new raw', rawVal);
@@ -66,7 +66,7 @@ const onChangeRaw = (e) => {
     } catch (e) {
         // console.error(e);
     }
-};
+}
 
 const textareaStyle = { resize: 'none' };
 
