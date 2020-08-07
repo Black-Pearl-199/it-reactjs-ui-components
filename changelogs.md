@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [Unreleased]
+
+## [0.2.74] - 2020-08-07
+### Added
 - Add css in simple form - [@khanhITECH]
+### Fixed
+- Override 'id' property for checkbox-group, radio-group in MyBootstrapInput when use MyBootstrapInput in MySimpleForm - [@TinVan2]
+
 ## [0.2.73] - 2020-08-07
 ### Fixed
-- Arrow function don't bind 'this' - [@TinVan2]
+- Fix date input unchange when use typing with text - [@TinVan2]
 
 ## [0.2.72] - 2020-08-06
 ### Added
