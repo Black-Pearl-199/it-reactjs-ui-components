@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.75] - 2020-08-12
+### Changed
+- Change css table for hide horizontal scroll - [@TinVan2]
+
 ## [0.2.74] - 2020-08-07
 ### Added
 - Add css in simple form - [@khanhITECH]

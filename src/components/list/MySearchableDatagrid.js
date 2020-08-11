@@ -12,9 +12,15 @@ import { tableStyles, tableMaxHeight } from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
 
 const useStyles = makeStyles(tableStyles);
+const useStyleWidth = makeStyles({
+    width99: {
+        width: 'calc(100% - 1px) !important'
+    }
+});
 
 const MySearchableDataGrid = (props) => {
     const classes = useStyles();
+    const styleWidth = useStyleWidth();
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
 
@@ -77,7 +83,7 @@ const MySearchableDataGrid = (props) => {
                     data={newData}
                     ids={newIds}
                     classes={classes}
-                    className={classNames('mb-0', 'table-striped', 'table-bordered border-top-0', 'table', 'table-sm')}
+                    className={classNames('mb-0', 'table-striped', 'table-bordered border-top-0', 'table', 'table-sm', styleWidth.width99)}
                 />
             </div>
             {/* </div> */}
