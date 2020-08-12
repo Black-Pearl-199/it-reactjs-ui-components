@@ -8,7 +8,7 @@ export default {
         deleteConstraint: 'Không thể xóa %{resource_name} đang chọn'
     },
     message: {
-        delete: 'Bạn có chắc chắn muốn xóa %{resourceName}?',
+        delete: 'Bạn có chắc chắn muốn xóa %{resourceName} <b>%{id}</b>?',
         save: 'Bạn có chắc chắn muốn thêm %{resourceName}?',
         edit: 'Bạn có chắc chắn muốn sửa %{resourceName}?',
         noChange: 'Bạn chưa thay đổi thông tin',

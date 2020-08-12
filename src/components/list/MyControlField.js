@@ -28,7 +28,9 @@ const MyControlField = (props) => {
         deleteCallback,
         getNotificationName,
         optimisticDelete,
-        enableTooltip
+        enableTooltip,
+        btnEditClasses,
+        btnDeleteClasses
     } = props;
     const { id } = record;
 
@@ -67,7 +69,8 @@ const MyControlField = (props) => {
                     }
                 ],
                 messageArgs: {
-                    resourceName
+                    resourceName,
+                    ...record
                 }
             })
         );
@@ -76,12 +79,22 @@ const MyControlField = (props) => {
     return (
         <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>
             {hasEdit && (
-                <MyIconButton enableTooltip={enableTooltip} popLabel="ra.action.edit" onClick={onEdit} className={hasDelete && 'mr-1'}>
+                <MyIconButton
+                    enableTooltip={enableTooltip}
+                    popLabel="ra.action.edit"
+                    onClick={onEdit}
+                    className={(hasDelete && 'mr-1', btnEditClasses)}
+                >
                     <FontAwesomeIcon icon={faEdit} />
                 </MyIconButton>
             )}
             {hasDelete && (
-                <MyIconButton enableTooltip={enableTooltip} popLabel="ra.action.delete" onClick={onDelete} className={hasEdit && 'ml-1'}>
+                <MyIconButton
+                    enableTooltip={enableTooltip}
+                    popLabel="ra.action.delete"
+                    onClick={onDelete}
+                    className={(hasEdit && 'ml-1', btnDeleteClasses)}
+                >
                     <FontAwesomeIcon icon={faTrash} />
                 </MyIconButton>
             )}
@@ -102,7 +115,9 @@ MyControlField.propTypes = {
     getNotificationName: PropTypes.func,
     optimisticDelete: PropTypes.bool,
     deleteCallback: PropTypes.func,
-    enableTooltip: PropTypes.bool
+    enableTooltip: PropTypes.bool,
+    btnEditClasses: PropTypes.string,
+    btnDeleteClasses: PropTypes.string
 };
 
 MyControlField.defaultProps = {
@@ -112,7 +127,9 @@ MyControlField.defaultProps = {
     label: 'ra.action.editDelete',
     getNotificationName,
     optimisticDelete: false,
-    enableTooltip: true
+    enableTooltip: true,
+    btnEditClasses: 'btn-itech-icon-primary',
+    btnDeleteClasses: 'btn-itech-icon-primary'
 };
 
 export default MyControlField;

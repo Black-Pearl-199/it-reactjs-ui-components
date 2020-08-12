@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.77] - 2020-08-12
+### Added
+- MyControlField support custom classname for edit and delete button, and custom delete notification - [@tunglt1810]
+- Default delete message will notify object id - [@tunglt1810]
+
 ## [0.2.76] - 2020-08-12
 ### Added
 - Add selector to select object of a resource by id - [@tunglt1810]

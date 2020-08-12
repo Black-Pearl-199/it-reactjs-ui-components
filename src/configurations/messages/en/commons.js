@@ -8,7 +8,7 @@ export default {
         deleteConstraint: 'Cannot delete this %{resource_name}'
     },
     message: {
-        delete: 'Do you really want to delete this %{resourceName}?',
+        delete: 'Do you really want to delete this %{resourceName} <b>%{id}</b>?',
         save: 'Do you really want to add this %{resourceName}?',
         edit: 'Do you really want to edit this %{resourceName}?',
         noChange: 'You not change data yet!',
