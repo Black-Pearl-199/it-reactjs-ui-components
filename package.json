@@ -1,6 +1,6 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.2.75",
+  "version": "0.2.76",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -210,6 +210,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "prop-types": "^15.7.2",
+    "ra-core": "^3.6.0",
     "react": "^16.13.1",
     "react-admin": "^3.6.0",
     "react-bootstrap": "^1.0.0",

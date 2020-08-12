@@ -1,4 +1,4 @@
-import { FETCH_CANCEL, FETCH_END, FETCH_ERROR, FETCH_START } from 'react-admin';
+import { FETCH_CANCEL, FETCH_END, FETCH_ERROR, FETCH_START, CLEAR_STATE } from 'react-admin';
 import { call, takeEvery } from 'redux-saga/effects';
 import { ProgressBarManager } from '../../components/progressBar';
 
@@ -11,6 +11,7 @@ function* handleFetchProgress(action) {
         case FETCH_CANCEL:
         case FETCH_ERROR:
         case FETCH_END:
+        case CLEAR_STATE:
             yield call(ProgressBarManager.getInstance().stop, 'fetch');
             break;
         default:
@@ -19,5 +20,5 @@ function* handleFetchProgress(action) {
 }
 
 export default function* () {
-    yield takeEvery([FETCH_CANCEL, FETCH_END, FETCH_ERROR, FETCH_START], handleFetchProgress);
+    yield takeEvery([FETCH_CANCEL, FETCH_END, FETCH_ERROR, FETCH_START, CLEAR_STATE], handleFetchProgress);
 }

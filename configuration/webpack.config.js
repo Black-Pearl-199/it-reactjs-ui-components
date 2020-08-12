@@ -15,6 +15,7 @@ module.exports = (env, argv) => {
             'moment-timezone': 'moment-timezone',
             'prop-types': 'prop-types',
             react: 'react',
+            'ra-core': 'ra-core',
             'react-admin': 'react-admin',
             'react-bootstrap': 'react-bootstrap',
             'react-dom': 'react-dom',

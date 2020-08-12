@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.76] - 2020-08-12
+### Added
+- Add selector to select object of a resource by id - [@tunglt1810]
+- Add selector to select list parameters of a resource - [@tunglt1810]
+- Fetch progress now handle include CLEAR_STATE action - [@tunglt1810]
+- Add ra-core to exclude dependencies list in webpack config - [@tunglt1810]
+### Removed
+- Remove check token expire in fetch side effect - [@tunglt1810]
+
 ## [0.2.75] - 2020-08-12
 ### Changed
 - Change css table for hide horizontal scroll - [@TinVan2]
