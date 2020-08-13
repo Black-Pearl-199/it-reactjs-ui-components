@@ -1,12 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import {
+    useListController
+} from 'ra-core';
+import { TitlePropType } from 'react-admin';
 import ListView from './ListView';
-import { useListController } from './useListController';
-
-export const TitlePropType = PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element
-]);
 
 /**
  * List page component
@@ -53,9 +51,9 @@ export const TitlePropType = PropTypes.oneOfType([
  *     </List>
  * );
  */
-const MyStandaloneList = (props) => <ListView {...props} {...useListController(props)} />;
+const List = (props) => <ListView {...props} {...useListController(props)} />;
 
-MyStandaloneList.propTypes = {
+List.propTypes = {
     // the props you can change
     actions: PropTypes.element,
     aside: PropTypes.element,
@@ -85,9 +83,9 @@ MyStandaloneList.propTypes = {
     resource: PropTypes.string.isRequired
 };
 
-MyStandaloneList.defaultProps = {
+List.defaultProps = {
     filter: {},
     perPage: 10
 };
 
-export default MyStandaloneList;
+export default List;

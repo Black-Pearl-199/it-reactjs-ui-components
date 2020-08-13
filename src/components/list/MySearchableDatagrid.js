@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { makeStyles } from '@material-ui/core/styles';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslate } from 'react-admin';
 
 import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
-import { tableStyles, tableMaxHeight } from '../MyCustomStyles';
+import { tableStyles } from '../MyCustomStyles';
 import MyDatagrid from './MyDatagrid';
 
 const useStyles = makeStyles(tableStyles);
@@ -23,13 +23,21 @@ const MySearchableDataGrid = (props) => {
     const styleWidth = useStyleWidth();
     const [textSearch, setTextSearch] = useState('');
     const translate = useTranslate();
+    const [maxHeightTable, setMaxHeightTable] = useState();
 
     const onSearch = (e) => {
         setTextSearch(e.currentTarget.value);
     };
 
-    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, ...rest } = props;
+    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, customTableClasses = classes, maxHeight, ...rest } = props;
     // const {translate} = this.props;
+
+    useEffect(() => {
+        // eslint-disable-next-line no-nested-ternary
+        const scrollHeight = innerScroll ? (searchEnable ? parseInt(maxHeight, 10) - 30 : maxHeight) : '100%';
+        setMaxHeightTable(scrollHeight);
+    }, [innerScroll, maxHeight, searchEnable]);
+
     const { resource, fields } = props;
     let newData = data;
     let newIds = ids;
@@ -39,7 +47,6 @@ const MySearchableDataGrid = (props) => {
         // console.log('new data after filter', newData, newIds);
     }
     // eslint-disable-next-line no-nested-ternary
-    const maxHeightTable = innerScroll ? (searchEnable ? parseInt(tableMaxHeight.maxHeight, 10) - 30 : tableMaxHeight.maxHeight) : '100%';
     return (
         <div>
             {/* <div className='container-fluid my-2'> */}
@@ -77,12 +84,12 @@ const MySearchableDataGrid = (props) => {
                     ''
                 )}
             </div>
-            <div className={classNames('table-responsive')} style={{ maxHeight: maxHeightTable }}>
+            <div className={classNames('table-responsive')} style={{ maxHeight: maxHeightTable || '100%' }}>
                 <MyDatagrid
                     {...rest}
                     data={newData}
                     ids={newIds}
-                    classes={classes}
+                    classes={customTableClasses}
                     className={classNames('mb-0', 'table-striped', 'table-bordered border-top-0', 'table', 'table-sm', styleWidth.width99)}
                 />
             </div>
@@ -104,7 +111,9 @@ MySearchableDataGrid.propTypes = {
     total: PropTypes.number,
     resource: PropTypes.string,
     fields: PropTypes.array,
-    innerScroll: PropTypes.bool
+    innerScroll: PropTypes.bool,
+    customTableClasses: PropTypes.object,
+    maxHeight: PropTypes.any
 };
 
 MySearchableDataGrid.defaultProps = {

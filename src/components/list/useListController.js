@@ -44,7 +44,8 @@ export const useListController = (
         sort = defaultSort,
         perPage = 10,
         filter,
-        debounce = 500
+        debounce = 500,
+        maxHeight = '100%'
     } = props;
 
     if (filter && isValidElement(filter)) {
@@ -154,7 +155,8 @@ export const useListController = (
         setSort: queryModifiers.setSort,
         showFilter: queryModifiers.showFilter,
         total: typeof total === 'undefined' ? defaultTotal : total,
-        version
+        version,
+        maxHeight
     };
 };
 
@@ -184,7 +186,15 @@ export const injectedProps = [
     'setSort',
     'showFilter',
     'total',
-    'version'
+    'version',
+    'maxHeight'
 ];
+
+/**
+ * Select the props injected by the useListController hook
+ * to be passed to the List children need
+ * This is an implementation of pick()
+ */
+export const getListControllerProps = (props) => injectedProps.reduce((acc, key) => ({ ...acc, [key]: props[key] }), {});
 
 export default useListController;

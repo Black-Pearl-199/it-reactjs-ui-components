@@ -486,10 +486,6 @@ export const checkboxStyles = {
     }
 };
 
-export const tableMaxHeight = {
-    maxHeight: '100%'
-};
-
 export default {
     formStyles,
     listStylesNoActionsList,
@@ -500,6 +496,5 @@ export default {
     filterStyles,
     tableStyles,
     inputStyles,
-    checkboxStyles,
-    tableMaxHeight
+    checkboxStyles
 };

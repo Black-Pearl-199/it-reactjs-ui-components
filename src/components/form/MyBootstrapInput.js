@@ -90,6 +90,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         calendarClasses,
         openCalendar,
         onTriggerSubmit,
+        showYearPicker,
         ...rest
     } = props;
     let { defaultValue } = props;
@@ -281,12 +282,13 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     selected={inputValue ? moment(inputValue, dateStoreFormat).toDate() : defaultValue}
                     dateFormat={dateShowFormat}
                     showYearDropdown
-                    {...sanitizeProps}
                     className={composeInputClasses}
                     calendarClassName={calendarClasses}
                     onChangeRaw={onChangeRaw}
+                    {...sanitizeProps}
                     autoComplete="off"
-                    customInput={<MaskedInput mask="11-11-1111" autoComplete="off" />}
+                    showYearPicker={showYearPicker}
+                    customInput={showYearPicker ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
                     placeholderText={hideLabel === true ? translatedLabel : null}
                 />
             );
@@ -318,7 +320,8 @@ Input.propTypes = {
     optionValue: string,
     translate: func,
     onTriggerSubmit: func,
-    optionClasses: shape({ group: string, item: string, input: string, label: string })
+    optionClasses: shape({ group: string, item: string, input: string, label: string }),
+    showYearPicker: bool
 };
 
 const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
