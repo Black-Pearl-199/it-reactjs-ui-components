@@ -4,6 +4,10 @@ import React from 'react';
 import { Toolbar } from 'react-admin';
 import MySaveButton from './MySaveButton';
 
+const fixToolbarHeight = {
+    minHeight: 'unset'
+};
+
 const MySaveToolbar = (props) => {
     const {
         children,
@@ -23,7 +27,7 @@ const MySaveToolbar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
     return (
-        <Toolbar {...rest} className={classNames('py-1', 'd-flex', 'mt-0', className)}>
+        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
             {!hideSaveButton && (
                 <MySaveButton
                     redirect={redirect}
