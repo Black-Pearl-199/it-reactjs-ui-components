@@ -10,6 +10,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Change 'showYearPicker' of datepicker for show year picker - [@TinVan2]
 
+## [0.2.78] - 2020-08-12
+### Added
+- MyBootstrapInput support render children - [@tunglt1810]
+### Changed
+- Change style of Save and Edit toolbar to remove space - [@tunglt1810]
+### Fixed
+- Fixed default optionClasses for MyBootstrapInput with checkbox group type - [@tunglt1810]
+- Fixed BootstrapInput type checkbox with init value - [@tunglt1810]
+
 ## [0.2.77] - 2020-08-12
 ### Added
 - MyControlField support custom classname for edit and delete button, and custom delete notification - [@tunglt1810]

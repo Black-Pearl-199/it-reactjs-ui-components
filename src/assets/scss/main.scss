@@ -172,6 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 .create-page > div:first-child, .edit-page > div:first-child{
 	height: 100%;
 	overflow: auto;
+	margin-top: 0 !important;
 }
 
 .simple-form > div:first-child{

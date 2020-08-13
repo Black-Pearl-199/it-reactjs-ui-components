@@ -32,6 +32,10 @@ const MyUpdateButton = (props) => {
 
     const handleSave = useCallback(
         (values, redirect) => {
+            if (!editing && changeEditState) {
+                changeEditState(true);
+                return;
+            }
             const resourceName = translate(`resources.${resource}.name`);
             const { message = 'commons.message.edit', type = 'info', messageArgs = {} } = customNotification;
             const sendRequest = (values) => {
@@ -59,9 +63,7 @@ const MyUpdateButton = (props) => {
                     })
                 );
             };
-            if (!editing && changeEditState) {
-                changeEditState(true);
-            } else if (beforeSubmit) {
+            if (beforeSubmit) {
                 beforeSubmit(values).then((result) => {
                     if (result) {
                         dispatch(

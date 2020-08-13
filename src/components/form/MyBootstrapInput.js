@@ -48,6 +48,8 @@ const sanitizeRestProps = ({
     location,
     resource,
     required,
+    fullFill,
+    validate,
     ...rest
 }) => rest;
 
@@ -91,6 +93,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         openCalendar,
         onTriggerSubmit,
         showYearPicker,
+        fullFill,
         ...rest
     } = props;
     let { defaultValue } = props;
@@ -118,7 +121,6 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     switch (component) {
         case 'input':
             if (type === 'checkbox') {
-                // console.log('check inputValue', inputValue);
                 return (
                     <div className="form-check">
                         <input
@@ -138,6 +140,8 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
             }
             // checkbox group
             if (type === 'checkbox-group') {
+                if (!choices) return '';
+                const emptyChecked = fullFill ? (inputValue && inputValue.length === choices.length) : (!inputValue || inputValue.length === 0);
                 return (
                     <div
                         name={source}
@@ -154,7 +158,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                                     className="form-check-input mt-1"
                                     type="checkbox"
                                     value={CHECKBOX_EMPTY}
-                                    checked={!inputValue || inputValue.length === 0}
+                                    checked={emptyChecked}
                                     {...sanitizeProps}
                                     id={`${source}-clear`}
                                 />
@@ -172,7 +176,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                                         className="form-check-input mt-1"
                                         type="checkbox"
                                         value={choiceValue}
-                                        checked={inputValue && inputValue.includes(choiceValue)}
+                                        checked={inputValue && inputValue.indexOf(choiceValue) > -1}
                                         {...sanitizeProps}
                                         id={inputId}
                                     />
@@ -321,7 +325,8 @@ Input.propTypes = {
     translate: func,
     onTriggerSubmit: func,
     optionClasses: shape({ group: string, item: string, input: string, label: string }),
-    showYearPicker: bool
+    showYearPicker: bool,
+    fullFill: bool
 };
 
 const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
@@ -348,9 +353,10 @@ const MyBootstrapInput = (props) => {
         formClassName,
         required,
         handleChoiceOption,
+        children,
         ...rest
     } = props;
-    const { resource, source, component, hideLabel, type } = rest;
+    const { resource, source, component, hideLabel, type, fullFill, choices } = rest;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
 
     const inputId = `input-${source}`;
@@ -360,14 +366,16 @@ const MyBootstrapInput = (props) => {
     );
     // console.log('-----------type', type, source, composeInputClasses);
     // console.log('MyBootstrapInput', input);
-    // console.log(props);
-    let value = input && input.value ? input.value : inputValue && inputValue[source];
+    // console.log('Render Input', props);
+    const valueFromInput = input && (input.value || input.checked);
+    let value = valueFromInput || (inputValue && inputValue[source]);
     if (component === 'input' && type === 'checkbox' && checkConvert) {
         value = value === checkConvert.true;
     }
     // console.log('render input', source, value);
     const onChange = (e) => {
         let newValue;
+        const key = rest.optionValue || 'id';
         if (component === 'date') {
             if (e) {
                 newValue = moment(e);
@@ -391,19 +399,26 @@ const MyBootstrapInput = (props) => {
         } else if (component === 'input' && type === 'checkbox-group') {
             let checkboxValue = value;
             const { target } = e;
-            // newValue = checkboxValue;
             if (target.checked) {
                 if (target.value === CHECKBOX_EMPTY) {
+                    if (fullFill) {
+                        checkboxValue = choices.map((choice) => get(choice, key));
+                    } else checkboxValue = undefined;
+                } else if (!checkboxValue) checkboxValue = [target.value];
+                else if (checkboxValue.indexOf(target.value) === -1) {
+                    checkboxValue.push(target.value);
+                }
+            } else {
+                if (target.value === CHECKBOX_EMPTY && fullFill) {
                     checkboxValue = undefined;
-                } else if (checkboxValue) checkboxValue.push(target.value);
-                else checkboxValue = [target.value];
-            } else if (!target.checked) {
+                }
                 if (checkboxValue) {
                     const valueIndex = checkboxValue.indexOf(target.value);
                     if (valueIndex > -1) checkboxValue.splice(valueIndex, 1);
+                    if (checkboxValue.length === 0) checkboxValue = undefined;
                 }
             }
-            newValue = checkboxValue;
+            newValue = checkboxValue && [...checkboxValue];
         } else {
             const { target } = e;
             if (target.type !== 'checkbox') newValue = target.value;
@@ -417,7 +432,7 @@ const MyBootstrapInput = (props) => {
             onInputChange({ [source]: newValue }, component, type);
         }
         if (handleChoiceOption && Array.isArray(rest.choices)) {
-            const key = rest.optionValue || 'id';
+            // TODO: lỗi nếu handle choice nhưng cho array input vì ko find được
             let choice = find(rest.choices, { [key]: newValue });
             const parsedValue = parseInt(newValue, 10);
             if (!choice && !isNaN(parsedValue)) choice = find(rest.choices, { [key]: parsedValue });
@@ -453,6 +468,7 @@ const MyBootstrapInput = (props) => {
                         resource
                     })
                     : <Input {...inputProps} />}
+                {children}
             </div>
         </div>
     );
@@ -486,6 +502,7 @@ MyBootstrapInput.propTypes = {
     formClassName: string,
     formatDate: string,
     required: bool,
+    fullFill: bool,
     handleChoiceOption: func,
     onTriggerSubmit: func
 };
@@ -495,7 +512,9 @@ MyBootstrapInput.defaultProps = {
     hideLabel: false,
     small: true,
     alignCenter: true,
-    formatDate: dateStoreFormat
+    formatDate: dateStoreFormat,
+    optionClasses: {},
+    fullFill: false
 };
 
 export default MyBootstrapInput;

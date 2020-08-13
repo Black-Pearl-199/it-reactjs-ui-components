@@ -7,6 +7,10 @@ import MyDeleteButton from './MyDeleteButton';
 import MyUpdateButton from './MyUpdateButton';
 import RevertEditButton from './RevertEditButton';
 
+const fixToolbarHeight = {
+    minHeight: 'unset'
+};
+
 const MyEditToolbar = (props) => {
     const {
         children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, filter, buttonClasses, ...rest
@@ -19,10 +23,7 @@ const MyEditToolbar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => (!!child && React.cloneElement(child, { invalid, ...rest })));
 
     return (
-        <Toolbar
-            {...rest}
-            className={classNames('py-1', 'd-flex', 'mt-0', className)}
-        >
+        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
             {!hideEditButton && (
                 <MyUpdateButton
                     redirect={redirect}
