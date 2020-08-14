@@ -14,11 +14,11 @@ import {
     Title,
     TitlePropType,
     ListToolbar,
-    DefaultPagination,
+    Pagination as DefaultPagination,
     BulkActionsToolbar,
     BulkDeleteButton,
-    DefaultActions,
-    Empty
+    ListActions as DefaultActions
+    // Empty
 } from 'react-admin';
 import { getListControllerProps } from './useListController';
 
@@ -161,9 +161,9 @@ ListView.defaultProps = {
     classes: {},
     component: Card,
     bulkActionButtons: <DefaultBulkActionButtons />,
-    pagination: <DefaultPagination />,
+    pagination: <DefaultPagination />
     // eslint-disable-next-line react/default-props-match-prop-types
-    empty: <Empty />
+    // empty: <Empty />
 };
 
 const useStyles = makeStyles(

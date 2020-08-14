@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.79] - 2020-08-13
 ### Added
 - MySearchableDatagrid support custom 'classes' for table - [@TinVan2]
 ### Changed
 - Change 'showYearPicker' of datepicker for show year picker - [@TinVan2]
+- Support resize many list in one page - [@TinVan2]
 
 ## [0.2.78] - 2020-08-12
 ### Added

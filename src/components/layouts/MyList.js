@@ -18,7 +18,7 @@ const MyList = React.memo((props) => {
     }
     return (
         <div ref={ref} className="w-100 h-100 position-absolute pos-reset">
-            <List {...props} classes={classes} maxHeight={tableMaxHeight} />
+            <List {...props} classes={classes} height={tableMaxHeight} />
         </div>
     );
 });

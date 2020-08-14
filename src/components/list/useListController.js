@@ -45,7 +45,7 @@ export const useListController = (
         perPage = 10,
         filter,
         debounce = 500,
-        maxHeight = '100%'
+        height = '100%'
     } = props;
 
     if (filter && isValidElement(filter)) {
@@ -156,7 +156,7 @@ export const useListController = (
         showFilter: queryModifiers.showFilter,
         total: typeof total === 'undefined' ? defaultTotal : total,
         version,
-        maxHeight
+        height
     };
 };
 
@@ -187,7 +187,7 @@ export const injectedProps = [
     'showFilter',
     'total',
     'version',
-    'maxHeight'
+    'height'
 ];
 
 /**

@@ -29,14 +29,14 @@ const MySearchableDataGrid = (props) => {
         setTextSearch(e.currentTarget.value);
     };
 
-    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, customTableClasses = classes, maxHeight, ...rest } = props;
+    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, customTableClasses = classes, height, ...rest } = props;
     // const {translate} = this.props;
 
     useEffect(() => {
         // eslint-disable-next-line no-nested-ternary
-        const scrollHeight = innerScroll ? (searchEnable ? parseInt(maxHeight, 10) - 30 : maxHeight) : '100%';
+        const scrollHeight = innerScroll ? (searchEnable ? parseInt(height, 10) - 30 : height) : '100%';
         setMaxHeightTable(scrollHeight);
-    }, [innerScroll, maxHeight, searchEnable]);
+    }, [innerScroll, height, searchEnable]);
 
     const { resource, fields } = props;
     let newData = data;
@@ -113,7 +113,7 @@ MySearchableDataGrid.propTypes = {
     fields: PropTypes.array,
     innerScroll: PropTypes.bool,
     customTableClasses: PropTypes.object,
-    maxHeight: PropTypes.any
+    height: PropTypes.any // maxHeight of List
 };
 
 MySearchableDataGrid.defaultProps = {
