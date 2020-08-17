@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.80] - 2020-08-17
+### Added
+- MyIconButton supports skip translate popup label - [@tunglt1810]
+
 ## [0.2.79] - 2020-08-13
 ### Added
 - MySearchableDatagrid support custom 'classes' for table - [@TinVan2]

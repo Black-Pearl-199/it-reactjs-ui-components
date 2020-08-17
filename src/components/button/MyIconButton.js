@@ -5,13 +5,13 @@ import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const MyIconButton = (props) => {
     const translate = useTranslate();
-    const { children, popLabel, className, enableTooltip, placement, ...rest } = props;
+    const { children, popLabel, className, enableTooltip, placement, skipTran, ...rest } = props;
     return enableTooltip ? (
         <OverlayTrigger
             placement={placement}
             overlay={(
                 <Tooltip className="itech-tooltip" id="icon-btn-tooltip">
-                    {translate(popLabel)}
+                    {skipTran ? popLabel : translate(popLabel)}
                 </Tooltip>
             )}
         >
@@ -31,7 +31,8 @@ MyIconButton.propTypes = {
     popLabel: string,
     translate: func,
     enableTooltip: bool,
-    placement: string
+    placement: string,
+    skipTran: bool
 };
 
 MyIconButton.defaultProps = {
