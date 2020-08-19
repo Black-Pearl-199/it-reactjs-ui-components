@@ -30,9 +30,13 @@ const MyControlField = (props) => {
         optimisticDelete,
         enableTooltip,
         btnEditClasses,
-        btnDeleteClasses
+        btnDeleteClasses,
+        updatableField,
+        deletableField
     } = props;
     const { id } = record;
+    const updatable = updatableField ? record[updatableField] : true;
+    const deletable = deletableField ? record[deletableField] : true;
 
     let url = '';
     if (urlFormat) {
@@ -78,7 +82,7 @@ const MyControlField = (props) => {
 
     return (
         <div className={classNames('d-flex', className)} onClick={preventDefaultOnClick}>
-            {hasEdit && (
+            {hasEdit && updatable && (
                 <MyIconButton
                     enableTooltip={enableTooltip}
                     popLabel="ra.action.edit"
@@ -88,7 +92,7 @@ const MyControlField = (props) => {
                     <FontAwesomeIcon icon={faEdit} />
                 </MyIconButton>
             )}
-            {hasDelete && (
+            {hasDelete && deletable && (
                 <MyIconButton
                     enableTooltip={enableTooltip}
                     popLabel="ra.action.delete"
@@ -117,7 +121,9 @@ MyControlField.propTypes = {
     deleteCallback: PropTypes.func,
     enableTooltip: PropTypes.bool,
     btnEditClasses: PropTypes.string,
-    btnDeleteClasses: PropTypes.string
+    btnDeleteClasses: PropTypes.string,
+    updatableField: PropTypes.string,
+    deletableField: PropTypes.string
 };
 
 MyControlField.defaultProps = {

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.81] - 2020-08-19
+### Added
+- MyControlField support access object updatable and deletable field data - [@tunglt1810]
+
 ## [0.2.80] - 2020-08-17
 ### Added
 - MyIconButton supports skip translate popup label - [@tunglt1810]
