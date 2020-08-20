@@ -92,11 +92,11 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         calendarClasses,
         openCalendar,
         onTriggerSubmit,
-        showYearPicker,
         fullFill,
         ...rest
     } = props;
     let { defaultValue } = props;
+    const { showYearPicker, showTimeSelectOnly } = props;
     const sanitizeProps = sanitizeRestProps(rest);
 
     useEffect(() => {
@@ -289,10 +289,9 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     className={composeInputClasses}
                     calendarClassName={calendarClasses}
                     onChangeRaw={onChangeRaw}
-                    {...sanitizeProps}
                     autoComplete="off"
-                    showYearPicker={showYearPicker}
-                    customInput={showYearPicker ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
+                    {...sanitizeProps}
+                    customInput={showYearPicker || showTimeSelectOnly ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
                     placeholderText={hideLabel === true ? translatedLabel : null}
                 />
             );
@@ -326,6 +325,7 @@ Input.propTypes = {
     onTriggerSubmit: func,
     optionClasses: shape({ group: string, item: string, input: string, label: string }),
     showYearPicker: bool,
+    showTimeSelectOnly: bool,
     fullFill: bool
 };
 

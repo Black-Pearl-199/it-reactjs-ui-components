@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.82] - 2020-08-20
+### Added
+- MyBootstrapInput support show select time format - [@TinVan2]
+
 ## [0.2.81] - 2020-08-19
 ### Added
 - MyControlField support access object updatable and deletable field data - [@tunglt1810]
