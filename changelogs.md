@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Add label confirm in edit toolbar - [@khanhITECH]
 
 ## [0.2.79] - 2020-08-13
 ### Added
