@@ -21,6 +21,8 @@ class Guardian {
         // reset cache memoize
         this.hasAuthority.cache.clear();
         this.hasAnyAuthorities.cache.clear();
+        this.hasAuthorityExcludeMaster.cache.clear();
+        this.hasAnyAuthoritiesExcludeMaster.cache.clear();
     };
 
     setMasterAuthority = (masterAuthority) => {
