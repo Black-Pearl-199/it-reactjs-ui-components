@@ -23,6 +23,7 @@ const MyUpdateButton = (props) => {
         hideNotification,
         customNotification = {},
         label,
+        labelConfirm,
         filter,
         editing,
         changeEditState,
@@ -71,7 +72,7 @@ const MyUpdateButton = (props) => {
                                 messageArgs: { resourceName, ...messageArgs },
                                 actions: [
                                     {
-                                        label: label || 'button.add',
+                                        label: labelConfirm || 'button.add',
                                         callback: () => {
                                             sendRequest(values);
                                         }
@@ -87,7 +88,7 @@ const MyUpdateButton = (props) => {
                         messageArgs: { resourceName, ...messageArgs },
                         actions: [
                             {
-                                label: label || 'button.add',
+                                label: labelConfirm || 'button.add',
                                 callback: () => {
                                     sendRequest(values);
                                 }
@@ -97,22 +98,7 @@ const MyUpdateButton = (props) => {
                 );
             }
         },
-        [
-            action,
-            basePath,
-            beforeSubmit,
-            callback,
-            changeEditState,
-            convertValue,
-            customNotification,
-            dispatch,
-            editing,
-            filter,
-            hideNotification,
-            label,
-            resource,
-            translate
-        ]
+        [action, basePath, beforeSubmit, callback, changeEditState, convertValue, customNotification, dispatch, editing, filter, hideNotification, resource, translate, labelConfirm]
     );
 
     // override handleSubmitWithRedirect with custom logic
@@ -133,7 +119,8 @@ MyUpdateButton.propTypes = {
     filter: PropTypes.object,
     editing: PropTypes.bool,
     changeEditState: PropTypes.func,
-    buttonClasses: PropTypes.string
+    buttonClasses: PropTypes.string,
+    labelConfirm: PropTypes.string
 };
 
 export default MyUpdateButton;
