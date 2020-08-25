@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.83] - 2020-08-25
 ### Added
 - Add label confirm in edit toolbar - [@khanhITECH]
+### Changed
+- Changed default animation of MessageBox modal to false and export api property for control - [@tunglt1810]
 
 ## [0.2.82] - 2020-08-20
 ### Added

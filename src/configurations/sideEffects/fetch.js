@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import {
     CREATE,
     DELETE,
@@ -65,10 +64,10 @@ function validateResponseFormat(
         throw new Error('ra.notification.data_provider_error');
     }
     if (
-        fetchActionsWithArrayOfIdentifiedRecordsResponse.includes(type) &&
-        Array.isArray(response.data) &&
-        response.data.length > 0 &&
-        response.data.some((d) => !Object.hasOwnProperty.call(d, 'id'))
+        fetchActionsWithArrayOfIdentifiedRecordsResponse.includes(type)
+        && Array.isArray(response.data)
+        && response.data.length > 0
+        && response.data.some((d) => !Object.hasOwnProperty.call(d, 'id'))
     ) {
         logger(
             `The response to '${type}' must be like { data : [{ id: 123, ...}, ...] }, but at least one received data item do not have an 'id' key. The dataProvider is probably wrong for '${type}'`
@@ -141,17 +140,15 @@ export function* handleFetch(dataProvider, action) {
     } finally {
         if (yield cancelled()) {
             yield put({ type: FETCH_CANCEL });
-            return;
+            // return;
         }
     }
 }
 
 export const takeFetchAction = (action) => action.meta && action.meta.fetch;
 
-const fetch = (dataProvider) => {
-    return function* watchFetch() {
-        yield takeEvery(takeFetchAction, handleFetch, dataProvider);
-    };
+const fetch = (dataProvider) => function* watchFetch() {
+    yield takeEvery(takeFetchAction, handleFetch, dataProvider);
 };
 
 export default fetch;
