@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.84] - 2020-08-25
+### Added
+- Add funcs to support check has any authorities exclude the master authorities - [@TinVan2]
+
 ## [0.2.83] - 2020-08-25
 ### Added
 - Add label confirm in edit toolbar - [@khanhITECH]

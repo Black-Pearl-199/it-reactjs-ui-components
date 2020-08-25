@@ -39,6 +39,19 @@ class Guardian {
         for (let i = 0; i < allowedAuthorities.length; i += 1) if (this.hasAuthority(allowedAuthorities[i])) return true;
         return false;
     });
+
+    hasAuthorityExcludeMaster = memoize((allowedAuthority) => {
+        if (!this.authorities) return false;
+        if (!allowedAuthority) return true;
+        return this.authorities.indexOf(allowedAuthority) > -1;
+    });
+
+    hasAnyAuthoritiesExcludeMaster = memoize((allowedAuthorities) => {
+        if (!this.authorities) return false;
+        if (!allowedAuthorities) return true;
+        for (let i = 0; i < allowedAuthorities.length; i += 1) if (this.hasAuthority(allowedAuthorities[i])) return true;
+        return false;
+    });
 }
 
 Guardian.getInstance();
