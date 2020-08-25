@@ -51,7 +51,7 @@ class Guardian {
     hasAnyAuthoritiesExcludeMaster = memoize((allowedAuthorities) => {
         if (!this.authorities) return false;
         if (!allowedAuthorities) return true;
-        for (let i = 0; i < allowedAuthorities.length; i += 1) if (this.hasAuthority(allowedAuthorities[i])) return true;
+        for (let i = 0; i < allowedAuthorities.length; i += 1) if (this.hasAuthorityExcludeMaster(allowedAuthorities[i])) return true;
         return false;
     });
 }
