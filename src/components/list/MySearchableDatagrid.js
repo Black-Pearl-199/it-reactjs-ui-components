@@ -29,14 +29,26 @@ const MySearchableDataGrid = (props) => {
         setTextSearch(e.currentTarget.value);
     };
 
-    const { data, ids, searchEnable, exportable, exporter, customAction, innerScroll, customTableClasses = classes, height, ...rest } = props;
+    const {
+        data,
+        ids,
+        searchEnable,
+        exportable,
+        exporter,
+        customAction,
+        innerScroll,
+        customTableClasses = classes,
+        height,
+        hasCustomAction,
+        ...rest
+    } = props;
     // const {translate} = this.props;
 
     useEffect(() => {
         // eslint-disable-next-line no-nested-ternary
-        const scrollHeight = innerScroll ? (searchEnable ? parseInt(height, 10) - 30 : height) : '100%';
+        const scrollHeight = innerScroll ? (searchEnable || exportable || hasCustomAction ? parseInt(height, 10) - 30 : height) : '100%';
         setMaxHeightTable(scrollHeight);
-    }, [innerScroll, height, searchEnable]);
+    }, [innerScroll, height, searchEnable, exportable, hasCustomAction]);
 
     const { resource, fields } = props;
     let newData = data;
@@ -54,11 +66,12 @@ const MySearchableDataGrid = (props) => {
                 {exportable && (
                     <div className="ml-4">
                         <MyExportExcelButton
-                            className="btn btn-itech btn-itech-primary h-75 ml-4 btn-itech-fixed"
+                            className="btn btn-itech btn-itech-primary btn-itech-fixed"
                             resource={resource}
                             exporter={exporter}
                             name={`resources.${resource}.name`}
                             fields={fields}
+                            style={{ height: '26px !important' }}
                         />
                     </div>
                 )}
@@ -113,7 +126,8 @@ MySearchableDataGrid.propTypes = {
     fields: PropTypes.array,
     innerScroll: PropTypes.bool,
     customTableClasses: PropTypes.object,
-    height: PropTypes.any // maxHeight of List
+    height: PropTypes.any, // maxHeight of List,
+    hasCustomAction: PropTypes.bool
 };
 
 MySearchableDataGrid.defaultProps = {
