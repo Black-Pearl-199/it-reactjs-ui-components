@@ -1,17 +1,10 @@
-import { Chip } from '@material-ui/core';
-import Checkbox from '@material-ui/core/Checkbox';
-import Input from '@material-ui/core/Input';
-import ListItemText from '@material-ui/core/ListItemText';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import { makeStyles } from '@material-ui/core/styles';
+import { Checkbox, Chip, Input, ListItemText, makeStyles, MenuItem, Select } from '@material-ui/core';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
-import { get } from 'lodash';
-
 import { checkboxStyles } from '../MyCustomStyles';
 
 const useCheckboxStyles = makeStyles(checkboxStyles, { name: 'Bass-MSAI' });
@@ -80,10 +73,13 @@ const MySelectArrayInput = (props) => {
     useEffect(() => {
         const currentValue = get(form.getState().values, source) || [];
         // check khi reset form
-        if (JSON.stringify(defaultValue) === JSON.stringify(currentValue) && JSON.stringify(multipleSelectValue) !== JSON.stringify(currentValue)) {
+        if (
+            JSON.stringify(defaultValue) === JSON.stringify(currentValue)
+            && JSON.stringify(multipleSelectValue) !== JSON.stringify(currentValue)
+        ) {
             setMultipleSelectValue(currentValue);
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [JSON.stringify(form.getState().values)]);
     return (
         <div className={classNames('form-group', groupClasses, hidden ? 'd-none' : null)}>

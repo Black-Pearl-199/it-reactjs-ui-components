@@ -1,10 +1,17 @@
-import { isValidElement, useEffect, useMemo } from 'react';
 import inflection from 'inflection';
+import { get } from 'lodash';
+import { isValidElement, useEffect, useMemo } from 'react';
+import {
+    CRUD_GET_LIST,
+    SORT_ASC,
+    useCheckMinimumRequiredProps,
+    useGetList,
+    useNotify,
+    useRecordSelection,
+    useTranslate,
+    useVersion
+} from 'react-admin';
 import { useSelector } from 'react-redux';
-import get from 'lodash/get';
-import { useCheckMinimumRequiredProps, useTranslate,
-    useNotify, useGetList, CRUD_GET_LIST, useVersion, useRecordSelection, SORT_ASC } from 'react-admin';
-
 import useListParams from './useListParams';
 
 const defaultSort = {
@@ -31,9 +38,7 @@ const defaultData = {};
  *     return <ListView {...controllerProps} {...props} />;
  * }
  */
-export const useListController = (
-    props
-) => {
+export const useListController = (props) => {
     useCheckMinimumRequiredProps('List', ['basePath', 'resource'], props);
 
     const {
@@ -82,20 +87,11 @@ export const useListController = (
         { ...query.filter, ...filter },
         {
             action: CRUD_GET_LIST,
-            onFailure: (error) => notify(
-                typeof error === 'string'
-                    ? error
-                    : error.message || 'ra.notification.http_error',
-                'warning'
-            )
+            onFailure: (error) => notify(typeof error === 'string' ? error : error.message || 'ra.notification.http_error', 'warning')
         }
     );
 
-    const data = useSelector((state) => get(
-        state.admin.resources,
-        [resource, 'data'],
-        defaultData
-    ));
+    const data = useSelector((state) => get(state.admin.resources, [resource, 'data'], defaultData));
 
     // When the user changes the page/sort/filter, this controller runs the
     // useGetList hook again. While the result of this new call is loading,
@@ -105,10 +101,7 @@ export const useListController = (
     const defaultTotal = 0;
 
     useEffect(() => {
-        if (
-            query.page <= 0
-            || (!loading && query.page > 1 && (ids || []).length === 0)
-        ) {
+        if (query.page <= 0 || (!loading && query.page > 1 && (ids || []).length === 0)) {
             // query for a page that doesn't exist, set page to 1
             queryModifiers.setPage(1);
         }

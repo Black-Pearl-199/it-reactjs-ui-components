@@ -1,13 +1,10 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
+import { Checkbox, FormControlLabel, makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
-
 import { checkboxStyles } from '../MyCustomStyles';
 
 const useStyles = makeStyles(checkboxStyles, { name: 'RaCheckboxGroupInputItem' });
@@ -37,7 +34,7 @@ const MyCheckboxInput = (props) => {
     const [checked, setChecked] = useState(defaultValue);
     const labelDisplay = hideLabel ? '' : translate(label || `resources.${resource}.fields.${source}`);
     // eslint-disable-next-line no-nested-ternary
-    const inputLabelDisplay = hiddenInputLabel ? '' : (skipTranslate ? inputLabel : translate(inputLabel));
+    const inputLabelDisplay = hiddenInputLabel ? '' : skipTranslate ? inputLabel : translate(inputLabel);
 
     const handleChange = (event) => {
         setChecked(event.target.checked);

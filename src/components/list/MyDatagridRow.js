@@ -1,13 +1,10 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
+import { Checkbox, TableCell, TableRow } from '@material-ui/core';
 import classNames from 'classnames';
 import { push } from 'connected-react-router';
 import { any, bool, func, node, object, oneOfType, string } from 'prop-types';
 import React, { isValidElement, useCallback, useEffect, useState } from 'react';
 import { DatagridCell, linkToRecord, useExpanded } from 'react-admin';
 import { useDispatch } from 'react-redux';
-
 import ExpandRowButton from './ExpandRowButton';
 import ROW_CLICK from './RowClick';
 

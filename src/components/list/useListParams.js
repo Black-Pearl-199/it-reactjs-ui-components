@@ -1,12 +1,6 @@
+import { debounce as lodashDebounce, set } from 'lodash';
 import { useCallback, useMemo, useState } from 'react';
-import lodashDebounce from 'lodash/debounce';
-import set from 'lodash/set';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { removeKey, removeEmpty } from 'ra-core';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
-import queryReducer, { SORT_ASC, SET_SORT, SET_PAGE, SET_PER_PAGE, SET_FILTER } from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
-
+import { queryReducer, removeEmpty, removeKey, SET_FILTER, SET_PAGE, SET_PER_PAGE, SET_SORT, SORT_ASC } from 'react-admin';
 
 const emptyObject = {};
 
@@ -66,21 +60,9 @@ const defaultParams = {};
  *      setSort,
  * } = listParamsActions;
  */
-const useListParams = ({
-    resource,
-    filterDefaultValues,
-    sort = defaultSort,
-    perPage = 10,
-    debounce = 500
-}) => {
+const useListParams = ({ resource, filterDefaultValues, sort = defaultSort, perPage = 10, debounce = 500 }) => {
     const [params, setParams] = useState(defaultParams);
-    const requestSignature = [
-        resource,
-        params,
-        filterDefaultValues,
-        JSON.stringify(sort),
-        perPage
-    ];
+    const requestSignature = [resource, params, filterDefaultValues, JSON.stringify(sort), perPage];
 
     const query = useMemo(
         () => getQuery({
@@ -117,26 +99,22 @@ const useListParams = ({
     const filterValues = query.filter || emptyObject;
     const displayedFilterValues = query.displayedFilters || emptyObject;
 
-    const debouncedSetFilters = lodashDebounce(
-        (newFilters, newDisplayedFilters) => {
-            const payload = {
-                filter: removeEmpty(newFilters),
-                displayedFilters: undefined
-            };
-            if (newDisplayedFilters) {
-                payload.displayedFilters = Object.keys(
-                    newDisplayedFilters
-                ).reduce((filters, filter) => (newDisplayedFilters[filter]
-                    ? { ...filters, [filter]: true }
-                    : filters), {});
-            }
-            changeParams({
-                type: SET_FILTER,
-                payload
-            });
-        },
-        debounce
-    );
+    const debouncedSetFilters = lodashDebounce((newFilters, newDisplayedFilters) => {
+        const payload = {
+            filter: removeEmpty(newFilters),
+            displayedFilters: undefined
+        };
+        if (newDisplayedFilters) {
+            payload.displayedFilters = Object.keys(newDisplayedFilters).reduce(
+                (filters, filter) => (newDisplayedFilters[filter] ? { ...filters, [filter]: true } : filters),
+                {}
+            );
+        }
+        changeParams({
+            type: SET_FILTER,
+            payload
+        });
+    }, debounce);
 
     const setFilters = useCallback(
         (filters, displayedFilters) => debouncedSetFilters(filters, displayedFilters),
@@ -194,15 +172,9 @@ const useListParams = ({
  *
  * @param {Object} params
  */
-export const hasCustomParams = (params) => (
-    params
-        && params.filter
-        && (Object.keys(params.filter).length > 0
-            || params.order != null
-            || params.page !== 1
-            || params.perPage != null
-            || params.sort != null)
-);
+export const hasCustomParams = (params) => params
+    && params.filter
+    && (Object.keys(params.filter).length > 0 || params.order != null || params.page !== 1 || params.perPage != null || params.sort != null);
 
 /**
  * Merge list params from 3 different sources:
@@ -210,14 +182,8 @@ export const hasCustomParams = (params) => (
  *   - the params stored in the state (from previous navigation)
  *   - the props passed to the List component (including the filter defaultValues)
  */
-export const getQuery = ({
-    filterDefaultValues,
-    params,
-    sort,
-    perPage
-}) => {
-    const query = hasCustomParams(params)
-        ? { ...params } : { filter: filterDefaultValues || {} };
+export const getQuery = ({ filterDefaultValues, params, sort, perPage }) => {
+    const query = hasCustomParams(params) ? { ...params } : { filter: filterDefaultValues || {} };
 
     if (!query.sort) {
         query.sort = sort.field;
@@ -236,11 +202,6 @@ export const getQuery = ({
     };
 };
 
-export const getNumberOrDefault = (
-    possibleNumber,
-    defaultValue
-) => (typeof possibleNumber === 'string'
-    ? parseInt(possibleNumber, 10)
-    : possibleNumber) || defaultValue;
+export const getNumberOrDefault = (possibleNumber, defaultValue) => (typeof possibleNumber === 'string' ? parseInt(possibleNumber, 10) : possibleNumber) || defaultValue;
 
 export default useListParams;

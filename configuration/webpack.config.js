@@ -5,6 +5,9 @@ const path = require('path');
 module.exports = (env, argv) => {
     const config = {
         externals: {
+            '@fortawesome/fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
+            '@fortawesome/free-solid-svg-icons': '@fortawesome/free-solid-svg-icons',
+            '@fortawesome/react-fontawesome': '@fortawesome/react-fontawesome',
             '@material-ui/core': '@material-ui/core',
             '@material-ui/icons': '@material-ui/icons',
             'connected-react-router': 'connected-react-router',
@@ -15,7 +18,6 @@ module.exports = (env, argv) => {
             'moment-timezone': 'moment-timezone',
             'prop-types': 'prop-types',
             react: 'react',
-            'ra-core': 'ra-core',
             'react-admin': 'react-admin',
             'react-bootstrap': 'react-bootstrap',
             'react-dom': 'react-dom',
@@ -26,7 +28,9 @@ module.exports = (env, argv) => {
             recompose: 'recompose',
             redux: 'redux',
             'redux-persist': 'redux-persist',
-            'redux-saga': 'redux-saga'
+            'redux-saga': 'redux-saga',
+            'react-datepicker': 'react-datepicker',
+            lodash: 'lodash'
         },
         // This is where our app starts. This is why we have done all this importing
         // and exporting, to get to here

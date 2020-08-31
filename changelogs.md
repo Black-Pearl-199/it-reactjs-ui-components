@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.86] - 2020-08-31
+### Changed
+- Change import to reduce bundle size - [@tunglt1810]
+
 ## [0.2.85] - 2020-08-27
 ### Fixed
 - Fix: Compute high for list have customAction, search, exporter - [@TinVan2]

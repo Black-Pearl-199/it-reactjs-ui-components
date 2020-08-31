@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';

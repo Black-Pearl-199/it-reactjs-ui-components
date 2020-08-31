@@ -1,9 +1,8 @@
-import TablePagination from '@material-ui/core/TablePagination';
+import { TablePagination } from '@material-ui/core';
 import * as PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import { Responsive, sanitizeListRestProps, useTranslate } from 'react-admin';
 import { pure } from 'recompose';
-
 import PaginationActions from './PaginationActions';
 import PaginationLimit from './PaginationLimit';
 

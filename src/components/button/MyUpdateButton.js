@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import * as PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useTranslate } from 'react-admin';
@@ -98,7 +98,22 @@ const MyUpdateButton = (props) => {
                 );
             }
         },
-        [action, basePath, beforeSubmit, callback, changeEditState, convertValue, customNotification, dispatch, editing, filter, hideNotification, resource, translate, labelConfirm]
+        [
+            action,
+            basePath,
+            beforeSubmit,
+            callback,
+            changeEditState,
+            convertValue,
+            customNotification,
+            dispatch,
+            editing,
+            filter,
+            hideNotification,
+            resource,
+            translate,
+            labelConfirm
+        ]
     );
 
     // override handleSubmitWithRedirect with custom logic

@@ -1,4 +1,4 @@
-import TableBody from '@material-ui/core/TableBody';
+import { TableBody } from '@material-ui/core';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';

@@ -1,9 +1,8 @@
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { LinearProgress } from '@material-ui/core';
 import { get } from 'lodash';
 import * as PropTypes from 'prop-types';
-import { useTranslate, Labeled, useReferenceInputController } from 'react-admin';
 import React, { Children, useEffect, useState } from 'react';
-
+import { Labeled, useReferenceInputController, useTranslate } from 'react-admin';
 import ReferenceError from './ReferenceError';
 
 const SORT_ASC = 'ASC';
@@ -87,7 +86,8 @@ const ReferenceInputView = (props) => {
             setFirstInit(false);
             // console.log(choices, source, rest.optionValue);
             let formInitValue = value;
-            if (!formInitValue) { // check form data của MyFilterBox
+            if (!formInitValue) {
+                // check form data của MyFilterBox
                 if (inputValue) {
                     formInitValue = get(inputValue, source);
                 }
@@ -103,18 +103,12 @@ const ReferenceInputView = (props) => {
                 rest.onInputChange({ [source]: formInitValue || defaultValue });
             }
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value]);
 
     if (loading) {
         return (
-            <Labeled
-                label={label}
-                source={source}
-                resource={resource}
-                className={className}
-                isRequired={isRequired}
-            >
+            <Labeled label={label} source={source} resource={resource} className={className} isRequired={isRequired}>
                 <LinearProgress />
             </Labeled>
         );
@@ -254,15 +248,7 @@ ReferenceInputView.propTypes = {
  * </MyReferenceInput>
  */
 
-const MyReferenceInput = ({
-    format,
-    onBlur,
-    onChange,
-    onFocus,
-    parse,
-    validate,
-    ...props
-}) => {
+const MyReferenceInput = ({ format, onBlur, onChange, onFocus, parse, validate, ...props }) => {
     const translate = useTranslate();
     const inputProps = { input: props.input || {} };
     // if (props.form) {
@@ -278,13 +264,7 @@ const MyReferenceInput = ({
     //     });
     //     console.log('final form props for reference input', inputProps);
     // }
-    return (
-        <ReferenceInputView
-            translate={translate}
-            {...props}
-            {...useReferenceInputController({ ...props, ...inputProps, translate })}
-        />
-    );
+    return <ReferenceInputView translate={translate} {...props} {...useReferenceInputController({ ...props, ...inputProps, translate })} />;
 };
 
 MyReferenceInput.propTypes = {

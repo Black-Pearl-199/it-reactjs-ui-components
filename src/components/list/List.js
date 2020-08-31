@@ -1,9 +1,6 @@
-import * as React from 'react';
 import PropTypes from 'prop-types';
-import {
-    useListController
-} from 'ra-core';
-import { TitlePropType } from 'react-admin';
+import * as React from 'react';
+import { TitlePropType, useListController } from 'react-admin';
 import ListView from './ListView';
 
 /**

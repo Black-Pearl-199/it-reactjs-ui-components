@@ -1,7 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Tooltip from '@material-ui/core/Tooltip';
+import { makeStyles, TableCell, TableSortLabel, Tooltip } from '@material-ui/core';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';

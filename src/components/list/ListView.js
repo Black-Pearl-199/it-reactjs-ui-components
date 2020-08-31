@@ -1,24 +1,20 @@
-import * as React from 'react';
-import { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import Card from '@material-ui/core/Card';
+import { Card, makeStyles } from '@material-ui/core';
 import classnames from 'classnames';
-import { makeStyles } from '@material-ui/core/styles';
+import * as PropTypes from 'prop-types';
+import React, { Children, cloneElement } from 'react';
 import {
-    useCheckMinimumRequiredProps,
-    ComponentPropType,
-    ExporterContext,
-    defaultExporter
-} from 'ra-core';
-import {
-    Title,
-    TitlePropType,
-    ListToolbar,
-    Pagination as DefaultPagination,
     BulkActionsToolbar,
     BulkDeleteButton,
-    ListActions as DefaultActions
+    ComponentPropType,
+    defaultExporter,
+    ExporterContext,
+    ListActions as DefaultActions,
     // Empty
+    ListToolbar,
+    Pagination as DefaultPagination,
+    Title,
+    TitlePropType,
+    useCheckMinimumRequiredProps
 } from 'react-admin';
 import { getListControllerProps } from './useListController';
 
@@ -41,15 +37,7 @@ const ListView = (props) => {
     } = props;
     useCheckMinimumRequiredProps('List', ['children'], props);
     const classes = useStyles(props);
-    const {
-        defaultTitle,
-        version,
-        total,
-        loaded,
-        loading,
-        hasCreate,
-        filterValues
-    } = rest;
+    const { defaultTitle, version, total, loaded, loading, hasCreate, filterValues } = rest;
     const controllerProps = getListControllerProps(rest);
 
     const renderList = () => (
@@ -66,15 +54,12 @@ const ListView = (props) => {
             <div className={classes.main}>
                 <Content
                     className={classnames(classes.content, {
-                        [classes.bulkActionsDisplayed]:
-                            controllerProps.selectedIds.length > 0
+                        [classes.bulkActionsDisplayed]: controllerProps.selectedIds.length > 0
                     })}
                     key={version}
                 >
                     {bulkActionButtons !== false && bulkActionButtons && (
-                        <BulkActionsToolbar {...controllerProps}>
-                            {bulkActionButtons}
-                        </BulkActionsToolbar>
+                        <BulkActionsToolbar {...controllerProps}>{bulkActionButtons}</BulkActionsToolbar>
                     )}
                     {children
                         && cloneElement(Children.only(children), {
@@ -88,22 +73,13 @@ const ListView = (props) => {
         </>
     );
 
-    const shouldRenderEmptyPage = hasCreate
-        && loaded
-        && !loading
-        && !total
-        && !Object.keys(filterValues).length;
+    const shouldRenderEmptyPage = hasCreate && loaded && !loading && !total && !Object.keys(filterValues).length;
 
     return (
         <ExporterContext.Provider value={exporter}>
-            <div
-                className={classnames('list-page', classes.root, className)}
-                {...sanitizeRestProps(rest)}
-            >
+            <div className={classnames('list-page', classes.root, className)} {...sanitizeRestProps(rest)}>
                 <Title title={title} defaultTitle={defaultTitle} />
-                {shouldRenderEmptyPage
-                    ? cloneElement(empty, controllerProps)
-                    : renderList()}
+                {shouldRenderEmptyPage ? cloneElement(empty, controllerProps) : renderList()}
             </div>
         </ExporterContext.Provider>
     );

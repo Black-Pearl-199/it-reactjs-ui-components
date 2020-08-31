@@ -1,11 +1,10 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
-
 import { searchInDataTable } from '../../utils';
 import { MyExportExcelButton } from '../button';
 import { tableStyles } from '../MyCustomStyles';

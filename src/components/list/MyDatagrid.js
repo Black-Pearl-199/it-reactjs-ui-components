@@ -1,14 +1,11 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import { makeStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
+import { Checkbox, makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { DatagridLoading, sanitizeListRestProps } from 'react-admin';
-import { TableHead, Table, TableBody, TableRow } from '@material-ui/core';
+import { myDataGridStyle } from '../MyCustomStyles';
 import MyDatagridBody from './MyDatagridBody';
 import MyDatagridHeaderCell from './MyDatagridHeaderCell';
-import { myDataGridStyle } from '../MyCustomStyles';
 
 const useStyles = makeStyles((props) => myDataGridStyle);
 
@@ -91,7 +88,6 @@ const MyDatagrid = (props) => {
         version,
         ...rest
     } = props;
-
 
     /**
      * if loaded is false, the list displays for the first time, and the dataProvider hasn't answered yet

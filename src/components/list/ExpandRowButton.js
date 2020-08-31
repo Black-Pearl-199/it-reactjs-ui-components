@@ -1,22 +1,15 @@
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { IconButton } from '@material-ui/core';
+import { ExpandMoreIcon } from '@material-ui/icons';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
 
-const ExpandRowButton = ({
-    classes,
-    expanded,
-    expandContentId,
-    ...props
-}) => {
+const ExpandRowButton = ({ classes, expanded, expandContentId, ...props }) => {
     const translate = useTranslate();
     return (
         <IconButton
-            aria-label={translate(
-                expanded ? 'ra.action.close' : 'ra.action.expand'
-            )}
+            aria-label={translate(expanded ? 'ra.action.close' : 'ra.action.expand')}
             aria-expanded={expanded}
             aria-controls={expandContentId}
             className={classNames(classes.expandIcon, {

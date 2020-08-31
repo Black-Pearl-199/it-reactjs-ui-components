@@ -1,11 +1,8 @@
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { makeStyles } from '@material-ui/core/styles';
+import { Checkbox, FormControlLabel, makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { useChoices } from 'react-admin';
-
 import { checkboxStyles } from '../MyCustomStyles';
 
 const useStyles = makeStyles(checkboxStyles, { name: 'Bass-MCBGII' });

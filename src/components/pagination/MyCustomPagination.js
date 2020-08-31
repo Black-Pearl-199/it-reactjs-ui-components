@@ -1,10 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import * as PropTypes from 'prop-types';
 import React from 'react';
-
 import { RedirectCreateButton } from '../button';
 import { paginationStyles } from '../MyCustomStyles';
 import Pagination from './Pagination';
+
 
 const useStyles = makeStyles(paginationStyles, { name: 'Bass-MCP' });
 
