@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import { useField, useForm } from 'react-final-form';
 import { checkboxStyles } from '../MyCustomStyles';
+import variables from '../../assets/scss/abstracts/_export.scss';
 
 const useCheckboxStyles = makeStyles(checkboxStyles, { name: 'Bass-MSAI' });
 
@@ -100,7 +101,7 @@ const MySelectArrayInput = (props) => {
                     renderValue={(selected) => (
                         <div className={classes.chips}>
                             {selected.map((value) => (
-                                <Chip key={value} label={value} className={classes.chip} color="#376B51" />
+                                <Chip key={value} label={value} className={classes.chip} color={variables.primaryBgDark} />
                             ))}
                         </div>
                     )}

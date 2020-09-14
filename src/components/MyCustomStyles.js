@@ -337,7 +337,7 @@ export const tableStyles = {
             },
             '& td': {
                 fontWeight: 'bold',
-                backgroundColor: '#e9ecef',
+                backgroundColor: variables.primaryBgDark,
                 borderColor: '#dee2e6',
                 border: '1px'
             },
@@ -378,7 +378,7 @@ export const myDataGridStyle = {
         position: 'sticky',
         top: 0,
         zIndex: 2,
-        backgroundColor: '#376B51 !important',
+        backgroundColor: variables.primaryBgDark,
         color: 'white !important',
         '&:last-child': {
             padding: '0 12px'
@@ -391,7 +391,7 @@ export const myDataGridStyle = {
         //     backgroundColor: variables.rowHoverColor + " !important"
         // },
         '&.active': {
-            backgroundColor: '#c8e7d2 !important'
+            backgroundColor: variables.primaryBgDarkHover
             // color: "#fff"
         }
     },
@@ -463,7 +463,7 @@ export const checkboxStyles = {
         }
     },
     checkedIcon: {
-        backgroundColor: '#376B51',
+        backgroundColor: variables.primaryBgDark,
         backgroundImage:
         'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
         '&:before': {
@@ -477,7 +477,7 @@ export const checkboxStyles = {
             content: '""'
         },
         'input:hover ~ &': {
-            backgroundColor: '#376B51'
+            backgroundColor: variables.primaryBgDark
         }
     },
     checkbox: {

@@ -44,12 +44,12 @@
 
 			&:nth-of-type(even) {
 				&:not(.active) {
-					background: #EBF1EE !important;
+					background: #d1e5f3 !important;
 				}
 
 				&:hover {
 					&:not(.active) {
-						background: #EBF1EE !important;
+						background: #d1e5f3 !important;
 					}
 
 					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
@@ -73,7 +73,7 @@
 
 			td:has(div) {
 				& > div {
-					background: #0ba14a;
+					background: #0b65a1;
 				}
 			}
 		}
