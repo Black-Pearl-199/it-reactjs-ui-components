@@ -391,7 +391,7 @@ export const myDataGridStyle = {
         //     backgroundColor: variables.rowHoverColor + " !important"
         // },
         '&.active': {
-            backgroundColor: variables.primaryBgDarkHover
+            backgroundColor: `${variables.primaryBgDark} !important`
             // color: "#fff"
         }
     },
