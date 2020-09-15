@@ -378,7 +378,7 @@ export const myDataGridStyle = {
         position: 'sticky',
         top: 0,
         zIndex: 2,
-        backgroundColor: `${variables.primaryBgDark} !important`,
+        backgroundColor: `${variables.primaryBgHoverColor} !important`,
         color: 'white !important',
         '&:last-child': {
             padding: '0 12px'
@@ -391,7 +391,7 @@ export const myDataGridStyle = {
         //     backgroundColor: variables.rowHoverColor + " !important"
         // },
         '&.active': {
-            backgroundColor: `${variables.primaryBgDark} !important`
+            backgroundColor: `${variables.primaryBgHoverColor} !important`
             // color: "#fff"
         }
     },
