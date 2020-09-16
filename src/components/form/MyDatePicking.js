@@ -8,6 +8,8 @@ import { Button } from 'react-bootstrap';
 import DATE_RANGE from './DateRange';
 import MyBootstrapInput from './MyBootstrapInput';
 
+const MINISECOND_IN_A_DAY = 86400000;
+
 function add(date, day) {
     const newDate = new Date();
     newDate.setTime(date.getTime() + day * 24 * 60 * 60 * 1000);
@@ -41,8 +43,8 @@ const MyDatePicking = (props) => {
         ...rest
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
+    const [disableInputDate, setDisbleInputDate] = useState(true);
     const [showInput, setShowInput] = useState(false);
-    const [disabledDateInput, setDisabledDateInput] = useState(true);
 
     const { inputValue } = props;
 
@@ -53,6 +55,7 @@ const MyDatePicking = (props) => {
         todayEnd.setHours(23, 59, 59, 999);
         const thisMonthStart = moment(todayStart).startOf('month').toDate();
         const lastMonthStart = moment(add(thisMonthStart, -2)).startOf('month').toDate();
+        const lastMonthEnd = moment(add(thisMonthStart, -1)).toDate();
         const thisWeekStart = moment(todayStart).startOf('isoWeek').toDate();
         const lastWeekStart = moment(add(todayStart, -7)).startOf('isoWeek').toDate();
         if (inputValue) {
@@ -62,7 +65,7 @@ const MyDatePicking = (props) => {
                 setCurrentActive(DATE_RANGE.ALL);
             } else if (!startDate || !endDate) {
                 setCurrentActive(DATE_RANGE.OTHER);
-                setDisabledDateInput(false);
+                setDisbleInputDate(false);
             } else {
                 if (formatDate) {
                     todayStart = moment(moment(todayStart).format(formatDate)).toDate();
@@ -72,24 +75,24 @@ const MyDatePicking = (props) => {
                 const end = moment(endDate).toDate();
                 if (start.getTime() === todayStart.getTime() && end.getTime() === todayEnd.getTime()) {
                     setCurrentActive(DATE_RANGE.TODAY);
-                } else if (start.getTime() + 86400000 === todayStart.getTime() && end.getTime() + 86400000 === todayEnd.getTime()) {
+                } else if (start.getTime() + MINISECOND_IN_A_DAY === todayStart.getTime() && end.getTime() + MINISECOND_IN_A_DAY === todayEnd.getTime()) {
                     setCurrentActive(DATE_RANGE.YESTERDAY);
                 } else if (start.getTime() === thisWeekStart.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_WEEK)) {
                     setCurrentActive(DATE_RANGE.THIS_WEEK);
                 } else if (
                     start.getTime() === lastWeekStart.getTime()
-                    && lastWeekStart.getTime() + 86400000 * 7 === end.getTime()
+                    && lastWeekStart.getTime() + MINISECOND_IN_A_DAY * 7 === end.getTime()
                     && dateButtons.indexOf(DATE_RANGE.LAST_WEEK)
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_WEEK);
-                } else if (start.getTime() === thisMonthStart.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_MONTH)) {
+                } else if (start.getTime() === thisMonthStart.getTime() && end.getTime() === todayEnd.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_MONTH)) {
                     setCurrentActive(DATE_RANGE.THIS_MONTH);
-                } else if (start.getTime() === lastMonthStart.getTime()) {
+                } else if (start.getTime() === lastMonthStart.getTime() && end.getTime() === lastMonthEnd.getTime()) {
                     setCurrentActive(DATE_RANGE.LAST_MONTH);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
-    }, []); // khong update currentActive khi dang chon ngay
+    }, []);
 
     const changeInput = (newInputValues) => {
         let startDate = newInputValues[startDateName];
@@ -179,7 +182,7 @@ const MyDatePicking = (props) => {
         }
         setCurrentActive(selectType);
         setShowInput(selectType === DATE_RANGE.OTHER);
-        setDisabledDateInput(selectType !== DATE_RANGE.OTHER);
+        setDisbleInputDate(selectType !== DATE_RANGE.OTHER);
     };
 
     return (
@@ -213,7 +216,7 @@ const MyDatePicking = (props) => {
                     area-describedby="addon-from-date"
                     {...rest}
                     {...inputClasses}
-                    readOnly={disabled}
+                    readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
                     onCalendarClose={() => setOpenCalendar(true)}
                 />
@@ -226,7 +229,7 @@ const MyDatePicking = (props) => {
                     area-describedby="addon-end-date"
                     {...rest}
                     {...inputClasses}
-                    readOnly={disabled}
+                    readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
                     openCalendar={openCalendar}
                     onCalendarOpen={() => setOpenCalendar(false)}
