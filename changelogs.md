@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.87] - 2020-09-16
+### Changed
+- Update style of table header - [@TinVan2]
+- Update MyDatePicking for enable input when click other date - [@TinVan2]
+
 ## [0.2.86] - 2020-08-31
 ### Changed
 - Change import to reduce bundle size - [@tunglt1810]

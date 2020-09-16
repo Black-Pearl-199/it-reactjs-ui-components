@@ -333,7 +333,8 @@ export const tableStyles = {
         '& thead': {
             '& th': {
                 verticalAlign: 'inherit',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                border: '1px'
             },
             '& td': {
                 fontWeight: 'bold',

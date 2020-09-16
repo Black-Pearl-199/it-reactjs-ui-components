@@ -42,6 +42,7 @@ const MyDatePicking = (props) => {
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
     const [showInput, setShowInput] = useState(false);
+    const [disabledDateInput, setDisabledDateInput] = useState(true);
 
     const { inputValue } = props;
 
@@ -61,6 +62,7 @@ const MyDatePicking = (props) => {
                 setCurrentActive(DATE_RANGE.ALL);
             } else if (!startDate || !endDate) {
                 setCurrentActive(DATE_RANGE.OTHER);
+                setDisabledDateInput(false);
             } else {
                 if (formatDate) {
                     todayStart = moment(moment(todayStart).format(formatDate)).toDate();
@@ -87,7 +89,7 @@ const MyDatePicking = (props) => {
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
-    }, [inputValue, formatDate, endDateName, startDateName, dateButtons]);
+    }, []); // khong update currentActive khi dang chon ngay
 
     const changeInput = (newInputValues) => {
         let startDate = newInputValues[startDateName];
@@ -177,6 +179,7 @@ const MyDatePicking = (props) => {
         }
         setCurrentActive(selectType);
         setShowInput(selectType === DATE_RANGE.OTHER);
+        setDisabledDateInput(selectType !== DATE_RANGE.OTHER);
     };
 
     return (
