@@ -93,6 +93,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         openCalendar,
         onTriggerSubmit,
         fullFill,
+        hideTextChoice,
         ...rest
     } = props;
     let { defaultValue } = props;
@@ -128,13 +129,15 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             type="checkbox"
                             title={translatedLabel}
                             checked={!!inputValue}
-                            id={inputId}
                             className={classNames('form-check-input', composeInputClasses)}
                             {...sanitizeProps}
+                            id={inputId}
                         />
-                        <label className={classNames('form-check-label', labelClasses)} htmlFor={inputId}>
-                            {translatedLabel}
-                        </label>
+                        {!hideTextChoice && (
+                            <label className={classNames('form-check-label', labelClasses)} htmlFor={inputId}>
+                                {translatedLabel}
+                            </label>
+                        )}
                     </div>
                 );
             }
@@ -227,10 +230,10 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                 <input
                     name={source}
                     type={type}
-                    id={inputId}
                     className={composeInputClasses}
                     title={translatedLabel}
                     {...sanitizeProps}
+                    id={inputId}
                     value={inputValue}
                     placeholder={hideLabel === true ? translatedLabel : null}
                 />
@@ -239,11 +242,11 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
             return (
                 <textarea
                     name={source}
-                    id={inputId}
                     style={textareaStyle}
                     className={composeInputClasses}
                     title={translatedLabel}
                     {...sanitizeProps}
+                    id={inputId}
                     value={inputValue}
                     placeholder={hideLabel === true ? translatedLabel : null}
                 />
@@ -256,11 +259,11 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
             return (
                 <select
                     name={source}
-                    id={inputId}
                     value={inputValue}
                     className={composeInputClasses}
                     title={translatedLabel}
                     {...sanitizeProps}
+                    id={inputId}
                     disabled={sanitizeProps.readOnly}
                     placeholder={!hideLabel ? translatedLabel : null}
                 >
@@ -326,7 +329,8 @@ Input.propTypes = {
     optionClasses: shape({ group: string, item: string, input: string, label: string }),
     showYearPicker: bool,
     showTimeSelectOnly: bool,
-    fullFill: bool
+    fullFill: bool,
+    hideTextChoice: bool
 };
 
 const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
