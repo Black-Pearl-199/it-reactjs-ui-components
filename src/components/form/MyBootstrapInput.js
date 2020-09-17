@@ -101,10 +101,12 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
     const sanitizeProps = sanitizeRestProps(rest);
 
     useEffect(() => {
-        if (openCalendar) {
-            if (dateRef && dateRef.current) {
-                dateRef.current.setFocus();
-            }
+        if (openCalendar && dateRef && dateRef.current) {
+            dateRef.current.setOpen(true);
+            dateRef.current.setFocus();
+        } else if (dateRef && dateRef.current) {
+            dateRef.current.setOpen(false);
+            dateRef.current.cancelFocusInput();
         }
     }, [openCalendar]);
     // console.log(component, sanitizeProps);

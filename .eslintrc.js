@@ -64,5 +64,6 @@ module.exports = {
         "react/sort-comp": "off",
         "react/state-in-constructor": "off",
         "react/static-property-placement": ["warn", "static public field"]
+        // "react-hooks/exhaustive-deps": "warn"
     }
 };

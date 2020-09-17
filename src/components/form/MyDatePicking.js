@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import moment from 'moment';
 import * as PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { Button } from 'react-bootstrap';
 
@@ -18,7 +18,8 @@ function add(date, day) {
 
 const MyDatePicking = (props) => {
     const translate = useTranslate();
-    const [openCalendar, setOpenCalendar] = useState(false);
+    const [openStartDateCalendar, setOpenStartDateCalendar] = useState(false);
+    const [openEndDateCalendar, setOpenEndDateCalendar] = useState(false);
 
     const {
         groupClasses,
@@ -92,9 +93,10 @@ const MyDatePicking = (props) => {
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const changeInput = (newInputValues) => {
+    const changeInput = useCallback((newInputValues) => {
         let startDate = newInputValues[startDateName];
         let endDate = newInputValues[endDateName];
         if (formatDate) {
@@ -110,9 +112,9 @@ const MyDatePicking = (props) => {
             },
             autoSubmit && submit
         );
-    };
+    }, [autoSubmit, endDateName, formatDate, props, startDateName, submit]);
 
-    const selectDateRange = (e) => {
+    const selectDateRange = useCallback((e) => {
         const { selectType } = e.currentTarget.dataset;
         const todayStart = new Date();
         const todayEnd = new Date();
@@ -178,12 +180,23 @@ const MyDatePicking = (props) => {
                 });
                 break;
             default:
+                setOpenStartDateCalendar(true);
                 break;
         }
         setCurrentActive(selectType);
         setShowInput(selectType === DATE_RANGE.OTHER);
         setDisbleInputDate(selectType !== DATE_RANGE.OTHER);
-    };
+        setOpenEndDateCalendar(false);
+    }, [changeInput, endDateName, startDateName]);
+
+    const calendarOfStartDateClose = useCallback(() => {
+        setOpenEndDateCalendar(true);
+        setOpenStartDateCalendar(false);
+    }, []);
+
+    const calendarOfEndDateClose = useCallback(() => {
+        setOpenEndDateCalendar(false);
+    }, []);
 
     return (
         <div className={groupClasses}>
@@ -218,7 +231,8 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
-                    onCalendarClose={() => setOpenCalendar(true)}
+                    openCalendar={openStartDateCalendar}
+                    onCalendarClose={calendarOfStartDateClose}
                 />
                 <MyBootstrapInput
                     source={endDateName}
@@ -231,8 +245,8 @@ const MyDatePicking = (props) => {
                     {...inputClasses}
                     readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
-                    openCalendar={openCalendar}
-                    onCalendarOpen={() => setOpenCalendar(false)}
+                    openCalendar={openEndDateCalendar}
+                    onCalendarClose={calendarOfEndDateClose}
                     onBlur={handleOnBlur}
                 />
             </div>
