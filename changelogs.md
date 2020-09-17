@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.88] - 2020-09-17
+### Changed
+- Update border style for table header - [@TinVan2]
+- Support MyDatePicking for auto focus when click other date button - [@TinVan@]
+
 ## [0.2.87] - 2020-09-16
 ### Changed
 - Update style of table header - [@TinVan2]
