@@ -40722,6 +40722,304 @@ MaskedInput.propTypes =  true ? {
 
 /***/ }),
 
+/***/ "./node_modules/react-universal-interface/lib/addClassDecoratorSupport.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/addClassDecoratorSupport.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var wrapInStatefulComponent_1 = tslib_1.__importDefault(__webpack_require__(/*! ./wrapInStatefulComponent */ "./node_modules/react-universal-interface/lib/wrapInStatefulComponent.js"));
+
+var addClassDecoratorSupport = function addClassDecoratorSupport(Comp) {
+  var isSFC = !Comp.prototype;
+  return !isSFC ? Comp : wrapInStatefulComponent_1.default(Comp);
+};
+
+exports.default = addClassDecoratorSupport;
+
+/***/ }),
+
+/***/ "./node_modules/react-universal-interface/lib/createEnhancer.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/createEnhancer.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.divWrapper = void 0;
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var React = tslib_1.__importStar(__webpack_require__(/*! react */ "react"));
+
+var addClassDecoratorSupport_1 = tslib_1.__importDefault(__webpack_require__(/*! ./addClassDecoratorSupport */ "./node_modules/react-universal-interface/lib/addClassDecoratorSupport.js"));
+
+var h = React.createElement;
+
+var noWrap = function noWrap(Comp, propName, props, state) {
+  var _a;
+
+  return h(Comp, propName ? tslib_1.__assign((_a = {}, _a[propName] = state, _a), props) : tslib_1.__assign(tslib_1.__assign({}, state), props));
+};
+
+exports.divWrapper = function (Comp, propName, props, state) {
+  return h('div', null, noWrap(Comp, propName, props, state));
+};
+
+var createEnhancer = function createEnhancer(Facc, prop, wrapper) {
+  if (wrapper === void 0) {
+    wrapper = noWrap;
+  }
+
+  var enhancer = function enhancer(Comp, propName, faccProps) {
+    if (propName === void 0) {
+      propName = prop;
+    }
+
+    if (faccProps === void 0) {
+      faccProps = null;
+    }
+
+    var isClassDecoratorMethodCall = typeof Comp === 'string';
+
+    if (isClassDecoratorMethodCall) {
+      return function (Klass) {
+        return enhancer(Klass, Comp || prop, propName);
+      };
+    }
+
+    var Enhanced = function Enhanced(props) {
+      return h(Facc, faccProps, function (state) {
+        return wrapper(Comp, propName, props, state);
+      });
+    };
+
+    if (true) {
+      Enhanced.displayName = (Facc.displayName || Facc.name) + "(" + (Comp.displayName || Comp.name) + ")";
+    }
+
+    return isClassDecoratorMethodCall ? addClassDecoratorSupport_1.default(Enhanced) : Enhanced;
+  };
+
+  return enhancer;
+};
+
+exports.default = createEnhancer;
+
+/***/ }),
+
+/***/ "./node_modules/react-universal-interface/lib/hookToRenderProp.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/hookToRenderProp.js ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var render_1 = tslib_1.__importDefault(__webpack_require__(/*! ./render */ "./node_modules/react-universal-interface/lib/render.js"));
+
+var defaultMapPropsToArgs = function defaultMapPropsToArgs(props) {
+  return [props];
+};
+
+var hookToRenderProp = function hookToRenderProp(hook, mapPropsToArgs) {
+  if (mapPropsToArgs === void 0) {
+    mapPropsToArgs = defaultMapPropsToArgs;
+  }
+
+  return function (props) {
+    return render_1.default(props, hook.apply(void 0, mapPropsToArgs(props)));
+  };
+};
+
+exports.default = hookToRenderProp;
+
+/***/ }),
+
+/***/ "./node_modules/react-universal-interface/lib/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/index.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.hookToRenderProp = exports.createEnhancer = exports.render = void 0;
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var render_1 = tslib_1.__importDefault(__webpack_require__(/*! ./render */ "./node_modules/react-universal-interface/lib/render.js"));
+
+exports.render = render_1.default;
+
+var createEnhancer_1 = tslib_1.__importDefault(__webpack_require__(/*! ./createEnhancer */ "./node_modules/react-universal-interface/lib/createEnhancer.js"));
+
+exports.createEnhancer = createEnhancer_1.default;
+
+var hookToRenderProp_1 = tslib_1.__importDefault(__webpack_require__(/*! ./hookToRenderProp */ "./node_modules/react-universal-interface/lib/hookToRenderProp.js"));
+
+exports.hookToRenderProp = hookToRenderProp_1.default;
+
+/***/ }),
+
+/***/ "./node_modules/react-universal-interface/lib/render.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/render.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var react_1 = __webpack_require__(/*! react */ "react");
+
+var isReact16Plus = parseInt(react_1.version.substr(0, react_1.version.indexOf('.'))) > 15;
+
+var isFn = function isFn(fn) {
+  return typeof fn === 'function';
+};
+
+var render = function render(props, data) {
+  var more = [];
+
+  for (var _i = 2; _i < arguments.length; _i++) {
+    more[_i - 2] = arguments[_i];
+  }
+
+  if (true) {
+    if (_typeof(props) !== 'object') {
+      throw new TypeError('renderChildren(props, data) first argument must be a props object.');
+    }
+
+    var children_1 = props.children,
+        render_1 = props.render;
+
+    if (isFn(children_1) && isFn(render_1)) {
+      console.warn('Both "render" and "children" are specified for in a universal interface component. ' + 'Children will be used.');
+      console.trace();
+    }
+
+    if (_typeof(data) !== 'object') {
+      console.warn('Universal component interface normally expects data to be an object, ' + ("\"" + _typeof(data) + "\" received."));
+      console.trace();
+    }
+  }
+
+  var render = props.render,
+      _a = props.children,
+      children = _a === void 0 ? render : _a,
+      component = props.component,
+      _b = props.comp,
+      comp = _b === void 0 ? component : _b;
+  if (isFn(children)) return children.apply(void 0, tslib_1.__spreadArrays([data], more));
+
+  if (comp) {
+    return react_1.createElement(comp, data);
+  }
+
+  if (children instanceof Array) return isReact16Plus ? children : react_1.createElement.apply(void 0, tslib_1.__spreadArrays(['div', null], children));
+
+  if (children && children instanceof Object) {
+    if (true) {
+      if (!children.type || typeof children.type !== 'string' && typeof children.type !== 'function' && _typeof(children.type) !== 'symbol') {
+        console.warn('Universal component interface received object as children, ' + 'expected React element, but received unexpected React "type".');
+        console.trace();
+      }
+
+      if (typeof children.type === 'string') return children;
+      return react_1.cloneElement(children, Object.assign({}, children.props, data));
+    } else {}
+  }
+
+  return children || null;
+};
+
+exports.default = render;
+
+/***/ }),
+
+/***/ "./node_modules/react-universal-interface/lib/wrapInStatefulComponent.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/react-universal-interface/lib/wrapInStatefulComponent.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var React = tslib_1.__importStar(__webpack_require__(/*! react */ "react"));
+
+var wrapInStatefulComponent = function wrapInStatefulComponent(Comp) {
+  var Decorated = function (_super) {
+    tslib_1.__extends(class_1, _super);
+
+    function class_1() {
+      return _super !== null && _super.apply(this, arguments) || this;
+    }
+
+    class_1.prototype.render = function () {
+      return Comp(this.props, this.context);
+    };
+
+    return class_1;
+  }(React.Component);
+
+  if (true) {
+    Decorated.displayName = "Decorated(" + (Comp.displayName || Comp.name) + ")";
+  }
+
+  return Decorated;
+};
+
+exports.default = wrapInStatefulComponent;
+
+/***/ }),
+
 /***/ "./node_modules/react-use/esm/createBreakpoint.js":
 /*!********************************************************!*\
   !*** ./node_modules/react-use/esm/createBreakpoint.js ***!
@@ -41551,7 +41849,7 @@ function useAsync(fn, deps) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useAsyncFn; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useMountedState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useMountedState */ "./node_modules/react-use/esm/useMountedState.js");
@@ -41619,7 +41917,7 @@ function useAsyncFn(fn, deps, initialState) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useAsync__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useAsync */ "./node_modules/react-use/esm/useAsync.js");
@@ -42332,7 +42630,7 @@ var useDefault = function useDefault(defaultValue, initialValue) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -42856,7 +43154,7 @@ var useFullscreen = function useFullscreen(ref, on, options) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -42966,7 +43264,7 @@ function useGetSet(initialState) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useUpdate */ "./node_modules/react-use/esm/useUpdate.js");
@@ -44034,7 +44332,7 @@ var documentListenerAdded = false;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _useEffectOnce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useEffectOnce */ "./node_modules/react-use/esm/useEffectOnce.js");
 /* harmony import */ var _useUpdateEffect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useUpdateEffect */ "./node_modules/react-use/esm/useUpdateEffect.js");
 
@@ -44145,7 +44443,7 @@ var useLongPress = function useLongPress(callback, _a) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -44823,7 +45121,7 @@ function useMultiStateValidator(states, validator, initialValidity) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/react-use/esm/util.js");
@@ -45251,7 +45549,7 @@ var usePromise = function usePromise() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -45493,10 +45791,10 @@ function useRendersCount() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScratchSensor", function() { return ScratchSensor; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_universal_interface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-universal-interface */ "./node_modules/react-use/node_modules/react-universal-interface/lib/index.js");
+/* harmony import */ var react_universal_interface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-universal-interface */ "./node_modules/react-universal-interface/lib/index.js");
 /* harmony import */ var react_universal_interface__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_universal_interface__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _useLatest__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./useLatest */ "./node_modules/react-use/esm/useLatest.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -45951,7 +46249,7 @@ var useSessionStorage = function useSessionStorage(key, initialValue, raw) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
@@ -46100,7 +46398,7 @@ var useShallowCompareEffect = function useShallowCompareEffect(effect, deps) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./node_modules/react-use/esm/util.js");
@@ -46539,7 +46837,7 @@ var useStartTyping = function useStartTyping(onStartTyping) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useStateList; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useMountedState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useMountedState */ "./node_modules/react-use/esm/useMountedState.js");
@@ -47218,7 +47516,7 @@ var useUpdateEffect = function useUpdateEffect(effect, deps) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useUpsert; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _useList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useList */ "./node_modules/react-use/esm/useList.js");
 
 
@@ -47479,7 +47777,7 @@ var isDeepEqual = fast_deep_equal_react__WEBPACK_IMPORTED_MODULE_0___default.a;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _useSetState__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../useSetState */ "./node_modules/react-use/esm/useSetState.js");
@@ -47777,787 +48075,6 @@ function resolveHookState(newState, currentState) {
   }
 
   return newState;
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/addClassDecoratorSupport.js":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/addClassDecoratorSupport.js ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var wrapInStatefulComponent_1 = tslib_1.__importDefault(__webpack_require__(/*! ./wrapInStatefulComponent */ "./node_modules/react-use/node_modules/react-universal-interface/lib/wrapInStatefulComponent.js"));
-
-var addClassDecoratorSupport = function addClassDecoratorSupport(Comp) {
-  var isSFC = !Comp.prototype;
-  return !isSFC ? Comp : wrapInStatefulComponent_1.default(Comp);
-};
-
-exports.default = addClassDecoratorSupport;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/createEnhancer.js":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/createEnhancer.js ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.divWrapper = void 0;
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var React = tslib_1.__importStar(__webpack_require__(/*! react */ "react"));
-
-var addClassDecoratorSupport_1 = tslib_1.__importDefault(__webpack_require__(/*! ./addClassDecoratorSupport */ "./node_modules/react-use/node_modules/react-universal-interface/lib/addClassDecoratorSupport.js"));
-
-var h = React.createElement;
-
-var noWrap = function noWrap(Comp, propName, props, state) {
-  var _a;
-
-  return h(Comp, propName ? tslib_1.__assign((_a = {}, _a[propName] = state, _a), props) : tslib_1.__assign(tslib_1.__assign({}, state), props));
-};
-
-exports.divWrapper = function (Comp, propName, props, state) {
-  return h('div', null, noWrap(Comp, propName, props, state));
-};
-
-var createEnhancer = function createEnhancer(Facc, prop, wrapper) {
-  if (wrapper === void 0) {
-    wrapper = noWrap;
-  }
-
-  var enhancer = function enhancer(Comp, propName, faccProps) {
-    if (propName === void 0) {
-      propName = prop;
-    }
-
-    if (faccProps === void 0) {
-      faccProps = null;
-    }
-
-    var isClassDecoratorMethodCall = typeof Comp === 'string';
-
-    if (isClassDecoratorMethodCall) {
-      return function (Klass) {
-        return enhancer(Klass, Comp || prop, propName);
-      };
-    }
-
-    var Enhanced = function Enhanced(props) {
-      return h(Facc, faccProps, function (state) {
-        return wrapper(Comp, propName, props, state);
-      });
-    };
-
-    if (true) {
-      Enhanced.displayName = (Facc.displayName || Facc.name) + "(" + (Comp.displayName || Comp.name) + ")";
-    }
-
-    return isClassDecoratorMethodCall ? addClassDecoratorSupport_1.default(Enhanced) : Enhanced;
-  };
-
-  return enhancer;
-};
-
-exports.default = createEnhancer;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/hookToRenderProp.js":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/hookToRenderProp.js ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var render_1 = tslib_1.__importDefault(__webpack_require__(/*! ./render */ "./node_modules/react-use/node_modules/react-universal-interface/lib/render.js"));
-
-var defaultMapPropsToArgs = function defaultMapPropsToArgs(props) {
-  return [props];
-};
-
-var hookToRenderProp = function hookToRenderProp(hook, mapPropsToArgs) {
-  if (mapPropsToArgs === void 0) {
-    mapPropsToArgs = defaultMapPropsToArgs;
-  }
-
-  return function (props) {
-    return render_1.default(props, hook.apply(void 0, mapPropsToArgs(props)));
-  };
-};
-
-exports.default = hookToRenderProp;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/index.js":
-/*!************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/index.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.hookToRenderProp = exports.createEnhancer = exports.render = void 0;
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var render_1 = tslib_1.__importDefault(__webpack_require__(/*! ./render */ "./node_modules/react-use/node_modules/react-universal-interface/lib/render.js"));
-
-exports.render = render_1.default;
-
-var createEnhancer_1 = tslib_1.__importDefault(__webpack_require__(/*! ./createEnhancer */ "./node_modules/react-use/node_modules/react-universal-interface/lib/createEnhancer.js"));
-
-exports.createEnhancer = createEnhancer_1.default;
-
-var hookToRenderProp_1 = tslib_1.__importDefault(__webpack_require__(/*! ./hookToRenderProp */ "./node_modules/react-use/node_modules/react-universal-interface/lib/hookToRenderProp.js"));
-
-exports.hookToRenderProp = hookToRenderProp_1.default;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/render.js":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/render.js ***!
-  \*************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var react_1 = __webpack_require__(/*! react */ "react");
-
-var isReact16Plus = parseInt(react_1.version.substr(0, react_1.version.indexOf('.'))) > 15;
-
-var isFn = function isFn(fn) {
-  return typeof fn === 'function';
-};
-
-var render = function render(props, data) {
-  var more = [];
-
-  for (var _i = 2; _i < arguments.length; _i++) {
-    more[_i - 2] = arguments[_i];
-  }
-
-  if (true) {
-    if (_typeof(props) !== 'object') {
-      throw new TypeError('renderChildren(props, data) first argument must be a props object.');
-    }
-
-    var children_1 = props.children,
-        render_1 = props.render;
-
-    if (isFn(children_1) && isFn(render_1)) {
-      console.warn('Both "render" and "children" are specified for in a universal interface component. ' + 'Children will be used.');
-      console.trace();
-    }
-
-    if (_typeof(data) !== 'object') {
-      console.warn('Universal component interface normally expects data to be an object, ' + ("\"" + _typeof(data) + "\" received."));
-      console.trace();
-    }
-  }
-
-  var render = props.render,
-      _a = props.children,
-      children = _a === void 0 ? render : _a,
-      component = props.component,
-      _b = props.comp,
-      comp = _b === void 0 ? component : _b;
-  if (isFn(children)) return children.apply(void 0, tslib_1.__spreadArrays([data], more));
-
-  if (comp) {
-    return react_1.createElement(comp, data);
-  }
-
-  if (children instanceof Array) return isReact16Plus ? children : react_1.createElement.apply(void 0, tslib_1.__spreadArrays(['div', null], children));
-
-  if (children && children instanceof Object) {
-    if (true) {
-      if (!children.type || typeof children.type !== 'string' && typeof children.type !== 'function' && _typeof(children.type) !== 'symbol') {
-        console.warn('Universal component interface received object as children, ' + 'expected React element, but received unexpected React "type".');
-        console.trace();
-      }
-
-      if (typeof children.type === 'string') return children;
-      return react_1.cloneElement(children, Object.assign({}, children.props, data));
-    } else {}
-  }
-
-  return children || null;
-};
-
-exports.default = render;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/react-universal-interface/lib/wrapInStatefulComponent.js":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/react-universal-interface/lib/wrapInStatefulComponent.js ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/react-use/node_modules/tslib/tslib.es6.js");
-
-var React = tslib_1.__importStar(__webpack_require__(/*! react */ "react"));
-
-var wrapInStatefulComponent = function wrapInStatefulComponent(Comp) {
-  var Decorated = function (_super) {
-    tslib_1.__extends(class_1, _super);
-
-    function class_1() {
-      return _super !== null && _super.apply(this, arguments) || this;
-    }
-
-    class_1.prototype.render = function () {
-      return Comp(this.props, this.context);
-    };
-
-    return class_1;
-  }(React.Component);
-
-  if (true) {
-    Decorated.displayName = "Decorated(" + (Comp.displayName || Comp.name) + ")";
-  }
-
-  return Decorated;
-};
-
-exports.default = wrapInStatefulComponent;
-
-/***/ }),
-
-/***/ "./node_modules/react-use/node_modules/tslib/tslib.es6.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/react-use/node_modules/tslib/tslib.es6.js ***!
-  \****************************************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return _assign; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-
-/* global Reflect, Promise */
-var _extendStatics = function extendStatics(d, b) {
-  _extendStatics = Object.setPrototypeOf || {
-    __proto__: []
-  } instanceof Array && function (d, b) {
-    d.__proto__ = b;
-  } || function (d, b) {
-    for (var p in b) {
-      if (b.hasOwnProperty(p)) d[p] = b[p];
-    }
-  };
-
-  return _extendStatics(d, b);
-};
-
-function __extends(d, b) {
-  _extendStatics(d, b);
-
-  function __() {
-    this.constructor = d;
-  }
-
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var _assign = function __assign() {
-  _assign = Object.assign || function __assign(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return _assign.apply(this, arguments);
-};
-
-
-function __rest(s, e) {
-  var t = {};
-
-  for (var p in s) {
-    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  }
-
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-}
-function __decorate(decorators, target, key, desc) {
-  var c = arguments.length,
-      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-      d;
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
-    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-  }
-  return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-function __param(paramIndex, decorator) {
-  return function (target, key) {
-    decorator(target, key, paramIndex);
-  };
-}
-function __metadata(metadataKey, metadataValue) {
-  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-}
-function __awaiter(thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function (resolve) {
-      resolve(value);
-    });
-  }
-
-  return new (P || (P = Promise))(function (resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-}
-function __generator(thisArg, body) {
-  var _ = {
-    label: 0,
-    sent: function sent() {
-      if (t[0] & 1) throw t[1];
-      return t[1];
-    },
-    trys: [],
-    ops: []
-  },
-      f,
-      y,
-      t,
-      g;
-  return g = {
-    next: verb(0),
-    "throw": verb(1),
-    "return": verb(2)
-  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
-    return this;
-  }), g;
-
-  function verb(n) {
-    return function (v) {
-      return step([n, v]);
-    };
-  }
-
-  function step(op) {
-    if (f) throw new TypeError("Generator is already executing.");
-
-    while (_) {
-      try {
-        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-        if (y = 0, t) op = [op[0] & 2, t.value];
-
-        switch (op[0]) {
-          case 0:
-          case 1:
-            t = op;
-            break;
-
-          case 4:
-            _.label++;
-            return {
-              value: op[1],
-              done: false
-            };
-
-          case 5:
-            _.label++;
-            y = op[1];
-            op = [0];
-            continue;
-
-          case 7:
-            op = _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-
-          default:
-            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
-              _ = 0;
-              continue;
-            }
-
-            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
-              _.label = op[1];
-              break;
-            }
-
-            if (op[0] === 6 && _.label < t[1]) {
-              _.label = t[1];
-              t = op;
-              break;
-            }
-
-            if (t && _.label < t[2]) {
-              _.label = t[2];
-
-              _.ops.push(op);
-
-              break;
-            }
-
-            if (t[2]) _.ops.pop();
-
-            _.trys.pop();
-
-            continue;
-        }
-
-        op = body.call(thisArg, _);
-      } catch (e) {
-        op = [6, e];
-        y = 0;
-      } finally {
-        f = t = 0;
-      }
-    }
-
-    if (op[0] & 5) throw op[1];
-    return {
-      value: op[0] ? op[1] : void 0,
-      done: true
-    };
-  }
-}
-var __createBinding = Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-};
-function __exportStar(m, exports) {
-  for (var p in m) {
-    if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-  }
-}
-function __values(o) {
-  var s = typeof Symbol === "function" && Symbol.iterator,
-      m = s && o[s],
-      i = 0;
-  if (m) return m.call(o);
-  if (o && typeof o.length === "number") return {
-    next: function next() {
-      if (o && i >= o.length) o = void 0;
-      return {
-        value: o && o[i++],
-        done: !o
-      };
-    }
-  };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-function __read(o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
-      ar.push(r.value);
-    }
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
-}
-function __spread() {
-  for (var ar = [], i = 0; i < arguments.length; i++) {
-    ar = ar.concat(__read(arguments[i]));
-  }
-
-  return ar;
-}
-function __spreadArrays() {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
-    s += arguments[i].length;
-  }
-
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
-      r[k] = a[j];
-    }
-  }
-
-  return r;
-}
-;
-function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
-}
-function __asyncGenerator(thisArg, _arguments, generator) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var g = generator.apply(thisArg, _arguments || []),
-      i,
-      q = [];
-  return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
-    return this;
-  }, i;
-
-  function verb(n) {
-    if (g[n]) i[n] = function (v) {
-      return new Promise(function (a, b) {
-        q.push([n, v, a, b]) > 1 || resume(n, v);
-      });
-    };
-  }
-
-  function resume(n, v) {
-    try {
-      step(g[n](v));
-    } catch (e) {
-      settle(q[0][3], e);
-    }
-  }
-
-  function step(r) {
-    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
-  }
-
-  function fulfill(value) {
-    resume("next", value);
-  }
-
-  function reject(value) {
-    resume("throw", value);
-  }
-
-  function settle(f, v) {
-    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
-  }
-}
-function __asyncDelegator(o) {
-  var i, p;
-  return i = {}, verb("next"), verb("throw", function (e) {
-    throw e;
-  }), verb("return"), i[Symbol.iterator] = function () {
-    return this;
-  }, i;
-
-  function verb(n, f) {
-    i[n] = o[n] ? function (v) {
-      return (p = !p) ? {
-        value: __await(o[n](v)),
-        done: n === "return"
-      } : f ? f(v) : v;
-    } : f;
-  }
-}
-function __asyncValues(o) {
-  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-  var m = o[Symbol.asyncIterator],
-      i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
-    return this;
-  }, i);
-
-  function verb(n) {
-    i[n] = o[n] && function (v) {
-      return new Promise(function (resolve, reject) {
-        v = o[n](v), settle(resolve, reject, v.done, v.value);
-      });
-    };
-  }
-
-  function settle(resolve, reject, d, v) {
-    Promise.resolve(v).then(function (v) {
-      resolve({
-        value: v,
-        done: d
-      });
-    }, reject);
-  }
-}
-function __makeTemplateObject(cooked, raw) {
-  if (Object.defineProperty) {
-    Object.defineProperty(cooked, "raw", {
-      value: raw
-    });
-  } else {
-    cooked.raw = raw;
-  }
-
-  return cooked;
-}
-;
-
-var __setModuleDefault = Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-};
-
-function __importStar(mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-}
-function __importDefault(mod) {
-  return mod && mod.__esModule ? mod : {
-    default: mod
-  };
-}
-function __classPrivateFieldGet(receiver, privateMap) {
-  if (!privateMap.has(receiver)) {
-    throw new TypeError("attempted to get private field on non-instance");
-  }
-
-  return privateMap.get(receiver);
-}
-function __classPrivateFieldSet(receiver, privateMap, value) {
-  if (!privateMap.has(receiver)) {
-    throw new TypeError("attempted to set private field on non-instance");
-  }
-
-  privateMap.set(receiver, value);
-  return value;
 }
 
 /***/ }),
@@ -50164,6 +49681,489 @@ exports.easing = {
     return (Math.sqrt(1 - t * t) + 1) / 2;
   }
 };
+
+/***/ }),
+
+/***/ "./node_modules/tslib/tslib.es6.js":
+/*!*****************************************!*\
+  !*** ./node_modules/tslib/tslib.es6.js ***!
+  \*****************************************/
+/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return _assign; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+/* global Reflect, Promise */
+var _extendStatics = function extendStatics(d, b) {
+  _extendStatics = Object.setPrototypeOf || {
+    __proto__: []
+  } instanceof Array && function (d, b) {
+    d.__proto__ = b;
+  } || function (d, b) {
+    for (var p in b) {
+      if (b.hasOwnProperty(p)) d[p] = b[p];
+    }
+  };
+
+  return _extendStatics(d, b);
+};
+
+function __extends(d, b) {
+  _extendStatics(d, b);
+
+  function __() {
+    this.constructor = d;
+  }
+
+  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var _assign = function __assign() {
+  _assign = Object.assign || function __assign(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return _assign.apply(this, arguments);
+};
+
+
+function __rest(s, e) {
+  var t = {};
+
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
+
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+}
+function __decorate(decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+function __param(paramIndex, decorator) {
+  return function (target, key) {
+    decorator(target, key, paramIndex);
+  };
+}
+function __metadata(metadataKey, metadataValue) {
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+function __awaiter(thisArg, _arguments, P, generator) {
+  function adopt(value) {
+    return value instanceof P ? value : new P(function (resolve) {
+      resolve(value);
+    });
+  }
+
+  return new (P || (P = Promise))(function (resolve, reject) {
+    function fulfilled(value) {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function rejected(value) {
+      try {
+        step(generator["throw"](value));
+      } catch (e) {
+        reject(e);
+      }
+    }
+
+    function step(result) {
+      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+    }
+
+    step((generator = generator.apply(thisArg, _arguments || [])).next());
+  });
+}
+function __generator(thisArg, body) {
+  var _ = {
+    label: 0,
+    sent: function sent() {
+      if (t[0] & 1) throw t[1];
+      return t[1];
+    },
+    trys: [],
+    ops: []
+  },
+      f,
+      y,
+      t,
+      g;
+  return g = {
+    next: verb(0),
+    "throw": verb(1),
+    "return": verb(2)
+  }, typeof Symbol === "function" && (g[Symbol.iterator] = function () {
+    return this;
+  }), g;
+
+  function verb(n) {
+    return function (v) {
+      return step([n, v]);
+    };
+  }
+
+  function step(op) {
+    if (f) throw new TypeError("Generator is already executing.");
+
+    while (_) {
+      try {
+        if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+        if (y = 0, t) op = [op[0] & 2, t.value];
+
+        switch (op[0]) {
+          case 0:
+          case 1:
+            t = op;
+            break;
+
+          case 4:
+            _.label++;
+            return {
+              value: op[1],
+              done: false
+            };
+
+          case 5:
+            _.label++;
+            y = op[1];
+            op = [0];
+            continue;
+
+          case 7:
+            op = _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+
+          default:
+            if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+              _ = 0;
+              continue;
+            }
+
+            if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+              _.label = op[1];
+              break;
+            }
+
+            if (op[0] === 6 && _.label < t[1]) {
+              _.label = t[1];
+              t = op;
+              break;
+            }
+
+            if (t && _.label < t[2]) {
+              _.label = t[2];
+
+              _.ops.push(op);
+
+              break;
+            }
+
+            if (t[2]) _.ops.pop();
+
+            _.trys.pop();
+
+            continue;
+        }
+
+        op = body.call(thisArg, _);
+      } catch (e) {
+        op = [6, e];
+        y = 0;
+      } finally {
+        f = t = 0;
+      }
+    }
+
+    if (op[0] & 5) throw op[1];
+    return {
+      value: op[0] ? op[1] : void 0,
+      done: true
+    };
+  }
+}
+var __createBinding = Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+};
+function __exportStar(m, exports) {
+  for (var p in m) {
+    if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+  }
+}
+function __values(o) {
+  var s = typeof Symbol === "function" && Symbol.iterator,
+      m = s && o[s],
+      i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function next() {
+      if (o && i >= o.length) o = void 0;
+      return {
+        value: o && o[i++],
+        done: !o
+      };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+function __read(o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+}
+function __spread() {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read(arguments[i]));
+  }
+
+  return ar;
+}
+function __spreadArrays() {
+  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
+    s += arguments[i].length;
+  }
+
+  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
+    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
+      r[k] = a[j];
+    }
+  }
+
+  return r;
+}
+;
+function __await(v) {
+  return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+function __asyncGenerator(thisArg, _arguments, generator) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var g = generator.apply(thisArg, _arguments || []),
+      i,
+      q = [];
+  return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+    return this;
+  }, i;
+
+  function verb(n) {
+    if (g[n]) i[n] = function (v) {
+      return new Promise(function (a, b) {
+        q.push([n, v, a, b]) > 1 || resume(n, v);
+      });
+    };
+  }
+
+  function resume(n, v) {
+    try {
+      step(g[n](v));
+    } catch (e) {
+      settle(q[0][3], e);
+    }
+  }
+
+  function step(r) {
+    r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r);
+  }
+
+  function fulfill(value) {
+    resume("next", value);
+  }
+
+  function reject(value) {
+    resume("throw", value);
+  }
+
+  function settle(f, v) {
+    if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]);
+  }
+}
+function __asyncDelegator(o) {
+  var i, p;
+  return i = {}, verb("next"), verb("throw", function (e) {
+    throw e;
+  }), verb("return"), i[Symbol.iterator] = function () {
+    return this;
+  }, i;
+
+  function verb(n, f) {
+    i[n] = o[n] ? function (v) {
+      return (p = !p) ? {
+        value: __await(o[n](v)),
+        done: n === "return"
+      } : f ? f(v) : v;
+    } : f;
+  }
+}
+function __asyncValues(o) {
+  if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+  var m = o[Symbol.asyncIterator],
+      i;
+  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () {
+    return this;
+  }, i);
+
+  function verb(n) {
+    i[n] = o[n] && function (v) {
+      return new Promise(function (resolve, reject) {
+        v = o[n](v), settle(resolve, reject, v.done, v.value);
+      });
+    };
+  }
+
+  function settle(resolve, reject, d, v) {
+    Promise.resolve(v).then(function (v) {
+      resolve({
+        value: v,
+        done: d
+      });
+    }, reject);
+  }
+}
+function __makeTemplateObject(cooked, raw) {
+  if (Object.defineProperty) {
+    Object.defineProperty(cooked, "raw", {
+      value: raw
+    });
+  } else {
+    cooked.raw = raw;
+  }
+
+  return cooked;
+}
+;
+
+var __setModuleDefault = Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+};
+
+function __importStar(mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+}
+function __importDefault(mod) {
+  return mod && mod.__esModule ? mod : {
+    default: mod
+  };
+}
+function __classPrivateFieldGet(receiver, privateMap) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+}
+function __classPrivateFieldSet(receiver, privateMap, value) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to set private field on non-instance");
+  }
+
+  privateMap.set(receiver, value);
+  return value;
+}
 
 /***/ }),
 
@@ -54141,7 +54141,8 @@ var sanitizeRestProps = function sanitizeRestProps(_ref) {
       defaultSort = _ref.defaultSort,
       defaultPerPage = _ref.defaultPerPage,
       checkTriggerSubmit = _ref.checkTriggerSubmit,
-      rest = _objectWithoutProperties(_ref, ["initFilter", "permissions", "pagination", "options", "history", "match", "basePath", "hasList", "hasCreate", "hasEdit", "hasShow", "defaultSort", "defaultPerPage", "checkTriggerSubmit"]);
+      triggerSubmitDelay = _ref.triggerSubmitDelay,
+      rest = _objectWithoutProperties(_ref, ["initFilter", "permissions", "pagination", "options", "history", "match", "basePath", "hasList", "hasCreate", "hasEdit", "hasShow", "defaultSort", "defaultPerPage", "checkTriggerSubmit", "triggerSubmitDelay"]);
 
   return rest;
 };
@@ -54206,7 +54207,8 @@ var MyFilterBox = function MyFilterBox(props) {
       checkTriggerSubmit = props.checkTriggerSubmit,
       icon = props.icon,
       customAction = props.customAction,
-      rest = _objectWithoutProperties(props, ["hasClear", "children", "className", "buttonClasses", "initData", "defaultSort", "permanentFilter", "inputValidate", "invalidMessagePrefix", "filterRef", "defaultPerPage", "checkTriggerSubmit", "icon", "customAction"]);
+      triggerSubmitDelay = props.triggerSubmitDelay,
+      rest = _objectWithoutProperties(props, ["hasClear", "children", "className", "buttonClasses", "initData", "defaultSort", "permanentFilter", "inputValidate", "invalidMessagePrefix", "filterRef", "defaultPerPage", "checkTriggerSubmit", "icon", "customAction", "triggerSubmitDelay"]);
 
   var setFilter = Object(react__WEBPACK_IMPORTED_MODULE_6__["useCallback"])(function (filter) {
     // console.log('set filter', filter);
@@ -54333,7 +54335,7 @@ var MyFilterBox = function MyFilterBox(props) {
         });
       }
     }
-  }, 500),
+  }, triggerSubmitDelay),
       _useDebouncedCallback2 = _slicedToArray(_useDebouncedCallback, 1),
       onSubmit = _useDebouncedCallback2[0];
 
@@ -54448,7 +54450,8 @@ MyFilterBox.propTypes = {
   defaultPerPage: prop_types__WEBPACK_IMPORTED_MODULE_4__["number"],
   checkTriggerSubmit: prop_types__WEBPACK_IMPORTED_MODULE_4__["func"],
   icon: prop_types__WEBPACK_IMPORTED_MODULE_4__["bool"],
-  customAction: prop_types__WEBPACK_IMPORTED_MODULE_4__["any"]
+  customAction: prop_types__WEBPACK_IMPORTED_MODULE_4__["any"],
+  triggerSubmitDelay: prop_types__WEBPACK_IMPORTED_MODULE_4__["number"]
 };
 MyFilterBox.defaultProps = {
   initFilter: {},
@@ -54461,6 +54464,7 @@ MyFilterBox.defaultProps = {
   inputValidate: {},
   invalidMessagePrefix: 'validation.invalid',
   defaultPerPage: 10,
+  triggerSubmitDelay: 500,
   checkTriggerSubmit: checkTriggerSubmit
 };
 /* harmony default export */ __webpack_exports__["default"] = (MyFilterBox);
