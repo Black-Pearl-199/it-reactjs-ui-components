@@ -81,7 +81,7 @@ const MyFilterBox = (props) => {
         checkTriggerSubmit,
         icon,
         customAction,
-        triggerSubmitDelay,
+        submitDelay,
         ...rest
     } = props;
     const setFilter = useCallback((filter) => {
@@ -193,7 +193,7 @@ const MyFilterBox = (props) => {
                 });
             }
         }
-    }, triggerSubmitDelay);
+    }, submitDelay);
 
     useEffect(() => {
         if (initData) {
@@ -318,7 +318,7 @@ MyFilterBox.propTypes = {
     checkTriggerSubmit: PropTypes.func,
     icon: PropTypes.bool,
     customAction: PropTypes.any,
-    triggerSubmitDelay: PropTypes.number
+    submitDelay: PropTypes.number
 };
 
 MyFilterBox.defaultProps = {
@@ -329,7 +329,7 @@ MyFilterBox.defaultProps = {
     inputValidate: {},
     invalidMessagePrefix: 'validation.invalid',
     defaultPerPage: 10,
-    triggerSubmitDelay: 500,
+    submitDelay: 500,
     checkTriggerSubmit
 };
 
