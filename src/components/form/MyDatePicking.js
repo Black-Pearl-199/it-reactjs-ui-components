@@ -12,7 +12,7 @@ const MINISECOND_IN_A_DAY = 86400000;
 
 function add(date, day) {
     const newDate = new Date();
-    newDate.setTime(date.getTime() + day * 24 * 60 * 60 * 1000);
+    newDate.setTime(date.getTime() + day * MINISECOND_IN_A_DAY);
     return newDate;
 }
 
@@ -44,7 +44,7 @@ const MyDatePicking = (props) => {
         ...rest
     } = props;
     const [currentActive, setCurrentActive] = useState(DATE_RANGE.OTHER);
-    const [disableInputDate, setDisbleInputDate] = useState(true);
+    const [disableInputDate, setDisbleInputDate] = useState(!hideButton && dateButtons.includes(DATE_RANGE.OTHER));
     const [showInput, setShowInput] = useState(false);
 
     const { inputValue } = props;
@@ -74,21 +74,40 @@ const MyDatePicking = (props) => {
                 }
                 const start = moment(startDate).toDate();
                 const end = moment(endDate).toDate();
-                if (start.getTime() === todayStart.getTime() && end.getTime() === todayEnd.getTime()) {
+                if (
+                    start.getTime() === todayStart.getTime()
+                    && end.getTime() === todayEnd.getTime()
+                    && dateButtons.includes(DATE_RANGE.TODAY)
+                ) {
                     setCurrentActive(DATE_RANGE.TODAY);
-                } else if (start.getTime() + MINISECOND_IN_A_DAY === todayStart.getTime() && end.getTime() + MINISECOND_IN_A_DAY === todayEnd.getTime()) {
+                } else if (
+                    start.getTime() + MINISECOND_IN_A_DAY === todayStart.getTime()
+                    && end.getTime() + MINISECOND_IN_A_DAY === todayEnd.getTime()
+                    && dateButtons.includes(DATE_RANGE.YESTERDAY)
+                ) {
                     setCurrentActive(DATE_RANGE.YESTERDAY);
-                } else if (start.getTime() === thisWeekStart.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_WEEK)) {
+                } else if (
+                    start.getTime() === thisWeekStart.getTime()
+                    && dateButtons.includes(DATE_RANGE.THIS_WEEK)
+                ) {
                     setCurrentActive(DATE_RANGE.THIS_WEEK);
                 } else if (
                     start.getTime() === lastWeekStart.getTime()
                     && lastWeekStart.getTime() + MINISECOND_IN_A_DAY * 7 === end.getTime()
-                    && dateButtons.indexOf(DATE_RANGE.LAST_WEEK)
+                    && dateButtons.includes(DATE_RANGE.LAST_WEEK)
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_WEEK);
-                } else if (start.getTime() === thisMonthStart.getTime() && end.getTime() === todayEnd.getTime() && dateButtons.indexOf(DATE_RANGE.THIS_MONTH)) {
+                } else if (
+                    start.getTime() === thisMonthStart.getTime()
+                    && end.getTime() === todayEnd.getTime()
+                    && dateButtons.includes(DATE_RANGE.THIS_MONTH)
+                ) {
                     setCurrentActive(DATE_RANGE.THIS_MONTH);
-                } else if (start.getTime() === lastMonthStart.getTime() && end.getTime() === lastMonthEnd.getTime()) {
+                } else if (
+                    start.getTime() === lastMonthStart.getTime()
+                    && end.getTime() === lastMonthEnd.getTime()
+                    && dateButtons.includes(DATE_RANGE.LAST_MONTH)
+                ) {
                     setCurrentActive(DATE_RANGE.LAST_MONTH);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
