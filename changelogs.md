@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 - Add condition for default state of 'disableInputDate' in MyDatePicking - [@TinVan2]
 - Add condition for set currentActive in MyDatePicking - [@TinVan2]
+### Added
+- Support delay time option for submit in MyFilterBox - [@khanhITECH]
+
+### 
 ## [0.2.88] - 2020-09-17
 ### Changed
 - Update border style for table header - [@TinVan2]
