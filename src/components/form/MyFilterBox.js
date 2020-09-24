@@ -29,6 +29,7 @@ const sanitizeRestProps = ({
     defaultSort,
     defaultPerPage,
     checkTriggerSubmit,
+    triggerSubmitDelay,
     ...rest
 }) => rest;
 
@@ -80,6 +81,7 @@ const MyFilterBox = (props) => {
         checkTriggerSubmit,
         icon,
         customAction,
+        submitDelay,
         ...rest
     } = props;
     const setFilter = useCallback((filter) => {
@@ -191,7 +193,7 @@ const MyFilterBox = (props) => {
                 });
             }
         }
-    }, 500);
+    }, submitDelay);
 
     useEffect(() => {
         if (initData) {
@@ -315,7 +317,8 @@ MyFilterBox.propTypes = {
     defaultPerPage: PropTypes.number,
     checkTriggerSubmit: PropTypes.func,
     icon: PropTypes.bool,
-    customAction: PropTypes.any
+    customAction: PropTypes.any,
+    submitDelay: PropTypes.number
 };
 
 MyFilterBox.defaultProps = {
@@ -326,6 +329,7 @@ MyFilterBox.defaultProps = {
     inputValidate: {},
     invalidMessagePrefix: 'validation.invalid',
     defaultPerPage: 10,
+    submitDelay: 500,
     checkTriggerSubmit
 };
 
