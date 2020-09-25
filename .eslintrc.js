@@ -63,6 +63,7 @@ module.exports = {
         "react/require-default-props": "off",
         "react/sort-comp": "off",
         "react/state-in-constructor": "off",
-        "react/static-property-placement": ["warn", "static public field"]
+        "react/static-property-placement": ["warn", "static public field"],
+        "react-hooks/exhaustive-deps": "warn"
     }
 };

@@ -824,7 +824,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .table thead.table-itech-thread tr th {
   font-weight: 300 !important;
-  text-align: center;
+  text-align: left;
 }
 
 .table thead.table-itech-thread th,

@@ -5,6 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.2.89] - 2020-09-24
+### Changed
+- Add condition for default state of 'disableInputDate' in MyDatePicking - [@TinVan2]
+- Add condition for set currentActive in MyDatePicking - [@TinVan2]
+### Added
+- Support delay time option for submit in MyFilterBox - [@khanhITECH]
+
+### 
+## [0.2.88] - 2020-09-17
+### Changed
+- Update border style for table header - [@TinVan2]
+- Support MyDatePicking for auto focus when click other date button - [@TinVan2@]
+
+## [0.2.87] - 2020-09-16
+### Changed
+- Update style of table header - [@TinVan2]
+- Update MyDatePicking for enable input when click other date - [@TinVan2]
+- Support hide text of checkbox - [@TinVan2]
 
 ## [0.2.86] - 2020-08-31
 ### Changed

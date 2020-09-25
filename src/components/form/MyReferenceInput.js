@@ -80,7 +80,7 @@ const ReferenceInputView = (props) => {
 
     const [firstInit, setFirstInit] = useState(!allowEmpty);
     const value = get(rest.record, source);
-    const { inputValue, optionValue = 'id' } = rest;
+    const { inputValue, optionValue = 'id', onInputChange } = rest;
     useEffect(() => {
         if (firstInit && !loading) {
             setFirstInit(false);
@@ -98,13 +98,12 @@ const ReferenceInputView = (props) => {
 
             if (onChange) onChange(formInitValue || defaultValue);
 
-            if (rest.onInputChange) {
+            if (onInputChange) {
                 // console.log('init fill data for filterbox', { [source]: formInitValue || defaultValue });
-                rest.onInputChange({ [source]: formInitValue || defaultValue });
+                onInputChange({ [source]: formInitValue || defaultValue });
             }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value]);
+    }, [firstInit, loading, source, form, choices, defaultValue, onChange, inputValue, optionValue, value, onInputChange]);
 
     if (loading) {
         return (
