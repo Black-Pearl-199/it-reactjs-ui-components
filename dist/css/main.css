@@ -1024,7 +1024,7 @@ a.al-logo {
 }
 
 a.al-logo span {
-  color: #00a5ff;
+  color: #ea00ff;
 }
 
 .user-profile {
@@ -1940,12 +1940,12 @@ body {
 }
 
 input.ng-dirty.ng-invalid {
-  border-color: #e9322d;
+  border-color: #ea00ff;
 }
 
 .field-message {
   display: inline-block;
-  color: #e9322d;
+  color: #ea00ff;
   font-size: 90%;
   transition: 1s linear all;
 }
@@ -1971,23 +1971,23 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   font-size: 100%;
-  --green-itech-1-dark: #004266;
-  --green-itech-dark: #0085cd;
-  --green-itech-dark-half-opacity: rgba(0, 133, 205, 0.5);
-  --green-itech-light: #00a5ff;
-  --green-itech-light-half-opacity: rgba(98, 200, 255, 0.5);
-  --white-half-opacity: rgba(255, 255, 255, 0.75);
-  --black-half-opacity: rgba(0, 0, 0, 0.3);
+  --green-itech-1-dark: #ea00ff;
+  --green-itech-dark: #ea00ff;
+  --green-itech-dark-half-opacity: #ea00ff;
+  --green-itech-light: #ea00ff;
+  --green-itech-light-half-opacity: #ea00ff;
+  --white-half-opacity: #ea00ff;
+  --black-half-opacity: #ea00ff;
   --black: black;
-  --grey-1-light: #F9F9F9;
-  --grey-normal: #777777;
-  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
-  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
+  --grey-1-light: #ea00ff;
+  --grey-normal: #ea00ff;
+  --grey-normal-opacity: #ea00ff;
+  --grey-normal-opacity-hover: #ea00ff;
   --grey-dark: #333333;
   --red: red;
-  --red-1-light: #e9322d;
+  --red-1-light: #ea00ff;
   --default-text: #ffffff;
-  --input-background: #219c7719;
+  --input-background: #ea00ff;
   --text-color-lighter: #7c7c7c;
   --form-background-color: rgba(33, 101, 156, 0.1);
   --form-background-color-focus: rgba(33, 90, 156, 0.2);
