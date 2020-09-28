@@ -186,7 +186,7 @@
 }
 
 .btn-itech-primary:hover {
-  background-color: var(--main-color-lighter);
+  background-color: var(--main-color-hover) !important;
 }
 
 .btn-itech-secondary {
@@ -1254,11 +1254,11 @@ ul.dropdown-menu.side-sub-menu-itech li {
   background-color: var(--sidebar-heading);
   box-shadow: var(--shadow);
   height: var(--sidebar-item-height);
-  color: var(--text-color);
+  color: var(--sidebar-heading);
 }
 
 .btn-icon-toggle {
-  background: var(--sidebar);
+  background: var(--sidebar-heading);
   color: var(--sidebar-text);
 }
 
@@ -1988,7 +1988,7 @@ h1, h2, h3, h4, h5, h6 {
   --red-1-light: #e9322d;
   --default-text: #ffffff;
   --input-background: #219c7719;
-  --text-color-lighter: #495057;
+  --text-color-lighter: #7c7c7c;
   --form-background-color: rgba(33, 101, 156, 0.1);
   --form-background-color-focus: rgba(33, 90, 156, 0.2);
   --text-color: #2E3E47;
@@ -2025,7 +2025,7 @@ h1, h2, h3, h4, h5, h6 {
   --dribble-color: #F26798;
   --behace-color: #0093FA;
   --sidebar: #dbdbdb;
-  --sidebar-heading: #2E3E47;
+  --sidebar-heading: #4c4c4c;
   --sidebar-text: #ffffff;
   --sidebar-text-selected: #($sidebar-text-selected);
   --sidebar-item-height: 32px;
