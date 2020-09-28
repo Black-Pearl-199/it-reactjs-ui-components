@@ -17,16 +17,16 @@
 		margin-top: var(--top-height) - var(--tab-height);
 
 		&:hover {
-			color: var(--green-itech-light);
+			color: var(--main-color-lighter);
 		}
 
 		&.active {
-			background-color: var(--green-itech-light);
+			background-color: var(--main-color-lighter);
 			color: var(--sidebar-text);
 
 			.tab-close {
 				svg:hover {
-					background-color: var(--green-itech-light);
+					background-color: var(--main-color-lighter);
 					color: var(--sidebar);
 				}
 			}
@@ -44,7 +44,7 @@
 				&:hover {
 					border-radius: 50%;
 					background-color: var(--sidebar);
-					color: var(--green-itech-light);
+					color: var(--main-color-lighter);
 				}
 			}
 		}

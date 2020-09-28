@@ -9,7 +9,7 @@
 	flex: 1;
 
 	.form-control {
-		background: rgba(33, 156, 119, 0.1);
+		background: var(--main-color-opacity);
 
 		&:disabled, &[readonly] {
 			background: #e9ecef;

@@ -463,11 +463,11 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .form-control:hover {
-  border-color: var(--green-itech-light);
+  border-color: var(--main-color-hover);
 }
 
 .form-control:focus {
-  border-color: var(--green-itech-dark);
+  border-color: var(--main-color-dark);
   background-color: var(--form-background-color-focus);
   box-shadow: none;
 }
@@ -724,7 +724,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .panel-itech .form-control {
-  background: rgba(33, 156, 119, 0.1);
+  background: var(--main-color-opacity);
 }
 
 .panel-itech .form-control:disabled, .panel-itech .form-control[readonly] {
@@ -1024,7 +1024,7 @@ a.al-logo {
 }
 
 a.al-logo span {
-  color: #ea00ff;
+  color: #f5f5f5;
 }
 
 .user-profile {
@@ -1597,16 +1597,16 @@ a.sidebar-list-link b {
 }
 
 .itech-tabs .nav-link:hover {
-  color: var(--green-itech-light);
+  color: var(--main-color-lighter);
 }
 
 .itech-tabs .nav-link.active {
-  background-color: var(--green-itech-light);
+  background-color: var(--main-color-lighter);
   color: var(--sidebar-text);
 }
 
 .itech-tabs .nav-link.active .tab-close svg:hover {
-  background-color: var(--green-itech-light);
+  background-color: var(--main-color-lighter);
   color: var(--sidebar);
 }
 
@@ -1622,7 +1622,7 @@ a.sidebar-list-link b {
 .itech-tabs .nav-link .tab-close svg:hover {
   border-radius: 50%;
   background-color: var(--sidebar);
-  color: var(--green-itech-light);
+  color: var(--main-color-lighter);
 }
 
 .nav-iTech .nav-link {
@@ -1994,7 +1994,7 @@ h1, h2, h3, h4, h5, h6 {
   --text-color: #2E3E47;
   --grey-background: #E5E5E5;
   --modal-itech-background: #F7F9FC;
-  --main-color-opacity: rgba(219, 219, 219, 0.1);
+  --main-color-opacity: rgba(122, 122, 122, 0.1);
   --main-color: #dbdbdb;
   --main-color-hover: #b7b7b6;
   --main-color-lighter: #f5f5f5;
