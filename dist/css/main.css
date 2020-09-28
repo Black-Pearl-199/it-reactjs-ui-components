@@ -1981,8 +1981,8 @@ h1, h2, h3, h4, h5, h6 {
   --black: black;
   --grey-1-light: #ea00ff;
   --grey-normal: #ea00ff;
-  --grey-normal-opacity: #ea00ff;
-  --grey-normal-opacity-hover: #ea00ff;
+  --grey-normal-opacity: rgba(102, 102, 102, 0.3);
+  --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
   --grey-dark: #333333;
   --red: red;
   --red-1-light: #ea00ff;
