@@ -571,7 +571,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .msg-box-info .msg-head {
-  color: var(--main-color);
+  color: var(--text-color);
 }
 
 .msg-box-info .msg-body {
