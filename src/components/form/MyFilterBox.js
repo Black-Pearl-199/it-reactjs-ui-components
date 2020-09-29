@@ -90,8 +90,8 @@ const MyFilterBox = (props) => {
     }, []);
 
     useEffect(() => {
-        if (filterRef) filterRef.current = { setFilter, setTriggerSubmit };
-    }, [setFilter, filterRef]);
+        if (filterRef) filterRef.current = { setFilter, setTriggerSubmit, onChange };
+    }, [setFilter, filterRef, onChange]);
 
     const checkFormValidate = () => {
         if (!form) {
@@ -209,12 +209,12 @@ const MyFilterBox = (props) => {
         }
     }, [triggerSubmit, onSubmit]);
 
-    const onChange = (e, component, type) => {
+    const onChange = useCallback((e, component, type) => {
         // console.log('my filter box update', e, component, type);
         setForm({ ...form, ...e });
         // if (component !== 'input' || type !== 'text') onSubmit();
         if (checkTriggerSubmit(e, component, type)) setTriggerSubmit(true);
-    };
+    }, [checkTriggerSubmit, form]);
 
     const formEnter = (e) => {
         e.preventDefault();
