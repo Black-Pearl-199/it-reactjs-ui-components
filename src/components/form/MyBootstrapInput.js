@@ -4,9 +4,12 @@ import isReact from 'is-react';
 import { find, get, uniqBy } from 'lodash';
 import moment from 'moment';
 import { any, arrayOf, bool, func, object, shape, string } from 'prop-types';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { SingleDatePicker } from 'react-dates';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
 
@@ -50,6 +53,8 @@ const sanitizeRestProps = ({
     required,
     fullFill,
     validate,
+    startDateLabel,
+    endDateLabel,
     ...rest
 }) => rest;
 
@@ -94,11 +99,14 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         onTriggerSubmit,
         fullFill,
         hideTextChoice,
+        showAllDays,
         ...rest
     } = props;
     let { defaultValue } = props;
     const { showYearPicker, showTimeSelectOnly } = props;
     const sanitizeProps = sanitizeRestProps(rest);
+    const [focused, setFocused] = useState(false);
+    const [date, setDate] = useState(moment());
 
     useEffect(() => {
         if (openCalendar && dateRef && dateRef.current) {
@@ -281,23 +289,36 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                 </select>
             );
         case 'date':
-            inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
+            // inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
+            console.log(date);
             // console.log('date input value', inputValue, typeof inputValue);
             return (
-                <DatePicker
-                    name={source}
-                    ref={dateRef}
-                    strictParsing
-                    selected={inputValue ? moment(inputValue, dateStoreFormat).toDate() : defaultValue}
-                    dateFormat={dateShowFormat}
-                    showYearDropdown
-                    className={composeInputClasses}
-                    calendarClassName={calendarClasses}
-                    onChangeRaw={onChangeRaw}
-                    autoComplete="off"
+                // <DatePicker
+                //     name={source}
+                //     ref={dateRef}
+                //     strictParsing
+                //     selected={inputValue ? moment(inputValue, dateStoreFormat).toDate() : defaultValue}
+                //     dateFormat={dateShowFormat}
+                //     showYearDropdown
+                //     className={composeInputClasses}
+                //     calendarClassName={calendarClasses}
+                //     onChangeRaw={onChangeRaw}
+                //     autoComplete="off"
+                //     {...sanitizeProps}
+                //     customInput={showYearPicker || showTimeSelectOnly ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
+                //     placeholderText={hideLabel === true ? translatedLabel : null}
+                // />
+                <SingleDatePicker
                     {...sanitizeProps}
-                    customInput={showYearPicker || showTimeSelectOnly ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
-                    placeholderText={hideLabel === true ? translatedLabel : null}
+                    id={source}
+                    date={date}
+                    onDateChange={(date) => setDate(date)}
+                    focused={focused}
+                    onFocusChange={() => setFocused(!focused)}
+                    placeholder={translatedLabel}
+                    displayFormat="DD-MM-YYYY"
+                    small
+                    isOutsideRange={showAllDays}
                 />
             );
         default:
@@ -332,7 +353,9 @@ Input.propTypes = {
     showYearPicker: bool,
     showTimeSelectOnly: bool,
     fullFill: bool,
-    hideTextChoice: bool
+    hideTextChoice: bool,
+    translatedStartDateLabel: string,
+    showAllDays: func
 };
 
 const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
@@ -364,7 +387,6 @@ const MyBootstrapInput = (props) => {
     } = props;
     const { resource, source, component, hideLabel, type, fullFill, choices } = rest;
     const translatedLabel = label ? translate(label) : translate(`resources.${resource}.fields.${source}`);
-
     const inputId = `input-${source}`;
     // console.log('source', source);
     const composeInputClasses = classNames(
@@ -510,7 +532,8 @@ MyBootstrapInput.propTypes = {
     required: bool,
     fullFill: bool,
     handleChoiceOption: func,
-    onTriggerSubmit: func
+    onTriggerSubmit: func,
+    showAllDays: func
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
@@ -520,7 +543,8 @@ MyBootstrapInput.defaultProps = {
     alignCenter: true,
     formatDate: dateStoreFormat,
     optionClasses: {},
-    fullFill: false
+    fullFill: false,
+    showAllDays: () => false
 };
 
 export default MyBootstrapInput;

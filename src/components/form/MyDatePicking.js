@@ -243,11 +243,11 @@ const MyDatePicking = (props) => {
                     source={startDateName}
                     component="date"
                     hideLabel={hideInputLabel}
-                    groupClasses="col-sm-6"
+                    // groupClasses="col-sm-6"
                     label={inputLabel.startDate}
                     area-describedby="addon-from-date"
                     {...rest}
-                    {...inputClasses}
+                    // {...inputClasses}
                     readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
                     openCalendar={openStartDateCalendar}
@@ -257,11 +257,11 @@ const MyDatePicking = (props) => {
                     source={endDateName}
                     component="date"
                     hideLabel={hideInputLabel}
-                    groupClasses="col-sm-6"
+                    // groupClasses="col-sm-6"
                     label={inputLabel.endDate}
                     area-describedby="addon-end-date"
                     {...rest}
-                    {...inputClasses}
+                    // {...inputClasses}
                     readOnly={disabled || disableInputDate}
                     formatDate={formatDate}
                     openCalendar={openEndDateCalendar}

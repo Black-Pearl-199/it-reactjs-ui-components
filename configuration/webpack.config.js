@@ -41,6 +41,20 @@ module.exports = (env, argv) => {
             // rules takes an array, each item containing the respective rules
             rules: [
                 {
+                    test: /node_modules\/.*\.css$/,
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                },
+                {
                     // First up, our JavaScript rules.
                     // If you want to use the .jsx extension, you can change this line to
                     // test: /\.jsx?$/,
