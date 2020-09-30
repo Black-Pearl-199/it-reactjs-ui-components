@@ -148,7 +148,7 @@
 	}
 	
 	&-primary {
-		background: var(--green-itech-dark) !important;
+		background: var(--main-color-dark) !important;
 		color: var(--white) !important;
 	
 		i::before {
@@ -157,7 +157,7 @@
 	
 		&:hover {
 	
-			background-color: var(--green-itech-light);
+			background-color: var(--main-color-hover) !important;
 		}
 	}
 
@@ -217,11 +217,11 @@
 		white-space: nowrap;
 	
 		&:hover {
-			border-color: var(--green-itech-light);
+			border-color: var(--main-color-lighter);
 		}
 	
 		&:focus {
-			border-color: var(--green-itech-dark);
+			border-color: var(--main-color-dark);
 			background-color: var(--form-background-color-focus) !important;
 		}
     }

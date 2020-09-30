@@ -7,11 +7,11 @@
 	//border-width: 2px;
 	//border-color: $grey-light;
 	&:hover {
-		border-color: var(--green-itech-light);
+		border-color: var(--main-color-hover);
 	}
 
 	&:focus {
-		border-color: var(--green-itech-dark);
+		border-color: var(--main-color-dark);
 		background-color: var(--form-background-color-focus);
 		box-shadow: none;
 	}

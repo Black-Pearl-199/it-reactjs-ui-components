@@ -52,10 +52,11 @@ $angle-right: "\f101";
 	background-color: var(--sidebar-heading);	
 	box-shadow: var(--shadow);
 	height: var(--sidebar-item-height);
+	color: var(--sidebar-heading);
 }
 
 .btn-icon-toggle {
-	background: var(--sidebar);
+	background: var(--sidebar-heading);
 	color: var(--sidebar-text);
 
 	&:hover {
