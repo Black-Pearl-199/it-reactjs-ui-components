@@ -9,7 +9,7 @@
 }
 
 .navbar.nav-iTech {
-
+	background: var(--navbar-background);
 	padding: 0 1rem;
 
 	.logo {
@@ -35,7 +35,7 @@
 	}
 
 	&:hover {
-		background-color: var(--main-color-lighter-1);
+		background-color: var(--main-color-light-1);
 	}
 
 	.nav-link {
@@ -49,7 +49,7 @@
 
 		&.active {
 			border-radius: 10px 10px 0 0;
-			background-color: var(--grey-light);
+			background-color: var(--main-background);
 			border-color: var(--grey-light);
 			color: var(--cyan);
 

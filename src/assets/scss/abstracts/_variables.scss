@@ -1,43 +1,25 @@
-// ---------------------COLOR------------------------
-$green-itech-1-dark: #ea00ff;
-$green-itech-dark: #ea00ff;
-$green-itech-dark-half-opacity: #ea00ff;
-$green-itech-light: #ea00ff;
-$green-itech-lighter: #ea00ff;
-$green-itech-light-half-opacity: #ea00ff;
-// $green-itech-normal:;
-// $green-itech-dark:;
-$white-half-opacity: #ea00ff;
-$black-half-opacity: #ea00ff;
 $black: black;
-$grey-1-light: #ea00ff;
-$grey-normal: #ea00ff;
 $red: red;
-$red-1-light: #ea00ff;
-
-$input-background: #ea00ff;
 
 // --------------------- NEW COLOR RE-DESIGN------------------------
-$form-background-color: rgba(33, 101, 156, 0.1);
-$form-background-color-focus: rgba(33, 90, 156, 0.2);
+$form-background-color: rgba(33, 156, 119, 0.1);
+$form-background-color-focus:rgba(33, 156, 119, 0.2);
 $default-text: #ffffff;
+$default-text-selected: #ffffff;
 $text-color: #2E3E47;
-$text-color-lighter: #7c7c7c;
+$text-color-light: #495057;
+$modal-itech-background:  #F7F9FC;
+$main-color-opacity: rgba(55, 107, 81, 0.1);
+$main-color: #376B51;
+$main-color-hover: #2C5641;
+$main-color-light: #6c7770;
+$main-color-light-1: #C8E7D2;
+$main-color-dark: #4c4c4c;
 $grey-dark: #333333;
 $grey-background: #E5E5E5; //Main background - Background Dropdown
-$modal-itech-background:  #F7F9FC;
-
-$main-color-opacity: rgba(122, 122, 122, 0.1);
-$main-color: #dbdbdb;
-$main-color-hover: #b7b7b6;
 $grey-normal-opacity: rgba(102,102,102,0.3);
 $grey-normal-opacity-hover:rgba(102,102,102,0.2);
-// $main-color: #2E3E47;
-// $main-color-hover: #495057;
-$main-color-lighter: #f5f5f5;
-$main-color-lighter-1: #f5f5f5;
-$main-color-dark: #4c4c4c;
-$green-text-selection: #b7b7b6;
+$green-text-selection: #76B194;
 $green-input-form-selection: rgba(197, 202, 202, 0.1);
 $cyan: #455F6D;
 $cyan-lighter: #6a7e8a;
@@ -66,10 +48,10 @@ $stackoverflow-color: #2F96E8;
 $dribble-color: #F26798;
 $behace-color: #0093FA;
 
-$sidebar: $main-color;
-$sidebar-heading: $main-color-dark;
-$sidebar-text: $default-text;
-$sidebar-text-selected: $default-text;
+// $sidebar: $main-color;
+// $sidebar-heading: $main-color-dark;
+// $sidebar-text: $default-text;
+// $sidebar-text-selected: $default-text;
 $sidebar-item-height: 32px;
 $sidebar-width: 240px;
 $sidebar-width-collapse: 30px;

@@ -179,7 +179,7 @@
 		color: var(--white) !important;
 	
 		&:hover {
-			background-color: var(--text-color-lighter);
+			background-color: var(--text-color-light);
 		}
 	}
 
@@ -217,7 +217,7 @@
 		white-space: nowrap;
 	
 		&:hover {
-			border-color: var(--main-color-lighter);
+			border-color: var(--main-color-light);
 		}
 	
 		&:focus {

@@ -380,7 +380,7 @@ export const myDataGridStyle = {
         position: 'sticky',
         top: 0,
         zIndex: 2,
-        backgroundColor: `${variables.primaryBgHoverColor} !important`,
+        backgroundColor: 'var(--main-color) !important',
         color: 'white !important',
         '&:last-child': {
             padding: '0 12px'
@@ -389,11 +389,11 @@ export const myDataGridStyle = {
     checkbox: { height: '100%', width: 'auto' },
     row: {
         height: 'auto',
-        // "&:hover": {
+        // "&:": {
         //     backgroundColor: variables.rowHoverColor + " !important"
         // },
         '&.active': {
-            backgroundColor: `${variables.primaryBgHoverColor} !important`
+            backgroundColor: 'var(--main-color-light-1) !important'
             // color: "#fff"
         }
     },

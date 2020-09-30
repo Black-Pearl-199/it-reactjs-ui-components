@@ -5,8 +5,8 @@
 
 	thead.table-itech-thread {
 		tr {
-			background: var(--main-color-dark) !important;
-			color: var(--text-color) !important;
+			background: var(--main-color) !important;
+			color: var(--default-text) !important;
 			text-transform: uppercase;
 
 			th {
@@ -19,7 +19,7 @@
 		td,
 		span {
 			background-color: transparent;
-			color: var(--text-color) !important;
+			color: var(--default-text) !important;
 			font-weight: 500 !important;
             font-size: .75rem;
             line-height: 200%;
@@ -57,7 +57,7 @@
 			}
 
 			/*&:hover {
-				background: $main-color-lighter-1;
+				background: $main-color-light-1;
 				color: var(--white);
 				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
 			}*/
@@ -79,7 +79,7 @@
 		}
 
 		// &:hover {
-		//     background: $main-color-lighter-1;
+		//     background: $main-color-light-1;
 		//     color: var(--white);
 		// }
 	}

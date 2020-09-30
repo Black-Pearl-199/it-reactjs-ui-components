@@ -1,19 +1,86 @@
-import { array, string, bool } from 'prop-types';
-import React, { useCallback } from 'react';
+import { array, string, bool, func } from 'prop-types';
+import React, { useEffect } from 'react';
 import { useSetLocale, useTranslate } from 'react-admin';
 import { useTheme } from '@material-ui/core';
 import { Dropdown, Tooltip, OverlayTrigger, DropdownButton } from 'react-bootstrap';
 
 import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
 
+// const COLOR_MAPPING = {
+//     '--form-background-color': 'formBgColor',
+//     '--form-background-color-focus': 'formBgColorFocus',
+//     '--default-text': 'defaultText',
+//     '--text-color': 'textColor',
+//     '--text-color-light': 'textColorLight',
+//     '--modal-itech-background': 'modalItechBackground',
+//     '--main-color-opacity': 'mainColorOpacity',
+//     '--main-color': 'main',
+//     '--main-color-hover': 'mainColorHover',
+//     '--main-color-light': 'light',
+//     '--main-color-light-1': 'mainColorLight1',
+//     '--main-color-dark': 'dark'
+// };
+const camelCaseToCss = (input) => input.split(/(?=[A-Z, 0-9])/).join('-').toLowerCase();
+
 const ThemeSwitcher = (props) => {
     const theme = useTheme();
+    const translate = useTranslate();
+    const { onClick } = props;
+    const isDark = theme.palette.type === 'dark';
     const root = document.documentElement;
-    root.style.setProperty('--main-color-dark', theme.palette.primary.dark);
-    root.style.setProperty('--main-color-hover', theme.palette.primary.light);
-    root.style.setProperty('--main-color', theme.palette.primary.main);
-    console.log('ThemeSwitcher theme', theme);
-    return null;
+    // console.log('Theme', theme);
+    // eslint-disable-next-line guard-for-in
+    useEffect(() => {
+        for (const [key, value] of Object.entries(theme.palette.primary)) {
+            // console.log('theme color', key, value);
+            if (value) root.style.setProperty(`--${camelCaseToCss(key)}`, value);
+        }
+    }, [theme.palette, theme.palette.type, root.style]);
+
+
+    return (
+        isDark
+            ? (
+                <OverlayTrigger
+                    placement="bottom"
+                    overlay={(
+                        <Tooltip className="itech-tooltip" id="logout-button">
+                            {translate('commons.theme.toLight')}
+                        </Tooltip>
+                    )}
+                >
+                    <span
+                    // variant="itech-icon"
+                    // size="sm"
+                        className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
+                        onClick={onClick}
+                    >
+                        {/* {translate('button.logout')} */}
+                        <i className="fa fa-sun" />
+                    </span>
+                </OverlayTrigger>
+            )
+            : (
+                <OverlayTrigger
+                    placement="bottom"
+                    overlay={(
+                        <Tooltip className="itech-tooltip" id="logout-button">
+                            {translate('commons.theme.toDark')}
+                        </Tooltip>
+                    )}
+                >
+                    <span
+                        // variant="itech-icon"
+                        // size="sm"
+                        className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
+                        onClick={onClick}
+                    >
+                        {/* {translate('button.logout')} */}
+                        <i className="fa fa-moon" />
+                    </span>
+                </OverlayTrigger>
+            )
+    );
     // return (
         // <div onClick={fixPropagationEvent} className="my-auto">
         //     <DropdownButton
@@ -41,6 +108,7 @@ const ThemeSwitcher = (props) => {
 };
 
 ThemeSwitcher.propTypes = {
+    onClick: func
 };
 
 ThemeSwitcher.defaultProps = {

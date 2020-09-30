@@ -10,23 +10,23 @@
 	& .nav-link {
 		height: var(--tab-height);
 		text-decoration: none;
-		color: var(--sidebar-text);
+		color: var(--default-text);
 		border-radius: 0;
 		border: none;
 		padding: 0.5rem 0.75rem;
 		margin-top: var(--top-height) - var(--tab-height);
 
 		&:hover {
-			color: var(--main-color-lighter);
+			color: var(--main-color-light);
 		}
 
 		&.active {
-			background-color: var(--main-color-lighter);
-			color: var(--sidebar-text);
+			background-color: var(--main-color-light);
+			color: var(--default-text);
 
 			.tab-close {
 				svg:hover {
-					background-color: var(--main-color-lighter);
+					background-color: var(--main-color-light);
 					color: var(--sidebar);
 				}
 			}
@@ -39,12 +39,12 @@
 		.tab-close {
 			svg {
 				margin-left: 0.75rem;
-				color: var(--sidebar-text);
+				color: var(--default-text);
 
 				&:hover {
 					border-radius: 50%;
 					background-color: var(--sidebar);
-					color: var(--main-color-lighter);
+					color: var(--main-color-light);
 				}
 			}
 		}

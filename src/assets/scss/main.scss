@@ -7,7 +7,7 @@ body {
 	font-family: $font-family;
 	font-size: 1rem !important;
 	color: $text-color;
-	background: $grey-light;
+	background: var(--main-background);
 }
 
 .clickable {
@@ -24,23 +24,23 @@ body {
 	content: '*';
 }
 
-input.ng-dirty.ng-invalid {
-	border-color: $red-1-light;
-}
+// input.ng-dirty.ng-invalid {
+// 	border-color: $red-1-light;
+// }
 
-.field-message {
-	display: inline-block;
-	color: $red-1-light;
-	font-size: 90%;
-	transition: 1s linear all;
-}
+// .field-message {
+// 	display: inline-block;
+// 	color: $red-1-light;
+// 	font-size: 90%;
+// 	transition: 1s linear all;
+// }
 
 .btn-icon[itech-toggle-menu] {
 	background-color: $grey-dark;
 	color: $white;
 
 	&:hover, &:active {
-		background-color: $main-color-lighter;
+		background-color: $main-color-light;
 		color: $white;
 	}
 }
@@ -64,27 +64,27 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	// ---------------------COLOR------------------------
-	--green-itech-1-dark: #{$green-itech-1-dark};
-	--green-itech-dark: #{$green-itech-dark};
-	--green-itech-dark-half-opacity: #{$green-itech-dark-half-opacity};
-	--green-itech-light: #{$green-itech-light};
-	--green-itech-light-half-opacity: #{$green-itech-light-half-opacity};
+	// --green-itech-1-dark: #{$green-itech-1-dark};
+	// --green-itech-dark: #{$green-itech-dark};
+	// --green-itech-dark-half-opacity: #{$green-itech-dark-half-opacity};
+	// --green-itech-light: #{$green-itech-light};
+	// --green-itech-light-half-opacity: #{$green-itech-light-half-opacity};
 	// --reen-itech-normal:;
 	// --reen-itech-dark:;
-	--white-half-opacity: #{$white-half-opacity};
-	--black-half-opacity: #{$black-half-opacity};
+	// --white-half-opacity: #{$white-half-opacity};
+	// --black-half-opacity: #{$black-half-opacity};
 	--black: #{$black};
-	--grey-1-light: #{$grey-1-light};
-	--grey-normal: #{$grey-normal};
+	// --grey-1-light: #{$grey-1-light};
+	// --grey-normal: #{$grey-normal};
 	--grey-normal-opacity: #{$grey-normal-opacity};
 	--grey-normal-opacity-hover: #{$grey-normal-opacity-hover};
 	--grey-dark: #{$grey-dark};
 	--red: #{$red};
-	--red-1-light: #{$red-1-light};
+	// --red-1-light: #{$red-1-light};
 
 	--default-text: #{$default-text};
-    --input-background: #{$input-background};
-    --text-color-lighter: #{$text-color-lighter};
+    // --input-background: #{$input-background};
+    --text-color-light: #{$text-color-light};
 
 	// --------------------- NEW COLOR RE-DESIGN------------------------
 	--form-background-color: #{$form-background-color};
@@ -96,14 +96,15 @@ h1, h2, h3, h4, h5, h6 {
 	--main-color-opacity: #{$main-color-opacity};
 	--main-color: #{$main-color};
 	--main-color-hover: #{$main-color-hover};
-	--main-color-lighter: #{$main-color-lighter};
-	--main-color-lighter-1: #c8e7d2;
+	--main-color-light: #{$main-color-light};
+	--main-color-light-1: #{$main-color-light-1};
 	--main-color-dark: #{$main-color-dark};
 	--green-text-selection: #{$green-text-selection};
 	--green-input-form-selection: #{$green-input-form-selection};
 	--cyan: #{$cyan};
 	--cyan-lighter: #{$cyan-lighter};
 	--grey-light: #{$grey-light};
+	--main-background: #{$grey-light};
 	--grey-1: #cccccc;
 	--grey-2: #e0e0e0;
 	--black-opacity: #{$black-opacity};
@@ -128,10 +129,10 @@ h1, h2, h3, h4, h5, h6 {
 	--dribble-color: #{$dribble-color};
 	--behace-color: #{$behace-color};
 
-	--sidebar: #{$sidebar};
-	--sidebar-heading: #{$sidebar-heading};
-	--sidebar-text: #{$sidebar-text};
-	--sidebar-text-selected: #($sidebar-text-selected);
+	// --sidebar: #{$sidebar};
+	// --sidebar-heading: #{$sidebar-heading};
+	// --sidebar-text: #{$sidebar-text};
+	// --sidebar-text-selected: #($sidebar-text-selected);
 	--sidebar-item-height: #{$sidebar-item-height};
 	--sidebar-width: #{$sidebar-width};
 	--sidebar-width-collapse: #{$sidebar-width-collapse};

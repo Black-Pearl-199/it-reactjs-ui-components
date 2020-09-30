@@ -18,5 +18,9 @@ export default {
         error: '%{error}',
         cannotDeleteResource: 'Không thể xóa tài nguyên %{id} do đang được sử dụng!!!',
         resource_selected: '1 %{resource_name} đã được chọn |||| %{smart_count} %{resource_name} đã được chọn'
+    },
+    theme: {
+        toDark: 'Chuyển giao diện tối',
+        toLight: 'Chuyển giao diện sáng'
     }
 };

@@ -208,7 +208,7 @@
 }
 
 .btn-itech-dark:hover {
-  background-color: var(--text-color-lighter);
+  background-color: var(--text-color-light);
 }
 
 .btn-itech-light {
@@ -246,7 +246,7 @@
 }
 
 .btn-itech-dropdown:hover {
-  border-color: var(--main-color-lighter);
+  border-color: var(--main-color-light);
 }
 
 .btn-itech-dropdown:focus {
@@ -487,7 +487,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .input-group-itech-search .input-group-prepend .input-group-text {
   border-radius: 99px 0 0 99px;
-  background: var(--green-text-selection);
+  background: var(--main-color-light-1);
 }
 
 .input-group-itech-search .form-control {
@@ -588,6 +588,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .navbar.nav-iTech {
+  background: var(--navbar-background);
   padding: 0 1rem;
 }
 
@@ -615,7 +616,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .nav-item:hover {
-  background-color: var(--main-color-lighter-1);
+  background-color: var(--main-color-light-1);
 }
 
 .nav-item .nav-link {
@@ -630,7 +631,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .nav-item .nav-link.active {
   border-radius: 10px 10px 0 0;
-  background-color: var(--grey-light);
+  background-color: var(--main-background);
   border-color: var(--grey-light);
   color: var(--cyan);
 }
@@ -817,8 +818,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .table thead.table-itech-thread tr {
-  background: var(--main-color-dark) !important;
-  color: var(--text-color) !important;
+  background: var(--main-color) !important;
+  color: var(--default-text) !important;
   text-transform: uppercase;
 }
 
@@ -831,7 +832,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
   background-color: transparent;
-  color: var(--text-color) !important;
+  color: var(--default-text) !important;
   font-weight: 500 !important;
   font-size: .75rem;
   line-height: 200%;
@@ -839,7 +840,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .table-striped tbody tr {
   /*&:hover {
-				background: $main-color-lighter-1;
+				background: $main-color-light-1;
 				color: var(--white);
 				box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
 			}*/
@@ -936,7 +937,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .modal-itech .modal-itech-body .modal-panel {
-  background: var(--grey-light);
+  background: var(--main-background);
   padding: 15px 15px 15px 20px;
 }
 
@@ -999,7 +1000,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .page-top {
-  background-color: #dbdbdb;
+  background-color: var(--main-color);
   position: fixed;
   z-index: 904;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12);
@@ -1013,7 +1014,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 a.al-logo {
-  color: #ffffff;
+  color: var(--default-text);
   display: block;
   font-size: 24px;
   font-family: "Roboto", sans-serif;
@@ -1024,7 +1025,7 @@ a.al-logo {
 }
 
 a.al-logo span {
-  color: #f5f5f5;
+  color: #6c7770;
 }
 
 .user-profile {
@@ -1056,7 +1057,7 @@ a.al-logo span {
 }
 
 a.refresh-data {
-  color: #ffffff;
+  color: var(--default-text);
   font-size: 13px;
   text-decoration: none;
   font-weight: 400;
@@ -1075,7 +1076,7 @@ a.collapse-menu-link {
   display: block;
   text-decoration: none;
   line-height: 42px;
-  color: #ffffff;
+  color: var(--default-text);
   padding: 0;
   float: left;
   margin: 11px 0 0 25px;
@@ -1100,7 +1101,7 @@ a.collapse-menu-link:hover {
 
 .search {
   text-shadow: none;
-  color: var(--sidebar-text);
+  color: var(--default-text);
   font-size: 13px;
   line-height: 25px;
   transition: all 0.5s ease;
@@ -1213,7 +1214,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   width: var(--sidebar-width);
   z-index: 904;
   display: flex;
-  background-color: var(--sidebar);
+  background-color: var(--sidebar-background);
   font-size: 13px;
   box-shadow: var(--shadow);
   transition: width 0s ease;
@@ -1238,7 +1239,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 .sidebar .toggle-collapse {
   width: 100%;
   background-color: var(--main-color);
-  color: var(--sidebar-text);
+  color: var(--default-text);
   border-radius: 0;
 }
 
@@ -1251,20 +1252,20 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-heading {
-  background-color: var(--sidebar-heading);
+  background-color: var(--main-color);
   box-shadow: var(--shadow);
   height: var(--sidebar-item-height);
-  color: var(--sidebar-heading);
+  color: var(--main-color);
 }
 
 .btn-icon-toggle {
-  background: var(--sidebar-heading);
-  color: var(--sidebar-text);
+  background: var(--main-color);
+  color: var(--default-text);
 }
 
 .btn-icon-toggle:hover {
-  background-color: var(--sidebar-text);
-  color: var(--sidebar);
+  background-color: var(--default-text);
+  color: var(--main-color);
 }
 
 .sidebar-list {
@@ -1297,20 +1298,20 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link b {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link i::before {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
   background-color: var(--main-color-hover);
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
@@ -1318,12 +1319,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar-list-item a.sidebar-list-link.selected svg, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected svg {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
   background-color: var(--main-color-hover);
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
@@ -1341,7 +1342,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   top: 0;
   left: var(--sidebar-width-collapse);
   border-left: 1px solid white;
-  background-color: var(--sidebar);
+  background-color: var(--main-color);
   width: var(--sidebar-width);
   z-index: 100;
   height: auto;
@@ -1354,7 +1355,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item i::before, .sidebar-list-item svg {
-  color: var(--sidebar-text);
+  color: var(--text-color);
 }
 
 .sidebar-list-item.ba-sidebar-item-expanded > .sidebar-list-link b i, .sidebar-list-item.ba-sidebar-item-expanded > .sidebar-list-link b svg, .ba-sidebar-sublist-item.ba-sidebar-item-expanded > .sidebar-list-link b i, .ba-sidebar-sublist-item.ba-sidebar-item-expanded > .sidebar-list-link b svg {
@@ -1371,7 +1372,7 @@ a.sidebar-list-link {
   padding-left: var(--sidebar-item-pad-left);
   text-shadow: none;
   text-decoration: none;
-  color: var(--sidebar-text);
+  color: var(--text-color);
   line-height: var(--sidebar-item-height);
   white-space: nowrap;
   overflow: hidden;
@@ -1384,11 +1385,11 @@ a.sidebar-list-link {
 
 a.sidebar-list-link:hover {
   background-color: var(--main-color-hover);
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 a.sidebar-list-link:hover i::before, a.sidebar-list-link:hover svg {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 a.sidebar-list-link i, a.sidebar-list-link svg {
@@ -1414,7 +1415,7 @@ a.sidebar-list-link b {
   top: calc((var(--sidebar-item-height) - 18px) /2);
   padding: 0;
   text-align: center;
-  color: var(--sidebar-text);
+  color: var(--default-text);
   transition: visibility var(--transitionTime) ease;
   -webkit-transition: visibility var(--transitionTime) ease;
   -moz-transition: visibility var(--transitionTime) ease;
@@ -1471,7 +1472,7 @@ a.sidebar-list-link b {
   text-shadow: none;
   font-size: 13px;
   text-decoration: none;
-  color: var(--sidebar-text);
+  color: var(--text-color);
   padding-left: var(--sidebar-width-collapse);
   height: var(--sidebar-item-height);
   line-height: var(--sidebar-item-height);
@@ -1487,17 +1488,17 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
   background-color: var(--main-color-hover);
-  color: var(--sidebar-text-selected);
+  color: var(--text-color);
 }
 
 .sidebar-hover-elem {
   width: 4px;
-  background: #b7b7b6;
+  background: #2C5641;
   position: absolute;
   top: -150px;
   left: var(--sidebar-width)-4px;
@@ -1589,7 +1590,7 @@ a.sidebar-list-link b {
 .itech-tabs .nav-link {
   height: var(--tab-height);
   text-decoration: none;
-  color: var(--sidebar-text);
+  color: var(--default-text);
   border-radius: 0;
   border: none;
   padding: 0.5rem 0.75rem;
@@ -1597,16 +1598,16 @@ a.sidebar-list-link b {
 }
 
 .itech-tabs .nav-link:hover {
-  color: var(--main-color-lighter);
+  color: var(--main-color-light);
 }
 
 .itech-tabs .nav-link.active {
-  background-color: var(--main-color-lighter);
-  color: var(--sidebar-text);
+  background-color: var(--main-color-light);
+  color: var(--default-text);
 }
 
 .itech-tabs .nav-link.active .tab-close svg:hover {
-  background-color: var(--main-color-lighter);
+  background-color: var(--main-color-light);
   color: var(--sidebar);
 }
 
@@ -1616,13 +1617,13 @@ a.sidebar-list-link b {
 
 .itech-tabs .nav-link .tab-close svg {
   margin-left: 0.75rem;
-  color: var(--sidebar-text);
+  color: var(--default-text);
 }
 
 .itech-tabs .nav-link .tab-close svg:hover {
   border-radius: 50%;
   background-color: var(--sidebar);
-  color: var(--main-color-lighter);
+  color: var(--main-color-light);
 }
 
 .nav-iTech .nav-link {
@@ -1922,7 +1923,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 1rem !important;
   color: #2E3E47;
-  background: #F7F7F7;
+  background: var(--main-background);
 }
 
 .clickable {
@@ -1939,24 +1940,13 @@ body {
   content: '*';
 }
 
-input.ng-dirty.ng-invalid {
-  border-color: #ea00ff;
-}
-
-.field-message {
-  display: inline-block;
-  color: #ea00ff;
-  font-size: 90%;
-  transition: 1s linear all;
-}
-
 .btn-icon[itech-toggle-menu] {
   background-color: #333333;
   color: #fff;
 }
 
 .btn-icon[itech-toggle-menu]:hover, .btn-icon[itech-toggle-menu]:active {
-  background-color: #f5f5f5;
+  background-color: #6c7770;
   color: #fff;
 }
 
@@ -1971,40 +1961,30 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   font-size: 100%;
-  --green-itech-1-dark: #ea00ff;
-  --green-itech-dark: #ea00ff;
-  --green-itech-dark-half-opacity: #ea00ff;
-  --green-itech-light: #ea00ff;
-  --green-itech-light-half-opacity: #ea00ff;
-  --white-half-opacity: #ea00ff;
-  --black-half-opacity: #ea00ff;
   --black: black;
-  --grey-1-light: #ea00ff;
-  --grey-normal: #ea00ff;
   --grey-normal-opacity: rgba(102, 102, 102, 0.3);
   --grey-normal-opacity-hover: rgba(102, 102, 102, 0.2);
   --grey-dark: #333333;
   --red: red;
-  --red-1-light: #ea00ff;
   --default-text: #ffffff;
-  --input-background: #ea00ff;
-  --text-color-lighter: #7c7c7c;
-  --form-background-color: rgba(33, 101, 156, 0.1);
-  --form-background-color-focus: rgba(33, 90, 156, 0.2);
+  --text-color-light: #495057;
+  --form-background-color: rgba(33, 156, 119, 0.1);
+  --form-background-color-focus: rgba(33, 156, 119, 0.2);
   --text-color: #2E3E47;
   --grey-background: #E5E5E5;
   --modal-itech-background: #F7F9FC;
-  --main-color-opacity: rgba(122, 122, 122, 0.1);
-  --main-color: #dbdbdb;
-  --main-color-hover: #b7b7b6;
-  --main-color-lighter: #f5f5f5;
-  --main-color-lighter-1: #c8e7d2;
+  --main-color-opacity: rgba(55, 107, 81, 0.1);
+  --main-color: #376B51;
+  --main-color-hover: #2C5641;
+  --main-color-light: #6c7770;
+  --main-color-light-1: #C8E7D2;
   --main-color-dark: #4c4c4c;
-  --green-text-selection: #b7b7b6;
+  --green-text-selection: #76B194;
   --green-input-form-selection: rgba(197, 202, 202, 0.1);
   --cyan: #455F6D;
   --cyan-lighter: #6a7e8a;
   --grey-light: #F7F7F7;
+  --main-background: #F7F7F7;
   --grey-1: #cccccc;
   --grey-2: #e0e0e0;
   --black-opacity: rgba(0, 0, 0, 0.1);
@@ -2024,10 +2004,6 @@ h1, h2, h3, h4, h5, h6 {
   --stackoverflow-color: #2F96E8;
   --dribble-color: #F26798;
   --behace-color: #0093FA;
-  --sidebar: #dbdbdb;
-  --sidebar-heading: #4c4c4c;
-  --sidebar-text: #ffffff;
-  --sidebar-text-selected: #($sidebar-text-selected);
   --sidebar-item-height: 32px;
   --sidebar-width: 240px;
   --sidebar-width-collapse: 30px;
