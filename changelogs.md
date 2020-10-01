@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.2.91] - 2020-10-01
+### Added
+- Add paging for select referece input - [@TinVan2]
+
 ## [0.2.90] - 2020-09-29
 ### Changed
 - Add function onChange into filterRef in MyFilterBox - [@TinVan2]
