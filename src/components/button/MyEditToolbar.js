@@ -13,14 +13,33 @@ const fixToolbarHeight = {
 
 const MyEditToolbar = (props) => {
     const {
-        children, invalid, callback, className, hideEditButton, editing, deletable, optimistic, customButton, changeEditState, convertValue, customAction, undoable, beforeSubmit, hideNotification, customNotification, filter, buttonClasses, ...rest
+        children,
+        invalid,
+        callback,
+        className,
+        hideEditButton,
+        editing,
+        deletable,
+        optimistic,
+        customButton,
+        changeEditState,
+        convertValue,
+        customAction,
+        undoable,
+        beforeSubmit,
+        hideNotification,
+        customNotification,
+        filter,
+        buttonClasses,
+        labelConfirm,
+        ...rest
     } = props;
     const { redirect } = rest;
 
     const { record, resource, basePath } = rest;
     const { id } = record;
     // console.log('update toolbar props', props);
-    const childrenWithProps = React.Children.map(children, (child) => (!!child && React.cloneElement(child, { invalid, ...rest })));
+    const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { invalid, ...rest }));
 
     return (
         <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
@@ -37,6 +56,7 @@ const MyEditToolbar = (props) => {
                     customNotification={customNotification}
                     filter={filter}
                     buttonClasses={buttonClasses}
+                    labelConfirm={labelConfirm}
                     {...rest}
                 />
             )}
@@ -72,7 +92,8 @@ MyEditToolbar.propTypes = {
     customButton: PropTypes.element,
     undoable: PropTypes.bool,
     hideEditButton: PropTypes.bool,
-    buttonClasses: PropTypes.string
+    buttonClasses: PropTypes.string,
+    labelConfirm: PropTypes.string
 };
 
 MyEditToolbar.defaultValues = {

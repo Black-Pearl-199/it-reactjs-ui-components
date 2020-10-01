@@ -31,5 +31,6 @@ export {
 };
 
 export { default as DATE_RANGE } from './DateRange';
+export { OPTION_INPUT } from './SelectRefereceInput';
 
 export * from './MyBootstrapInput';

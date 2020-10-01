@@ -16,22 +16,27 @@ const zIndex100 = { zIndex: 100 };
 
 const listScrollStyle = { maxHeight: '230px', overflowY: 'auto' };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     modalSelect: {
-        minWidth: '400px',
-        backgroundColor: 'white'
+        minWidth: '200px',
+        maxWidth: '400px',
+        backgroundColor: 'var(--form-background-color)'
     },
     list: {
         height: '22px',
         fontSize: '14px',
         lineHeight: 1,
+        backgroundColor: 'var(--form-background-color)',
         '&:hover': {
-            color: '#fff',
+            color: 'var(--text-color)',
             textDecoration: 'none',
             backgroundColor: '#007bff'
         }
+    },
+    pagination: {
+        backgroundColor: 'var(--form-background-color)'
     }
-}));
+});
 
 const SelectReferenceInput = (props) => {
     const ref = useRef();
@@ -86,20 +91,21 @@ const SelectReferenceInput = (props) => {
     }, []);
 
     useEffect(() => {
+        const tempInputValue = component === OPTION_INPUT.SIMPLE_FORM ? defaultValue : inputValue && inputValue[source];
         const getTextInput = async (id) => {
             const { prefix, postfix } = filter;
             await dataProvider.getOne(reference, { id, filter: { prefix, postfix } })
                 .then((response) => {
                     if (response && response.data) {
                         setTextInput(response.data[optionText]);
+                    } else {
+                        setTextInput(tempInputValue);
                     }
                 })
                 .catch((error) => {
-                    // console.error(error);
-                    throw new Error();
+                    setTextInput(tempInputValue);
                 });
         };
-        const tempInputValue = component === OPTION_INPUT.SIMPLE_FORM ? defaultValue : inputValue && inputValue[source];
         // check neu co input value => call api de get text display khi ma trong choice chua co
         if (tempInputValue !== undefined) {
             setValueInput(tempInputValue);
@@ -143,17 +149,19 @@ const SelectReferenceInput = (props) => {
                         className={classnames(classes.modalSelect, 'w-100 position-absolute', show ? 'd-block shadow' : 'd-none')}
                         style={zIndex100}
                     >
-                        <ul style={listScrollStyle} className="bg-white border rounded inline-block ul-0 w-100 px-0 mb-1">
+                        <ul style={listScrollStyle} className="bg-white border rounded inline-block ul-0 w-100 px-0 mb-0">
                             {allowEmpty && (
-                                <Dropdown.Item
-                                    role="div" // remove css from form for role="button"
-                                    className={classes.list}
-                                    onClick={handleSelectItem}
-                                    data-value=""
-                                    data-text={emptyChoiceLabel && translate(emptyChoiceLabel)}
-                                >
-                                    {emptyChoiceLabel && translate(emptyChoiceLabel)}
-                                </Dropdown.Item>
+                                <div key={`${reference}-${source}-all`} className={classes.list}>
+                                    <Dropdown.Item
+                                        role="div" // remove css from form for role="button"
+                                        className={classes.list}
+                                        onClick={handleSelectItem}
+                                        data-value=""
+                                        data-text={emptyChoiceLabel && translate(emptyChoiceLabel)}
+                                    >
+                                        {emptyChoiceLabel && translate(emptyChoiceLabel)}
+                                    </Dropdown.Item>
+                                </div>
                             )}
                             {choices.map((choice) => {
                                 const showText = translateChoice ? translate(choice[optionText]) : choice[optionText];
@@ -173,11 +181,13 @@ const SelectReferenceInput = (props) => {
                                 );
                             })}
                         </ul>
-                        <PagingRefInput
-                            setPagination={setPagination}
-                            perPage={perPage}
-                            reference={reference}
-                        />
+                        <div className={classes.pagination}>
+                            <PagingRefInput
+                                setPagination={setPagination}
+                                perPage={perPage}
+                                reference={reference}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -192,8 +202,8 @@ SelectReferenceInput.propTypes = {
     optionText: PropTypes.string,
     translateChoice: PropTypes.bool,
     source: PropTypes.string,
-    resource: PropTypes.string.isRequired, // curernt resource page
-    reference: PropTypes.string.isRequired, // resource reference
+    resource: PropTypes.string, // curernt resource page
+    reference: PropTypes.string, // resource reference
     label: PropTypes.string,
     hideLabel: PropTypes.bool,
     labelClasses: PropTypes.string,

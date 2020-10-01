@@ -74,7 +74,7 @@ const ReferenceInputView = (props) => {
         form,
         ...rest
     } = props;
-    const { filter, perPage } = props;
+    const { filter, perPage, reference } = props;
     if (Children.count(children) !== 1) {
         throw new Error('<ReferenceInput> only accepts a single child');
     }
@@ -145,6 +145,7 @@ const ReferenceInputView = (props) => {
         filter,
         perPage,
         defaultValue: value || defaultValue,
+        reference,
         ...sanitizeRest
     });
 };

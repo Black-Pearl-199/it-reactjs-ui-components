@@ -3,7 +3,7 @@ import { vi } from 'date-fns/locale';
 import isReact from 'is-react';
 import { find, get, uniqBy } from 'lodash';
 import moment from 'moment';
-import { any, arrayOf, bool, func, object, shape, string } from 'prop-types';
+import { any, arrayOf, bool, func, object, shape, string, number } from 'prop-types';
 import React, { useRef, useEffect } from 'react';
 import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
@@ -360,6 +360,7 @@ const MyBootstrapInput = (props) => {
         required,
         handleChoiceOption,
         children,
+        perPage,
         ...rest
     } = props;
     const { resource, source, component, hideLabel, type, fullFill, choices } = rest;
@@ -510,7 +511,8 @@ MyBootstrapInput.propTypes = {
     required: bool,
     fullFill: bool,
     handleChoiceOption: func,
-    onTriggerSubmit: func
+    onTriggerSubmit: func,
+    perPage: number
 };
 MyBootstrapInput.defaultProps = {
     component: 'input',
