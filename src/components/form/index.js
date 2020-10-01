@@ -27,7 +27,7 @@ export {
     _MyReferenceArrayInput as MyReferenceArrayInput,
     _MySimpleForm as MySimpleForm,
     _MySelectArrayInput as MySelectArrayInput,
-    _SelectReferenceInput as SelectRefereceInput
+    _SelectReferenceInput as SelectReferenceInput
 };
 
 export { default as DATE_RANGE } from './DateRange';
