@@ -316,15 +316,11 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     id={source}
                     date={date}
                     onDateChange={(d) => {
-                        console.log(d);
                         setDate(d);
                         // onChange(d);
                     }}
                     focused={focused}
                     onFocusChange={() => {
-                        if (!focused) {
-                            onChange(date);
-                        }
                         setFocused(!focused);
                     }}
                     placeholder={translatedLabel}
