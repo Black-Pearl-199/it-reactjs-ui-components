@@ -3,3 +3,11 @@
 	flex-direction: column;
 	width: 100%;
 }
+
+.bg-color {
+	background: var(--main-background);
+}
+
+.bg-color-sidebar {
+	background: var(--sidebar-background);
+}

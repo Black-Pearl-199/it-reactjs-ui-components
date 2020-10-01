@@ -44,14 +44,14 @@
 		&:hover {
 			border-radius: 10px 10px 0 0;
 			border-color: var(--green-input-form-selection) !important;
-			color: var(--cyan);
+			color: var(--text-color);
 		}
 
 		&.active {
 			border-radius: 10px 10px 0 0;
 			background-color: var(--main-background);
 			border-color: var(--grey-light);
-			color: var(--cyan);
+			color: var(--text-color);
 
 			&:hover {
 				border-color: transparent !important;

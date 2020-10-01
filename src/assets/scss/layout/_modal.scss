@@ -45,6 +45,19 @@
     }
 }
 
+.modal-header {
+    background: var(--sidebar-background);
+    color: var(--text-color);
+    .close {
+        color: var(--text-color);
+    }
+}
+
+.modal-content {
+    background: var(--sidebar-background);
+    color: var(--text-color);
+}
+
 @media (max-width: 1024px) {
     .modal-itech {
         width: 100vw;

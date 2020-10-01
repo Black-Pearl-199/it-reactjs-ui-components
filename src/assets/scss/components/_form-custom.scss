@@ -1,8 +1,8 @@
 @import "../abstracts/variables";
 
 .form-control {
-	background-color: var(--white);
-	color: var(--text-color);
+	background-color: var(--form-background-color) !important;
+	color: var(--text-color) !important;
 
 	//border-width: 2px;
 	//border-color: $grey-light;
@@ -12,8 +12,9 @@
 
 	&:focus {
 		border-color: var(--main-color-dark);
-		background-color: var(--form-background-color-focus);
+		background-color: var(--form-background-color-focus) !important;
 		box-shadow: none;
+		color: var(--text-color) !important;
 	}
 
 	border: none;
@@ -24,6 +25,8 @@
 .form-control-sm {
 	font-size: 14px;
 	height: 26px;
+	background-color: var(--form-background-color) !important;
+	color: var(--text-color);
 }
 
 .form-group {
@@ -42,7 +45,8 @@
 	.input-group-prepend {
 		.input-group-text {
 			border-radius: 99px 0 0 99px;
-			background: var(--main-color-light-1);
+			background: var(--form-background-color);
+			border: var(--form-background-color);
 		}
 	}
 

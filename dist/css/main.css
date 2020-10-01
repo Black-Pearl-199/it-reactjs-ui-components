@@ -23,6 +23,7 @@
 
 .preview-attachment .modal-content {
   height: 75%;
+  background: var(--sidebar-background);
 }
 
 .btn-delete-attachment {
@@ -139,21 +140,21 @@
 
 .btn-itech-icon-primary {
   box-shadow: none;
-  color: var(--cyan) !important;
+  color: var(--text-color) !important;
   background: transparent !important;
 }
 
 .btn-itech-icon-primary i::before {
-  color: var(--cyan);
+  color: var(--text-color);
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
-  background: var(--cyan) !important;
-  color: var(--white) !important;
+  background: var(--text-color) !important;
+  color: var(--main-color-light) !important;
 }
 
 .btn-itech-icon-primary:hover i::before, .btn-itech-icon-primary:active i::before, .btn-itech-icon-primary.active i::before {
-  color: var(--white);
+  color: var(--main-color-light);
 }
 
 .btn-itech-icon-warning {
@@ -191,7 +192,7 @@
 
 .btn-itech-secondary {
   background: var(--grey-1);
-  color: var(--text-color) !important;
+  color: #2E3E47 !important;
 }
 
 .btn-itech-secondary i::before {
@@ -203,7 +204,7 @@
 }
 
 .btn-itech-dark {
-  background: var(--text-color);
+  background: #2E3E47;
   color: var(--white) !important;
 }
 
@@ -282,8 +283,8 @@
 }
 
 .btn-pick-date.active {
-  background-color: var(--text-color);
-  color: white !important;
+  background-color: #2E3E47;
+  color: var(--default-text) !important;
   z-index: 0 !important;
 }
 
@@ -310,7 +311,7 @@
 }
 
 .btn-link {
-  color: #0056b3;
+  color: var(--text-color-link);
 }
 
 .radius-0 {
@@ -363,7 +364,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .btn-dropdown {
-  background: var(--grey-background) !important;
+  background: var(--form-background-color) !important;
   color: var(--text-color);
   border-radius: 4px;
   border-style: solid;
@@ -455,8 +456,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .form-control {
-  background-color: var(--white);
-  color: var(--text-color);
+  background-color: var(--form-background-color) !important;
+  color: var(--text-color) !important;
   border: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   padding: 3px 8px;
@@ -468,13 +469,16 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .form-control:focus {
   border-color: var(--main-color-dark);
-  background-color: var(--form-background-color-focus);
+  background-color: var(--form-background-color-focus) !important;
   box-shadow: none;
+  color: var(--text-color) !important;
 }
 
 .form-control-sm {
   font-size: 14px;
   height: 26px;
+  background-color: var(--form-background-color) !important;
+  color: var(--text-color);
 }
 
 .form-group {
@@ -487,7 +491,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .input-group-itech-search .input-group-prepend .input-group-text {
   border-radius: 99px 0 0 99px;
-  background: var(--main-color-light-1);
+  background: var(--form-background-color);
+  border: var(--form-background-color);
 }
 
 .input-group-itech-search .form-control {
@@ -516,6 +521,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   font-size: var(--fontSize875);
   font-weight: bold;
   padding-bottom: 0.25rem;
+  color: var(--text-color);
 }
 
 .label-filter-sm {
@@ -523,11 +529,16 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;
+  color: var(--text-color);
+}
+
+.label-color {
+  color: var(--text-color);
 }
 
 .label-info {
   font-size: 1.125rem !important;
-  color: #748189;
+  color: var(--info-title);
   overflow-wrap: break-word;
 }
 
@@ -559,6 +570,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   padding: 1.2rem;
   text-align: justify;
   min-height: 150px;
+  color: var(--text-color);
 }
 
 .msg-box-warning .msg-head {
@@ -568,6 +580,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .msg-box-warning .msg-body {
   border-color: var(--warning-border);
   background-color: var(--warning-background);
+  color: var(--text-color);
 }
 
 .msg-box-info .msg-head {
@@ -577,6 +590,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .msg-box-info .msg-body {
   border-color: var(--main-color-dark);
   background-color: var(--form-background-color-focus);
+  color: var(--text-color);
 }
 
 .bg-light {
@@ -626,14 +640,14 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .nav-item .nav-link:hover {
   border-radius: 10px 10px 0 0;
   border-color: var(--green-input-form-selection) !important;
-  color: var(--cyan);
+  color: var(--text-color);
 }
 
 .nav-item .nav-link.active {
   border-radius: 10px 10px 0 0;
   background-color: var(--main-background);
   border-color: var(--grey-light);
-  color: var(--cyan);
+  color: var(--text-color);
 }
 
 .nav-item .nav-link.active:hover {
@@ -718,18 +732,18 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .panel-itech {
-  background-color: var(--white);
+  background-color: var(--sidebar-background);
   padding: 0.25rem 0.5rem;
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
 
 .panel-itech .form-control {
-  background: var(--main-color-opacity);
+  background: var(--form-background-color-focus);
 }
 
 .panel-itech .form-control:disabled, .panel-itech .form-control[readonly] {
-  background: #e9ecef;
+  background: var(--form-background-color);
 }
 
 #nprogress {
@@ -945,6 +959,20 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .modal-itech .modal-itech-body .modal-panel i,
 .modal-itech .modal-itech-body .modal-panel span {
   line-height: 38px;
+}
+
+.modal-header {
+  background: var(--sidebar-background);
+  color: var(--text-color);
+}
+
+.modal-header .close {
+  color: var(--text-color);
+}
+
+.modal-content {
+  background: var(--sidebar-background);
+  color: var(--text-color);
 }
 
 @media (max-width: 1024px) {
@@ -1917,6 +1945,14 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.bg-color {
+  background: var(--main-background);
+}
+
+.bg-color-sidebar {
+  background: var(--sidebar-background);
 }
 
 body {

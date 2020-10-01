@@ -110,19 +110,19 @@
 	
 	&-icon-primary {
 		box-shadow: none;
-		color: var(--cyan) !important;
+		color: var(--text-color) !important;
 		background: transparent !important;
 	
 		i::before {
-			color: var(--cyan);
+			color: var(--text-color);
 		}
 	
 		&:hover, &:active, &.active {
-			background: var(--cyan) !important;
-			color: var(--white) !important;
+			background: var(--text-color) !important;
+			color: var(--main-color-light) !important;
 	
 			i::before {
-				color: var(--white);
+				color: var(--main-color-light);
 			}
 		}
 	}
@@ -163,7 +163,7 @@
 
 	&-secondary {
 		background: var(--grey-1);
-		color: var(--text-color) !important;
+		color:  #2E3E47 !important;
 	
 		i::before {
 			color: var(--grey-normal);
@@ -175,7 +175,7 @@
 	}
 
 	&-dark {
-		background: var(--text-color);
+		background:  #2E3E47;
 		color: var(--white) !important;
 	
 		&:hover {
@@ -256,8 +256,8 @@
 
 
 	&.active {
-		background-color: var(--text-color);
-		color: white !important;
+		background-color: #2E3E47;
+		color: var(--default-text) !important;
 		z-index: 0 !important;
 	}
 }
@@ -285,7 +285,7 @@
 }
 
 .btn-link {
-	color: #0056b3;
+	color: var(--text-color-link);
 }
 
 // .btn-redirect-create-resource{

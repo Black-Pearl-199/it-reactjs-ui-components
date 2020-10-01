@@ -4,6 +4,7 @@
 	font-size: var(--fontSize875);
 	font-weight: bold;
 	padding-bottom: 0.25rem;
+	color: var(--text-color);
 }
 
 .label-filter-sm {
@@ -11,11 +12,16 @@
 	font-weight: bold;
 	padding-top: 0;
 	padding-bottom: 0;
+	color: var(--text-color);
+}
+
+.label-color {
+	color: var(--text-color);
 }
 
 .label-info {
 	font-size: 1.125rem !important;
-	color: #748189;
+	color: var(--info-title);
 	overflow-wrap: break-word;
 }
 
