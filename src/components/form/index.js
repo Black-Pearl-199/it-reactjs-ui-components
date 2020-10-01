@@ -11,7 +11,7 @@ import _MyReferenceInput from './MyReferenceInput';
 import _MyReferenceArrayInput from './MyReferenceArrayInput';
 import _MySimpleForm from './MySimpleForm';
 import _MySelectArrayInput from './MySelectArrayInput';
-import _SelectRefereceInput from './SelectRefereceInput';
+import _SelectReferenceInput from './SelectReferenceInput';
 
 export {
     _InputWrapper as InputWrapper,
@@ -27,10 +27,10 @@ export {
     _MyReferenceArrayInput as MyReferenceArrayInput,
     _MySimpleForm as MySimpleForm,
     _MySelectArrayInput as MySelectArrayInput,
-    _SelectRefereceInput as SelectRefereceInput
+    _SelectReferenceInput as SelectRefereceInput
 };
 
 export { default as DATE_RANGE } from './DateRange';
-export { OPTION_INPUT } from './SelectRefereceInput';
+export { OPTION_INPUT } from './SelectReferenceInput';
 
 export * from './MyBootstrapInput';
