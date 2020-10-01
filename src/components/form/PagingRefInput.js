@@ -17,6 +17,7 @@ const getTotalReferenceRecord = (state, reference) => {
 
 const useStyles = makeStyles({
     root: {
+        backgroundColor: 'var(--form-background-color)',
         '& button': {
             borderRadius: '4px !important',
             '&:hover, &[aria-current]': {

@@ -34,7 +34,7 @@ const useStyles = makeStyles({
         }
     },
     pagination: {
-        backgroundColor: 'var(--form-background-color)'
+        backgroundColor: 'white'
     }
 });
 
