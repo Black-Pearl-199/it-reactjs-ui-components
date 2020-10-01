@@ -9,6 +9,7 @@ import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
+import '../../assets/scss/components/_react_dates_overide.scss';
 import { SingleDatePicker } from 'react-dates';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
@@ -289,8 +290,10 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                 </select>
             );
         case 'date':
-            // inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
-            console.log(date);
+            const { onChange, value } = props;
+            inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
+            // console.log(moment(date).format('YYYYMMDD'));
+            // inputValue = moment(date);
             // console.log('date input value', inputValue, typeof inputValue);
             return (
                 // <DatePicker
@@ -312,13 +315,23 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     {...sanitizeProps}
                     id={source}
                     date={date}
-                    onDateChange={(date) => setDate(date)}
+                    onDateChange={(d) => {
+                        console.log(d);
+                        setDate(d);
+                        // onChange(d);
+                    }}
                     focused={focused}
-                    onFocusChange={() => setFocused(!focused)}
+                    onFocusChange={() => {
+                        if (!focused) {
+                            onChange(date);
+                        }
+                        setFocused(!focused);
+                    }}
                     placeholder={translatedLabel}
                     displayFormat="DD-MM-YYYY"
                     small
                     isOutsideRange={showAllDays}
+                    hideKeyboardShortcutsPanel
                 />
             );
         default:
@@ -355,7 +368,8 @@ Input.propTypes = {
     fullFill: bool,
     hideTextChoice: bool,
     translatedStartDateLabel: string,
-    showAllDays: func
+    showAllDays: func,
+    onChange: func
 };
 
 const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
@@ -423,7 +437,7 @@ const MyBootstrapInput = (props) => {
                     });
                 }
                 newValue = newValue.format(formatDate);
-            } else newValue = undefined;
+            } else newValue = moment().format(formatDate);
         } else if (component === 'input' && type === 'checkbox-group') {
             let checkboxValue = value;
             const { target } = e;

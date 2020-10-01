@@ -6477,6 +6477,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/components/_react_dates_overide.scss":
+/*!*******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/components/_react_dates_overide.scss ***!
+  \*******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".SingleDatePicker_picker {\n  z-index: 3; }\n\n.SingleDatePicker .DateInput_input__small {\n  height: 26px; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/react-dates/lib/css/_datepicker.css":
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/react-dates/lib/css/_datepicker.css ***!
@@ -75396,6 +75414,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./src/assets/scss/components/_react_dates_overide.scss":
+/*!**************************************************************!*\
+  !*** ./src/assets/scss/components/_react_dates_overide.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/sass-loader/dist/cjs.js!./_react_dates_overide.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/scss/components/_react_dates_overide.scss");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./src/components/LanguageSwitcher.js":
 /*!********************************************!*\
   !*** ./src/components/LanguageSwitcher.js ***!
@@ -77610,13 +77658,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dates_initialize__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_dates_initialize__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-dates/lib/css/_datepicker.css */ "./node_modules/react-dates/lib/css/_datepicker.css");
 /* harmony import */ var react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_dates_lib_css_datepicker_css__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
-/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var react_maskedinput__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-maskedinput */ "./node_modules/react-maskedinput/es/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _configurations_selectors__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../configurations/selectors */ "./src/configurations/selectors/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../utils */ "./src/utils/index.js");
+/* harmony import */ var _assets_scss_components_react_dates_overide_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../assets/scss/components/_react_dates_overide.scss */ "./src/assets/scss/components/_react_dates_overide.scss");
+/* harmony import */ var _assets_scss_components_react_dates_overide_scss__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_assets_scss_components_react_dates_overide_scss__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-dates */ "./node_modules/react-dates/index.js");
+/* harmony import */ var react_dates__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_dates__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react_maskedinput__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-maskedinput */ "./node_modules/react-maskedinput/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _configurations_selectors__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../configurations/selectors */ "./src/configurations/selectors/index.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../utils */ "./src/utils/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -77648,6 +77698,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -77942,8 +77993,11 @@ var Input = function Input(_ref2) {
       }));
 
     case 'date':
-      // inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : value;
-      console.log(date); // console.log('date input value', inputValue, typeof inputValue);
+      var onChange = props.onChange,
+          _value = props.value;
+      inputValue = typeof inputValue === 'string' && inputValue.toLowerCase() === 'invalid date' ? defaultValue : _value; // console.log(moment(date).format('YYYYMMDD'));
+      // inputValue = moment(date);
+      // console.log('date input value', inputValue, typeof inputValue);
 
       return (
         /*#__PURE__*/
@@ -77962,20 +78016,26 @@ var Input = function Input(_ref2) {
         //     customInput={showYearPicker || showTimeSelectOnly ? null : <MaskedInput mask="11-11-1111" autoComplete="off" />}
         //     placeholderText={hideLabel === true ? translatedLabel : null}
         // />
-        react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_11__["SingleDatePicker"], _extends({}, sanitizeProps, {
+        react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_dates__WEBPACK_IMPORTED_MODULE_12__["SingleDatePicker"], _extends({}, sanitizeProps, {
           id: source,
           date: date,
-          onDateChange: function onDateChange(date) {
-            return setDate(date);
+          onDateChange: function onDateChange(d) {
+            console.log(d);
+            setDate(d); // onChange(d);
           },
           focused: focused,
           onFocusChange: function onFocusChange() {
-            return setFocused(!focused);
+            if (!focused) {
+              onChange(date);
+            }
+
+            setFocused(!focused);
           },
           placeholder: translatedLabel,
           displayFormat: "DD-MM-YYYY",
           small: true,
-          isOutsideRange: showAllDays
+          isOutsideRange: showAllDays,
+          hideKeyboardShortcutsPanel: true
         }))
       );
 
@@ -78018,7 +78078,8 @@ Input.propTypes = {
   fullFill: prop_types__WEBPACK_IMPORTED_MODULE_5__["bool"],
   hideTextChoice: prop_types__WEBPACK_IMPORTED_MODULE_5__["bool"],
   translatedStartDateLabel: prop_types__WEBPACK_IMPORTED_MODULE_5__["string"],
-  showAllDays: prop_types__WEBPACK_IMPORTED_MODULE_5__["func"]
+  showAllDays: prop_types__WEBPACK_IMPORTED_MODULE_5__["func"],
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_5__["func"]
 };
 var extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
 
@@ -78029,7 +78090,7 @@ var haveBootstrapCss = function haveBootstrapCss(type) {
 
 var MyBootstrapInput = function MyBootstrapInput(props) {
   var translate = Object(react_admin__WEBPACK_IMPORTED_MODULE_7__["useTranslate"])();
-  var loading = Object(react_redux__WEBPACK_IMPORTED_MODULE_13__["useSelector"])(_configurations_selectors__WEBPACK_IMPORTED_MODULE_14__["getLoading"]);
+  var loading = Object(react_redux__WEBPACK_IMPORTED_MODULE_14__["useSelector"])(_configurations_selectors__WEBPACK_IMPORTED_MODULE_15__["getLoading"]);
 
   var label = props.label,
       labelClasses = props.labelClasses,
@@ -78097,7 +78158,7 @@ var MyBootstrapInput = function MyBootstrapInput(props) {
         }
 
         newValue = newValue.format(formatDate);
-      } else newValue = undefined;
+      } else newValue = moment__WEBPACK_IMPORTED_MODULE_4___default()().format(formatDate);
     } else if (component === 'input' && type === 'checkbox-group') {
       var checkboxValue = value;
       var target = e.target;
@@ -78221,7 +78282,7 @@ MyBootstrapInput.defaultProps = {
   hideLabel: false,
   small: true,
   alignCenter: true,
-  formatDate: _utils__WEBPACK_IMPORTED_MODULE_15__["dateStoreFormat"],
+  formatDate: _utils__WEBPACK_IMPORTED_MODULE_16__["dateStoreFormat"],
   optionClasses: {},
   fullFill: false,
   showAllDays: function showAllDays() {
