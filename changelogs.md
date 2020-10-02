@@ -5,11 +5,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.93] - 2020-10-02
+### Added
+- Add ThemeSwitcher component to handle modifying root color variables - [@Triet]
+### Changes
+- Replace color in various element from color string to variables - [@Triet]
+- Remove unused color variables in _variables.scss - [@Triet]
+
+## [0.2.92] - 2020-10-01
+### Changed
+- Change backgroundColor of PagingRefInput - [@TinVan2]
+
+## [0.2.91] - 2020-10-01
+### Added
+- Add paging for select referece input - [@TinVan2]
+
 ## [0.2.90] - 2020-09-29
 ### Changed
 - Add function onChange into filterRef in MyFilterBox - [@TinVan2]
 ### Added
 - Add parse function as props of MyBootstrapField to not ignore empty string value in form - [@TinVan2]
+
 ## [0.2.89] - 2020-09-24
 ### Changed
 - Add condition for default state of 'disableInputDate' in MyDatePicking - [@TinVan2]

@@ -74,6 +74,7 @@ const ReferenceInputView = (props) => {
         form,
         ...rest
     } = props;
+    const { filter, perPage, reference } = props;
     if (Children.count(children) !== 1) {
         throw new Error('<ReferenceInput> only accepts a single child');
     }
@@ -141,6 +142,10 @@ const ReferenceInputView = (props) => {
         setPagination,
         setSort,
         translateChoice: false,
+        filter,
+        perPage,
+        defaultValue: value || defaultValue,
+        reference,
         ...sanitizeRest
     });
 };
@@ -164,7 +169,9 @@ ReferenceInputView.propTypes = {
     setSort: PropTypes.func,
     source: PropTypes.string,
     translate: PropTypes.func.isRequired,
-    warning: PropTypes.string
+    warning: PropTypes.string,
+    filter: PropTypes.object,
+    perPage: PropTypes.number
 };
 
 /**
@@ -250,6 +257,7 @@ ReferenceInputView.propTypes = {
 const MyReferenceInput = ({ format, onBlur, onChange, onFocus, parse, validate, ...props }) => {
     const translate = useTranslate();
     const inputProps = { input: props.input || {} };
+
     // if (props.form) {
     //     // eslint-disable-next-line react-hooks/rules-of-hooks
     //     inputProps = useInput({
