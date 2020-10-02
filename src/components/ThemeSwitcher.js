@@ -25,7 +25,7 @@ const camelCaseToCss = (input) => input.split(/(?=[A-Z, 0-9])/).join('-').toLowe
 const ThemeSwitcher = (props) => {
     const theme = useTheme();
     const translate = useTranslate();
-    const { onClick } = props;
+    const { onClick, canSwitch } = props;
     const isDark = theme.palette.type === 'dark';
     const root = document.documentElement;
     // console.log('Theme', theme);
@@ -39,13 +39,13 @@ const ThemeSwitcher = (props) => {
 
 
     return (
-        isDark
+        canSwitch
             ? (
                 <OverlayTrigger
                     placement="bottom"
                     overlay={(
-                        <Tooltip className="itech-tooltip" id="logout-button">
-                            {translate('commons.theme.toLight')}
+                        <Tooltip className="itech-tooltip" id={isDark ? 'toLight-button' : 'toDark-button'}>
+                            {translate(isDark ? 'commons.theme.toLight' : 'commons.theme.toDark')}
                         </Tooltip>
                     )}
                 >
@@ -56,30 +56,11 @@ const ThemeSwitcher = (props) => {
                         onClick={onClick}
                     >
                         {/* {translate('button.logout')} */}
-                        <i className="fa fa-sun" />
+                        <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
                     </span>
                 </OverlayTrigger>
             )
-            : (
-                <OverlayTrigger
-                    placement="bottom"
-                    overlay={(
-                        <Tooltip className="itech-tooltip" id="logout-button">
-                            {translate('commons.theme.toDark')}
-                        </Tooltip>
-                    )}
-                >
-                    <span
-                        // variant="itech-icon"
-                        // size="sm"
-                        className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
-                        onClick={onClick}
-                    >
-                        {/* {translate('button.logout')} */}
-                        <i className="fa fa-moon" />
-                    </span>
-                </OverlayTrigger>
-            )
+            : ''
     );
     // return (
         // <div onClick={fixPropagationEvent} className="my-auto">
@@ -108,15 +89,12 @@ const ThemeSwitcher = (props) => {
 };
 
 ThemeSwitcher.propTypes = {
-    onClick: func
+    onClick: func,
+    canSwitch: bool
 };
 
 ThemeSwitcher.defaultProps = {
-    // buttons: [
-    //     { eventKey: LOCALE_EN, text: 'English' },
-    //     { eventKey: LOCALE_VI, text: 'Tiếng Việt' }
-    // ],
-    // localStorageKey: 'saveLocale'
+    canSwitch: true
 };
 
 export default ThemeSwitcher;
