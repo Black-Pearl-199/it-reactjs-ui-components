@@ -50,7 +50,7 @@
 		&.active {
 			border-radius: 10px 10px 0 0;
 			background-color: var(--main-background);
-			border-color: var(--grey-light);
+			border-color: var(--main-background);
 			color: var(--text-color);
 
 			&:hover {
