@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.94] - 2020-10-02
+### Fixed
+- Fix navbar border color - [@Triet]
+
 ## [0.2.93] - 2020-10-02
 ### Added
 - Add ThemeSwitcher component to handle modifying root color variables - [@Triet]
