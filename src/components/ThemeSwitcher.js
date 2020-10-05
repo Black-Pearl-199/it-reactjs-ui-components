@@ -20,11 +20,12 @@ import { switchTheme } from '../configurations/actions';
 //     '--main-color-light-1': 'mainColorLight1',
 //     '--main-color-dark': 'dark'
 // };
+const themeSelector = (state) => state.themeType;
 const camelCaseToCss = (input) => input.split(/(?=[A-Z, 0-9])/).join('-').toLowerCase();
 
 const ThemeSwitcher = (props) => {
     const theme = useTheme();
-    const themeType = useSelector((state) => state.themeType);
+    const themeType = useSelector(themeSelector);
     const translate = useTranslate();
     const dispatch = useDispatch();
     const { handleSwitchTheme, canSwitch } = props;

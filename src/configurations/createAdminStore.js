@@ -43,8 +43,8 @@ const createAdminStore = ({
     const reducer = combineReducers({
         admin: adminReducer,
         router: connectRouter(history),
-        ...customReducer,
-        [THEME_TYPE]: themeReducer
+        [THEME_TYPE]: themeReducer,
+        ...customReducer
     });
     // Erase data from the store but keep location, notifications, ui prefs, etc.
     // This allows e.g. to display a notification on logout
