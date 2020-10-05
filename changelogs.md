@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.95] - 2020-10-05
+### Added
+- Add theme reducer to store theme type - [@Triet]
+
 ## [0.2.94] - 2020-10-02
 ### Fixed
 - Fix navbar border color - [@Triet]

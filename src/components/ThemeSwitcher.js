@@ -1,10 +1,10 @@
 import { array, string, bool, func } from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useSetLocale, useTranslate } from 'react-admin';
 import { useTheme } from '@material-ui/core';
-import { Dropdown, Tooltip, OverlayTrigger, DropdownButton } from 'react-bootstrap';
-
-import { LOCALE_EN, LOCALE_VI } from '../configurations/messages';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { switchTheme } from '../configurations/actions';
 
 // const COLOR_MAPPING = {
 //     '--form-background-color': 'formBgColor',
@@ -24,8 +24,10 @@ const camelCaseToCss = (input) => input.split(/(?=[A-Z, 0-9])/).join('-').toLowe
 
 const ThemeSwitcher = (props) => {
     const theme = useTheme();
+    const themeType = useSelector((state) => state.themeType);
     const translate = useTranslate();
-    const { onClick, canSwitch } = props;
+    const dispatch = useDispatch();
+    const { handleSwitchTheme, canSwitch } = props;
     const isDark = theme.palette.type === 'dark';
     const root = document.documentElement;
     // console.log('Theme', theme);
@@ -37,6 +39,16 @@ const ThemeSwitcher = (props) => {
         }
     }, [theme.palette, theme.palette.type, root.style]);
 
+    // console.log('ThemeController current theme', themeType);
+    useEffect(() => {
+        handleSwitchTheme(themeType);
+    }, [handleSwitchTheme, themeType]);
+
+    const handleClick = useCallback(() => {
+        // console.log('handleClick themeSwitcher');
+        // console.log('handleClick themeSwitcher', switchTheme(theme.palette.type));
+        dispatch(switchTheme(theme.palette.type));
+    }, [dispatch, theme.palette.type]);
 
     return (
         canSwitch
@@ -53,7 +65,7 @@ const ThemeSwitcher = (props) => {
                     // variant="itech-icon"
                     // size="sm"
                         className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
-                        onClick={onClick}
+                        onClick={handleClick}
                     >
                         {/* {translate('button.logout')} */}
                         <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
@@ -90,7 +102,8 @@ const ThemeSwitcher = (props) => {
 
 ThemeSwitcher.propTypes = {
     onClick: func,
-    canSwitch: bool
+    canSwitch: bool,
+    handleSwitchTheme: func
 };
 
 ThemeSwitcher.defaultProps = {

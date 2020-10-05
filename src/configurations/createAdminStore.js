@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import { all, fork } from 'redux-saga/effects';
 import sideEffects from './sideEffects';
+import { themeReducer, THEME_TYPE } from './reducers';
 
 const defaultPersistConfig = {
     key: 'persist-state-key',
@@ -42,7 +43,8 @@ const createAdminStore = ({
     const reducer = combineReducers({
         admin: adminReducer,
         router: connectRouter(history),
-        ...customReducer
+        ...customReducer,
+        [THEME_TYPE]: themeReducer
     });
     // Erase data from the store but keep location, notifications, ui prefs, etc.
     // This allows e.g. to display a notification on logout
