@@ -18,5 +18,9 @@ export default {
         error: '%{error}',
         cannotDeleteResource: 'Can\'t delete resource %{id} because it being used!!!',
         resource_selected: '1 %{resource_name} selected |||| %{smart_count} %{resource_name}  selected'
+    },
+    theme: {
+        toDark: 'Switch to dark mode',
+        toLight: 'Switch to light mode'
     }
 };
