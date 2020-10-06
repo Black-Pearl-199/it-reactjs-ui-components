@@ -42,8 +42,8 @@ const ThemeSwitcher = (props) => {
 
     // console.log('ThemeController current theme', themeType);
     useEffect(() => {
-        handleSwitchTheme(themeType);
-    }, [handleSwitchTheme, themeType]);
+        if (canSwitch) handleSwitchTheme(themeType);
+    }, [canSwitch, handleSwitchTheme, themeType]);
 
     const handleClick = useCallback(() => {
         // console.log('handleClick themeSwitcher');
