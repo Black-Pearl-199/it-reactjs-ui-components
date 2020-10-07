@@ -21,7 +21,6 @@ import { switchTheme } from '../configurations/actions';
 //     '--main-color-dark': 'dark'
 // };
 const themeSelector = (state) => state.themeType;
-const camelCaseToCss = (input) => input.split(/(?=[A-Z, 0-9])/).join('-').toLowerCase();
 
 const ThemeSwitcher = (props) => {
     const theme = useTheme();
@@ -30,15 +29,6 @@ const ThemeSwitcher = (props) => {
     const dispatch = useDispatch();
     const { handleSwitchTheme, canSwitch } = props;
     const isDark = theme.palette.type === 'dark';
-    const root = document.documentElement;
-    // console.log('Theme', theme);
-    // eslint-disable-next-line guard-for-in
-    useEffect(() => {
-        for (const [key, value] of Object.entries(theme.palette.primary)) {
-            // console.log('theme color', key, value);
-            if (value) root.style.setProperty(`--${camelCaseToCss(key)}`, value);
-        }
-    }, [theme.palette, theme.palette.type, root.style]);
 
     // console.log('ThemeController current theme', themeType);
     useEffect(() => {
