@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.97] - 2020-10-07
+### Added
+- Add CustomThemeProvider to handle sideEffect - [@Triet]
+### Changed
+- Move set root properties logic from ThemeSwitcher to CustomThemeProvider - [@Triet]
+
 ## [0.2.96] - 2020-10-06
 ### Fixed
 - Add case handle for ThemeSwitcher without switching - [@Triet]
