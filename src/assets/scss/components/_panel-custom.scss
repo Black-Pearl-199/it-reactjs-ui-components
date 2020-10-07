@@ -12,7 +12,7 @@
 		background: var(--form-background-color-focus);
 
 		&:disabled, &[readonly] {
-			background: var(--form-background-color);
+			background: var(--form-background-color-disabled);
 		}
 	}
 }
