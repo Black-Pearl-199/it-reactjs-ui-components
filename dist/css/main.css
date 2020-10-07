@@ -456,7 +456,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .form-control {
-  background-color: var(--form-background-color) !important;
+  background-color: var(--form-background-color);
   color: var(--text-color) !important;
   border: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
@@ -474,10 +474,14 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   color: var(--text-color) !important;
 }
 
+.form-control:disabled {
+  background-color: var(--form-background-color-disabled) !important;
+}
+
 .form-control-sm {
   font-size: 14px;
   height: 26px;
-  background-color: var(--form-background-color) !important;
+  background-color: var(--form-background-color);
   color: var(--text-color);
 }
 
@@ -743,7 +747,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .panel-itech .form-control:disabled, .panel-itech .form-control[readonly] {
-  background: var(--form-background-color);
+  background: var(--form-background-color-disabled);
 }
 
 #nprogress {

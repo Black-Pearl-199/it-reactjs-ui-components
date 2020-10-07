@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.98] - 2020-10-07
+### Fixed
+- Fixed disabled form not showing correct disabled color - [@Triet]
+
 ## [0.2.97] - 2020-10-07
 ### Added
 - Add CustomThemeProvider to handle sideEffect - [@Triet]
