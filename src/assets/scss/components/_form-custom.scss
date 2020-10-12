@@ -82,3 +82,19 @@
 		padding-left: 0;
 	}
 }
+
+
+.custom-control-label:before{
+	background-color:var(--form-background-color);
+	// border-color: black;
+  }
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+	background-color:var(--main);
+	border-color: var(--main);
+}
+
+// .custom-checkbox .custom-control-input:disabled {
+// 	background-color:var(--main);
+// 	border-color: var(--main);
+// }

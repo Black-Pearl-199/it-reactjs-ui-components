@@ -3,8 +3,9 @@
 
 .scroll-sm {
 	@include scrollbars-size(4px);
+	// @include scrollbars-color($text-color, $grey-1);
 }
 
 .scroll-secondary {
-	@include scrollbars-color($text-color, $grey-1);
+	@include scrollbars-color(var(--main), var(--main-background));
 }
