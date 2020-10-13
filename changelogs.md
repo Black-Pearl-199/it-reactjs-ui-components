@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.00] - 2020-10-12
+### Changed
+- Change radio button style - [@Triet]
+
 ## [0.2.99] - 2020-10-12
 ### Changed
 - Update theme redesign: change palette color, update checkbox color - [@Triet]
