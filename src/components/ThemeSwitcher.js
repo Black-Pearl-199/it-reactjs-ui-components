@@ -41,53 +41,51 @@ const ThemeSwitcher = (props) => {
         dispatch(switchTheme(theme.palette.type));
     }, [dispatch, theme.palette.type]);
 
-    return (
-        canSwitch
-            ? (
-                <OverlayTrigger
-                    placement="bottom"
-                    overlay={(
-                        <Tooltip className="itech-tooltip" id={isDark ? 'toLight-button' : 'toDark-button'}>
-                            {translate(isDark ? 'commons.theme.toLight' : 'commons.theme.toDark')}
-                        </Tooltip>
-                    )}
-                >
-                    <span
-                    // variant="itech-icon"
-                    // size="sm"
-                        className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
-                        onClick={handleClick}
-                    >
-                        {/* {translate('button.logout')} */}
-                        <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
-                    </span>
-                </OverlayTrigger>
-            )
-            : ''
+    return canSwitch ? (
+        <OverlayTrigger
+            placement="bottom"
+            overlay={
+                <Tooltip className="itech-tooltip" id={isDark ? 'toLight-button' : 'toDark-button'}>
+                    {translate(isDark ? 'commons.theme.toLight' : 'commons.theme.toDark')}
+                </Tooltip>
+            }
+        >
+            <span
+                // variant="itech-icon"
+                // size="sm"
+                className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
+                onClick={handleClick}
+            >
+                {/* {translate('button.logout')} */}
+                <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
+            </span>
+        </OverlayTrigger>
+    ) : (
+        ''
     );
     // return (
-        // <div onClick={fixPropagationEvent} className="my-auto">
-        //     <DropdownButton
-        //         alignRight
-        //         title={title}
-        //         id={id}
-        //         variant={variant}
-        //         size={size}
-        //         onSelect={onSelectLanguage}
-        //         {...rest}
-        //     >
-        //         {buttons.map((button) => (
-        //             <Dropdown.Item
-        //                 as="button"
-        //                 eventKey={button.eventKey}
-        //                 className="font-1rem"
-        //                 key={button.eventKey}
-        //             >
-        //                 {button.text}
-        //             </Dropdown.Item>
-        //         ))}
-        //     </DropdownButton>
-        // </div>
+    // <div onClick={fixPropagationEvent} className="my-auto">
+    //     <DropdownButton
+    //         alignRight
+    //         title={title}
+    //         id={id}
+    //         variant={variant}
+    //         size={size}
+    //         onSelect={onSelectLanguage}
+    //         {...rest}
+    //     >
+    //         {buttons.map((button) => (
+    //             <Dropdown.Item
+    //                 as="button"
+    //                 eventKey={button.eventKey}
+    //                 className="font-1rem"
+    //                 key={button.eventKey}
+    //             >
+    //                 {button.text}
+    //             </Dropdown.Item>
+    //         ))}
+    //     </DropdownButton>
+    // </div>
     // );
 };
 

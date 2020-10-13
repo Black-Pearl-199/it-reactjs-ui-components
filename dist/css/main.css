@@ -521,6 +521,57 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   padding-left: 0;
 }
 
+.custom-control-label:before {
+  background-color: var(--form-background-color);
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: var(--main);
+  border-color: var(--main);
+}
+
+.custom-radio {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.custom-radio input[type='radio'] {
+  display: none;
+}
+
+.custom-radio label {
+  color: var(--text-color);
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.custom-radio label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid var(--main);
+  background-color: transparent;
+}
+
+.custom-radio input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: var(--main);
+}
+
 .label-filter {
   font-size: var(--fontSize875);
   font-weight: bold;
@@ -818,17 +869,17 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .scroll-secondary ::-webkit-scrollbar-thumb {
-  background: #2E3E47;
+  background: var(--main);
   cursor: pointer;
 }
 
 .scroll-secondary ::-webkit-scrollbar-track {
-  background: #CCCCCC;
+  background: var(--main-background);
 }
 
 .scroll-secondary {
-  scrollbar-face-color: #2E3E47;
-  scrollbar-track-color: #CCCCCC;
+  scrollbar-face-color: var(--main);
+  scrollbar-track-color: var(--main-background);
 }
 
 .table {
@@ -1276,7 +1327,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar .toggle-collapse:hover {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
 }
 
 .sidebar .toggle-collapse:focus {
@@ -1326,7 +1377,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
@@ -1342,12 +1393,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
   color: var(--text-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar-list-item a.sidebar-list-link.selected svg, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected svg {
@@ -1355,12 +1406,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
   color: var(--text-color);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1416,7 +1467,7 @@ a.sidebar-list-link {
 }
 
 a.sidebar-list-link:hover {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
   color: var(--text-color);
 }
 
@@ -1511,12 +1562,12 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li a:hover {
-  background-color: var(--main-color-hover) !important;
+  background-color: var(--text-highlight-color) !important;
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a {
   border: none;
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color) !important;
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
@@ -1524,7 +1575,7 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
-  background-color: var(--main-color-hover);
+  background-color: var(--text-highlight-color);
   color: var(--text-color);
 }
 

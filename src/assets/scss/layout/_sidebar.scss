@@ -38,7 +38,7 @@ $angle-right: "\f101";
 		border-radius: 0;
 
 		&:hover {
-			background-color: var(--main-color-hover);
+			background-color: var(--text-highlight-color);
 		}
 
 		&:focus {
@@ -91,7 +91,7 @@ $angle-right: "\f101";
 	@include transition(var(--transitionTime), ease, width);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: var(--main-color-hover);
+		background-color: var(--text-highlight-color);
 
 		a.sidebar-list-link {
 			color: var(--text-color);
@@ -109,11 +109,11 @@ $angle-right: "\f101";
 	&, .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
-				background-color: var(--main-color-hover);
+				background-color: var(--text-highlight-color);
 				color: var(--text-color);
 
 				&:hover {
-					background-color: var(--main-color-hover);
+					background-color: var(--text-highlight-color);
 				}
 
 				i::before, svg{
@@ -126,11 +126,11 @@ $angle-right: "\f101";
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: var(--main-color-hover);
+				background-color: var(--text-highlight-color);
 				color: var(--text-color);
 
 				&:hover {
-					background-color: var(--main-color-hover);
+					background-color: var(--text-highlight-color);
 				}
 			}
 		}
@@ -194,7 +194,7 @@ a.sidebar-list-link {
 	@include transition (var(--transitionTime), ease, width);
 
 	&:hover {
-		background-color: var(--main-color-hover);
+		background-color: var(--text-highlight-color);
 		color: var(--text-color);
 
 		i::before, svg {
@@ -289,13 +289,13 @@ a.sidebar-list-link {
 			line-height: var(--sidebar-item-height);
 
 			&:hover {
-				background-color: var(--main-color-hover) !important;
+				background-color: var(--text-highlight-color) !important;
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
-			background-color: var(--main-color-hover);
+			background-color: var(--text-highlight-color) !important;
 
 			&:hover {
 				color: var(--text-color);
@@ -305,7 +305,7 @@ a.sidebar-list-link {
 		&:not(.with-sub-menu) {
 			a.sidebar-list-link {
 				&.selected {
-					background-color: var(--main-color-hover);
+					background-color: var(--text-highlight-color);
 					color: var(--text-color);
 				}
 			}

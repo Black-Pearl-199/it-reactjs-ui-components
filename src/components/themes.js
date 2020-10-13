@@ -52,13 +52,15 @@ export const iTechThemeLight = createMuiTheme({
             textColorLight: '#495057',
             textColorLink: '#0056b3',
             textColorDone: '#006600',
+            textHighlightColor: '#cccccc',
             tableOdd: '#F7F7F7', // light grey
             tableEven: '#EBF1EE', // light grey
             modalItechBackground: '#F7F9FC',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: 'rgb(62, 147, 90)',
             hospitalTitle: '#2b9d41',
-            infoTitle: '#748189'
+            infoTitle: '#748189',
+            reportBackgroundColor: '#FFFFFF'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {
@@ -72,17 +74,17 @@ export const iTechThemeLight = createMuiTheme({
 export const iTechThemeDark = createMuiTheme({
     palette: {
         primary: {
-            mainColor: '#2A523E',
-            main: '#2A523E', // palette mus have 'main' atribute
+            mainColor: '#121212',
+            main: '#c7663f', // use this color for checkboxes, radio button background
             mainColorLight: '#5EB88B',
-            mainColorDark: '#305E47',
-            mainColorHover: '#2A523E',
+            mainColorDark: '#303030',
+            mainColorHover: '#5E5E5E',
             mainColorLight1: '#7EF7BB',
-            mainBackground: '#121212',
+            mainBackground: '#18191a',
             // mainBackground: '#ff91e0',
             sidebarBackground: '#242424',
-            navbarBackground: '#5E5E5E',
-            formBackgroundColor: '#303030',
+            navbarBackground: '#242526',
+            formBackgroundColor: '#242424',
             formBackgroundColorFocus: '#5E5E5E',
             formBackgroundColorDisabled: '#121212',
             defaultText: '#FFFFFF',
@@ -90,13 +92,15 @@ export const iTechThemeDark = createMuiTheme({
             textColorLight: '#495057',
             textColorLink: '#8cc3ff',
             textColorDone: '#C8E7D2',
+            textHighlightColor: '#333333',
             tableOdd: '#242424', // light grey
             tableEven: '#333333', // light grey
             modalItechBackground: '#F7F9FC',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
-            styledTitle: '#5EB88B',
-            hospitalTitle: '#00d647',
-            infoTitle: '#FFFFFF'
+            styledTitle: '#cccccc',
+            hospitalTitle: '#FFFFFF',
+            infoTitle: '#FFFFFF',
+            reportBackgroundColor: '#cccccc'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {

@@ -125,18 +125,18 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
         case 'input':
             if (type === 'checkbox') {
                 return (
-                    <div className="form-check">
+                    <div className="custom-control custom-checkbox">
                         <input
                             name={source}
                             type="checkbox"
                             title={translatedLabel}
                             checked={!!inputValue}
-                            className={classNames('form-check-input', composeInputClasses)}
+                            className={classNames('custom-control-input', composeInputClasses)}
                             {...sanitizeProps}
                             id={inputId}
                         />
                         {!hideTextChoice && (
-                            <label className={classNames('form-check-label', labelClasses)} htmlFor={inputId}>
+                            <label className={classNames('custom-control-label', labelClasses)} htmlFor={inputId}>
                                 {translatedLabel}
                             </label>
                         )}
@@ -146,7 +146,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
             // checkbox group
             if (type === 'checkbox-group') {
                 if (!choices) return '';
-                const emptyChecked = fullFill ? (inputValue && inputValue.length === choices.length) : (!inputValue || inputValue.length === 0);
+                const emptyChecked = fullFill ? inputValue && inputValue.length === choices.length : !inputValue || inputValue.length === 0;
                 return (
                     <div
                         name={source}
@@ -159,17 +159,19 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     >
                         {allowEmpty && (
                             <div className={optionClasses.item}>
-                                <input
-                                    className="form-check-input mt-1"
-                                    type="checkbox"
-                                    value={CHECKBOX_EMPTY}
-                                    checked={emptyChecked}
-                                    {...sanitizeProps}
-                                    id={`${source}-clear`}
-                                />
-                                <label className="form-check-label mr-2" htmlFor={`${source}-clear`}>
-                                    {showText}
-                                </label>
+                                <div className="custom-control custom-checkbox">
+                                    <input
+                                        className="custom-control-input mt-1"
+                                        type="checkbox"
+                                        value={CHECKBOX_EMPTY}
+                                        checked={emptyChecked}
+                                        {...sanitizeProps}
+                                        id={`${source}-clear`}
+                                    />
+                                    <label className="custom-control-label mr-2" htmlFor={`${source}-clear`}>
+                                        {showText}
+                                    </label>
+                                </div>
                             </div>
                         )}
                         {uniqBy(choices, optionValue).map((choice) => {
@@ -177,17 +179,19 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             const inputId = `${source}-${choiceValue}`;
                             return (
                                 <div className={optionClasses.item} key={inputId}>
-                                    <input
-                                        className="form-check-input mt-1"
-                                        type="checkbox"
-                                        value={choiceValue}
-                                        checked={inputValue && inputValue.indexOf(choiceValue) > -1}
-                                        {...sanitizeProps}
-                                        id={inputId}
-                                    />
-                                    <label className="form-check-label mr-2" htmlFor={inputId}>
-                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
-                                    </label>
+                                    <div className="custom-control custom-checkbox">
+                                        <input
+                                            className="custom-control-input mt-1"
+                                            type="checkbox"
+                                            value={choiceValue}
+                                            checked={inputValue && inputValue.indexOf(choiceValue) > -1}
+                                            {...sanitizeProps}
+                                            id={inputId}
+                                        />
+                                        <label className="custom-control-label mr-2" htmlFor={inputId}>
+                                            {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                        </label>
+                                    </div>
                                 </div>
                             );
                         })}
@@ -210,18 +214,20 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             const inputId = `${source}-${choiceValue}`;
                             return (
                                 <div className={optionClasses.item} key={inputId}>
-                                    <input
-                                        className={classNames('form-check-input mt-1', optionClasses.input)}
-                                        type="radio"
-                                        value={choiceValue}
-                                        checked={inputValue === choiceValue}
-                                        name={source}
-                                        {...sanitizeProps}
-                                        id={inputId}
-                                    />
-                                    <label className={classNames('form-check-label mr-2', optionClasses.label)} htmlFor={inputId}>
-                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
-                                    </label>
+                                    <div className="custom-radio">
+                                        <input
+                                            className={classNames(optionClasses.input)}
+                                            type="radio"
+                                            value={choiceValue}
+                                            checked={inputValue === choiceValue}
+                                            name={source}
+                                            {...sanitizeProps}
+                                            id={inputId}
+                                        />
+                                        <label className={classNames(optionClasses.label)} htmlFor={inputId}>
+                                            {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                        </label>
+                                    </div>
                                 </div>
                             );
                         })}
@@ -368,9 +374,7 @@ const MyBootstrapInput = (props) => {
 
     const inputId = `input-${source}`;
     // console.log('source', source);
-    const composeInputClasses = classNames(
-        haveBootstrapCss(type) ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : ''
-    );
+    const composeInputClasses = classNames(haveBootstrapCss(type) ? ['form-control', small ? 'form-control-sm' : '', 'w-100'] : '');
     // console.log('-----------type', type, source, composeInputClasses);
     // console.log('MyBootstrapInput', input);
     // console.log('Render Input', props);
@@ -468,13 +472,15 @@ const MyBootstrapInput = (props) => {
                 </label>
             ) : null}
             <div className={inputClasses}>
-                {isReact.component(component) || isReact.element(component)
-                    ? React.cloneElement(component, {
+                {isReact.component(component) || isReact.element(component) ? (
+                    React.cloneElement(component, {
                         onChange,
                         value,
                         resource
                     })
-                    : <Input {...inputProps} />}
+                ) : (
+                    <Input {...inputProps} />
+                )}
                 {children}
             </div>
         </div>
