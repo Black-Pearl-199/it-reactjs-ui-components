@@ -530,6 +530,48 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-color: var(--main);
 }
 
+.custom-radio {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+  margin: 10px 0 0;
+}
+
+.custom-radio input[type='radio'] {
+  display: none;
+}
+
+.custom-radio label {
+  color: var(--text-color);
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.custom-radio label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 11px;
+  border: 2px solid var(--main);
+  background-color: transparent;
+}
+
+.custom-radio input[type=radio]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  content: " ";
+  display: block;
+  background: var(--main);
+}
+
 .label-filter {
   font-size: var(--fontSize875);
   font-weight: bold;

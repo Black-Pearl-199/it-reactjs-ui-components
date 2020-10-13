@@ -214,18 +214,20 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             const inputId = `${source}-${choiceValue}`;
                             return (
                                 <div className={optionClasses.item} key={inputId}>
-                                    <input
-                                        className={classNames('custom-control-input mt-1', optionClasses.input)}
-                                        type="radio"
-                                        value={choiceValue}
-                                        checked={inputValue === choiceValue}
-                                        name={source}
-                                        {...sanitizeProps}
-                                        id={inputId}
-                                    />
-                                    <label className={classNames('custom-control-label mr-2', optionClasses.label)} htmlFor={inputId}>
-                                        {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
-                                    </label>
+                                    <div className="custom-radio">
+                                        <input
+                                            className={classNames(optionClasses.input)}
+                                            type="radio"
+                                            value={choiceValue}
+                                            checked={inputValue === choiceValue}
+                                            name={source}
+                                            {...sanitizeProps}
+                                            id={inputId}
+                                        />
+                                        <label className={classNames(optionClasses.label)} htmlFor={inputId}>
+                                            {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                        </label>
+                                    </div>
                                 </div>
                             );
                         })}
