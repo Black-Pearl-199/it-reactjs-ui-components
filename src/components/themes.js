@@ -74,7 +74,7 @@ export const iTechThemeLight = createMuiTheme({
 export const iTechThemeDark = createMuiTheme({
     palette: {
         primary: {
-            mainColor: '#121212',
+            mainColor: '#18191a',
             main: '#c7663f', // use this color for checkboxes, radio button background
             mainColorLight: '#5EB88B',
             mainColorDark: '#303030',
@@ -100,7 +100,8 @@ export const iTechThemeDark = createMuiTheme({
             styledTitle: '#cccccc',
             hospitalTitle: '#FFFFFF',
             infoTitle: '#FFFFFF',
-            reportBackgroundColor: '#cccccc'
+            reportBackgroundColor: '#cccccc',
+            shadow: 'rgb(0,0,0,0)'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {
