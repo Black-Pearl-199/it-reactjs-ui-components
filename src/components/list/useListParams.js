@@ -1,6 +1,9 @@
 import { debounce as lodashDebounce, set } from 'lodash';
 import { useCallback, useMemo, useState } from 'react';
-import { queryReducer, removeEmpty, removeKey, SET_FILTER, SET_PAGE, SET_PER_PAGE, SET_SORT, SORT_ASC } from 'react-admin';
+import { queryReducer, removeEmpty, removeKey } from 'react-admin';
+
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { SORT_ASC, SET_SORT, SET_PAGE, SET_PER_PAGE, SET_FILTER } from 'ra-core/esm/reducer/admin/resource/list/queryReducer';
 
 const emptyObject = {};
 
