@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.3.2] - 2020-11-04
+### Changed
+- Support hide search button in MyFilterBox - [@Tin]
 ## [0.3.1] - 2020-11-02
 ### Fixed
 - Fixed not change perPage and page when use standalone list - [@Tin]

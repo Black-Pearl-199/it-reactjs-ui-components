@@ -82,6 +82,7 @@ const MyFilterBox = (props) => {
         icon,
         customAction,
         submitDelay,
+        hasButtonSearch,
         ...rest
     } = props;
     const setFilter = useCallback((filter) => {
@@ -276,22 +277,26 @@ const MyFilterBox = (props) => {
                     ) : (
                         ''
                     )}
-                    <div className="col-form-label">
-                        <Button
-                            variant="itech"
-                            disabled={loading}
-                            size="sm"
-                            onClick={formEnter}
-                            className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
-                        >
-                            {icon && (
-                                <>
-                                    <FontAwesomeIcon icon={faSearch} />
-                                </>
-                            )}
-                            {translate('button.search')}
-                        </Button>
-                    </div>
+                    {hasButtonSearch ? (
+                        <div className="col-form-label">
+                            <Button
+                                variant="itech"
+                                disabled={loading}
+                                size="sm"
+                                onClick={formEnter}
+                                className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
+                            >
+                                {icon && (
+                                    <>
+                                        <FontAwesomeIcon icon={faSearch} />
+                                    </>
+                                )}
+                                {translate('button.search')}
+                            </Button>
+                        </div>
+                    ) : (
+                        ''
+                    )}
                 </div>
             </div>
         </form>
@@ -318,7 +323,8 @@ MyFilterBox.propTypes = {
     checkTriggerSubmit: PropTypes.func,
     icon: PropTypes.bool,
     customAction: PropTypes.any,
-    submitDelay: PropTypes.number
+    submitDelay: PropTypes.number,
+    hasButtonSearch: PropTypes.bool
 };
 
 MyFilterBox.defaultProps = {
@@ -330,7 +336,8 @@ MyFilterBox.defaultProps = {
     invalidMessagePrefix: 'validation.invalid',
     defaultPerPage: 10,
     submitDelay: 500,
-    checkTriggerSubmit
+    checkTriggerSubmit,
+    hasButtonSearch: true
 };
 
 export default MyFilterBox;
