@@ -60,7 +60,8 @@ export const iTechThemeLight = createMuiTheme({
             styledTitle: 'rgb(62, 147, 90)',
             hospitalTitle: '#2b9d41',
             infoTitle: '#748189',
-            reportBackgroundColor: '#FFFFFF'
+            reportBackgroundColor: '#FFFFFF',
+            shadow: 'rgb(0, 0, 0, 0)'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {
@@ -100,7 +101,8 @@ export const iTechThemeDark = createMuiTheme({
             styledTitle: '#cccccc',
             hospitalTitle: '#FFFFFF',
             infoTitle: '#FFFFFF',
-            reportBackgroundColor: '#cccccc'
+            reportBackgroundColor: '#cccccc',
+            shadow: 'rgb(0, 0, 0, 0)'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {
