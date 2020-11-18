@@ -668,9 +668,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .nav-item {
   -webkit-user-select: none;
   user-select: none;
-  border-style: solid;
-  border-width: 1px 1px 0 1px;
-  border-color: var(--grey-background);
   border-radius: 10px 10px 0 0;
   background: var(--grey-background) !important;
 }
@@ -681,11 +678,11 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .nav-item a:hover {
-  background-color: var(--green-input-form-selection);
+  background-color: var(--main-background);
 }
 
 .nav-item:hover {
-  background-color: var(--main-color-light-1);
+  background-color: var(--main-background);
 }
 
 .nav-item .nav-link {
@@ -694,7 +691,8 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .nav-item .nav-link:hover {
   border-radius: 10px 10px 0 0;
-  border-color: var(--green-input-form-selection) !important;
+  background-color: var(--main-background);
+  border-color: var(--main-background);
   color: var(--text-color);
 }
 
