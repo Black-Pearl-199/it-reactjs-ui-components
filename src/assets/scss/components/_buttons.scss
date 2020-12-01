@@ -256,7 +256,7 @@
 
 
 	&.active {
-		background-color: #2E3E47;
+		background-color: var(--main-color-dark);
 		color: var(--default-text) !important;
 		z-index: 0 !important;
 	}
