@@ -26,6 +26,8 @@ const MyDatagridBodyView = ({
     selectedIds,
     styles,
     version,
+    handleDoubleClick,
+    handleRightClick,
     ...rest
 }) => (
     <TableBody className={classNames('datagrid-body', className)} {...rest}>
@@ -49,6 +51,8 @@ const MyDatagridBodyView = ({
                 record: data[id],
                 resource,
                 rowClick,
+                handleDoubleClick,
+                handleRightClick,
                 onSelect,
                 selected: selectedIds.includes(id),
                 style: rowStyle ? rowStyle(data[id], rowIndex) : null
@@ -78,7 +82,9 @@ MyDatagridBodyView.propTypes = {
     rowStyle: PropTypes.func,
     selectedIds: PropTypes.arrayOf(PropTypes.any).isRequired,
     styles: PropTypes.object,
-    version: PropTypes.number
+    version: PropTypes.number,
+    handleDoubleClick: PropTypes.func,
+    handleRightClick: PropTypes.func
 };
 
 MyDatagridBodyView.defaultProps = {

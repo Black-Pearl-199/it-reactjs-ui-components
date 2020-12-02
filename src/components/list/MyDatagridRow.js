@@ -28,6 +28,8 @@ const sanitizeRestProps = ({
     selected,
     style,
     styles,
+    handleDoubleClick,
+    handleRightClick,
     ...rest
 }) => rest;
 
@@ -47,6 +49,8 @@ const MyDatagridRow = (props) => {
         record,
         resource,
         rowClick,
+        handleDoubleClick,
+        handleRightClick,
         selected,
         style,
         styles,
@@ -117,6 +121,20 @@ const MyDatagridRow = (props) => {
         [basePath, dispatch, handleToggleExpand, handleToggleSelection, id, onSelect, record, rowClick]
     );
 
+    const onDoubleClick = useCallback((event) => {
+        if (!handleDoubleClick) return;
+        event.preventDefault();
+        event.stopPropagation();
+        handleDoubleClick(id, record);
+    }, [handleDoubleClick, id, record]);
+
+    const onContextMenu = useCallback((event) => {
+        if (!handleRightClick) return;
+        event.preventDefault();
+        event.stopPropagation();
+        handleRightClick(id, record, event);
+    }, [handleRightClick, id, record]);
+
     return (
         <>
             <TableRow
@@ -125,6 +143,8 @@ const MyDatagridRow = (props) => {
                 style={style}
                 hover={hover}
                 onClick={handleClick}
+                onDoubleClick={onDoubleClick}
+                onContextMenu={onContextMenu}
                 {...sanitizeRestProps(rest)}
             >
                 {expand && (
@@ -189,7 +209,9 @@ MyDatagridRow.propTypes = {
     rowClick: oneOfType([string, func]),
     selected: bool,
     style: object,
-    styles: object
+    styles: object,
+    handleDoubleClick: func,
+    handleRightClick: func
 };
 
 MyDatagridRow.defaultProps = {

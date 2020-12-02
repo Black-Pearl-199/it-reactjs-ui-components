@@ -81,6 +81,8 @@ const MyDatagrid = (props) => {
         onToggleItem,
         resource,
         rowClick,
+        handleDoubleClick,
+        handleRightClick,
         rowStyle,
         selectedIds,
         setSort,
@@ -161,6 +163,8 @@ const MyDatagrid = (props) => {
                         classes,
                         expand,
                         rowClick,
+                        handleDoubleClick,
+                        handleRightClick,
                         data,
                         hasBulkActions,
                         hover,
@@ -208,7 +212,9 @@ MyDatagrid.propTypes = {
     total: PropTypes.number,
     version: PropTypes.number,
     loaded: PropTypes.bool,
-    heightCustom: PropTypes.bool
+    heightCustom: PropTypes.bool,
+    handleDoubleClick: PropTypes.func,
+    handleRightClick: PropTypes.func
 };
 
 MyDatagrid.defaultProps = {
