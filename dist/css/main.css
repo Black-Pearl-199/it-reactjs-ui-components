@@ -283,7 +283,7 @@
 }
 
 .btn-pick-date.active {
-  background-color: #2E3E47;
+  background-color: var(--main-color-dark);
   color: var(--default-text) !important;
   z-index: 0 !important;
 }
@@ -668,9 +668,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .nav-item {
   -webkit-user-select: none;
   user-select: none;
-  border-style: solid;
-  border-width: 1px 1px 0 1px;
-  border-color: var(--grey-background);
+  height: var(--tab-height);
   border-radius: 10px 10px 0 0;
   background: var(--grey-background) !important;
 }
@@ -681,20 +679,22 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .nav-item a:hover {
-  background-color: var(--green-input-form-selection);
+  background-color: var(--main-background);
 }
 
 .nav-item:hover {
-  background-color: var(--main-color-light-1);
+  background-color: var(--main-background);
 }
 
 .nav-item .nav-link {
   border-radius: 10px 10px 0 0;
+  height: var(--tab-height);
 }
 
 .nav-item .nav-link:hover {
   border-radius: 10px 10px 0 0;
-  border-color: var(--green-input-form-selection) !important;
+  background-color: var(--main-background);
+  border-color: var(--main-background);
   color: var(--text-color);
 }
 
@@ -775,15 +775,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .pagination-itech .page-item .page-link:hover {
-  background: var(--cyan);
+  background: var(--main-color-dark);
   color: var(--white);
-  border-color: var(--cyan);
+  border-color: var(--main-color-dark);
 }
 
 .pagination-itech .page-item.active .page-link {
-  background: var(--cyan);
+  background: var(--main-color-dark);
   color: var(--white);
-  border-color: var(--cyan);
+  border-color: var(--main-color-dark);
 }
 
 .panel-itech {
@@ -888,7 +888,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .table thead.table-itech-thread tr {
   background: var(--main-color) !important;
-  color: var(--default-text) !important;
+  color: var(--text-color) !important;
   text-transform: uppercase;
 }
 
@@ -901,7 +901,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
   background-color: transparent;
-  color: var(--default-text) !important;
+  color: var(--text-color) !important;
   font-weight: 500 !important;
   font-size: .75rem;
   line-height: 200%;
