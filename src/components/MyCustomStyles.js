@@ -333,8 +333,8 @@ export const tableStyles = {
             '& th': {
                 // verticalAlign: 'inherit',
                 whiteSpace: 'nowrap',
-                border: '1px solid var(--main-background)',
-                borderTop: '0px'
+                border: '1px solid var(--border-color)'
+                // borderTop: '0px'
             },
             '& td': {
                 fontWeight: 'bold',
