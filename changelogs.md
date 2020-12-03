@@ -5,9 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.3.5] - 2020-12-03
+### Changed
+- Show border of header and fix show border of header when scroll - [@TinVan2]
 ## [0.3.4] - 2020-12-02
 ### Added
-- Support double click and right click in MyList - [@Tin]
+- Support double click and right click in MyList - [@TinVan2]
 
 ## [0.3.3] - 2020-11-04
 ### Changed
@@ -15,10 +18,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.3.2] - 2020-11-04
 ### Changed
-- Support hide search button in MyFilterBox - [@Tin]
+- Support hide search button in MyFilterBox - [@TinVan2]
 ## [0.3.1] - 2020-11-02
 ### Fixed
-- Fixed not change perPage and page when use standalone list - [@Tin]
+- Fixed not change perPage and page when use standalone list - [@TinVan2]
 ## [0.3.0] - 2020-10-12
 ### Changed
 - Change radio button style - [@Triet]

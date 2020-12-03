@@ -5,7 +5,7 @@ import { useTranslate } from 'react-admin';
 const PaginationLimit = ({ labelLimit }) => {
     const translate = useTranslate();
     return (
-        <div>
+        <div className="d-flex justify-content-center w-100">
             <p>
                 {translate(labelLimit)}
             </p>
