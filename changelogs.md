@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.3.6] - 2020-12-04
+### Fixed
+- Fix css for header when scroll in table - [@TinVan2]
 ## [0.3.5] - 2020-12-03
 ### Changed
 - Show border of header and fix show border of header when scroll - [@TinVan2]
