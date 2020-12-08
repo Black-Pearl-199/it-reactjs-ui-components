@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
+import MyBackFormButton from './MyBackFormButton';
 import MySaveButton from './MySaveButton';
 
 const fixToolbarHeight = {
@@ -21,6 +22,7 @@ const MySaveToolbar = (props) => {
         customNotification,
         hideSaveButton,
         buttonClasses,
+        showBackButton,
         ...rest
     } = props;
     const { invalid, redirect } = rest;
@@ -28,6 +30,9 @@ const MySaveToolbar = (props) => {
 
     return (
         <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
+            {showBackButton && (
+                <MyBackFormButton {...props} />
+            )}
             {!hideSaveButton && (
                 <MySaveButton
                     redirect={redirect}
@@ -56,7 +61,8 @@ MySaveToolbar.propTypes = {
     customNotification: PropTypes.object,
     customButton: PropTypes.any,
     hideSaveButton: PropTypes.bool,
-    buttonClasses: PropTypes.string
+    buttonClasses: PropTypes.string,
+    showBackButton: PropTypes.bool
 };
 
 MySaveButton.defaultValues = {

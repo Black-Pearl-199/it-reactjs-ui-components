@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { Toolbar } from 'react-admin';
+import MyBackFormButton from './MyBackFormButton';
 
 import MyDeleteButton from './MyDeleteButton';
 import MyUpdateButton from './MyUpdateButton';
@@ -32,6 +33,7 @@ const MyEditToolbar = (props) => {
         filter,
         buttonClasses,
         labelConfirm,
+        showBackButton,
         ...rest
     } = props;
     const { redirect } = rest;
@@ -43,6 +45,9 @@ const MyEditToolbar = (props) => {
 
     return (
         <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
+            {showBackButton && (
+                <MyBackFormButton {...props} />
+            )}
             {!hideEditButton && (
                 <MyUpdateButton
                     redirect={redirect}
@@ -93,7 +98,8 @@ MyEditToolbar.propTypes = {
     undoable: PropTypes.bool,
     hideEditButton: PropTypes.bool,
     buttonClasses: PropTypes.string,
-    labelConfirm: PropTypes.string
+    labelConfirm: PropTypes.string,
+    showBackButton: PropTypes.bool
 };
 
 MyEditToolbar.defaultValues = {
