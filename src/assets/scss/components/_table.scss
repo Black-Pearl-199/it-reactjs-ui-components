@@ -6,7 +6,7 @@
 	thead.table-itech-thread {
 		tr {
 			background: var(--main-color) !important;
-			color: var(--text-color) !important;
+			color: var(--main-color-contrast) !important;
 			text-transform: uppercase;
 
 			th {
@@ -19,7 +19,7 @@
 		td,
 		span {
 			background-color: transparent;
-			color: var(--text-color) !important;
+			color: var(--main-color-contrast) !important;
 			font-weight: 500 !important;
             font-size: .75rem;
             line-height: 200%;

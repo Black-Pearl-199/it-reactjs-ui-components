@@ -5,7 +5,6 @@ import { useTheme } from '@material-ui/core';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { switchTheme } from '../configurations/actions';
-
 // const COLOR_MAPPING = {
 //     '--form-background-color': 'formBgColor',
 //     '--form-background-color-focus': 'formBgColorFocus',

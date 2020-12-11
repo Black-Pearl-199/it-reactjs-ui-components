@@ -2,7 +2,7 @@
 
 .form-control {
 	background-color: var(--form-background-color);
-	color: var(--text-color) !important;
+	color: var(--form-background-color-contrast) !important;
 
 	//border-width: 2px;
 	//border-color: $grey-light;
@@ -14,11 +14,12 @@
 		border-color: var(--main-color-dark);
 		background-color: var(--form-background-color-focus) !important;
 		box-shadow: none;
-		color: var(--text-color) !important;
+		color: var(--form-background-color-focus-contrast) !important;
 	}
 
 	&:disabled {
 		background-color: var(--form-background-color-disabled) !important;
+		color: var(--form-background-color-disabled-contrast) !important;
 	}
 
 	border: none;
@@ -30,7 +31,7 @@
 	font-size: 14px;
 	height: 26px;
 	background-color: var(--form-background-color);
-	color: var(--text-color);
+	color: var(--form-background-color-contrast);
 }
 
 .form-group {

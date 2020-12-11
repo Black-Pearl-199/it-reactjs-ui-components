@@ -57,12 +57,14 @@ $angle-right: "\f101";
 }
 
 .btn-icon-toggle {
-	background: var(--main-color);
-	color: var(--default-text);
+	background: var(--sidebar-background);
+	color: var(--sidebar-background-contrast);
 
 	&:hover {
-		background-color: var(--default-text);
-		color: var(--main-color)
+		// background-color: var(--default-text);
+		// color: var(--main-color)
+		color: var(--sidebar-background-contrast);
+		filter: brightness(120%);
 	}
 }
 
