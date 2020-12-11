@@ -30,6 +30,26 @@ const COLOR_MAPPING = {
     '--main-color-dark': 'dark'
 };
 */
+export const getContrastColor = (inputColor) => {
+    // return a well contrasted color based on inputColor
+    const convertedRGB = [];
+    if (inputColor.startsWith('#')) {
+        convertedRGB.push(parseInt(inputColor.substr(1, 2), 16)); // red
+        convertedRGB.push(parseInt(inputColor.substr(3, 2), 16)); // green
+        convertedRGB.push(parseInt(inputColor.substr(5, 2), 16)); // blue
+    } else if (inputColor.startsWith('rgb')) {
+        const firstIndex = inputColor.indexOf('(');
+        const colorStr = inputColor.substr(firstIndex + 1, inputColor.length - firstIndex - 1);
+        const rgb = colorStr.split(',').map((color) => parseInt(color));
+        convertedRGB.push(...rgb);
+    }
+    // http://www.w3.org/TR/AERT#color-contrast
+    const brightness = Math.round(((convertedRGB[0] * 299) +
+                                    (convertedRGB[1] * 587) +
+                                    (convertedRGB[2] * 114)) / 1000);
+    const contrastColor = brightness > 125 ? 'black' : '#E0E0E0';
+    return contrastColor;
+};
 
 export const iTechThemeLight = createMuiTheme({
     palette: {
@@ -39,7 +59,9 @@ export const iTechThemeLight = createMuiTheme({
             mainColorLight: '#76B194',
             mainColorDark: '#3e935a',
             mainColorHover: '#2C5641',
-            mainColorLight1: '#C8E7D2',
+            buttonColorPrimary: '#666666',
+            buttonColorSecondary: '#cccccc',
+            contentBackground: '#F7F7F7',
             mainBackground: '#F7F7F7',
             // mainBackground: '#ff91e0',
             sidebarBackground: '#FFFFFF',
@@ -49,6 +71,7 @@ export const iTechThemeLight = createMuiTheme({
             formBackgroundColorDisabled: '#e9ecef',
             defaultText: '#FFFFFF',
             textColor: '#2E3E47',
+            textColorButton: getContrastColor('#666666'),
             textColorLight: '#495057',
             textColorLink: '#0056b3',
             textColorDone: '#006600',
@@ -76,27 +99,29 @@ export const iTechThemeLight = createMuiTheme({
 export const iTechThemeDark = createMuiTheme({
     palette: {
         primary: {
-            mainColor: '#121212',
+            mainColor: '#cccccc',
             main: '#c7663f', // use this color for checkboxes, radio button background
             mainColorLight: '#5EB88B',
-            mainColorDark: '#303030',
+            mainColorDark: '#666666',
             mainColorHover: '#5E5E5E',
-            mainColorLight1: '#7EF7BB',
-            mainBackground: '#18191a',
+            buttonColorPrimary: '#A4A4A4',
+            buttonColorSecondary: '#dddddd',
+            contentBackground: '#cccccc',
+            mainBackground: '#333333',
             // mainBackground: '#ff91e0',
-            sidebarBackground: '#18191a',
-            navbarBackground: '#242526',
-            formBackgroundColor: '#242424',
+            sidebarBackground: '#333333',
+            navbarBackground: '#333333',
+            formBackgroundColor: '#cccccc',
             formBackgroundColorFocus: '#5E5E5E',
-            formBackgroundColorDisabled: '#121212',
+            formBackgroundColorDisabled: '#666666',
             defaultText: '#FFFFFF',
             textColor: '#E0E0E0',
             textColorLight: '#495057',
             textColorLink: '#8cc3ff',
             textColorDone: '#C8E7D2',
             textHighlightColor: '#333333',
-            tableOdd: '#242424', // light grey
-            tableEven: '#333333', // light grey
+            tableOdd: '#6e6e6e', // light grey
+            tableEven: '#585858', // light grey
             modalItechBackground: '#F7F9FC',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#cccccc',

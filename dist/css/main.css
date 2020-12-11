@@ -178,8 +178,8 @@
 }
 
 .btn-itech-primary {
-  background: var(--main-color-dark) !important;
-  color: var(--white) !important;
+  background: var(--button-color-primary) !important;
+  color: var(--button-color-primary-contrast) !important;
 }
 
 .btn-itech-primary i::before {
@@ -187,12 +187,12 @@
 }
 
 .btn-itech-primary:hover {
-  background-color: var(--main-color-hover) !important;
+  filter: brightness(120%);
 }
 
 .btn-itech-secondary {
-  background: var(--grey-1);
-  color: #2E3E47 !important;
+  background: var(--button-color-secondary) !important;
+  color: var(--button-color-secondary-contrast) !important;
 }
 
 .btn-itech-secondary i::before {
@@ -200,7 +200,7 @@
 }
 
 .btn-itech-secondary:hover {
-  background-color: var(--grey-2);
+  filter: brightness(120%);
 }
 
 .btn-itech-dark {
@@ -275,16 +275,16 @@
 
 .btn-pick-date {
   height: 26px;
-  background: var(--grey-1);
-  color: var(--grey-dark) !important;
+  background: var(--button-color-secondary) !important;
+  color: var(--button-color-secondary-contrast) !important;
   flex: 1 1 0px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .btn-pick-date.active {
-  background-color: var(--main-color-dark);
-  color: var(--default-text) !important;
+  filter: brightness(80%);
+  color: var(--button-color-secondary-contrast) !important;
   z-index: 0 !important;
 }
 
@@ -365,7 +365,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .btn-dropdown {
   background: var(--form-background-color) !important;
-  color: var(--text-color);
+  color: var(--form-background-color-contrast);
   border-radius: 4px;
   border-style: solid;
   border-width: 1px;
@@ -457,7 +457,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .form-control {
   background-color: var(--form-background-color);
-  color: var(--text-color) !important;
+  color: var(--form-background-color-contrast) !important;
   border: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   padding: 3px 8px;
@@ -471,18 +471,19 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-color: var(--main-color-dark);
   background-color: var(--form-background-color-focus) !important;
   box-shadow: none;
-  color: var(--text-color) !important;
+  color: var(--form-background-color-focus-contrast) !important;
 }
 
 .form-control:disabled {
   background-color: var(--form-background-color-disabled) !important;
+  color: var(--form-background-color-disabled-contrast) !important;
 }
 
 .form-control-sm {
   font-size: 14px;
   height: 26px;
   background-color: var(--form-background-color);
-  color: var(--text-color);
+  color: var(--form-background-color-contrast);
 }
 
 .form-group {
@@ -888,7 +889,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .table thead.table-itech-thread tr {
   background: var(--main-color) !important;
-  color: var(--text-color) !important;
+  color: var(--main-color-contrast) !important;
   text-transform: uppercase;
 }
 
@@ -901,7 +902,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
   background-color: transparent;
-  color: var(--text-color) !important;
+  color: var(--main-color-contrast) !important;
   font-weight: 500 !important;
   font-size: .75rem;
   line-height: 200%;
@@ -1342,13 +1343,13 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .btn-icon-toggle {
-  background: var(--main-color);
-  color: var(--default-text);
+  background: var(--sidebar-background);
+  color: var(--sidebar-background-contrast);
 }
 
 .btn-icon-toggle:hover {
-  background-color: var(--default-text);
-  color: var(--main-color);
+  color: var(--sidebar-background-contrast);
+  filter: brightness(120%);
 }
 
 .sidebar-list {

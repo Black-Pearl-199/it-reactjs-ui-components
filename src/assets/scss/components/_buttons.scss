@@ -148,29 +148,30 @@
 	}
 	
 	&-primary {
-		background: var(--main-color-dark) !important;
-		color: var(--white) !important;
+		background: var(--button-color-primary) !important;
+		color: var(--button-color-primary-contrast) !important;
 	
 		i::before {
 			color: white;
 		}
 	
 		&:hover {
-	
-			background-color: var(--main-color-hover) !important;
+			// background-color: var(--main-color-hover) !important;
+			filter: brightness(120%)
 		}
 	}
 
 	&-secondary {
-		background: var(--grey-1);
-		color:  #2E3E47 !important;
+		background: var(--button-color-secondary) !important;
+		color:  var(--button-color-secondary-contrast) !important;
 	
 		i::before {
 			color: var(--grey-normal);
 		}
 	
 		&:hover {
-			background-color: var(--grey-2);
+			// background-color: var(--grey-2);
+			filter: brightness(120%);
 		}
 	}
 
@@ -248,16 +249,17 @@
 
 .btn-pick-date {
 	height: 26px;
-	background: var(--grey-1);
-	color: var(--grey-dark) !important;
+	background: var(--button-color-secondary) !important;
+	color: var(--button-color-secondary-contrast) !important;
 	flex: 1 1 0px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 
 
 	&.active {
-		background-color: var(--main-color-dark);
-		color: var(--default-text) !important;
+		// background-color: var(--main-color-dark);
+		filter: brightness(80%);
+		color: var(--button-color-secondary-contrast) !important;
 		z-index: 0 !important;
 	}
 }
