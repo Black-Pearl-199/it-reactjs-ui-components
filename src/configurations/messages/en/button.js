@@ -21,5 +21,6 @@ export default {
     changePassword: 'Change Password',
     choose: 'Choose',
     confirm: 'Confirm',
-    createNew: 'Create New'
+    createNew: 'Create New',
+    revertEdit: 'Revert edit'
 };
