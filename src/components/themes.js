@@ -117,8 +117,9 @@ export const iTechThemeDark = createMuiTheme({
             defaultText: '#FFFFFF',
             textColor: '#E0E0E0',
             textColorLight: '#495057',
-            textColorLink: '#8cc3ff',
-            textColorDone: '#C8E7D2',
+            textColorLink: '#5c96d6',
+            textColorDone: '#000000',
+            textColorUnread: '#ffc002',
             textHighlightColor: '#666666',
             tableOdd: '#6e6e6e', // light grey
             tableEven: '#585858', // light grey
