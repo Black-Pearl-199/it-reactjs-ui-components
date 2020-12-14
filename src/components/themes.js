@@ -101,12 +101,12 @@ export const iTechThemeDark = createMuiTheme({
         primary: {
             mainColor: '#cccccc',
             main: '#c7663f', // use this color for checkboxes, radio button background
-            mainColorLight: '#5EB88B',
+            mainColorLight: '#dddddd',
             mainColorDark: '#666666',
             mainColorHover: '#5E5E5E',
-            buttonColorPrimary: '#A4A4A4',
-            buttonColorSecondary: '#dddddd',
-            contentBackground: '#cccccc',
+            buttonColorPrimary: '#cccccc',
+            buttonColorSecondary: '#666666',
+            contentBackground: '#dddddd',
             mainBackground: '#333333',
             // mainBackground: '#ff91e0',
             sidebarBackground: '#333333',
@@ -119,17 +119,17 @@ export const iTechThemeDark = createMuiTheme({
             textColorLight: '#495057',
             textColorLink: '#8cc3ff',
             textColorDone: '#C8E7D2',
-            textHighlightColor: '#333333',
+            textHighlightColor: '#666666',
             tableOdd: '#6e6e6e', // light grey
             tableEven: '#585858', // light grey
-            modalItechBackground: '#F7F9FC',
+            modalItechBackground: '#999999',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#cccccc',
             hospitalTitle: '#FFFFFF',
             infoTitle: '#FFFFFF',
             reportBackgroundColor: '#cccccc',
             shadow: 'rgb(0, 0, 0, 0)',
-            borderColor: '#5E5E5E'
+            borderColor: '#555555'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {

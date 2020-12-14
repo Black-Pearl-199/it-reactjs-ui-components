@@ -23,7 +23,7 @@
 
 .preview-attachment .modal-content {
   height: 75%;
-  background: var(--sidebar-background);
+  background: var(--modal-itech-background);
 }
 
 .btn-delete-attachment {
@@ -150,11 +150,11 @@
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
   background: var(--text-color) !important;
-  color: var(--main-color-light) !important;
+  color: var(--text-color-contrast) !important;
 }
 
 .btn-itech-icon-primary:hover i::before, .btn-itech-icon-primary:active i::before, .btn-itech-icon-primary.active i::before {
-  color: var(--main-color-light);
+  color: var(--text-color-contrast);
 }
 
 .btn-itech-icon-warning {
@@ -174,7 +174,7 @@
 }
 
 .btn-itech-icon-secondary:hover, .btn-itech-icon-secondary:active, .btn-itech-icon-secondary.active {
-  background: var(--grey-1) !important;
+  background: var(--text-highlight-color) !important;
 }
 
 .btn-itech-primary {
@@ -187,7 +187,7 @@
 }
 
 .btn-itech-primary:hover {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 .btn-itech-secondary {
@@ -200,30 +200,29 @@
 }
 
 .btn-itech-secondary:hover {
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 .btn-itech-dark {
-  background: #2E3E47;
-  color: var(--white) !important;
+  background: var(--main-color-dark) !important;
+  color: var(--main-color-dark-contrast) !important;
 }
 
 .btn-itech-dark:hover {
-  background-color: var(--text-color-light);
+  filter: brightness(110%);
 }
 
 .btn-itech-light {
-  background: var(--grey-normal-opacity);
-  color: var(--cyan);
+  background: var(--main-color-light);
+  color: var(--main-color-light-contrast);
 }
 
 .btn-itech-light:hover {
-  background: var(--grey-normal-opacity) -hover;
-  color: var(--cyan);
+  filter: brightness(110%);
 }
 
 .btn-itech-light:active {
-  background: var(--grey-normal-opacity);
+  filter: brightness(110%);
 }
 
 .btn-itech-danger {
@@ -283,7 +282,7 @@
 }
 
 .btn-pick-date.active {
-  filter: brightness(80%);
+  filter: brightness(120%);
   color: var(--button-color-secondary-contrast) !important;
   z-index: 0 !important;
 }
@@ -577,7 +576,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   font-size: var(--fontSize875);
   font-weight: bold;
   padding-bottom: 0.25rem;
-  color: var(--text-color);
 }
 
 .label-filter-sm {
@@ -585,7 +583,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   font-weight: bold;
   padding-top: 0;
   padding-bottom: 0;
-  color: var(--text-color);
 }
 
 .label-color {
@@ -626,7 +623,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   padding: 1.2rem;
   text-align: justify;
   min-height: 150px;
-  color: var(--text-color);
+  color: var(--modal-itech-background-contrast);
 }
 
 .msg-box-warning .msg-head {
@@ -640,13 +637,13 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .msg-box-info .msg-head {
-  color: var(--text-color);
+  color: var(--modal-itech-background-contrast);
 }
 
 .msg-box-info .msg-body {
   border-color: var(--main-color-dark);
-  background-color: var(--form-background-color-focus);
-  color: var(--text-color);
+  background-color: var(--content-background);
+  color: var(--content-background-contrast);
 }
 
 .bg-light {
@@ -788,14 +785,14 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .panel-itech {
-  background-color: var(--sidebar-background);
+  background-color: var(--content-background);
   padding: 0.25rem 0.5rem;
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
 
 .panel-itech .form-control {
-  background: var(--form-background-color-focus);
+  background: var(--form-background-color);
 }
 
 .panel-itech .form-control:disabled, .panel-itech .form-control[readonly] {
@@ -1018,17 +1015,17 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .modal-header {
-  background: var(--sidebar-background);
-  color: var(--text-color);
+  background: var(--modal-itech-background);
+  color: var(--modal-itech-background-contrast);
 }
 
 .modal-header .close {
-  color: var(--text-color);
+  color: var(--modal-itech-background-contrast);
 }
 
 .modal-content {
-  background: var(--sidebar-background);
-  color: var(--text-color);
+  background: var(--modal-itech-background);
+  color: var(--modal-itech-background-contrast);
 }
 
 @media (max-width: 1024px) {
@@ -1349,7 +1346,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .btn-icon-toggle:hover {
   color: var(--sidebar-background-contrast);
-  filter: brightness(120%);
+  filter: brightness(110%);
 }
 
 .sidebar-list {

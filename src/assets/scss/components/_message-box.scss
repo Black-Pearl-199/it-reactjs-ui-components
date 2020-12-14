@@ -8,7 +8,7 @@
 		padding: 1.2rem;
 		text-align: justify;
 		min-height: 150px;
-		color: var(--text-color);
+		color: var(--modal-itech-background-contrast);
 	}
 
 	&-warning {
@@ -25,13 +25,13 @@
 
 	&-info {
 		& .msg-head {
-			color: var(--text-color);
+			color: var(--modal-itech-background-contrast);
 		}
 
 		& .msg-body {
 			border-color: var(--main-color-dark);
-			background-color: var(--form-background-color-focus);
-			color: var(--text-color);
+			background-color: var(--content-background);
+			color: var(--content-background-contrast);
 		}
 	}
 }

@@ -119,10 +119,10 @@
 	
 		&:hover, &:active, &.active {
 			background: var(--text-color) !important;
-			color: var(--main-color-light) !important;
+			color: var(--text-color-contrast) !important;
 	
 			i::before {
-				color: var(--main-color-light);
+				color: var(--text-color-contrast);
 			}
 		}
 	}
@@ -143,7 +143,7 @@
 		color: var(--text-color) !important;
 	
 		&:hover, &:active, &.active {
-			background: var(--grey-1) !important;
+			background: var(--text-highlight-color) !important;
 		}
 	}
 	
@@ -157,7 +157,7 @@
 	
 		&:hover {
 			// background-color: var(--main-color-hover) !important;
-			filter: brightness(120%)
+			filter: brightness(110%)
 		}
 	}
 
@@ -171,30 +171,33 @@
 	
 		&:hover {
 			// background-color: var(--grey-2);
-			filter: brightness(120%);
+			filter: brightness(110%);
 		}
 	}
 
 	&-dark {
-		background:  #2E3E47;
-		color: var(--white) !important;
+		background:  var(--main-color-dark) !important;
+		color: var(--main-color-dark-contrast) !important;
 	
 		&:hover {
-			background-color: var(--text-color-light);
+			// background-color: var(--text-color-light);
+			filter: brightness(110%);
 		}
 	}
 
 	&-light {
-		background: var(--grey-normal-opacity);
-		color: var(--cyan);
+		background: var(--main-color-light);
+		color: var(--main-color-light-contrast);
 	
 		&:hover {
-			background: var(--grey-normal-opacity)-hover;
-			color: var(--cyan);
+			// background: var(--grey-normal-opacity)-hover;
+			// color: var(--cyan);
+			filter: brightness(110%);
 		}
 	
 		&:active {
-			background: var(--grey-normal-opacity);
+			// background: var(--grey-normal-opacity);
+			filter: brightness(110%);
 		}
 	}
 
@@ -258,7 +261,7 @@
 
 	&.active {
 		// background-color: var(--main-color-dark);
-		filter: brightness(80%);
+		filter: brightness(120%);
 		color: var(--button-color-secondary-contrast) !important;
 		z-index: 0 !important;
 	}

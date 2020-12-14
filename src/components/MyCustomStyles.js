@@ -339,15 +339,17 @@ export const tableStyles = {
             '& td': {
                 fontWeight: 'bold',
                 backgroundColor: variables.primaryBgDark,
-                borderColor: '#dee2e6',
-                border: '1px'
+                // borderColor: '#dee2e6',
+                border: '1px solid var(--border-color)'
             },
             '$ tr': {
-                height: '25px !important'
+                height: '25px !important',
+                border: '1px solid var(--border-color)'
             }
         },
         '& th, & td, & tr': {
             padding: '0 .3rem !important',
+            border: '1px solid var(--border-color)',
             '&.column-undefined': {
                 paddingTop: '0rem !important',
                 paddingBottom: '0rem !important'
