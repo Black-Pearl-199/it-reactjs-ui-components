@@ -1,35 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
 
-/*
-$form-background-color: rgba(33, 156, 119, 0.1);
-$form-background-color-focus:rgba(33, 156, 119, 0.2);
-$default-text: #ffffff;
-$default-text-selected: #ffffff;
-$text-color: #2E3E47;
-$text-color-light: #495057;
-$modal-itech-background:  #F7F9FC;
-$main-color-opacity: rgba(55, 107, 81, 0.1);
-$main-color: #376B51;
-$main-color-hover: #2C5641;
-$main-color-light: #6c7770;
-$main-color-light-1: #C8E7D2;
-$main-color-dark: #4c4c4c;
-
-const COLOR_MAPPING = {
-    '--form-background-color': 'formBgColor',
-    '--form-background-color-focus': 'formBgColorFocus',
-    '--default-text': 'defaultText',
-    '--text-color': 'textColor',
-    '--text-color-light': 'textColorLight',
-    '--modal-itech-background': 'modalItechBackground',
-    '--main-color-opacity': 'mainColorOpacity',
-    '--main-color': 'main',
-    '--main-color-hover': 'mainColorHover',
-    '--main-color-light': 'light',
-    '--main-color-light-1': 'mainColorLight1',
-    '--main-color-dark': 'dark'
-};
-*/
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
     const convertedRGB = [];
@@ -50,6 +20,58 @@ export const getContrastColor = (inputColor) => {
     const contrastColor = brightness > 125 ? 'black' : '#E0E0E0';
     return contrastColor;
 };
+
+export const vietradThemeLight = createMuiTheme({
+    palette: {
+        primary: {
+            mainColor: 'rgb(221, 221, 221)',
+            main: '#b7b7b6', // palette mus have 'main' atribute
+            mainColorLight: '#D6D6D6',
+            mainColorDark: 'rgb(153, 153, 153)',
+            mainColorHover: 'rgb(153, 153, 153)',
+            mainColorLight1: 'rgb(221, 221, 221)',
+            buttonColorPrimary: 'rgb(153, 153, 153)',
+            buttonColorSecondary: '#cccccc',
+            contentBackground: '#F7F7F7',
+            mainBackground: 'rgb(221, 221, 221)',
+            // mainBackground: '#ff91e0',
+            sidebarBackground: 'rgb(221, 221, 221)',
+            navbarBackground: 'rgb(221, 221, 221)',
+            formBackgroundColor: '#e8eaed',
+            formBackgroundColorFocus: '#fefefe',
+            formBackgroundColorDisabled: '#b7b7b6',
+            defaultText: '#FFFFFF',
+            textColor: '#2E3E47',
+            textColorAlternate: '#2E3E47',
+            textColorButton: getContrastColor('rgb(153, 153, 153)'),
+            textColorLight: '#495057',
+            textColorLink: '#0056b3',
+            textColorDone: '#006600',
+            textColorUnread: '#0056b3',
+            textHighlightColor: '#e8eaed',
+            tableOdd: '#F7F7F7', // light grey
+            tableEven: 'rgb(238, 238, 238)', // light grey
+            modalItechBackground: '#F7F9FC',
+            mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
+            styledTitle: 'rgb(124, 124, 124)',
+            hospitalTitle: '#404040',
+            infoTitle: '#748189',
+            reportBackgroundColor: '#FFFFFF',
+            // shadow: '0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12)',
+            shadow: 'rgb(0, 0, 0, 0)',
+            borderColor: '#b7b7b6',
+            tabHeight: '32px',
+            greyBackground: 'rgb(201, 201, 201)'
+            // topHeight: '100px'
+            // contrastText: 'rgb(255,192,203)'
+        },
+        // text: {
+        //     default: '#FFFFFF',
+        //     main: '#2E3E47'
+        // },
+        type: 'light'
+    }
+});
 
 export const iTechThemeLight = createMuiTheme({
     palette: {
@@ -101,12 +123,12 @@ export const iTechThemeDark = createMuiTheme({
         primary: {
             mainColor: '#cccccc',
             main: '#c7663f', // use this color for checkboxes, radio button background
-            mainColorLight: '#5EB88B',
+            mainColorLight: '#dddddd',
             mainColorDark: '#666666',
             mainColorHover: '#5E5E5E',
-            buttonColorPrimary: '#A4A4A4',
-            buttonColorSecondary: '#dddddd',
-            contentBackground: '#cccccc',
+            buttonColorPrimary: '#cccccc',
+            buttonColorSecondary: '#666666',
+            contentBackground: '#dddddd',
             mainBackground: '#333333',
             // mainBackground: '#ff91e0',
             sidebarBackground: '#333333',
@@ -117,19 +139,20 @@ export const iTechThemeDark = createMuiTheme({
             defaultText: '#FFFFFF',
             textColor: '#E0E0E0',
             textColorLight: '#495057',
-            textColorLink: '#8cc3ff',
+            textColorLink: '#5c96d6',
             textColorDone: '#C8E7D2',
-            textHighlightColor: '#333333',
-            tableOdd: '#6e6e6e', // light grey
-            tableEven: '#585858', // light grey
-            modalItechBackground: '#F7F9FC',
+            textColorUnread: '#3589e6',
+            textHighlightColor: '#666666',
+            tableOdd: '#363535 ', // light grey
+            tableEven: '#3c3b3b', // light grey
+            modalItechBackground: '#999999',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#cccccc',
             hospitalTitle: '#FFFFFF',
             infoTitle: '#FFFFFF',
             reportBackgroundColor: '#cccccc',
             shadow: 'rgb(0, 0, 0, 0)',
-            borderColor: '#5E5E5E'
+            borderColor: '#555555'
             // contrastText: 'rgb(255,192,203)'
         },
         // text: {

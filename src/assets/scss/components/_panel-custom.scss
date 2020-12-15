@@ -1,7 +1,9 @@
 @import '../abstracts/variables';
 
 .panel-itech {
-	background-color: var(--sidebar-background);
+	background-color: var(--main-background);
+	color: var(--main-background-contrast);
+	filter: brightness(110%);
 	//overflow: hidden;
 	padding: 0.25rem 0.5rem;
 	@include shadow-1;
@@ -9,10 +11,11 @@
 	flex: 1;
 
 	.form-control {
-		background: var(--form-background-color-focus);
+		background: var(--form-background-color);
 
 		&:disabled, &[readonly] {
 			background: var(--form-background-color-disabled);
+			color: var(--form-background-color-disabled-contrast);
 		}
 	}
 }

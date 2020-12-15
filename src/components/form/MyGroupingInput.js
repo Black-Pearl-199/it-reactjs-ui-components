@@ -5,7 +5,7 @@ import { FormInput } from 'react-admin';
 
 const MyGroupingInput = (props) => {
     const {
-        basePath, record, resource, children, heading, groupClasses, innerClasses, border, form
+        basePath, record, resource, children, heading, groupClasses, innerClasses, border, form, noCardPanel
     } = props;
     // console.log('grouping input record', JSON.parse(JSON.stringify(record)));
 
@@ -23,7 +23,7 @@ const MyGroupingInput = (props) => {
                 <div className={groupClasses}>
                     {heading
                         ? <label className="info-title-label mb-0">{heading}</label> : null}
-                    <div className="card panel-itech h-100 overflow-auto">
+                    <div className={classNames(!noCardPanel && 'card panel-itech', ' h-100 overflow-auto')}>
                         <div className={classNames('card-body', innerClasses)}>
                             {inner}
                         </div>
@@ -51,7 +51,8 @@ MyGroupingInput.propTypes = {
     resource: PropTypes.string,
     border: PropTypes.bool,
     heading: PropTypes.string,
-    form: PropTypes.object
+    form: PropTypes.object,
+    noCardPanel: PropTypes.bool
 };
 MyGroupingInput.defaultProps = {
     border: true

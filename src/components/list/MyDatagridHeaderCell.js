@@ -19,8 +19,9 @@ const useStyles = makeStyles(
         root: {
             '&$active': {
                 '&& $icon': {
+                    // arrow icon on header
                     opacity: 1,
-                    color: 'white'
+                    color: 'var(--main-color-contrast)'
                 }
             }
         }
