@@ -70,6 +70,7 @@ const LanguageSwitcher = (props) => {
                         eventKey={button.eventKey}
                         className="font-1rem"
                         key={button.eventKey}
+                        style={{ zIndex: '3' }}
                     >
                         {button.text}
                     </Dropdown.Item>

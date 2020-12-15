@@ -396,7 +396,8 @@ export const myDataGridStyle = {
         // },
         color: 'var(--text-color)',
         '&.active': {
-            backgroundColor: 'var(--form-background-color-disabled) !important'
+            // backgroundColor: 'var(--form-background-color-disabled) !important'
+            filter: 'brightness(90%)'
             // color: "#fff"
         }
     },
