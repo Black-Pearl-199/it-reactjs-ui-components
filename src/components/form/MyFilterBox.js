@@ -1,5 +1,6 @@
 import { faEraser, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { makeStyles } from '@material-ui/core';
 import classNames from 'classnames';
 import { isEmpty } from 'lodash';
 import * as PropTypes from 'prop-types';
@@ -12,6 +13,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import { ITCrudGetList } from '../../configurations/actions';
 import { useShallowEqualSelector } from '../../configurations/hooks';
 import { hasCustomParams, selectQuery } from '../../utils';
+import MySimpleForm from './MySimpleForm';
 
 const SORT_DESC = 'DESC';
 const sanitizeRestProps = ({
@@ -33,9 +35,18 @@ const sanitizeRestProps = ({
     ...rest
 }) => rest;
 
+const useFormStyle = makeStyles({
+    firstField: {
+        '& > :first-child': {
+            padding: '0'
+        }
+    }
+});
+
 const checkTriggerSubmit = (e, component, type) => component !== 'input' || type !== 'text';
 
 const MyFilterBox = (props) => {
+    const formStyle = useFormStyle();
     const stateProps = useShallowEqualSelector((state) => {
         const resource = Array.isArray(props.resource) ? props.resource[0] : props.resource;
         // nếu resource là array thì dùng resource đầu tiên để lấy filter từ store
@@ -63,7 +74,6 @@ const MyFilterBox = (props) => {
     // const [form, setForm] = useState(filter || props.initFilter);
     const [form, setForm] = useState({ ...props.initFilter, ...filter });
     const [triggerSubmit, setTriggerSubmit] = useState(false);
-    const formRef = useRef();
     const dispatch = useDispatch();
     const translate = useTranslate();
     const {
@@ -77,6 +87,7 @@ const MyFilterBox = (props) => {
         inputValidate,
         invalidMessagePrefix,
         filterRef,
+        formFilterRef,
         defaultPerPage,
         checkTriggerSubmit,
         icon,
@@ -85,14 +96,17 @@ const MyFilterBox = (props) => {
         hasButtonSearch,
         ...rest
     } = props;
+    console.log('formFilterRef in UI', formFilterRef);
     const setFilter = useCallback((filter) => {
         // console.log('set filter', filter);
         setForm(filter);
     }, []);
 
+    const getFilter = useCallback(() => form, [form]);
+
     useEffect(() => {
-        if (filterRef) filterRef.current = { setFilter, setTriggerSubmit, onChange };
-    }, [setFilter, filterRef, onChange]);
+        if (filterRef) filterRef.current = { setFilter, setTriggerSubmit, onChange, getFilter };
+    }, [setFilter, filterRef, onChange, getFilter]);
 
     const checkFormValidate = () => {
         if (!form) {
@@ -251,7 +265,7 @@ const MyFilterBox = (props) => {
     }));
     // 'card', 'panel-itech',
     return (
-        <form onSubmit={onSubmit} ref={formRef} className={classNames('row', 'my-1', className)}>
+        <MySimpleForm onSubmit={onSubmit} formRef={formFilterRef} className={classNames('my-1', className, formStyle.firstField)} toolbar={null}>
             <div className="d-flex flex-wrap w-100">
                 {renderChildren}
                 <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
@@ -299,7 +313,7 @@ const MyFilterBox = (props) => {
                     )}
                 </div>
             </div>
-        </form>
+        </MySimpleForm>
     );
 };
 
@@ -324,7 +338,8 @@ MyFilterBox.propTypes = {
     icon: PropTypes.bool,
     customAction: PropTypes.any,
     submitDelay: PropTypes.number,
-    hasButtonSearch: PropTypes.bool
+    hasButtonSearch: PropTypes.bool,
+    formFilterRef: PropTypes.object
 };
 
 MyFilterBox.defaultProps = {
