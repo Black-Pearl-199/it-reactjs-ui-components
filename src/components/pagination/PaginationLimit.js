@@ -6,9 +6,9 @@ const PaginationLimit = ({ labelLimit }) => {
     const translate = useTranslate();
     return (
         <div className="d-flex justify-content-center w-100">
-            <p>
+            <span>
                 {translate(labelLimit)}
-            </p>
+            </span>
         </div>
     );
 };
