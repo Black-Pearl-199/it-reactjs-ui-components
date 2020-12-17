@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added contrast color for each color variable - [@Triet]
 ### Changed
 - Change theme color according to mockup - [@Triet]
+- Add MySimpleForm into MyFilterBox for support input value management - [@TinVan2]
 ## [0.3.7] - 2020-12-07-8
 ### Changed
 - Support back button in toolbar of form - [@TinVan2]
