@@ -48,7 +48,7 @@ export const vietradThemeLight = createMuiTheme({
             textColorLink: '#0056b3',
             textColorDone: '#006600',
             textColorUnread: '#0056b3',
-            textHighlightColor: '#e8eaed',
+            textHighlightColor: '#cccccc',
             tableOdd: '#F7F7F7', // light grey
             tableEven: 'rgb(238, 238, 238)', // light grey
             modalItechBackground: '#F7F9FC',
@@ -124,28 +124,28 @@ export const iTechThemeDark = createMuiTheme({
             mainColor: '#cccccc',
             main: '#c7663f', // use this color for checkboxes, radio button background
             mainColorLight: '#dddddd',
-            mainColorDark: '#666666',
+            mainColorDark: '#2A2B2C',
             mainColorHover: '#5E5E5E',
             buttonColorPrimary: '#cccccc',
             buttonColorSecondary: '#666666',
             contentBackground: '#dddddd',
-            mainBackground: '#333333',
+            mainBackground: '#3c3d3e',
             // mainBackground: '#ff91e0',
-            sidebarBackground: '#333333',
-            navbarBackground: '#333333',
+            sidebarBackground: '#3c3d3e',
+            navbarBackground: '#3c3d3e',
             formBackgroundColor: '#cccccc',
             formBackgroundColorFocus: '#5E5E5E',
             formBackgroundColorDisabled: '#666666',
             defaultText: '#FFFFFF',
             textColor: '#E0E0E0',
             textColorLight: '#495057',
-            textColorLink: '#5c96d6',
+            textColorLink: '#1db6ff',
             textColorDone: '#C8E7D2',
             // textColorUnread: '#3589e6',
             textColorUnread: '#FFD600',
             textHighlightColor: '#666666',
-            tableOdd: '#363535 ', // light grey
-            tableEven: '#3c3b3b', // light grey
+            tableOdd: '#1e1e1e ', // light grey
+            tableEven: '#2a2b2c', // light grey
             modalItechBackground: '#999999',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#cccccc',
