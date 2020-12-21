@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.6] - 2020-12-18
+### Fixed
+- Add form-inline to radio buttons groups - [@Triet]
+
 ## [0.0.5] - 2020-12-18
 ### Fixed
 - Reduce size of radio buttons and fix radio buttons misalignment - [@Triet]

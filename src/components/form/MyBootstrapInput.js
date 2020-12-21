@@ -214,7 +214,7 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             const inputId = `${source}-${choiceValue}`;
                             return (
                                 <div className={optionClasses.item} key={inputId}>
-                                    <div className="custom-radio">
+                                    <div className="custom-radio form-inline">
                                         <input
                                             className={classNames(optionClasses.input)}
                                             type="radio"
