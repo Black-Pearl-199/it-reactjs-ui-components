@@ -6,10 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.3.9] - 2020-12-17
-### Fixed
-- Fix Itech theme light - [@Triet]
-- Add sidebar header css definition - [@Triet]
+
 
 ## [0.3.8] - 2020-12-17
 ### Added
