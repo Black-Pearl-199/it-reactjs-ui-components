@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.9] - 2020-12-17
+### Fixed
+- Fix Itech theme light - [@Triet]
+- Add sidebar header css definition - [@Triet]
+
 ## [0.3.8] - 2020-12-17
 ### Added
 - Added contrast color for each color variable - [@Triet]
