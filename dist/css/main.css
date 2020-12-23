@@ -1328,19 +1328,28 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-heading {
-  background-color: var(--main-color);
-  box-shadow: var(--shadow);
-  height: var(--sidebar-item-height);
-  color: var(--main-color);
+  height: 32px;
+  color: var(--sidebar-background-contrast);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--sidebar-background);
+}
+
+.sidebar-header {
+  height: 32px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--sidebar-header-background-contrast);
+  background-color: var(--sidebar-header-background);
 }
 
 .btn-icon-toggle {
-  background: var(--sidebar-background);
-  color: var(--sidebar-background-contrast);
+  background: var(--sidebar-header-background);
+  color: var(--sidebar-header-background-contrast);
 }
 
 .btn-icon-toggle:hover {
-  color: var(--sidebar-background-contrast);
+  color: var(--sidebar-header-background-contrast);
   filter: brightness(110%);
 }
 

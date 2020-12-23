@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.6] - 2020-12-23
+### Fixed
+- Fix Itech theme light - [@Triet]
+- Add sidebar header css definition - [@Triet]
+
 ## [0.0.6] - 2020-12-18
 ### Fixed
 - Add form-inline to radio buttons groups - [@Triet]
