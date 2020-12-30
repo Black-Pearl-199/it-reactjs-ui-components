@@ -96,7 +96,6 @@ const MyFilterBox = (props) => {
         hasButtonSearch,
         ...rest
     } = props;
-    console.log('formFilterRef in UI', formFilterRef);
     const setFilter = useCallback((filter) => {
         // console.log('set filter', filter);
         setForm(filter);

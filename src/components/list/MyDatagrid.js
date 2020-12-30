@@ -42,27 +42,6 @@ const useStyles = makeStyles((props) => myDataGridStyle);
  * </ReferenceManyField>
  */
 const MyDatagrid = (props) => {
-    const classes = useStyles(props);
-    const updateSort = (event) => {
-        event.stopPropagation();
-        props.setSort(event.currentTarget.dataset.sort);
-    };
-
-    const handleSelectAll = (event) => {
-        const { onSelect, ids, selectedIds } = props;
-        if (event.target.checked) {
-            onSelect(
-                ids.reduce(
-                    (idList, id) => (idList.includes(id) ? idList : idList.concat(id)),
-
-                    selectedIds
-                )
-            );
-        } else {
-            onSelect([]);
-        }
-    };
-
     const {
         basePath,
         body,
@@ -88,8 +67,40 @@ const MyDatagrid = (props) => {
         setSort,
         total,
         version,
+        allowMultiSort,
         ...rest
     } = props;
+    const classes = useStyles(props);
+    const getMultiSort = (source, direction) => {
+        const orderBy = direction === 'ASC' ? '+' : '-';
+        const indexSource = currentSort.field.indexOf(source);
+        if (indexSource > -1) {
+            return `${currentSort.field.substring(0, indexSource - 1)}${orderBy}${currentSort.field.substring(indexSource)}`;
+        }
+        return `${currentSort.field},${orderBy}${source}`;
+    };
+
+    const updateSort = (event) => {
+        const { sort, direction } = event.currentTarget.dataset;
+        const source = allowMultiSort ? getMultiSort(sort, direction) : sort;
+        event.stopPropagation();
+        props.setSort(source, direction);
+    };
+
+    const handleSelectAll = (event) => {
+        const { onSelect, ids, selectedIds } = props;
+        if (event.target.checked) {
+            onSelect(
+                ids.reduce(
+                    (idList, id) => (idList.includes(id) ? idList : idList.concat(id)),
+
+                    selectedIds
+                )
+            );
+        } else {
+            onSelect([]);
+        }
+    };
 
     /**
      * if loaded is false, the list displays for the first time, and the dataProvider hasn't answered yet
@@ -142,11 +153,13 @@ const MyDatagrid = (props) => {
                             className={classes.headerCell}
                             currentSort={currentSort}
                             field={field}
-                            isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
+                            // isSorting={currentSort.field === (field.props.sortBy || field.props.source)}
+                            isSorting={currentSort.field && (currentSort.field.includes(field.props.sortBy) || currentSort.field.includes(field.props.source))}
                             key={field.props.source || index}
                             resource={resource}
                             updateSort={updateSort}
                             style={field.props.headerStyle}
+                            allowMultiSort
                         />
                     ) : null))}
                 </TableRow>
@@ -214,7 +227,8 @@ MyDatagrid.propTypes = {
     loaded: PropTypes.bool,
     heightCustom: PropTypes.bool,
     handleDoubleClick: PropTypes.func,
-    handleRightClick: PropTypes.func
+    handleRightClick: PropTypes.func,
+    allowMultiSort: PropTypes.bool
 };
 
 MyDatagrid.defaultProps = {
@@ -222,7 +236,8 @@ MyDatagrid.defaultProps = {
     hasBulkActions: false,
     ids: [],
     selectedIds: [],
-    body: <MyDatagridBody />
+    body: <MyDatagridBody />,
+    allowMultiSort: false
 };
 
 export default MyDatagrid;

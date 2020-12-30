@@ -30,9 +30,12 @@ const useStyles = makeStyles(
 );
 
 const DatagridHeaderCell = (props) => {
-    const { className, classes: classesOverride, field, currentSort, updateSort, resource, isSorting, ...rest } = props;
+    const { className, classes: classesOverride, field, currentSort, updateSort, resource, isSorting, allowMultiSort, ...rest } = props;
     const classes = useStyles(props);
     const translate = useTranslate();
+    const direction = currentSort.field && currentSort.field[currentSort.field.indexOf(field.props.source) - 1];
+    // eslint-disable-next-line no-nested-ternary
+    const directionString = allowMultiSort ? (direction && direction === '+' ? 'ASC' : 'DESC') : (currentSort.order === 'ASC' ? 'ASC' : 'DESC');
     return (
         <TableCell className={classnames(className, field.props.headerClassName)} align={field.props.textAlign} {...rest}>
             {field.props.sortable !== false && (field.props.sortBy || field.props.source) ? (
@@ -42,9 +45,10 @@ const DatagridHeaderCell = (props) => {
                     enterDelay={300}
                 >
                     <TableSortLabel
-                        active={currentSort.field === (field.props.sortBy || field.props.source)}
-                        direction={currentSort.order === 'ASC' ? 'asc' : 'desc'}
+                        active={currentSort.field && (currentSort.field.includes(field.props.sortBy) || currentSort.field.includes(field.props.source))}
+                        direction={directionString === 'ASC' ? 'asc' : 'desc'}
                         data-sort={field.props.sortBy || field.props.source}
+                        data-direction={directionString === 'ASC' ? 'DESC' : 'ASC'}
                         onClick={updateSort}
                         classes={classes}
                     >
@@ -70,7 +74,8 @@ DatagridHeaderCell.propTypes = {
     isSorting: PropTypes.bool,
     sortable: PropTypes.bool,
     resource: PropTypes.string,
-    updateSort: PropTypes.func.isRequired
+    updateSort: PropTypes.func.isRequired,
+    allowMultiSort: PropTypes.bool
 };
 
 export default shouldUpdate(
