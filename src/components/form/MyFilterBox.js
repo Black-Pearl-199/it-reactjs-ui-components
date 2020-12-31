@@ -298,7 +298,7 @@ const MyFilterBox = (props) => {
                                 disabled={loading}
                                 size="sm"
                                 onClick={formEnter}
-                                className="btn-itech-primary btn-itech-fixed float-md-right float-lg-none"
+                                className="btn-itech-secondary btn-itech-fixed float-md-right float-lg-none"
                             >
                                 {icon && (
                                     <>

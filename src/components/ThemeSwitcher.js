@@ -1,6 +1,6 @@
-import { array, string, bool, func } from 'prop-types';
+import { bool, func } from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
-import { useSetLocale, useTranslate } from 'react-admin';
+import { useTranslate } from 'react-admin';
 import { useTheme } from '@material-ui/core';
 import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,16 +43,16 @@ const ThemeSwitcher = (props) => {
     return canSwitch ? (
         <OverlayTrigger
             placement="bottom"
-            overlay={
+            overlay={(
                 <Tooltip className="itech-tooltip" id={isDark ? 'toLight-button' : 'toDark-button'}>
                     {translate(isDark ? 'commons.theme.toLight' : 'commons.theme.toDark')}
                 </Tooltip>
-            }
+            )}
         >
             <span
                 // variant="itech-icon"
                 // size="sm"
-                className="btn btn-itech-icon btn-itech-icon-secondary my-auto"
+                className="btn btn-itech-icon btn-itech-icon-secondary my-auto font-20px"
                 onClick={handleClick}
             >
                 {/* {translate('button.logout')} */}
@@ -89,7 +89,6 @@ const ThemeSwitcher = (props) => {
 };
 
 ThemeSwitcher.propTypes = {
-    onClick: func,
     canSwitch: bool,
     handleSwitchTheme: func
 };

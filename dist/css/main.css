@@ -89,7 +89,7 @@
 }
 
 .btn-itech {
-  border-radius: 20px !important;
+  border-radius: 5px !important;
   font-weight: 500;
   box-shadow: var(--shadow);
   white-space: nowrap;
@@ -110,19 +110,16 @@
 .btn-itech-sm {
   min-width: 75px !important;
   margin: 0;
-  border-radius: 99px;
 }
 
 .btn-itech-md {
   min-width: 100px !important;
   margin: 0;
-  border-radius: 99px;
 }
 
 .btn-itech-xl {
   min-width: 129px !important;
   margin: 0;
-  border-radius: 99px;
 }
 
 .btn-itech-icon {

@@ -1,7 +1,7 @@
 {
   "name": "it-reactjs-ui-components",
   "version": "0.3.8",
-  "subVersion": "0.0.7",
+  "subVersion": "vietrad-0.0.8",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
@@ -67,7 +67,7 @@
     "watch-css": "node-sass --output-style expanded --precision 6 src/assets/scss/ -wo dist/css/",
     "dev": "npm-run-all --parallel watch-*",
     "prebuild": "npm run version",
-    "version": "node -p -e \"'export default \\'' + require('./package.json').version + '\\';'\" > src/version.js",
+    "version": "node -p -e \"'export default \\'' + require('./package.json').version + '-' + require('./package.json').subVersion + '\\';'\" > src/version.js",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "analyze:dist": "source-map-explorer 'dist/index.js'",

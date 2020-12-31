@@ -46,7 +46,7 @@ const LanguageSwitcher = (props) => {
             )}
         >
             <span
-                className="btn btn-itech-icon btn-itech-icon-secondary button-main-color"
+                className="btn btn-itech-icon btn-itech-icon-secondary button-main-color font-20px"
             >
                 <i className="fa fa-globe-asia" />
             </span>
