@@ -44,40 +44,42 @@ const MyEditToolbar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => !!child && React.cloneElement(child, { invalid, ...rest }));
 
     return (
-        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
+        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex justify-content-between', className)} style={fixToolbarHeight}>
+            <div className="w-100 h-100">
+                {!hideEditButton && (
+                    <MyUpdateButton
+                        redirect={redirect}
+                        undoable={undoable}
+                        beforeSubmit={beforeSubmit}
+                        editing={editing}
+                        convertValue={convertValue}
+                        action={customAction}
+                        changeEditState={changeEditState}
+                        callback={callback}
+                        customNotification={customNotification}
+                        filter={filter}
+                        buttonClasses={buttonClasses}
+                        labelConfirm={labelConfirm}
+                        {...rest}
+                    />
+                )}
+                {childrenWithProps}
+                {customButton}
+                {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
+                {deletable ? (
+                    <MyDeleteButton
+                        id={id}
+                        basePath={basePath}
+                        record={record}
+                        resource={resource}
+                        optimistic={optimistic}
+                        callback={callback}
+                    />
+                ) : null}
+            </div>
             {showBackButton && (
                 <MyBackFormButton {...props} />
             )}
-            {!hideEditButton && (
-                <MyUpdateButton
-                    redirect={redirect}
-                    undoable={undoable}
-                    beforeSubmit={beforeSubmit}
-                    editing={editing}
-                    convertValue={convertValue}
-                    action={customAction}
-                    changeEditState={changeEditState}
-                    callback={callback}
-                    customNotification={customNotification}
-                    filter={filter}
-                    buttonClasses={buttonClasses}
-                    labelConfirm={labelConfirm}
-                    {...rest}
-                />
-            )}
-            {childrenWithProps}
-            {customButton}
-            {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
-            {deletable ? (
-                <MyDeleteButton
-                    id={id}
-                    basePath={basePath}
-                    record={record}
-                    resource={resource}
-                    optimistic={optimistic}
-                    callback={callback}
-                />
-            ) : null}
         </Toolbar>
     );
 };

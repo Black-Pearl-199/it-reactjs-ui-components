@@ -29,25 +29,27 @@ const MySaveToolbar = (props) => {
     const childrenWithProps = React.Children.map(children, (child) => React.cloneElement(child, { invalid, ...rest }));
 
     return (
-        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex', className)} style={fixToolbarHeight}>
+        <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex justify-content-between', className)} style={fixToolbarHeight}>
+            <div className="w-100 h-100">
+                {!hideSaveButton && (
+                    <MySaveButton
+                        redirect={redirect}
+                        {...rest}
+                        callback={callback}
+                        beforeSubmit={beforeSubmit}
+                        convertValue={convertValue}
+                        action={customAction}
+                        hideNotification={hideNotification}
+                        customNotification={customNotification}
+                        buttonClasses={buttonClasses}
+                    />
+                )}
+                {childrenWithProps}
+                {customButton}
+            </div>
             {showBackButton && (
                 <MyBackFormButton {...props} />
             )}
-            {!hideSaveButton && (
-                <MySaveButton
-                    redirect={redirect}
-                    {...rest}
-                    callback={callback}
-                    beforeSubmit={beforeSubmit}
-                    convertValue={convertValue}
-                    action={customAction}
-                    hideNotification={hideNotification}
-                    customNotification={customNotification}
-                    buttonClasses={buttonClasses}
-                />
-            )}
-            {childrenWithProps}
-            {customButton}
         </Toolbar>
     );
 };
