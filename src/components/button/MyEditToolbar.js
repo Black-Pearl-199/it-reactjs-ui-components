@@ -45,41 +45,47 @@ const MyEditToolbar = (props) => {
 
     return (
         <Toolbar {...rest} className={classNames('px-3 mt-2 mb-1 py-0 d-flex justify-content-between', className)} style={fixToolbarHeight}>
-            <div className="w-100 h-100">
-                {!hideEditButton && (
-                    <MyUpdateButton
-                        redirect={redirect}
-                        undoable={undoable}
-                        beforeSubmit={beforeSubmit}
-                        editing={editing}
-                        convertValue={convertValue}
-                        action={customAction}
-                        changeEditState={changeEditState}
-                        callback={callback}
-                        customNotification={customNotification}
-                        filter={filter}
-                        buttonClasses={buttonClasses}
-                        labelConfirm={labelConfirm}
-                        {...rest}
-                    />
-                )}
-                {childrenWithProps}
-                {customButton}
-                {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
-                {deletable ? (
-                    <MyDeleteButton
-                        id={id}
-                        basePath={basePath}
-                        record={record}
-                        resource={resource}
-                        optimistic={optimistic}
-                        callback={callback}
-                    />
-                ) : null}
-            </div>
-            {showBackButton && (
-                <MyBackFormButton {...props} />
-            )}
+            <>
+                <div className="w-100 h-100 d-flex m-0 p-0">
+                    {!hideEditButton && (
+                        <MyUpdateButton
+                            redirect={redirect}
+                            undoable={undoable}
+                            beforeSubmit={beforeSubmit}
+                            editing={editing}
+                            convertValue={convertValue}
+                            action={customAction}
+                            changeEditState={changeEditState}
+                            callback={callback}
+                            customNotification={customNotification}
+                            filter={filter}
+                            buttonClasses={buttonClasses}
+                            labelConfirm={labelConfirm}
+                            {...rest}
+                        />
+                    )}
+                    {childrenWithProps}
+                    {customButton}
+                </div>
+            </>
+            <>
+                <div className="h-100 d-flex m-0 p-0">
+                    {editing ? <RevertEditButton {...rest} changeEditState={changeEditState} /> : null}
+                    {deletable ? (
+                        <MyDeleteButton
+                            id={id}
+                            basePath={basePath}
+                            record={record}
+                            resource={resource}
+                            optimistic={optimistic}
+                            callback={callback}
+                        />
+                    ) : null}
+                    {showBackButton && (
+                        <MyBackFormButton {...props} />
+                    )}
+                </div>
+            </>
         </Toolbar>
     );
 };
