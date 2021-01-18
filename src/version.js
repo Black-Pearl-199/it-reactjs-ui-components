@@ -1,1 +1,1 @@
-export default '0.3.8-0.0.11vietrad';
+export default '0.3.8-0.0.12vietrad';

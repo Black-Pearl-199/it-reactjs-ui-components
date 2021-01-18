@@ -5,16 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### [0.0.11] - 2020-01-10
+## [0.0.12] - 2020-01-18
+### Added
+- Added multiple sort - [@TinVan2]
+## [0.0.11] - 2020-01-10
 ### Fixed
 - Fix warning when use div in MySaveToolbar and MyEditTOolbar - [@TinVan2]
-### [0.0.10] - 2020-01-08
+## [0.0.10] - 2020-01-08
 ### Fixed
 - Fix display save button with edit button - [@TinVan2]
-### [0.0.9] - 2020-01-08
+## [0.0.9] - 2020-01-08
 ### Changed
 - Change position of back button to right side of page - [@TinVan2]
-### [0.0.8] - 2020-12-31
+## [0.0.8] - 2020-12-31
 ### Changed
 - Support css of languageSwitcher, themeswitcher same vietrad - [@TinVan2]
 ## [0.0.7] - 2020-12-23
