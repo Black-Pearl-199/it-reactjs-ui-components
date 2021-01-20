@@ -71,9 +71,6 @@ const MessageBox = (props) => {
                 </Container>
             </Modal.Body>
             <Modal.Footer className="border-top-0 mx-auto d-flex justify-content-between">
-                <Button size="sm" variant="itech" className="btn-itech-dark btn-itech-fixed" ref={btnCloseRef} onClick={handleRequestClose}>
-                    {translate(showAction ? 'button.no' : 'button.close')}
-                </Button>
                 {showAction > 0
                     && actions.map((action, index) => (
                         <Button
@@ -89,6 +86,9 @@ const MessageBox = (props) => {
                             {translate(action.label)}
                         </Button>
                     ))}
+                <Button size="sm" variant="itech" className="btn-itech-dark btn-itech-fixed" ref={btnCloseRef} onClick={handleRequestClose}>
+                    {translate(showAction ? 'button.no' : 'button.close')}
+                </Button>
             </Modal.Footer>
         </Modal>
     ) : (
