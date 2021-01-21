@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
+import { viettelLogo, iTechLogoLight, iTechLogoDark } from './logoString';
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -72,6 +73,20 @@ export const vietradThemeLight = createMuiTheme({
         //     main: '#2E3E47'
         // },
         type: 'light'
+    },
+    logo: {
+        navbar: {
+            type: 'svg',
+            src: viettelLogo
+        },
+        login: {
+            type: 'svg',
+            src: viettelLogo
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: viettelLogo
+        }
     }
 });
 
@@ -126,6 +141,20 @@ export const iTechThemeLight = createMuiTheme({
         //     main: '#2E3E47'
         // },
         type: 'light'
+    },
+    logo: {
+        navbar: {
+            type: 'svg',
+            src: iTechLogoLight
+        },
+        login: {
+            type: 'svg',
+            src: iTechLogoLight
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: iTechLogoLight
+        }
     }
 });
 
@@ -174,5 +203,37 @@ export const iTechThemeDark = createMuiTheme({
         //     main: '#2E3E47'
         // },
         type: 'dark'
+    },
+    logo: {
+        navbar: {
+            type: 'svg',
+            src: iTechLogoDark
+        },
+        login: {
+            type: 'svg',
+            src: iTechLogoDark
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: iTechLogoLight
+        }
+    }
+});
+
+export const vietradThemeDark = createMuiTheme({
+    ...iTechThemeDark,
+    logo: {
+        navbar: {
+            type: 'svg',
+            src: viettelLogo
+        },
+        login: {
+            type: 'svg',
+            src: viettelLogo
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: viettelLogo
+        }
     }
 });
