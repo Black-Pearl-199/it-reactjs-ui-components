@@ -6,9 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.13] - 2020-01-21
+## [0.0.14] - 2020-01-21
 ### Added
 - Added default logo definitions for themes - [@Triet]
+## [0.0.13] - 2020-01-20
+### Changed
+- Change position of close button and action button in MessageBox - [@TinVan2]
 ## [0.0.12] - 2020-01-18
 ### Added
 - Added multiple sort - [@TinVan2]
