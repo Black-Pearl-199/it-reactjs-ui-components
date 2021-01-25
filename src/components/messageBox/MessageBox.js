@@ -108,17 +108,18 @@ const MessageBox = (props) => {
                 </Modal>
             ) : (
                 <div
-                    className="d-block position-fixed shadow modal-content"
+                    className="d-flex justify-content-center position-fixed shadow modal-content"
                     style={{
                         zIndex: 500,
                         width: '300px',
-                        minHeight: '100px',
-                        right: '10px',
-                        top: '10px',
+                        minHeight: '70px',
+                        right: '5px',
+                        top: '5px',
                         backgroundColor: `${notifyType === NOTIFICATION_TYPE.AUTO_HIDE_INFO ? '' : 'var(--danger)'}`
                     }}
                 >
                     <p
+                        className="mx-auto"
                         style={bodyMessageStyle}
                         dangerouslySetInnerHTML={{
                             __html: notification && notification.message && translate(notification.message, notification.messageArgs)
