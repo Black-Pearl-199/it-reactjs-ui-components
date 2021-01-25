@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
-import { viettelLogo, iTechLogoLight, iTechLogoDark } from './logoString';
+import { viettelLogo, iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoString';
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -86,6 +86,10 @@ export const vietradThemeLight = createMuiTheme({
         waitingOrder: {
             type: 'svg',
             src: viettelLogo
+        },
+        icon: {
+            type: 'svg',
+            src: viettelLogo
         }
     }
 });
@@ -154,6 +158,10 @@ export const iTechThemeLight = createMuiTheme({
         waitingOrder: {
             type: 'svg',
             src: iTechLogoLight
+        },
+        icon: {
+            type: 'svg',
+            src: iTechLogoIcon
         }
     }
 });
@@ -216,6 +224,10 @@ export const iTechThemeDark = createMuiTheme({
         waitingOrder: {
             type: 'svg',
             src: iTechLogoLight
+        },
+        icon: {
+            type: 'svg',
+            src: iTechLogoIcon
         }
     }
 });
@@ -232,6 +244,10 @@ export const vietradThemeDark = createMuiTheme({
             src: viettelLogo
         },
         waitingOrder: {
+            type: 'svg',
+            src: viettelLogo
+        },
+        icon: {
             type: 'svg',
             src: viettelLogo
         }

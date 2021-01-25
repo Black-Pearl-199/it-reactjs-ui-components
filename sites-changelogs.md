@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.15] - 2020-01-25
+### Added
+- Added iTech favicon svg logo - [@Triet]
+
 ## [0.0.14] - 2020-01-21
 ### Added
 - Added default logo definitions for themes - [@Triet]
