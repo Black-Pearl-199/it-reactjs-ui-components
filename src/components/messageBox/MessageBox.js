@@ -46,7 +46,7 @@ const MessageBox = (props) => {
     const notifyType = (notification && notification.type) || NOTIFICATION_TYPE.INFO;
     const { actions } = notification || {};
     const showAction = actions && actions.length > 0;
-    
+
     useEffect(() => {
         if (notifyType === NOTIFICATION_TYPE.AUTO_HIDE_INFO || notifyType === NOTIFICATION_TYPE.AUTO_HIDE_WARNING) {
             timerRef.current = setTimeout(handleRequestClose, 5000);
@@ -55,7 +55,7 @@ const MessageBox = (props) => {
             if (timerRef.current) {
                 clearTimeout(timerRef.current);
             }
-        }
+        };
     }, [handleRequestClose, notifyType]);
 
     return notification ? (
@@ -112,7 +112,7 @@ const MessageBox = (props) => {
                     style={{
                         zIndex: 500,
                         width: '300px',
-                        minHeight: '70px',
+                        minHeight: '40px',
                         right: '5px',
                         top: '5px',
                         backgroundColor: `${notifyType === NOTIFICATION_TYPE.AUTO_HIDE_INFO ? '' : 'var(--danger)'}`
