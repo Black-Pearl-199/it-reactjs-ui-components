@@ -119,7 +119,7 @@ const MessageBox = (props) => {
                     }}
                 >
                     <p
-                        className="mx-auto"
+                        className="my-auto"
                         style={bodyMessageStyle}
                         dangerouslySetInnerHTML={{
                             __html: notification && notification.message && translate(notification.message, notification.messageArgs)

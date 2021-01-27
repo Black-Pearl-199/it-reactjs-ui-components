@@ -91247,7 +91247,7 @@ var MessageBox = function MessageBox(props) {
       backgroundColor: "".concat(notifyType === _NotificationType__WEBPACK_IMPORTED_MODULE_7__["default"].AUTO_HIDE_INFO ? '' : 'var(--danger)')
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
-    className: "mx-auto",
+    className: "my-auto",
     style: bodyMessageStyle,
     dangerouslySetInnerHTML: {
       __html: notification && notification.message && translate(notification.message, notification.messageArgs)
