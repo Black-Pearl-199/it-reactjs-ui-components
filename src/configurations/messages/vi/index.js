@@ -29,7 +29,9 @@ export default {
         week: 'Tuần',
         month: 'Tháng',
         startDate: 'Ngày bắt đầu',
-        endDate: 'Ngày kết thúc'
+        endDate: 'Ngày kết thúc',
+        seven_day: '7 ngày',
+        thirty_day: '30 ngày'
     },
     deleteReason: 'Nhập lý do xóa',
     'no-access': 'Bạn không có quyền truy cập trang này. Xin mời ấn nút quay lại hoặc liên hệ quản trị viên!',
