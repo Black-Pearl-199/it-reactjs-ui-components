@@ -49,7 +49,7 @@ const MessageBox = (props) => {
 
     useEffect(() => {
         if (notifyType === NOTIFICATION_TYPE.AUTO_HIDE_INFO || notifyType === NOTIFICATION_TYPE.AUTO_HIDE_WARNING) {
-            timerRef.current = setTimeout(handleRequestClose, 5000);
+            timerRef.current = setTimeout(handleRequestClose, 2500);
         }
         return () => {
             if (timerRef.current) {
@@ -119,7 +119,7 @@ const MessageBox = (props) => {
                     }}
                 >
                     <p
-                        className="mx-auto"
+                        className="my-auto"
                         style={bodyMessageStyle}
                         dangerouslySetInnerHTML={{
                             __html: notification && notification.message && translate(notification.message, notification.messageArgs)
