@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Add translate text for DatePicking - [@TinVan2]
+- Add close when unmount in messagebox - [@TinVan2]
 ## [0.3.8] - 2020-12-17
 ### Added
 - Added contrast color for each color variable - [@Triet]
