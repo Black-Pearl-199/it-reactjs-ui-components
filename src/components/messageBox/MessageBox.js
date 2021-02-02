@@ -53,7 +53,6 @@ const MessageBox = (props) => {
         }
         return () => {
             if (timerRef.current) {
-                handleRequestClose();
                 clearTimeout(timerRef.current);
             }
         };
