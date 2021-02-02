@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.17] - 2020-02-02
+### Added
+- Add message for response code 401 Unauthorized - [@Triet]
 ## [0.0.16] - 2020-01-29
 ### Added
 - Update message box for auto hide notification - [@TinVan2]
