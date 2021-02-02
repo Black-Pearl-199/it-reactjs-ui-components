@@ -68,6 +68,7 @@ const MyDatagrid = (props) => {
         total,
         version,
         allowMultiSort,
+        hideHeader,
         ...rest
     } = props;
     const classes = useStyles(props);
@@ -138,7 +139,7 @@ const MyDatagrid = (props) => {
      */
     return (
         <Table className={classNames(classes.root, className)} {...sanitizeListRestProps(rest)}>
-            <TableHead className={classNames(classes.thead, 'table-itech-thread')}>
+            <TableHead className={classNames(classes.thead, 'table-itech-thread', hideHeader ? 'd-none' : '')}>
                 <TableRow className={classNames(classes.row, classes.headerRow)}>
                     {expand && <TableCell className={classNames(classes.expandHeader, classes.headerCell)} />}
                     {hasBulkActions && (
@@ -230,7 +231,8 @@ MyDatagrid.propTypes = {
     heightCustom: PropTypes.bool,
     handleDoubleClick: PropTypes.func,
     handleRightClick: PropTypes.func,
-    allowMultiSort: PropTypes.bool
+    allowMultiSort: PropTypes.bool,
+    hideHeader: PropTypes.bool
 };
 
 MyDatagrid.defaultProps = {

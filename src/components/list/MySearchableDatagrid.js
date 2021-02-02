@@ -39,6 +39,7 @@ const MySearchableDataGrid = (props) => {
         customTableClasses = classes,
         height,
         hasCustomAction,
+        customSearchDatagridClass,
         ...rest
     } = props;
     // const {translate} = this.props;
@@ -59,7 +60,7 @@ const MySearchableDataGrid = (props) => {
     }
     // eslint-disable-next-line no-nested-ternary
     return (
-        <div>
+        <div className={customSearchDatagridClass}>
             {/* <div className='container-fluid my-2'> */}
             <div className="d-flex flex-row-reverse">
                 {exportable && (
@@ -126,7 +127,8 @@ MySearchableDataGrid.propTypes = {
     innerScroll: PropTypes.bool,
     customTableClasses: PropTypes.object,
     height: PropTypes.any, // maxHeight of List,
-    hasCustomAction: PropTypes.bool
+    hasCustomAction: PropTypes.bool,
+    customSearchDatagridClass: PropTypes.string
 };
 
 MySearchableDataGrid.defaultProps = {

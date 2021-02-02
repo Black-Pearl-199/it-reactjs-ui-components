@@ -81,8 +81,10 @@ const MyDatagridRow = (props) => {
 
     const handleToggleSelection = useCallback(
         (event) => {
-            if (!checkToggle || checkToggle(id)) onToggleItem(id);
-            event.stopPropagation();
+            if (onToggleItem) {
+                if (!checkToggle || checkToggle(id)) onToggleItem(id);
+                event.stopPropagation();
+            }
         },
         [checkToggle, id, onToggleItem]
     );
