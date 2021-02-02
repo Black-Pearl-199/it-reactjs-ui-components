@@ -17,7 +17,8 @@ export default {
         badRequest: 'Bad request!!!',
         error: '%{error}',
         cannotDeleteResource: 'Can\'t delete resource %{id} because it being used!!!',
-        resource_selected: '1 %{resource_name} selected |||| %{smart_count} %{resource_name}  selected'
+        resource_selected: '1 %{resource_name} selected |||| %{smart_count} %{resource_name}  selected',
+        unauthorized: 'User credentials are not correct. Please try again!'
     },
     theme: {
         toDark: 'Switch to dark mode',

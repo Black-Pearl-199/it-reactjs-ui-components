@@ -5,12 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.0.18] - 2020-02-02
+### Added
+- Add message for response code 401 Unauthorized - [@Triet]
 ## [0.0.17] - 2020-02-01
 ### Added
 - Add translate text for DatePicking - [@TinVan2]
 - Add close when unmount in messagebox - [@TinVan2]
 - Support hide header of table - [@TinVan2]
-
 ## [0.0.16] - 2020-01-29
 ### Added
 - Update message box for auto hide notification - [@TinVan2]

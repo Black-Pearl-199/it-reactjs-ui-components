@@ -17,7 +17,8 @@ export default {
         badRequest: 'Bản tin lỗi!!!',
         error: '%{error}',
         cannotDeleteResource: 'Không thể xóa tài nguyên %{id} do đang được sử dụng!!!',
-        resource_selected: '1 %{resource_name} đã được chọn |||| %{smart_count} %{resource_name} đã được chọn'
+        resource_selected: '1 %{resource_name} đã được chọn |||| %{smart_count} %{resource_name} đã được chọn',
+        unauthorized: 'Thông tin tài khoản không đúng. Vui lòng thử lại!'
     },
     theme: {
         toDark: 'Chuyển giao diện tối',
