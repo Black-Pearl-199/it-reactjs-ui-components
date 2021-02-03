@@ -6,38 +6,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.18] - 2020-02-02
+## [0.0.18] - 2021-02-02
 ### Added
 - Add message for response code 401 Unauthorized - [@Triet]
-## [0.0.17] - 2020-02-01
+## [0.0.17] - 2021-02-01
 ### Added
 - Add translate text for DatePicking - [@TinVan2]
 - Add close when unmount in messagebox - [@TinVan2]
 - Support hide header of table - [@TinVan2]
-## [0.0.16] - 2020-01-29
+## [0.0.16] - 2021-01-29
 ### Added
 - Update message box for auto hide notification - [@TinVan2]
 - Export logoString - [@Triet]
-## [0.0.15] - 2020-01-25
+## [0.0.15] - 2021-01-25
 ### Added
 - Added iTech favicon svg logo - [@Triet]
 
-## [0.0.14] - 2020-01-21
+## [0.0.14] - 2021-01-21
 ### Added
 - Added default logo definitions for themes - [@Triet]
-## [0.0.13] - 2020-01-20
+## [0.0.13] - 2021-01-20
 ### Changed
 - Change position of close button and action button in MessageBox - [@TinVan2]
-## [0.0.12] - 2020-01-18
+## [0.0.12] - 2021-01-18
 ### Added
 - Added multiple sort - [@TinVan2]
-## [0.0.11] - 2020-01-10
+## [0.0.11] - 2021-01-10
 ### Fixed
 - Fix warning when use div in MySaveToolbar and MyEditTOolbar - [@TinVan2]
-## [0.0.10] - 2020-01-08
+## [0.0.10] - 2021-01-08
 ### Fixed
 - Fix display save button with edit button - [@TinVan2]
-## [0.0.9] - 2020-01-08
+## [0.0.9] - 2021-01-08
 ### Changed
 - Change position of back button to right side of page - [@TinVan2]
 ## [0.0.8] - 2020-12-31
