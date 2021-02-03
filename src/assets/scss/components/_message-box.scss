@@ -36,5 +36,16 @@
 	}
 }
 
+#closeMsg {
+	svg {
+		margin-left: .5rem;
+		//background-color: var(--cyan);
+		color: var(--cyan);
 
-
+		&:hover {
+			border-radius: 59%;
+			background-color: var(--cyan);
+			color: white;
+		}
+	}
+}

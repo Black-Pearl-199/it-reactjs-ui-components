@@ -635,6 +635,17 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   color: var(--content-background-contrast);
 }
 
+#closeMsg svg {
+  margin-left: .5rem;
+  color: var(--cyan);
+}
+
+#closeMsg svg:hover {
+  border-radius: 59%;
+  background-color: var(--cyan);
+  color: white;
+}
+
 .bg-light {
   background: var(--white) !important;
 }

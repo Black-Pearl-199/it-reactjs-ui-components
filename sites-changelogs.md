@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+## [0.0.19] - 2021-02-03
+### Changed
+- Increase display time of notification - [@TinVan2]
+- Support close notification - [@TinVan2]
 ## [0.0.18] - 2021-02-02
 ### Added
 - Add message for response code 401 Unauthorized - [@Triet]

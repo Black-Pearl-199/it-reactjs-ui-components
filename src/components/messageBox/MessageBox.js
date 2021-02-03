@@ -1,3 +1,5 @@
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -49,7 +51,7 @@ const MessageBox = (props) => {
 
     useEffect(() => {
         if (notifyType === NOTIFICATION_TYPE.AUTO_HIDE_INFO || notifyType === NOTIFICATION_TYPE.AUTO_HIDE_WARNING) {
-            timerRef.current = setTimeout(handleRequestClose, 2500);
+            timerRef.current = setTimeout(handleRequestClose, 3500);
         }
         return () => {
             if (timerRef.current) {
@@ -108,7 +110,7 @@ const MessageBox = (props) => {
                 </Modal>
             ) : (
                 <div
-                    className="d-flex justify-content-center position-fixed shadow modal-content"
+                    className="d-flex flex-row justify-content-center position-fixed shadow modal-content px-2"
                     style={{
                         zIndex: 500,
                         width: '300px',
@@ -119,12 +121,15 @@ const MessageBox = (props) => {
                     }}
                 >
                     <p
-                        className="my-auto"
+                        className="my-auto flex-1"
                         style={bodyMessageStyle}
                         dangerouslySetInnerHTML={{
                             __html: notification && notification.message && translate(notification.message, notification.messageArgs)
                         }}
                     />
+                    <span className="float-right ml-3" id="closeMsg">
+                        <FontAwesomeIcon icon={faTimesCircle} onClick={handleRequestClose} />
+                    </span>
                 </div>
             )}
         </>
