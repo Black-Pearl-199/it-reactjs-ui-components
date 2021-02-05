@@ -31,8 +31,8 @@ export default {
         month: 'Month',
         startDate: 'Start date',
         endDate: 'End date',
-        seven_day: '7 day',
-        thirty_day: '30 day'
+        seven_day: '7 days',
+        thirty_day: '30 days'
     },
     deleteReason: 'Reasons for delete',
     'no-access': 'You don\'t have permissions to access this page. Please go back or contact Administrators!',
