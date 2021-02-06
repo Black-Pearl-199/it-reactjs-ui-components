@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - Turn off auto sidebar when user click toggle - [@TinVan2]
+- Update MyDatePicking - [@TinVan2]
 ## [0.0.20] - 2021-02-06
 ### Changed
 - Update text translate - [@TinVan2]
