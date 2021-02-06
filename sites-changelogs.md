@@ -5,9 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.0.21] - 2021-02-06
 ### Added
 - Turn off auto sidebar when user click toggle - [@TinVan2]
 - Update MyDatePicking - [@TinVan2]
+- Add customize My List background color - [@Triet]
 ## [0.0.20] - 2021-02-06
 ### Changed
 - Update text translate - [@TinVan2]
