@@ -109,6 +109,18 @@ const MyDatePicking = (props) => {
                     && dateButtons.includes(DATE_RANGE.LAST_MONTH)
                 ) {
                     setCurrentActive(DATE_RANGE.LAST_MONTH);
+                } else if (
+                    start.getTime() === add(todayStart, -7).getTime()
+                    && end.getTime() === todayEnd.getTime()
+                ) {
+                    // 7 ngay trc
+                    setCurrentActive(DATE_RANGE.SEVEN_DAY);
+                } else if (
+                    start.getTime() === add(todayStart, -30).getTime()
+                    && end.getTime() === todayEnd.getTime()
+                ) {
+                    // 30 ngay trc
+                    setCurrentActive(DATE_RANGE.THIRTY_DAY);
                 } else setCurrentActive(DATE_RANGE.OTHER);
             }
         }
@@ -196,6 +208,18 @@ const MyDatePicking = (props) => {
                 changeInput({
                     [startDateName]: lastMonthStart,
                     [endDateName]: lastMonthEnd
+                });
+                break;
+            case DATE_RANGE.SEVEN_DAY:
+                changeInput({
+                    [startDateName]: add(todayStart, -7),
+                    [endDateName]: todayEnd
+                });
+                break;
+            case DATE_RANGE.THIRTY_DAY:
+                changeInput({
+                    [startDateName]: add(todayStart, -30),
+                    [endDateName]: todayEnd
                 });
                 break;
             default:

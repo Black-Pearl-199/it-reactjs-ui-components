@@ -10,5 +10,7 @@ export default {
     DAY: 'day',
     WEEK: 'week',
     MONTH: 'month',
-    NEXT_WEEK: 'next_week'
+    NEXT_WEEK: 'next_week',
+    SEVEN_DAY: 'seven_day',
+    THIRTY_DAY: 'thirty_day'
 };
