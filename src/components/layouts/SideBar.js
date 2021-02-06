@@ -41,29 +41,41 @@ const SideBar = (props) => {
         menuClasses,
         menuHeader,
         listItemClasses,
+        localStorageCollapse,
+        localStorageCheckUserClicked,
         ...rest
     } = props;
-    const { items, collapse: collapseInit } = config;
-    const [collapse, setCollapse] = useState(collapseInit);
+    const { items } = config;
+    // const [collapse, setCollapse] = useState(collapseInit);
+    const [collapse, setCollapse] = useState(localStorage.getItem(localStorageCollapse) === 'true');
+    const [isUserClicked, setIsUserClicked] = useState(localStorage.getItem(localStorageCheckUserClicked) === 'true');
     const menuItemSubInitial = filterInSubs(items, props.location.pathname);
     const [expandedKeys, setExpandedKeys] = useState(
         initialExpanded || (!!menuItemSubInitial && [menuItemSubInitial.eventKey]) || [props.location.pathname]
     );
 
+
     const toggleCollapse = useCallback(() => {
+        // setCollapse(!collapse);
+        localStorage.setItem(localStorageCheckUserClicked, true);
+        localStorage.setItem(localStorageCollapse, !collapse);
         setCollapse(!collapse);
-    }, [collapse]);
+        setIsUserClicked(true);
+    }, [collapse, localStorageCheckUserClicked, localStorageCollapse]);
 
     useEffect(() => {
         const checkSideBarCollapse = debounce(() => {
-            if (window.innerWidth <= resWidthHideSidebar) setCollapse(true);
+            if (!collapse && window.innerWidth <= resWidthHideSidebar && !isUserClicked) {
+                localStorage.setItem(localStorageCollapse, true);
+                setCollapse(true);
+            }
         }, 300);
         window.addEventListener('resize', checkSideBarCollapse);
 
         return () => {
             window.removeEventListener('resize', checkSideBarCollapse);
         };
-    }, [resWidthHideSidebar]);
+    }, [collapse, isUserClicked, localStorageCollapse, resWidthHideSidebar]);
 
     const menuSelect = (e) => {
         // console.log('menu select', e.currentTarget.dataset.eventKey);
@@ -90,6 +102,8 @@ const SideBar = (props) => {
         } else {
             // find parent of sub -> remove collapse and expand these parent
             const menuItemSub = findInSubs(items, eventKey);
+            // setCollapse(false);
+            localStorage.setItem(localStorageCollapse, false);
             setCollapse(false);
             if (menuItemSub && expandedKeys.indexOf(menuItemSub.eventKey) === -1) {
                 if (singleExpand) setExpandedKeys([menuItemSub.eventKey]);
@@ -114,8 +128,11 @@ const SideBar = (props) => {
 
     // Call hook passing in the ref and a function to call on outside click
     const clickOutsideCallback = useCallback(() => {
-        if (!collapse && window.innerWidth <= resWidthHideSidebar) setCollapse(true);
-    }, [collapse, resWidthHideSidebar]);
+        if (!collapse && window.innerWidth <= resWidthHideSidebar && !isUserClicked) {
+            localStorage.setItem(localStorageCollapse, true);
+            setCollapse(true);
+        }
+    }, [collapse, resWidthHideSidebar, isUserClicked, localStorageCollapse]);
     useOnClickOutside(ref, clickOutsideCallback);
 
     const menus = (
@@ -221,13 +238,17 @@ SideBar.propTypes = {
     listItemClasses: PropTypes.string,
     menuClasses: PropTypes.string,
     menuHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.func]),
-    toggle: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+    toggle: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+    localStorageCollapse: PropTypes.string,
+    localStorageCheckUserClicked: PropTypes.string
 };
 
 SideBar.defaultProps = {
     resWidthHideSidebar: 1366,
     singleExpand: true,
-    toggle: DefaultToggle
+    toggle: DefaultToggle,
+    localStorageCollapse: 'sidebar-key',
+    localStorageCheckUserClicked: 'user-clicked'
 };
 
 export default SideBar;
