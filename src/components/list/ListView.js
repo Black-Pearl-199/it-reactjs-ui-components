@@ -1,7 +1,7 @@
 import { Card, makeStyles } from '@material-ui/core';
 import classnames from 'classnames';
 import * as PropTypes from 'prop-types';
-import React, { Children, cloneElement } from 'react';
+import React, { Children, cloneElement, useCallback } from 'react';
 import {
     BulkActionsToolbar,
     BulkDeleteButton,
@@ -17,11 +17,6 @@ import {
     useCheckMinimumRequiredProps
 } from 'react-admin';
 import { getListControllerProps } from './useListController';
-
-const spaceTableStyle = {
-    backgroundColor: 'var(--table-odd)',
-    margin: '0 15px'
-};
 
 const ListView = (props) => {
     const {
@@ -39,12 +34,18 @@ const ListView = (props) => {
         title,
         empty,
         splitPagination,
+        spaceTableBackground,
         ...rest
     } = props;
     useCheckMinimumRequiredProps('List', ['children'], props);
     const classes = useStyles(props);
     const { defaultTitle, version, total, loaded, loading, hasCreate, filterValues } = rest;
     const controllerProps = getListControllerProps(rest);
+    console.log('ListView', props);
+    const spaceTableStyle = useCallback(() => ({
+        backgroundColor: spaceTableBackground || 'var(--table-odd)',
+        margin: '0 15px'
+    }), [spaceTableBackground]);
 
     const renderList = () => (
         <>
@@ -87,7 +88,7 @@ const ListView = (props) => {
                 <Title title={title} defaultTitle={defaultTitle} />
                 {shouldRenderEmptyPage ? cloneElement(empty, controllerProps) : renderList()}
                 {/* vùng trắng giữa bang và pagination khi phần tử của bảng không đủ để full height của bảng */}
-                {splitPagination && (<div className="flex-1" style={spaceTableStyle} />)}
+                {splitPagination && (<div className="flex-1" style={spaceTableStyle()} />)}
                 {splitPagination && pagination && cloneElement(pagination, { ...controllerProps, splitPagination: true })}
             </div>
         </ExporterContext.Provider>
@@ -137,7 +138,8 @@ ListView.propTypes = {
     version: PropTypes.number,
     filter: PropTypes.any,
     empty: PropTypes.any,
-    splitPagination: PropTypes.bool
+    splitPagination: PropTypes.bool,
+    spaceTableBackground: PropTypes.string
 };
 
 const DefaultBulkActionButtons = (props) => <BulkDeleteButton {...props} />;
