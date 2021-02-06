@@ -96,7 +96,6 @@ const MyFilterBox = (props) => {
         hasButtonSearch,
         ...rest
     } = props;
-    console.log('formFilterRef in UI', formFilterRef);
     const setFilter = useCallback((filter) => {
         // console.log('set filter', filter);
         setForm(filter);
@@ -274,7 +273,7 @@ const MyFilterBox = (props) => {
                         <div className="col-form-label mr-3">
                             <Button
                                 variant="itech"
-                                className="btn-itech-secondary btn-itech-fixed"
+                                className="btn-itech-secondary btn-itech-md"
                                 type="reset"
                                 disabled={loading}
                                 size="sm"
@@ -298,7 +297,7 @@ const MyFilterBox = (props) => {
                                 disabled={loading}
                                 size="sm"
                                 onClick={formEnter}
-                                className="btn-itech-secondary btn-itech-fixed float-md-right float-lg-none"
+                                className="btn-itech-secondary btn-itech-md float-md-right float-lg-none"
                             >
                                 {icon && (
                                     <>
