@@ -60,6 +60,21 @@ const MessageBox = (props) => {
         };
     }, [handleRequestClose, notifyType]);
 
+    const ListButton = showAction > 0 && actions.map((action, index) => (
+        <Button
+            key={index}
+            variant="itech"
+            size="sm"
+            className={action.className ? action.className : 'btn-itech-primary mr-2  btn-itech-fixed'}
+            onClick={() => {
+                dispatch(hideNotification());
+                action.callback();
+            }}
+        >
+            {translate(action.label)}
+        </Button>
+    ));
+
     return notification ? (
         <>
             {notifyType === NOTIFICATION_TYPE.INFO || notifyType === NOTIFICATION_TYPE.WARNING ? (
@@ -87,22 +102,13 @@ const MessageBox = (props) => {
                             />
                         </Container>
                     </Modal.Body>
-                    <Modal.Footer className="border-top-0 mx-auto d-flex justify-content-between">
+                    <Modal.Footer className={`border-top-0 d-flex ${showAction > 0 ? 'justify-content-between' : ''}`}>
                         {showAction > 0
-                        && actions.map((action, index) => (
-                            <Button
-                                key={index}
-                                variant="itech"
-                                size="sm"
-                                className={action.className ? action.className : 'btn-itech-primary ml-2  btn-itech-fixed'}
-                                onClick={() => {
-                                    dispatch(hideNotification());
-                                    action.callback();
-                                }}
-                            >
-                                {translate(action.label)}
-                            </Button>
-                        ))}
+                        && (
+                            <div>
+                                {ListButton}
+                            </div>
+                        )}
                         <Button size="sm" variant="itech" className="btn-itech-dark btn-itech-fixed" ref={btnCloseRef} onClick={handleRequestClose}>
                             {translate(showAction ? 'button.no' : 'button.close')}
                         </Button>

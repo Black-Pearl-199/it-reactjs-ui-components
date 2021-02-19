@@ -54,7 +54,6 @@ const SideBar = (props) => {
         initialExpanded || (!!menuItemSubInitial && [menuItemSubInitial.eventKey]) || [props.location.pathname]
     );
 
-
     const toggleCollapse = useCallback(() => {
         // setCollapse(!collapse);
         localStorage.setItem(localStorageCheckUserClicked, true);
@@ -105,6 +104,13 @@ const SideBar = (props) => {
             // setCollapse(false);
             localStorage.setItem(localStorageCollapse, false);
             setCollapse(false);
+            if (menuItemSub && menuItemSub.subs.length > 0) {
+                // find subItem
+                const subItem = menuItemSub.subs.find((item) => item.eventKey === eventKey);
+                if (subItem && typeof subItem.onClick === 'function') {
+                    subItem.onClick();
+                }
+            }
             if (menuItemSub && expandedKeys.indexOf(menuItemSub.eventKey) === -1) {
                 if (singleExpand) setExpandedKeys([menuItemSub.eventKey]);
                 else setExpandedKeys([...expandedKeys, menuItemSub.eventKey]);
