@@ -193,20 +193,25 @@ const SideBar = (props) => {
                                                         title={!sub.skipTranslate ? translate(sub.title) : sub.title}
                                                     >
                                                         <NavLink
-                                                            className={classNames('sidebar-list-link', sub.disabled && 'isDisabled')}
+                                                            className={classNames('sidebar-list-link d-flex justify-content-between', sub.disabled && 'isDisabled')}
                                                             to={sub.url}
                                                             isActive={sub.isActive}
                                                             activeClassName="selected"
                                                             onClick={menuSelect}
                                                             data-event-key={sub.eventKey}
                                                         >
-                                                            {sub.icon
+                                                            <div>
+                                                                {sub.icon
                                                                     && (typeof sub.icon === 'string' ? (
                                                                         <i className={item.icon} />
                                                                     ) : (
                                                                         <FontAwesomeIcon icon={item.icon} />
                                                                     ))}
-                                                            <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
+                                                                <span>{!sub.skipTranslate ? translate(sub.title) : sub.title}</span>
+                                                            </div>
+                                                            {sub.numOfStudy && (
+                                                                <span className="pr-1">{sub.numOfStudy}</span>
+                                                            )}
                                                         </NavLink>
                                                     </li>
                                                 )
