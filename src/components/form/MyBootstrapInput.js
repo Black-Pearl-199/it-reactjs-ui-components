@@ -135,11 +135,9 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                             {...sanitizeProps}
                             id={inputId}
                         />
-                        {!hideTextChoice && (
-                            <label className={classNames('custom-control-label', labelClasses)} htmlFor={inputId}>
-                                {translatedLabel}
-                            </label>
-                        )}
+                        <label className={classNames('custom-control-label', labelClasses)} htmlFor={inputId}>
+                            {hideTextChoice ? '' : translatedLabel}
+                        </label>
                     </div>
                 );
             }
