@@ -81969,7 +81969,8 @@ var ThemeSwitcher = function ThemeSwitcher(props) {
   var translate = Object(react_admin__WEBPACK_IMPORTED_MODULE_2__["useTranslate"])();
   var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useDispatch"])();
   var handleSwitchTheme = props.handleSwitchTheme,
-      canSwitch = props.canSwitch;
+      canSwitch = props.canSwitch,
+      children = props.children;
   var isDark = theme.palette.type === 'dark'; // console.log('ThemeController current theme', themeType);
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
@@ -81986,7 +81987,7 @@ var ThemeSwitcher = function ThemeSwitcher(props) {
       className: "itech-tooltip",
       id: isDark ? 'toLight-button' : 'toDark-button'
     }, translate(isDark ? 'commons.theme.toLight' : 'commons.theme.toDark'))
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+  }, children || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     // variant="itech-icon"
     // size="sm"
     className: "btn btn-itech-icon btn-itech-icon-secondary my-auto font-20px",
@@ -82021,7 +82022,8 @@ var ThemeSwitcher = function ThemeSwitcher(props) {
 
 ThemeSwitcher.propTypes = {
   canSwitch: prop_types__WEBPACK_IMPORTED_MODULE_0__["bool"],
-  handleSwitchTheme: prop_types__WEBPACK_IMPORTED_MODULE_0__["func"]
+  handleSwitchTheme: prop_types__WEBPACK_IMPORTED_MODULE_0__["func"],
+  children: prop_types__WEBPACK_IMPORTED_MODULE_0__["object"]
 };
 ThemeSwitcher.defaultProps = {
   canSwitch: true
@@ -90162,7 +90164,7 @@ var MySearchableDataGrid = function MySearchableDataGrid(props) {
     name: "resources.".concat(resource, ".name"),
     fields: fields,
     style: {
-      height: '26px !important'
+      height: '30px !important'
     }
   })), customAction, searchEnable ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
     className: "input-group input-group-sm input-group-itech-search mb-1"
@@ -92138,8 +92140,8 @@ var iTechThemeLight = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_0__["cre
       mainColorDark: '#2C5641',
       mainColorHover: '#2C5641',
       mainColorLight1: '#76B194',
-      buttonColorPrimary: '#376B51',
-      buttonColorSecondary: '#cccccc',
+      buttonColorPrimary: '#079a48',
+      buttonColorSecondary: '#8ec540',
       contentBackground: 'rgb(221, 221, 221)',
       mainBackground: 'rgb(238, 238, 238)',
       // mainBackground: '#ff91e0',

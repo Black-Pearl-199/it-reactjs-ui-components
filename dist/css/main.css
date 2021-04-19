@@ -90,6 +90,7 @@
 
 .btn-itech {
   border-radius: 5px !important;
+  color: #fff !important;
   font-weight: 500;
   box-shadow: var(--shadow);
   white-space: nowrap;
@@ -137,37 +138,24 @@
 
 .btn-itech-icon-primary {
   box-shadow: none;
-  color: var(--text-color) !important;
   background: transparent !important;
-}
-
-.btn-itech-icon-primary i::before {
-  color: var(--text-color);
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
   background: var(--text-color) !important;
-  color: var(--text-color-contrast) !important;
-}
-
-.btn-itech-icon-primary:hover i::before, .btn-itech-icon-primary:active i::before, .btn-itech-icon-primary.active i::before {
-  color: var(--text-color-contrast);
 }
 
 .btn-itech-icon-warning {
   box-shadow: none;
-  color: var(--orange) !important;
   background: transparent !important;
 }
 
 .btn-itech-icon-warning:hover, .btn-itech-icon-warning:active, .btn-itech-icon-warning.active {
   background: var(--orange) !important;
-  color: var(--white) !important;
 }
 
 .btn-itech-icon-secondary {
   box-shadow: none;
-  color: var(--text-color) !important;
 }
 
 .btn-itech-icon-secondary:hover, .btn-itech-icon-secondary:active, .btn-itech-icon-secondary.active {
@@ -176,7 +164,6 @@
 
 .btn-itech-primary {
   background: var(--button-color-primary) !important;
-  color: var(--button-color-primary-contrast) !important;
 }
 
 .btn-itech-primary i::before {
@@ -189,11 +176,6 @@
 
 .btn-itech-secondary {
   background: var(--button-color-secondary) !important;
-  color: var(--button-color-secondary-contrast) !important;
-}
-
-.btn-itech-secondary i::before {
-  color: var(--grey-normal);
 }
 
 .btn-itech-secondary:hover {
@@ -202,7 +184,6 @@
 
 .btn-itech-dark {
   background: var(--main-color-dark) !important;
-  color: var(--main-color-dark-contrast) !important;
 }
 
 .btn-itech-dark:hover {
@@ -211,7 +192,6 @@
 
 .btn-itech-light {
   background: var(--main-color-light);
-  color: var(--main-color-light-contrast);
 }
 
 .btn-itech-light:hover {
@@ -253,24 +233,18 @@
 
 .btn-itech-delete {
   background: var(--grey-1);
-  color: var(--black) !important;
 }
 
 .btn-itech-delete:hover {
   color: var(--white);
-  background-color: var(--grey-normal);
 }
 
 .btn-itech-delete:active {
   background: var(--grey-2);
 }
 
-.btn-sm {
-  line-height: 1.2;
-}
-
 .btn-pick-date {
-  height: 26px;
+  height: 30px;
   background: var(--button-color-secondary) !important;
   color: var(--button-color-secondary-contrast) !important;
   flex: 1 1 0px;
@@ -477,9 +451,10 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .form-control-sm {
   font-size: 14px;
-  height: 26px;
-  background-color: var(--form-background-color);
-  color: var(--form-background-color-contrast);
+  height: 30px;
+  border: 1px solid #58585a;
+  background-color: #fff;
+  color: #000;
 }
 
 .form-group {
@@ -498,7 +473,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .input-group-itech-search .form-control {
   border-radius: 0 99px 99px 0;
-  height: 26px !important;
+  height: 30px !important;
 }
 
 .hide-legend legend, .hide-legend p {

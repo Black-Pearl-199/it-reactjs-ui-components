@@ -29,9 +29,12 @@
 
 .form-control-sm {
 	font-size: 14px;
-	height: 26px;
-	background-color: var(--form-background-color);
-	color: var(--form-background-color-contrast);
+	height: 30px;
+	// background-color: var(--form-background-color);
+	// color: var(--form-background-color-contrast);
+	border: 1px solid #58585a;
+	background-color: #fff;
+	color: #000;
 }
 
 .form-group {
@@ -57,7 +60,7 @@
 
 	.form-control {
 		border-radius: 0 99px 99px 0;
-		height: 26px !important;
+		height: 30px !important;
 	}
 }
 

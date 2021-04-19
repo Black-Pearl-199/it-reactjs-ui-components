@@ -15,9 +15,9 @@ export const getContrastColor = (inputColor) => {
         convertedRGB.push(...rgb);
     }
     // http://www.w3.org/TR/AERT#color-contrast
-    const brightness = Math.round(((convertedRGB[0] * 299) +
-                                    (convertedRGB[1] * 587) +
-                                    (convertedRGB[2] * 114)) / 1000);
+    const brightness = Math.round(((convertedRGB[0] * 299)
+                                    + (convertedRGB[1] * 587)
+                                    + (convertedRGB[2] * 114)) / 1000);
     const contrastColor = brightness > 125 ? 'black' : '#E0E0E0';
     return contrastColor;
 };
@@ -103,8 +103,8 @@ export const iTechThemeLight = createMuiTheme({
             mainColorDark: '#2C5641',
             mainColorHover: '#2C5641',
             mainColorLight1: '#76B194',
-            buttonColorPrimary: '#376B51',
-            buttonColorSecondary: '#cccccc',
+            buttonColorPrimary: '#079a48',
+            buttonColorSecondary: '#8ec540',
             contentBackground: 'rgb(221, 221, 221)',
             mainBackground: 'rgb(238, 238, 238)',
             // mainBackground: '#ff91e0',

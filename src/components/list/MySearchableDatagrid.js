@@ -71,7 +71,7 @@ const MySearchableDataGrid = (props) => {
                             exporter={exporter}
                             name={`resources.${resource}.name`}
                             fields={fields}
-                            style={{ height: '26px !important' }}
+                            style={{ height: '30px !important' }}
                         />
                     </div>
                 )}

@@ -49,6 +49,7 @@
 .btn-itech {
 	//height: 40px;
 	border-radius: 5px !important;
+	color: #fff !important;
 	//line-height: 25px;
 	//text-transform: uppercase;
 	font-weight: 500;
@@ -107,37 +108,37 @@
 	
 	&-icon-primary {
 		box-shadow: none;
-		color: var(--text-color) !important;
+		// color: var(--text-color) !important;
 		background: transparent !important;
 	
 		i::before {
-			color: var(--text-color);
+			// color: var(--text-color);
 		}
 	
 		&:hover, &:active, &.active {
 			background: var(--text-color) !important;
-			color: var(--text-color-contrast) !important;
+			// color: var(--text-color-contrast) !important;
 	
 			i::before {
-				color: var(--text-color-contrast);
+				// color: var(--text-color-contrast);
 			}
 		}
 	}
 	
 	&-icon-warning {
 		box-shadow: none;
-		color: var(--orange) !important;
+		// color: var(--orange) !important;
 		background: transparent !important;
 	
 		&:hover, &:active, &.active {
 			background: var(--orange) !important;
-			color: var(--white) !important;
+			// color: var(--white) !important;
 		}
 	}
 	
 	&-icon-secondary {
 		box-shadow: none;
-		color: var(--text-color) !important;
+		// color: var(--text-color) !important;
 	
 		&:hover, &:active, &.active {
 			background: var(--text-highlight-color) !important;
@@ -146,7 +147,7 @@
 	
 	&-primary {
 		background: var(--button-color-primary) !important;
-		color: var(--button-color-primary-contrast) !important;
+		// color: var(--button-color-primary-contrast) !important;
 	
 		i::before {
 			color: white;
@@ -160,10 +161,10 @@
 
 	&-secondary {
 		background: var(--button-color-secondary) !important;
-		color:  var(--button-color-secondary-contrast) !important;
+		// color:  var(--button-color-secondary-contrast) !important;
 	
 		i::before {
-			color: var(--grey-normal);
+			// color: var(--grey-normal);
 		}
 	
 		&:hover {
@@ -174,7 +175,7 @@
 
 	&-dark {
 		background:  var(--main-color-dark) !important;
-		color: var(--main-color-dark-contrast) !important;
+		// color: var(--main-color-dark-contrast) !important;
 	
 		&:hover {
 			// background-color: var(--text-color-light);
@@ -184,7 +185,7 @@
 
 	&-light {
 		background: var(--main-color-light);
-		color: var(--main-color-light-contrast);
+		// color: var(--main-color-light-contrast);
 	
 		&:hover {
 			// background: var(--grey-normal-opacity)-hover;
@@ -229,11 +230,11 @@
     
     &-delete {
         background: var(--grey-1);
-        color: var(--black) !important;
+        // color: var(--black) !important;
 
         &:hover {
             color: var(--white);
-            background-color: var(--grey-normal);
+            // background-color: var(--grey-normal);
         }
 
         &:active {
@@ -244,11 +245,11 @@
 }
 
 .btn-sm {
-	line-height: 1.2;
+	// line-height: 1.2;
 }
 
 .btn-pick-date {
-	height: 26px;
+	height: 30px;
 	background: var(--button-color-secondary) !important;
 	color: var(--button-color-secondary-contrast) !important;
 	flex: 1 1 0px;
