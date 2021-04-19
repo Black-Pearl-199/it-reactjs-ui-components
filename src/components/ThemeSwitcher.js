@@ -1,4 +1,4 @@
-import { bool, func } from 'prop-types';
+import { bool, func, object } from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import { useTranslate } from 'react-admin';
 import { useTheme } from '@material-ui/core';
@@ -26,7 +26,7 @@ const ThemeSwitcher = (props) => {
     const themeType = useSelector(themeSelector);
     const translate = useTranslate();
     const dispatch = useDispatch();
-    const { handleSwitchTheme, canSwitch } = props;
+    const { handleSwitchTheme, canSwitch, children } = props;
     const isDark = theme.palette.type === 'dark';
 
     // console.log('ThemeController current theme', themeType);
@@ -49,15 +49,17 @@ const ThemeSwitcher = (props) => {
                 </Tooltip>
             )}
         >
-            <span
+            {children || (
+                <span
                 // variant="itech-icon"
                 // size="sm"
-                className="btn btn-itech-icon btn-itech-icon-secondary my-auto font-20px"
-                onClick={handleClick}
-            >
-                {/* {translate('button.logout')} */}
-                <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
-            </span>
+                    className="btn btn-itech-icon btn-itech-icon-secondary my-auto font-20px"
+                    onClick={handleClick}
+                >
+                    {/* {translate('button.logout')} */}
+                    <i className={isDark ? 'fa fa-sun' : 'fa fa-moon'} />
+                </span>
+            )}
         </OverlayTrigger>
     ) : (
         ''
@@ -90,7 +92,8 @@ const ThemeSwitcher = (props) => {
 
 ThemeSwitcher.propTypes = {
     canSwitch: bool,
-    handleSwitchTheme: func
+    handleSwitchTheme: func,
+    children: object
 };
 
 ThemeSwitcher.defaultProps = {
