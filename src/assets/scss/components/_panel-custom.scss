@@ -1,9 +1,9 @@
 @import '../abstracts/variables';
 
 .panel-itech {
-	background-color: var(--main-background);
+	// background-color: var(--main-background);
 	color: var(--main-background-contrast);
-	filter: brightness(110%);
+	// filter: brightness(110%);
 	//overflow: hidden;
 	padding: 0.25rem 0.5rem;
 	@include shadow-1;

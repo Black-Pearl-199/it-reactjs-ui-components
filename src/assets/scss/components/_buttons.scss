@@ -93,35 +93,37 @@
 	&-icon {
 		//min-width: 75px !important;
 		//height: 31px;
-		height: 32px;
-		width: 32px;
+		height: 26px;
+		width: 26px;
 		padding: unset !important;
 		margin: 0 auto;
 		border-radius: 99px !important;
 		display: flex;
+		background-color: var(--main-color);
 	
 		svg, i {
 			margin: auto;
+			font-size: 14px;
 		}
 		//font-weight: 300;
 	}
 	
 	&-icon-primary {
 		box-shadow: none;
-		// color: var(--text-color) !important;
-		background: transparent !important;
+		color: var(--default-text) !important;
+		background-color: var(--main-color-dark);
+		// background: transparent !important;
 	
-		i::before {
-			// color: var(--text-color);
-		}
+		// i::before {
+		// 	// color: var(--text-color);
+		// }
 	
 		&:hover, &:active, &.active {
-			background: var(--main-color-dark) !important;
-			color: var(--text-color-contrast) !important;
+			background: var(--main-color) !important;
 	
-			i::before {
-				color: var(--main-color-light);
-			}
+			// i::before {
+			// 	color: var(--default-text);
+			// }
 		}
 	}
 	
@@ -138,7 +140,7 @@
 	
 	&-icon-secondary {
 		box-shadow: none;
-		// color: var(--text-color) !important;
+		color: var(--default-text) !important;
 	
 		&:hover, &:active, &.active {
 			background: var(--main-color-dark) !important;

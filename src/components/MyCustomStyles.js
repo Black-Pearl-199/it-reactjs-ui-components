@@ -352,7 +352,7 @@ export const tableStyles = {
             }
         },
         '& th, & td, & tr': {
-            padding: '0 .3rem !important',
+            padding: '.35rem .3rem !important',
             // border: '1px solid var(--border-color)',
             border: 0,
             '&.column-undefined': {
@@ -476,7 +476,7 @@ export const checkboxStyles = {
         }
     },
     checkedIcon: {
-        backgroundColor: variables.primaryBgDark,
+        backgroundColor: 'var(--main-color-dark)',
         backgroundImage: 'linear-gradient(180deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,0))',
         '&:before': {
             display: 'block',
@@ -489,7 +489,7 @@ export const checkboxStyles = {
             content: '""'
         },
         'input:hover ~ &': {
-            backgroundColor: variables.primaryBgDark
+            backgroundColor: 'var(--main-color-dark)'
         }
     },
     checkbox: {

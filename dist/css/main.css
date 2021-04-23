@@ -124,30 +124,28 @@
 }
 
 .btn-itech-icon {
-  height: 32px;
-  width: 32px;
+  height: 26px;
+  width: 26px;
   padding: unset !important;
   margin: 0 auto;
   border-radius: 99px !important;
   display: flex;
+  background-color: var(--main-color);
 }
 
 .btn-itech-icon svg, .btn-itech-icon i {
   margin: auto;
+  font-size: 14px;
 }
 
 .btn-itech-icon-primary {
   box-shadow: none;
-  background: transparent !important;
+  color: var(--default-text) !important;
+  background-color: var(--main-color-dark);
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
-  background: var(--main-color-dark) !important;
-  color: var(--text-color-contrast) !important;
-}
-
-.btn-itech-icon-primary:hover i::before, .btn-itech-icon-primary:active i::before, .btn-itech-icon-primary.active i::before {
-  color: var(--main-color-light);
+  background: var(--main-color) !important;
 }
 
 .btn-itech-icon-warning {
@@ -161,6 +159,7 @@
 
 .btn-itech-icon-secondary {
   box-shadow: none;
+  color: var(--default-text) !important;
 }
 
 .btn-itech-icon-secondary:hover, .btn-itech-icon-secondary:active, .btn-itech-icon-secondary.active {
@@ -578,6 +577,30 @@ div.react-datepicker__day--selected {
   text-transform: uppercase;
 }
 
+.label-header-xl {
+  font-size: 24px;
+  color: var(--main-color-dark) !important;
+  font-weight: 500;
+}
+
+.label-header-lg {
+  font-size: 20px;
+  color: var(--main-color-dark) !important;
+  font-weight: 500;
+}
+
+.label-header-md {
+  font-size: 16px;
+  color: var(--main-color-dark) !important;
+  font-weight: 500;
+}
+
+.label-header-sm {
+  font-size: 14px;
+  color: var(--main-color-dark) !important;
+  font-weight: 500;
+}
+
 .logo {
   content: url("/images/logo-medium.png");
 }
@@ -773,9 +796,7 @@ div.react-datepicker__day--selected {
 }
 
 .panel-itech {
-  background-color: var(--main-background);
   color: var(--main-background-contrast);
-  filter: brightness(110%);
   padding: 0.25rem 0.5rem;
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
@@ -1307,7 +1328,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar .toggle-collapse:hover {
-  background-color: var(--text-highlight-color);
+  background-color: var(--main-color-dark);
 }
 
 .sidebar .toggle-collapse:focus {
@@ -1326,6 +1347,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   height: 32px;
   color: var(--main-color-dark);
   background-color: var(--sidebar-background);
+  margin-bottom: 4px;
 }
 
 .btn-icon-toggle {
@@ -1357,8 +1379,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   display: block;
   position: relative;
   float: none;
-  padding: 0;
-  padding-left: 25px;
+  padding: 0 15px;
   max-width: var(--sidebar-width);
   transition: width var(--transitionTime) ease;
   -webkit-transition: width var(--transitionTime) ease;
@@ -1367,7 +1388,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) {
-  background-color: var(--text-highlight-color);
+  background-color: var(--main-color-dark);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
@@ -1395,18 +1416,18 @@ ul.dropdown-menu.side-sub-menu-itech li {
   color: var(--default-text);
 }
 
+.sidebar.collapse .sidebar-list-item {
+  padding: 0;
+}
+
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
-  background-color: var(--text-highlight-color);
+  background-color: var(--main-color-dark);
   color: var(--text-color);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
   background-color: var(--main-color-dark);
   color: var(--default-text);
-}
-
-.sidebar.collapse .sidebar-list-item.with-sub-menu {
-  padding: 0;
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1501,7 +1522,7 @@ a.sidebar-list-link b {
   text-shadow: none;
   font-size: 18px;
   position: absolute;
-  right: 8px;
+  right: 23px;
   top: calc((var(--sidebar-item-height) - 18px) /2);
   padding: 0;
   text-align: center;

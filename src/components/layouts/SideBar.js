@@ -146,7 +146,7 @@ const SideBar = (props) => {
             <div className="w-100 h-100 d-flex flex-column position-absolute">
                 {isReact.component(menuHeader) || isReact.element(menuHeader) ? React.cloneElement(menuHeader, { collapse }) : menuHeader}
                 <ul className={classNames('sidebar-list', listItemClasses)}>
-                    {items.map((item) => {
+                    {items.map((item, index) => {
                         const expanded = expandedKeys.indexOf(item.eventKey) > -1;
                         return (
                             GotG.hasAnyAuthorities(item.permissions) && (
@@ -162,7 +162,7 @@ const SideBar = (props) => {
                                 >
                                     <NavLink
                                         exact={item.exact ? !collapse : false}
-                                        className="sidebar-list-link"
+                                        className={classNames('sidebar-list-link', index !== 0 && 'border-top')}
                                         to={item.url}
                                         isActive={item.isActive}
                                         activeClassName="selected"

@@ -40,7 +40,7 @@ $angle-right: "\f101";
 		border-radius: 0;
 
 		&:hover {
-			background-color: var(--text-highlight-color);
+			background-color: var(--main-color-dark);
 		}
 
 		&:focus {
@@ -64,6 +64,7 @@ $angle-right: "\f101";
     // border-bottom: 1px solid var(--border-color);
     color: var(--main-color-dark);
     background-color: var(--sidebar-background);
+	margin-bottom: 4px;
 }
 
 .btn-icon-toggle {
@@ -99,13 +100,12 @@ $angle-right: "\f101";
 	display: block;
 	position: relative;
 	float: none;
-	padding: 0;
-	padding-left: 25px;
+	padding: 0 15px;
 	max-width: var(--sidebar-width);
 	@include transition(var(--transitionTime), ease, width);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: var(--text-highlight-color);
+		background-color: var(--main-color-dark);
 
 		a.sidebar-list-link {
 			color: var(--text-color);
@@ -137,10 +137,14 @@ $angle-right: "\f101";
 		}
 	}
 
+	.sidebar.collapse & {
+		padding: 0;
+	}
+
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: var(--text-highlight-color);
+				background-color: var(--main-color-dark);
 				color: var(--text-color);
 
 				&:hover {
@@ -151,7 +155,6 @@ $angle-right: "\f101";
 		}
 
 		.sidebar.collapse & {
-			padding: 0;
 			& .sidebar-sublist {
 				pointer-events: none;
 				cursor: default;
@@ -245,7 +248,7 @@ a.sidebar-list-link {
 		text-shadow: none;
 		font-size: 18px;
 		position: absolute;
-		right: 8px;
+		right: 23px;
 		top: calc((var(--sidebar-item-height) - 18px) /2);
 		padding: 0;
 		text-align: center;
