@@ -1,3 +1,7 @@
 div.react-datepicker-wrapper, div.react-datepicker__input-container {
     width: 100%;
 }
+
+div.react-datepicker__day--selected {
+    background-color: var(--main-color-dark);
+}

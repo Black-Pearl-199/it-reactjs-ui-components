@@ -142,7 +142,12 @@
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
-  background: var(--text-color) !important;
+  background: var(--main-color-dark) !important;
+  color: var(--text-color-contrast) !important;
+}
+
+.btn-itech-icon-primary:hover i::before, .btn-itech-icon-primary:active i::before, .btn-itech-icon-primary.active i::before {
+  color: var(--main-color-light);
 }
 
 .btn-itech-icon-warning {
@@ -159,7 +164,7 @@
 }
 
 .btn-itech-icon-secondary:hover, .btn-itech-icon-secondary:active, .btn-itech-icon-secondary.active {
-  background: var(--text-highlight-color) !important;
+  background: var(--main-color-dark) !important;
 }
 
 .btn-itech-primary {
@@ -245,16 +250,17 @@
 
 .btn-pick-date {
   height: 30px;
-  background: var(--button-color-secondary) !important;
-  color: var(--button-color-secondary-contrast) !important;
+  background: var(--button-color-primary) !important;
+  color: var(--default-text) !important;
   flex: 1 1 0px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .btn-pick-date.active {
+  background-color: var(--button-color-secondary);
   filter: brightness(125%);
-  color: var(--button-color-secondary-contrast) !important;
+  color: var(--default-text) !important;
   z-index: 0 !important;
 }
 
@@ -300,6 +306,10 @@
 
 div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 100%;
+}
+
+div.react-datepicker__day--selected {
+  background-color: var(--main-color-dark);
 }
 
 .delete-box {
@@ -348,6 +358,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .btn-dropdown.dropdown-toggle {
   background: var(--white);
+}
+
+.dropdown-itech a:hover, .dropdown-itech a:active, .dropdown-itech a:active {
+  background-color: var(--main-color-dark);
+  color: var(--default-text);
+}
+
+.dropdown-itech a:hover button, .dropdown-itech a:hover div, .dropdown-itech a:active button, .dropdown-itech a:active div, .dropdown-itech a:active button, .dropdown-itech a:active div {
+  color: var(--default-text);
 }
 
 .flex-1 {
@@ -426,8 +445,6 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .form-control {
-  background-color: var(--form-background-color);
-  color: var(--form-background-color-contrast) !important;
   border: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   padding: 3px 8px;
@@ -439,9 +456,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 
 .form-control:focus {
   border-color: var(--main-color-dark);
-  background-color: var(--form-background-color-focus) !important;
   box-shadow: none;
-  color: var(--form-background-color-focus-contrast) !important;
 }
 
 .form-control:disabled {
@@ -452,9 +467,7 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .form-control-sm {
   font-size: 14px;
   height: 30px;
-  border: 1px solid #58585a;
-  background-color: #fff;
-  color: #000;
+  border: 1px solid var(--border-color);
 }
 
 .form-group {
@@ -641,41 +654,41 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .nav-item {
   -webkit-user-select: none;
   user-select: none;
-  height: var(--tab-height);
+  height: calc(var(--tab-height) - 25px);
   border-radius: 10px 10px 0 0;
-  background: var(--grey-background) !important;
+  background: var(--main-color) !important;
 }
 
 .nav-item a {
-  color: var(--cyan);
+  color: var(--default-text);
   -webkit-user-drag: none;
 }
 
 .nav-item a:hover {
-  background-color: var(--main-background);
+  background-color: var(--main-color-dark);
 }
 
 .nav-item:hover {
-  background-color: var(--main-background);
+  background-color: var(--main-color-dark);
 }
 
 .nav-item .nav-link {
   border-radius: 10px 10px 0 0;
-  height: var(--tab-height);
+  height: calc(var(--tab-height) - 25px);
 }
 
 .nav-item .nav-link:hover {
   border-radius: 10px 10px 0 0;
-  background-color: var(--main-background);
-  border-color: var(--main-background);
-  color: var(--text-color);
+  background-color: var(--main-color-dark);
+  border-color: var(--main-color-dark);
+  color: var(--default-text);
 }
 
 .nav-item .nav-link.active {
   border-radius: 10px 10px 0 0;
-  background-color: var(--main-background);
-  border-color: var(--main-background);
-  color: var(--text-color);
+  background-color: var(--main-color-dark);
+  border-color: var(--main-color-dark);
+  color: var(--default-text);
 }
 
 .nav-item .nav-link.active:hover {
@@ -748,15 +761,15 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .pagination-itech .page-item .page-link:hover {
-  background: var(--main-color-dark);
+  background: var(--main-color);
   color: var(--white);
-  border-color: var(--main-color-dark);
+  border-color: var(--main-color);
 }
 
 .pagination-itech .page-item.active .page-link {
-  background: var(--main-color-dark);
+  background: var(--main-color);
   color: var(--white);
-  border-color: var(--main-color-dark);
+  border-color: var(--main-color);
 }
 
 .panel-itech {
@@ -863,23 +876,22 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .table thead.table-itech-thread tr {
-  background: var(--main-color) !important;
+  background: var(--main-background) !important;
   color: var(--main-color-contrast) !important;
-  text-transform: uppercase;
 }
 
 .table thead.table-itech-thread tr th {
-  font-weight: 300 !important;
+  font-weight: 500 !important;
   text-align: left;
 }
 
 .table thead.table-itech-thread th,
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
-  background-color: transparent;
+  background-color: var(--main-background);
   color: var(--main-color-contrast) !important;
   font-weight: 500 !important;
-  font-size: .75rem;
+  font-size: .875rem;
   line-height: 200%;
 }
 
@@ -892,27 +904,19 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-  background: var(--white);
-}
-
-.table-striped tbody tr:nth-of-type(odd):hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  background: var(--tableOdd);
 }
 
 .table-striped tbody tr:nth-of-type(odd):hover:not(.active) {
-  background: var(--white) !important;
+  background: var(--main-color-dark) !important;
 }
 
 .table-striped tbody tr:nth-of-type(even):not(.active) {
-  background: #f5f5f5 !important;
-}
-
-.table-striped tbody tr:nth-of-type(even):hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  background: var(--tableEven);
 }
 
 .table-striped tbody tr:nth-of-type(even):hover:not(.active) {
-  background: #f5f5f5 !important;
+  background: var(--main-color-dark) !important;
 }
 
 .table-striped tbody tr td:has(button.btn-itech-icon) {
@@ -1274,8 +1278,8 @@ ul.dropdown-menu.side-sub-menu-itech li {
   z-index: 904;
   display: flex;
   background-color: var(--sidebar-background);
-  font-size: 13px;
   box-shadow: var(--shadow);
+  border-top: 3px solid var(--main-color-dark);
   transition: width 0s ease;
   -webkit-transition: width 0s ease;
   -moz-transition: width 0s ease;
@@ -1320,20 +1324,19 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .sidebar-header {
   height: 32px;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  color: var(--sidebar-header-background-contrast);
-  background-color: var(--sidebar-header-background);
+  color: var(--main-color-dark);
+  background-color: var(--sidebar-background);
 }
 
 .btn-icon-toggle {
-  background: var(--sidebar-header-background);
-  color: var(--sidebar-header-background-contrast);
+  background: var(--main-color-dark);
+  color: var(--content-background);
 }
 
 .btn-icon-toggle:hover {
-  color: var(--sidebar-header-background-contrast);
   filter: brightness(110%);
+  color: var(--content-background) !important;
+  background-color: var(--main-color);
 }
 
 .sidebar-list {
@@ -1350,10 +1353,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item {
+  font-size: 16px;
   display: block;
   position: relative;
   float: none;
   padding: 0;
+  padding-left: 25px;
   max-width: var(--sidebar-width);
   transition: width var(--transitionTime) ease;
   -webkit-transition: width var(--transitionTime) ease;
@@ -1378,16 +1383,16 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
-  background-color: var(--text-highlight-color);
-  color: var(--text-color);
+  background-color: var(--main-color-dark);
+  color: var(--default-text);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
-  background-color: var(--text-highlight-color);
+  background-color: var(--main-color-dark);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar-list-item a.sidebar-list-link.selected svg, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected svg {
-  color: var(--text-color);
+  color: var(--default-text);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
@@ -1396,7 +1401,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
-  background-color: var(--text-highlight-color);
+  background-color: var(--main-color-dark);
+  color: var(--default-text);
+}
+
+.sidebar.collapse .sidebar-list-item.with-sub-menu {
+  padding: 0;
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1426,6 +1436,18 @@ ul.dropdown-menu.side-sub-menu-itech li {
   color: var(--text-color);
 }
 
+@media (max-width: 1024px) {
+  .sidebar-list-item {
+    padding-left: 0px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .sidebar-list-item {
+    padding-left: 0 !important;
+  }
+}
+
 .sidebar-list-item.ba-sidebar-item-expanded > .sidebar-list-link b i, .sidebar-list-item.ba-sidebar-item-expanded > .sidebar-list-link b svg, .ba-sidebar-sublist-item.ba-sidebar-item-expanded > .sidebar-list-link b i, .ba-sidebar-sublist-item.ba-sidebar-item-expanded > .sidebar-list-link b svg {
   transform: rotate(180deg);
 }
@@ -1452,12 +1474,12 @@ a.sidebar-list-link {
 }
 
 a.sidebar-list-link:hover {
-  background-color: var(--text-highlight-color);
-  color: var(--text-color);
+  background-color: var(--main-color-dark);
+  color: var(--default-text);
 }
 
 a.sidebar-list-link:hover i::before, a.sidebar-list-link:hover svg {
-  color: var(--text-color);
+  color: var(--default-text);
 }
 
 a.sidebar-list-link i, a.sidebar-list-link svg {
@@ -1538,7 +1560,7 @@ a.sidebar-list-link b {
 .sidebar-sublist > li a {
   display: block;
   text-shadow: none;
-  font-size: 13px;
+  font-size: 16px;
   text-decoration: none;
   color: var(--text-color);
   padding-left: var(--sidebar-width-collapse);
@@ -1547,21 +1569,23 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li a:hover {
-  background-color: var(--text-highlight-color) !important;
+  background-color: var(--main-color-dark) !important;
+  color: var(--default-text);
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a {
   border: none;
-  background-color: var(--text-highlight-color) !important;
+  background-color: var(--main-color-dark) !important;
+  color: var(--default-text);
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
-  color: var(--text-color);
+  color: var(--default-text);
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
-  background-color: var(--text-highlight-color);
-  color: var(--text-color);
+  background-color: var(--main-color-dark);
+  color: var(--default-text);
 }
 
 .sidebar-hover-elem {
@@ -1648,7 +1672,7 @@ a.sidebar-list-link b {
 }
 
 .itech-tabs {
-  background-color: var(--sidebar);
+  background-color: var(--main-color);
   height: var(--top-height)1px;
   width: 100%;
   min-width: 320px;
@@ -1666,11 +1690,11 @@ a.sidebar-list-link b {
 }
 
 .itech-tabs .nav-link:hover {
-  color: var(--main-color-light);
+  color: var(--main-color-dark);
 }
 
 .itech-tabs .nav-link.active {
-  background-color: var(--main-color-light);
+  background-color: var(--main-color-dark);
   color: var(--default-text);
 }
 
@@ -1696,17 +1720,18 @@ a.sidebar-list-link b {
 
 .nav-iTech .nav-link {
   padding: .3rem .5rem;
-  font-size: 14px;
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   flex-basis: auto;
   flex-grow: 1;
+  min-width: 100px;
+  max-width: 160px;
 }
 
 .nav-iTech .tab-close {
   display: flex;
-  max-width: 120px;
 }
 
 .nav-iTech .tab-close .tab-title {
@@ -1792,7 +1817,7 @@ a {
 
 .al-footer {
   height: 34px;
-  padding: 0 18px 0 240px;
+  padding: 0 18px 0 300px;
   width: 100%;
   position: absolute;
   display: block;
@@ -2053,14 +2078,14 @@ h1, h2, h3, h4, h5, h6 {
   --main-color: #8ec540;
   --main-color-hover: #079a48;
   --main-color-light: #6c7770;
-  --main-color-light-1: #C8E7D2;
+  --main-color-light-1: #079a48;
   --main-color-dark: #4c4c4c;
   --green-text-selection: #76B194;
   --green-input-form-selection: rgba(197, 202, 202, 0.1);
   --cyan: #455F6D;
   --cyan-lighter: #6a7e8a;
   --grey-light: #F7F7F7;
-  --main-background: #F7F7F7;
+  --main-background: #ffffff;
   --grey-1: #cccccc;
   --grey-2: #e0e0e0;
   --black-opacity: rgba(0, 0, 0, 0.1);
@@ -2081,14 +2106,14 @@ h1, h2, h3, h4, h5, h6 {
   --dribble-color: #F26798;
   --behace-color: #0093FA;
   --sidebar-item-height: 32px;
-  --sidebar-width: 240px;
+  --sidebar-width: 300px;
   --sidebar-width-collapse: 30px;
   --sidebar-item-pad-left: 8px;
   --warning-border: rgba(219, 11, 11, 0.2);
   --warning-background: rgba(219, 11, 11, 0.05);
   --warning-head: #db0b0b;
   --top-height: 50px;
-  --tab-height: 42px;
+  --tab-height: 60px;
   --footer-height: 34px;
   --delete-box-height: 80px;
   --transitionTime: 0s;

@@ -290,7 +290,7 @@ export const toolbarStyles = {
 export const inputFormControlStyles = {
     margin: '0',
     backgroundColor: 'white',
-    border: 'solid 1px #ced4da',
+    border: 'solid 1px var(--border-color)',
     borderRadius: '0.25rem',
     padding: '0',
     // "&:hover": {
@@ -333,23 +333,28 @@ export const tableStyles = {
             '& th': {
                 // verticalAlign: 'inherit',
                 whiteSpace: 'nowrap',
-                border: '1px solid var(--border-color)'
+                // border: '1px solid var(--border-color)'
+                border: 0
                 // borderTop: '0px'
             },
             '& td': {
                 fontWeight: 'bold',
-                backgroundColor: variables.primaryBgDark,
+                // backgroundColor: variables.primaryBgDark,
+                backgroundColor: 'var(--main-background)',
                 // borderColor: '#dee2e6',
-                border: '1px solid var(--border-color)'
+                // border: '1px solid var(--border-color)'
+                border: 0
             },
             '$ tr': {
                 height: '25px !important',
-                border: '1px solid var(--border-color)'
+                // border: '1px solid var(--border-color)'
+                border: 0
             }
         },
         '& th, & td, & tr': {
             padding: '0 .3rem !important',
-            border: '1px solid var(--border-color)',
+            // border: '1px solid var(--border-color)',
+            border: 0,
             '&.column-undefined': {
                 paddingTop: '0rem !important',
                 paddingBottom: '0rem !important'
@@ -382,7 +387,8 @@ export const myDataGridStyle = {
         position: 'sticky',
         top: 0,
         zIndex: 2,
-        backgroundColor: 'var(--main-color) !important',
+        // backgroundColor: 'var(--main-color) !important',
+        backgroundColor: 'var(--main-background)',
         color: 'white !important',
         '&:last-child': {
             padding: '0 12px'
@@ -396,9 +402,12 @@ export const myDataGridStyle = {
         // },
         color: 'var(--text-color)',
         '&.active': {
-            backgroundColor: 'var(--text-highlight-color) !important'
+            backgroundColor: 'var(--main-color-dark) !important',
             // filter: 'brightness(90%)'
-            // color: "#fff"
+            color: 'var(--default-text) !important',
+            '& div': {
+                color: 'var(--default-text) !important'
+            }
         }
     },
     clickableRow: {

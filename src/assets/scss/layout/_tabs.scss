@@ -1,7 +1,7 @@
 @import "../abstracts/variables";
 
 .itech-tabs {
-	background-color: var(--sidebar);
+	background-color: var(--main-color);
 	height: var(--top-height) + 1px;
 	width: 100%;
 	min-width: $resMin;
@@ -17,11 +17,11 @@
 		margin-top: var(--top-height) - var(--tab-height);
 
 		&:hover {
-			color: var(--main-color-light);
+			color: var(--main-color-dark);
 		}
 
 		&.active {
-			background-color: var(--main-color-light);
+			background-color: var(--main-color-dark);
 			color: var(--default-text);
 
 			.tab-close {
@@ -54,17 +54,18 @@
 .nav-iTech {
 	.nav-link {
         padding: .3rem .5rem;
-		font-size: 14px;
+		font-size: 16px;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		flex-basis: auto;
 		flex-grow: 1;
+		min-width: 100px;
+		max-width: 160px;
 	}
 
 	.tab-close {
 		display: flex;
-		max-width: 120px;
 
 		.tab-title {
 			white-space: nowrap;

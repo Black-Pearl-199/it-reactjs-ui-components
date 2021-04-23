@@ -116,11 +116,11 @@
 		}
 	
 		&:hover, &:active, &.active {
-			background: var(--text-color) !important;
-			// color: var(--text-color-contrast) !important;
+			background: var(--main-color-dark) !important;
+			color: var(--text-color-contrast) !important;
 	
 			i::before {
-				// color: var(--text-color-contrast);
+				color: var(--main-color-light);
 			}
 		}
 	}
@@ -141,7 +141,7 @@
 		// color: var(--text-color) !important;
 	
 		&:hover, &:active, &.active {
-			background: var(--text-highlight-color) !important;
+			background: var(--main-color-dark) !important;
 		}
 	}
 	
@@ -250,17 +250,17 @@
 
 .btn-pick-date {
 	height: 30px;
-	background: var(--button-color-secondary) !important;
-	color: var(--button-color-secondary-contrast) !important;
+	background: var(--button-color-primary) !important;
+	color: var(--default-text) !important;
 	flex: 1 1 0px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 
 
 	&.active {
-		// background-color: var(--main-color-dark);
+		background-color: var(--button-color-secondary);
 		filter: brightness(125%);
-		color: var(--button-color-secondary-contrast) !important;
+		color: var(--default-text) !important;
 		z-index: 0 !important;
 	}
 }

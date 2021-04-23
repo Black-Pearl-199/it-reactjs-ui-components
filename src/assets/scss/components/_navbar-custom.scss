@@ -22,39 +22,39 @@
 	// border-style: solid;
 	// border-width: 1px 1px 0 1px;
 	// border-color: var(--grey-background);
-	height: var(--tab-height);
+	height: calc(var(--tab-height) - 25px);
 	border-radius: 10px 10px 0 0;
-	background: var(--grey-background) !important;
+	background: var(--main-color) !important;
 
 	a {
-		color: var(--cyan);
+		color: var(--default-text);
 		-webkit-user-drag: none;
 
 		&:hover {
-			background-color: var(--main-background);
+			background-color: var(--main-color-dark);
 		}
 	}
 
 	&:hover {
-		background-color: var(--main-background);
+		background-color: var(--main-color-dark);
 	}
 
 	.nav-link {
 		border-radius: 10px 10px 0 0;
-		height: var(--tab-height);
+		height: calc(var(--tab-height) - 25px);
 
 		&:hover {
 			border-radius: 10px 10px 0 0;
-			background-color: var(--main-background);
-			border-color: var(--main-background);
-			color: var(--text-color);
+			background-color: var(--main-color-dark);
+			border-color: var(--main-color-dark);
+			color: var(--default-text);
 		}
 
 		&.active {
 			border-radius: 10px 10px 0 0;
-			background-color: var(--main-background);
-			border-color: var(--main-background);
-			color: var(--text-color);
+			background-color: var(--main-color-dark);
+			border-color: var(--main-color-dark);
+			color: var(--default-text);
 
 			&:hover {
 				border-color: transparent !important;

@@ -264,13 +264,13 @@ const MyFilterBox = (props) => {
     }));
     // 'card', 'panel-itech',
     return (
-        <MySimpleForm onSubmit={onSubmit} formRef={formFilterRef} className={classNames('my-1', className, formStyle.firstField)} toolbar={null}>
+        <MySimpleForm onSubmit={onSubmit} formRef={formFilterRef} className={classNames(className, formStyle.firstField)} toolbar={null}>
             <div className="d-flex flex-wrap w-100">
                 {renderChildren}
                 <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
                     {customAction}
                     {hasClear ? (
-                        <div className="col-form-label mr-3">
+                        <div className="col-form-label mr-3 pt-0">
                             <Button
                                 variant="itech"
                                 className="btn-itech-secondary btn-itech-md"
@@ -291,13 +291,13 @@ const MyFilterBox = (props) => {
                         ''
                     )}
                     {hasButtonSearch ? (
-                        <div className="col-form-label">
+                        <div className="col-form-label my-auto">
                             <Button
                                 variant="itech"
                                 disabled={loading}
                                 size="sm"
                                 onClick={formEnter}
-                                className="btn-itech-secondary btn-itech-md float-md-right float-lg-none"
+                                className="btn-itech-primary btn-itech-md float-md-right float-lg-none"
                             >
                                 {icon && (
                                     <>

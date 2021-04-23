@@ -19,17 +19,17 @@
       border-radius: .25rem;
 
       &:hover {
-        background: var(--main-color-dark);
+        background: var(--main-color);
         color: var(--white);
-        border-color: var(--main-color-dark);
+        border-color: var(--main-color);
       }
     }
 
     &.active {
       .page-link {
-        background: var(--main-color-dark);
+        background: var(--main-color);
         color: var(--white);
-        border-color: var(--main-color-dark);
+        border-color: var(--main-color);
       }
     }
   }

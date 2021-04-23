@@ -5,12 +5,12 @@
 
 	thead.table-itech-thread {
 		tr {
-			background: var(--main-color) !important;
+			background: var(--main-background) !important;
 			color: var(--main-color-contrast) !important;
-			text-transform: uppercase;
+			// text-transform: uppercase;
 
 			th {
-				font-weight: 300 !important;
+				font-weight: 500 !important;
 				text-align: left;
 			}
 		}
@@ -18,10 +18,10 @@
 		th,
 		td,
 		span {
-			background-color: transparent;
+			background-color: var(--main-background);
 			color: var(--main-color-contrast) !important;
 			font-weight: 500 !important;
-            font-size: .75rem;
+            font-size: .875rem;
             line-height: 200%;
 		}
 	}
@@ -31,28 +31,28 @@
 	tbody {
 		tr {
 			&:nth-of-type(odd) {
-				background: var(--white);
+				background: var(--tableOdd);
 
 				&:hover {
 					&:not(.active) {
-						background: var(--white) !important;
+						background: var(--main-color-dark) !important;
 					}
 
-					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+					// box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
 				}
 			}
 
 			&:nth-of-type(even) {
 				&:not(.active) {
-					background: #f5f5f5 !important;
+					background: var(--tableEven);
 				}
 
 				&:hover {
 					&:not(.active) {
-						background: #f5f5f5 !important;
+						background: var(--main-color-dark) !important;
 					}
 
-					box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+					// box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
 				}
 			}
 

@@ -30,7 +30,6 @@ export const vietradThemeLight = createMuiTheme({
             mainColorLight: '#D6D6D6',
             mainColorDark: 'rgb(153, 153, 153)',
             mainColorHover: 'rgb(153, 153, 153)',
-            mainColorLight1: 'rgb(221, 221, 221)',
             buttonColorPrimary: 'rgb(153, 153, 153)',
             buttonColorSecondary: '#cccccc',
             contentBackground: '#F7F7F7',
@@ -97,21 +96,18 @@ export const vietradThemeLight = createMuiTheme({
 export const iTechThemeLight = createMuiTheme({
     palette: {
         primary: {
-            mainColor: '#376B51',
-            main: '#376B51', // palette mus have 'main' atribute
-            mainColorLight: '#76B194',
-            mainColorDark: '#2C5641',
-            mainColorHover: '#2C5641',
-            mainColorLight1: '#76B194',
+            mainColor: '#8ec540',
+            main: '#8ec540', // palette mus have 'main' atribute
+            mainColorLight: '#8ec540',
+            mainColorDark: '#079a48',
+            mainColorHover: '#079a48',
             buttonColorPrimary: '#079a48',
             buttonColorSecondary: '#8ec540',
-            contentBackground: 'rgb(221, 221, 221)',
-            mainBackground: 'rgb(238, 238, 238)',
+            contentBackground: '#ffffff',
+            mainBackground: '#ffffff',
             // mainBackground: '#ff91e0',
-            sidebarBackground: 'rgb(238, 238, 238)',
-            sidebarHeaderBackground: '#376B51',
-            navTabBackground: 'rgb(221, 221, 221)',
-            navbarBackground: 'rgb(238, 238, 238)',
+            sidebarBackground: '#f7f9fa',
+            sidebarHeaderBackground: '#f7f9fa',
             formBackgroundColor: 'rgb(209, 224, 216)',
             formBackgroundColorFocus: '#cccccc',
             formBackgroundColorDisabled: '#b7b7b6',
@@ -124,21 +120,18 @@ export const iTechThemeLight = createMuiTheme({
             textColorDone: '#006600',
             textColorUnread: '#0056b3',
             textHighlightColor: '#cccccc',
-            tableOdd: '#F7F7F7', // light grey
-            tableEven: 'rgb(238, 238, 238)', // light grey
-            modalItechBackground: '#F7F9FC',
+            tableOdd: '#f7f9fa', // light grey
+            tableEven: '#ffffff', // light grey
+            modalItechBackground: '#f7f9fa',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
-            styledTitle: 'rgb(62, 147, 90)',
-            hospitalTitle: '#2b9d41',
+            styledTitle: '#8ec540',
+            hospitalTitle: '#8ec540',
             infoTitle: '#748189',
             reportBackgroundColor: '#FFFFFF',
-            // shadow: '0 1px 5px 0 rgba(0,0,0,0.2),0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12)',
             shadow: 'rgb(0, 0, 0, 0)',
             borderColor: '#b7b7b6',
-            tabHeight: '32px',
+            tabHeight: '60px',
             greyBackground: 'rgb(201, 201, 201)'
-            // topHeight: '100px'
-            // contrastText: 'rgb(255,192,203)'
         },
         // text: {
         //     default: '#FFFFFF',
