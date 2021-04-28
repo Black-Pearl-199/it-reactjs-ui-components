@@ -6,11 +6,11 @@
 	thead.table-itech-thread {
 		tr {
 			background: var(--main-background) !important;
-			color: var(--main-color-contrast) !important;
+			color: var(--text-color) !important;
 			// text-transform: uppercase;
 
 			th {
-				font-weight: 500 !important;
+				font-weight: 700 !important;
 				text-align: left;
 			}
 		}
@@ -19,9 +19,9 @@
 		td,
 		span {
 			background-color: var(--main-background);
-			color: var(--main-color-contrast) !important;
-			font-weight: 500 !important;
-            font-size: .875rem;
+			color: var(--text-color) !important;
+			font-weight: 700 !important;
+            font-size: 1rem;
             line-height: 200%;
 		}
 	}

@@ -25,13 +25,13 @@
 
 	&-info {
 		& .msg-head {
-			color: var(--modal-itech-background-contrast);
+			color: var(--main-color-dark);
 		}
 
 		& .msg-body {
 			border-color: var(--main-color-dark);
 			background-color: var(--content-background);
-			color: var(--content-background-contrast);
+			color: var(--text-color);
 		}
 	}
 }

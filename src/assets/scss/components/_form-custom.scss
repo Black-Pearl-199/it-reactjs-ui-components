@@ -92,8 +92,8 @@
   }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-	background-color:var(--main);
-	border-color: var(--main);
+	background-color:var(--main-color-dark);
+	border-color: var(--main-color-dark);
 }
 
 // .custom-radio .custom-control-input:checked~.custom-control-label::before{
@@ -140,7 +140,7 @@
 	left: 9px;
 	content: " ";
 	display: block;
-	background: var(--text-color);
+	background: var(--main-color-dark);
 }
 
 // .custom-checkbox .custom-control-input:disabled {

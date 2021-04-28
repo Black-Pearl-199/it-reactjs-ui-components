@@ -273,7 +273,7 @@ const MyFilterBox = (props) => {
                         <div className="col-form-label mr-3 pt-0">
                             <Button
                                 variant="itech"
-                                className="btn-itech-secondary btn-itech-md"
+                                className="btn-itech-primary btn-itech-md"
                                 type="reset"
                                 disabled={loading}
                                 size="sm"

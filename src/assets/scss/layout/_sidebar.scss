@@ -68,13 +68,22 @@ $angle-right: "\f101";
 }
 
 .btn-icon-toggle {
-	background: var(--main-color-dark);
-	color: var(--content-background);
+	// background: var(--main-color-dark);
+	color: var(--text-color);
+	width: 22px;
+	height: 22px;
+	padding: 0;
 
 	&:hover {
-		filter: brightness(110%);
 		color: var(--content-background) !important;
-		background-color: var(--main-color);
+		background-color: var(--main-color-dark);
+	}
+}
+
+.collapse {
+	.btn-icon-toggle {
+		height: 32px !important;
+		width: 30px !important;
 	}
 }
 

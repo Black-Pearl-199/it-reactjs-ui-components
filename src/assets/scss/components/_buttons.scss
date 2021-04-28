@@ -231,16 +231,17 @@
     }
     
     &-delete {
-        background: var(--grey-1);
+        background: var(--main-color);
         // color: var(--black) !important;
 
         &:hover {
             color: var(--white);
+			filter: brightness(110%);
             // background-color: var(--grey-normal);
         }
 
         &:active {
-            background: var(--grey-2);
+			filter: brightness(110%);
         }
 
     }

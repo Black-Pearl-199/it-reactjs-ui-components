@@ -2,11 +2,16 @@ import * as PropTypes from 'prop-types';
 import React from 'react';
 import { useTranslate } from 'react-admin';
 
+const styleLabel = {
+    fontSize: '18px',
+    fontWeight: 'lighter'
+};
+
 const PaginationLimit = ({ labelLimit }) => {
     const translate = useTranslate();
     return (
         <div className="d-flex justify-content-center w-100">
-            <span>
+            <span style={styleLabel}>
                 {translate(labelLimit)}
             </span>
         </div>

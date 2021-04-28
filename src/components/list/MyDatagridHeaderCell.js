@@ -21,7 +21,7 @@ const useStyles = makeStyles(
                 '&& $icon': {
                     // arrow icon on header
                     opacity: 1,
-                    color: 'var(--main-color-contrast)'
+                    color: 'var(--text-color)'
                 }
             }
         }

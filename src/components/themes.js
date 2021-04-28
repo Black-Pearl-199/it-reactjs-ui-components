@@ -110,15 +110,15 @@ export const iTechThemeLight = createMuiTheme({
             sidebarHeaderBackground: '#f7f9fa',
             formBackgroundColor: '#ffffff',
             formBackgroundColorFocus: '#cccccc',
-            formBackgroundColorDisabled: '#b7b7b6',
+            formBackgroundColorDisabled: '#f7f9fa',
             defaultText: '#FFFFFF',
-            textColor: '#2E3E47',
-            textColorAlternate: '#2E3E47',
+            textColor: '#58585a',
+            textColorAlternate: '#58585a',
             textColorButton: getContrastColor('rgb(153, 153, 153)'),
             textColorLight: '#495057',
             textColorLink: '#0056b3',
-            textColorDone: '#006600',
-            textColorUnread: '#0056b3',
+            textColorDone: '#079a48',
+            textColorUnread: '#C64C54',
             textHighlightColor: '#cccccc',
             tableOdd: '#f7f9fa', // light grey
             tableEven: '#ffffff', // light grey
@@ -130,7 +130,7 @@ export const iTechThemeLight = createMuiTheme({
             reportBackgroundColor: '#f7f9fa',
             shadow: 'rgb(0, 0, 0, 0)',
             borderColor: '#b7b7b6',
-            tabHeight: '60px',
+            tabHeight: '45px',
             greyBackground: 'rgb(201, 201, 201)'
         },
         // text: {

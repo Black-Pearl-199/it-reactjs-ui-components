@@ -236,15 +236,16 @@
 }
 
 .btn-itech-delete {
-  background: var(--grey-1);
+  background: var(--main-color);
 }
 
 .btn-itech-delete:hover {
   color: var(--white);
+  filter: brightness(110%);
 }
 
 .btn-itech-delete:active {
-  background: var(--grey-2);
+  filter: brightness(110%);
 }
 
 .btn-pick-date {
@@ -510,8 +511,8 @@ div.react-datepicker__day--selected {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: var(--main);
-  border-color: var(--main);
+  background-color: var(--main-color-dark);
+  border-color: var(--main-color-dark);
 }
 
 .custom-radio {
@@ -549,7 +550,7 @@ div.react-datepicker__day--selected {
   left: 9px;
   content: " ";
   display: block;
-  background: var(--text-color);
+  background: var(--main-color-dark);
 }
 
 .label-filter {
@@ -637,13 +638,13 @@ div.react-datepicker__day--selected {
 }
 
 .msg-box-info .msg-head {
-  color: var(--modal-itech-background-contrast);
+  color: var(--main-color-dark);
 }
 
 .msg-box-info .msg-body {
   border-color: var(--main-color-dark);
   background-color: var(--content-background);
-  color: var(--content-background-contrast);
+  color: var(--text-color);
 }
 
 #closeMsg svg {
@@ -677,7 +678,7 @@ div.react-datepicker__day--selected {
 .nav-item {
   -webkit-user-select: none;
   user-select: none;
-  height: calc(var(--tab-height) - 25px);
+  height: calc(var(--tab-height) - 10px);
   border-radius: 10px 10px 0 0;
   background: var(--main-color) !important;
 }
@@ -697,7 +698,7 @@ div.react-datepicker__day--selected {
 
 .nav-item .nav-link {
   border-radius: 10px 10px 0 0;
-  height: calc(var(--tab-height) - 25px);
+  height: calc(var(--tab-height) - 10px);
 }
 
 .nav-item .nav-link:hover {
@@ -898,11 +899,11 @@ div.react-datepicker__day--selected {
 
 .table thead.table-itech-thread tr {
   background: var(--main-background) !important;
-  color: var(--main-color-contrast) !important;
+  color: var(--text-color) !important;
 }
 
 .table thead.table-itech-thread tr th {
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   text-align: left;
 }
 
@@ -910,9 +911,9 @@ div.react-datepicker__day--selected {
 .table thead.table-itech-thread td,
 .table thead.table-itech-thread span {
   background-color: var(--main-background);
-  color: var(--main-color-contrast) !important;
-  font-weight: 500 !important;
-  font-size: .875rem;
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+  font-size: 1rem;
   line-height: 200%;
 }
 
@@ -1351,14 +1352,20 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .btn-icon-toggle {
-  background: var(--main-color-dark);
-  color: var(--content-background);
+  color: var(--text-color);
+  width: 22px;
+  height: 22px;
+  padding: 0;
 }
 
 .btn-icon-toggle:hover {
-  filter: brightness(110%);
   color: var(--content-background) !important;
-  background-color: var(--main-color);
+  background-color: var(--main-color-dark);
+}
+
+.collapse .btn-icon-toggle {
+  height: 32px !important;
+  width: 30px !important;
 }
 
 .sidebar-list {
@@ -2134,7 +2141,7 @@ h1, h2, h3, h4, h5, h6 {
   --warning-background: rgba(219, 11, 11, 0.05);
   --warning-head: #db0b0b;
   --top-height: 50px;
-  --tab-height: 60px;
+  --tab-height: 45px;
   --footer-height: 34px;
   --delete-box-height: 80px;
   --transitionTime: 0s;

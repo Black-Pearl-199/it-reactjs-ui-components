@@ -46,7 +46,7 @@ const MyRadioButtonGroupInput = (props) => {
                             variant="pick-date"
                             size="sm"
                             disabled={disabled || loading}
-                            className={classNames('btn-itech-secondary', value === choiceValue ? 'active' : '', buttonClasses)}
+                            className={classNames('btn-itech-primary', value === choiceValue ? 'active' : '', buttonClasses)}
                             onClick={onClick}
                             data-value={choiceValue}
                             type="button"
@@ -60,7 +60,7 @@ const MyRadioButtonGroupInput = (props) => {
                         variant="pick-date"
                         size="sm"
                         disabled={disabled || loading}
-                        className={classNames('btn-itech-secondary', !value ? 'active' : '', buttonClasses)}
+                        className={classNames('btn-itech-primary', !value ? 'active' : '', buttonClasses)}
                         onClick={onClick}
                         type="button"
                     >

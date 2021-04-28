@@ -22,7 +22,7 @@
 	// border-style: solid;
 	// border-width: 1px 1px 0 1px;
 	// border-color: var(--grey-background);
-	height: calc(var(--tab-height) - 25px);
+	height: calc(var(--tab-height) - 10px);
 	border-radius: 10px 10px 0 0;
 	background: var(--main-color) !important;
 
@@ -41,7 +41,7 @@
 
 	.nav-link {
 		border-radius: 10px 10px 0 0;
-		height: calc(var(--tab-height) - 25px);
+		height: calc(var(--tab-height) - 10px);
 
 		&:hover {
 			border-radius: 10px 10px 0 0;

@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.4.0] - 2021-04-28
+### Changed
+- Update input field layout- [@TinVan2]
+- Update sidebar layout - [@TinVan2]
+- Update table layout - [@TinVan2]
+- Update button layout - [@TinVan2]
+- Update layout of switcher theme - [@TinVan2]
 ## [0.3.9] - 2021-04-07
 ### Changed
 - Support hidden option text for checkbox- [@TinVan2]
