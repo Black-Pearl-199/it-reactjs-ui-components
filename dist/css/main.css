@@ -445,6 +445,8 @@ div.react-datepicker__day--selected {
 }
 
 .form-control {
+  background-color: var(--form-background-color);
+  color: var(--text-color);
   border: none;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   padding: 3px 8px;
@@ -457,6 +459,8 @@ div.react-datepicker__day--selected {
 .form-control:focus {
   border-color: var(--main-color-dark);
   box-shadow: none;
+  background-color: var(--form-background-color) !important;
+  color: var(--text-color) !important;
 }
 
 .form-control:disabled {

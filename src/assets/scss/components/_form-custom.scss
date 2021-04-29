@@ -1,8 +1,8 @@
 @import "../abstracts/variables";
 
 .form-control {
-	// background-color: var(--form-background-color);
-	// color: var(--form-background-color-contrast) !important;
+	background-color: var(--form-background-color);
+	color: var(--text-color);
 
 	//border-width: 2px;
 	//border-color: $grey-light;
@@ -12,9 +12,9 @@
 
 	&:focus {
 		border-color: var(--main-color-dark);
-		// background-color: var(--form-background-color-focus) !important;
 		box-shadow: none;
-		// color: var(--form-background-color-focus-contrast) !important;
+		background-color: var(--form-background-color) !important;
+		color: var(--text-color) !important;
 	}
 
 	&:disabled {
