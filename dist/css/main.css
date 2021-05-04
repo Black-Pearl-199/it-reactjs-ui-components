@@ -360,13 +360,36 @@ div.react-datepicker__day--selected {
   background: var(--white);
 }
 
-.dropdown-itech a:hover, .dropdown-itech a:active, .dropdown-itech a:active {
+.dropdown-itech a {
+  display: block;
+  width: 100%;
+  padding: .25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: var(--text-color);
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.dropdown-itech a button, .dropdown-itech a div {
+  color: var(--text-color);
+}
+
+.dropdown-itech a:hover, .dropdown-itech a:active, .dropdown-itech a:active, .dropdown-itech a:focus {
   background-color: var(--main-color-dark);
   color: var(--default-text);
 }
 
-.dropdown-itech a:hover button, .dropdown-itech a:hover div, .dropdown-itech a:active button, .dropdown-itech a:active div, .dropdown-itech a:active button, .dropdown-itech a:active div {
+.dropdown-itech a:hover button, .dropdown-itech a:hover div, .dropdown-itech a:active button, .dropdown-itech a:active div, .dropdown-itech a:active button, .dropdown-itech a:active div, .dropdown-itech a:focus button, .dropdown-itech a:focus div {
   color: var(--default-text);
+}
+
+.dropdown-item.disabled, .dropdown-item:disabled {
+  pointer-events: none;
+  opacity: .65;
+  color: var(--text-color);
 }
 
 .flex-1 {
@@ -967,6 +990,18 @@ div.react-datepicker__day--selected {
   left: 0;
   bottom: 0;
   padding: .2rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--main-background);
+  background-clip: border-box;
+  border: 1px solid var(--border-color);
+  border-radius: .25rem;
 }
 
 @media (max-width: 767px) {

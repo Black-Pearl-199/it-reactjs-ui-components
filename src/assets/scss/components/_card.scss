@@ -1,0 +1,13 @@
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--main-background);
+    background-clip: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: .25rem;
+}

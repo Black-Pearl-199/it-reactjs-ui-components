@@ -20,11 +20,32 @@
 }
 
 .dropdown-itech a {
-    &:hover, &:active, &:active {
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: var(--text-color);
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    button, div {
+        color: var(--text-color);
+    }
+    &:hover, &:active, &:active, &:focus {
         background-color: var(--main-color-dark);
         color: var(--default-text);
         button, div {
             color: var(--default-text);
         }
+    }
+}
+
+.dropdown-item {
+    &.disabled, &:disabled {
+        pointer-events: none;
+        opacity: .65;
+        color: var(--text-color);
     }
 }

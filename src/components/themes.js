@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 import { viettelLogo, iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoString';
+import { ipacsDark, ipacsLight, hospitalDark } from './logoIpacsString';
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -116,7 +117,7 @@ export const iTechThemeLight = createMuiTheme({
             textColorAlternate: '#58585a',
             textColorButton: getContrastColor('rgb(153, 153, 153)'),
             textColorLight: '#495057',
-            textColorLink: '#0056b3',
+            textColorLink: '#626AAB',
             textColorDone: '#079a48',
             textColorUnread: '#C64C54',
             textHighlightColor: '#cccccc',
@@ -155,6 +156,14 @@ export const iTechThemeLight = createMuiTheme({
         icon: {
             type: 'svg',
             src: iTechLogoIcon
+        },
+        logoIpacs: {
+            type: 'svg',
+            src: ipacsLight
+        },
+        logoHospital: {
+            type: 'svg',
+            src: ipacsLight
         }
     }
 });
@@ -182,7 +191,7 @@ export const iTechThemeDark = createMuiTheme({
             textColorAlternate: '#f7f9fa',
             textColorButton: getContrastColor('rgb(153, 153, 153)'),
             textColorLight: '#495057',
-            textColorLink: '#0056b3',
+            textColorLink: '#626AAB',
             textColorDone: '#079a48',
             textColorUnread: '#C64C54',
             textHighlightColor: '#cccccc',
@@ -193,9 +202,9 @@ export const iTechThemeDark = createMuiTheme({
             styledTitle: '#079a48',
             hospitalTitle: '#8ec540',
             infoTitle: '#748189',
-            reportBackgroundColor: '#f7f9fa',
+            reportBackgroundColor: '#2a2c2f',
             shadow: 'rgb(0, 0, 0, 0)',
-            borderColor: '#b7b7b6',
+            borderColor: '#2a2c2f',
             tabHeight: '45px',
             greyBackground: 'rgb(201, 201, 201)'
         },
@@ -221,6 +230,14 @@ export const iTechThemeDark = createMuiTheme({
         icon: {
             type: 'svg',
             src: iTechLogoIcon
+        },
+        logoIpacs: {
+            type: 'svg',
+            src: ipacsDark
+        },
+        logoHospital: {
+            type: 'svg',
+            src: hospitalDark
         }
     }
 });
