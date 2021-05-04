@@ -108,7 +108,7 @@ export const iTechThemeLight = createMuiTheme({
             // mainBackground: '#ff91e0',
             sidebarBackground: '#f7f9fa',
             sidebarHeaderBackground: '#f7f9fa',
-            formBackgroundColor: '#58585a',
+            formBackgroundColor: '#FFFFFF',
             formBackgroundColorFocus: '#cccccc',
             formBackgroundColorDisabled: '#f7f9fa',
             defaultText: '#FFFFFF',
