@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core';
-import { viettelLogo, iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoString';
+import { viettelIcon, viettelLogo, iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoString';
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -89,7 +89,7 @@ export const vietradThemeLight = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelIcon
         }
     }
 });
