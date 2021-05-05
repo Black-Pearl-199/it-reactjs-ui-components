@@ -121,8 +121,8 @@ export const iTechThemeLight = createMuiTheme({
             textColorDone: '#079a48',
             textColorUnread: '#C64C54',
             textHighlightColor: '#cccccc',
-            tableOdd: '#f7f9fa', // light grey
-            tableEven: '#ffffff', // light grey
+            tableOdd: '#f7f9fa',
+            tableEven: '#ffffff',
             modalItechBackground: '#f7f9fa',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#079a48',
@@ -132,7 +132,8 @@ export const iTechThemeLight = createMuiTheme({
             shadow: 'rgb(0, 0, 0, 0)',
             borderColor: '#b7b7b6',
             tabHeight: '45px',
-            greyBackground: 'rgb(201, 201, 201)'
+            greyBackground: 'rgb(201, 201, 201)',
+            sidebarHeaderColor: '#079a48'
         },
         // text: {
         //     default: '#FFFFFF',
@@ -195,8 +196,8 @@ export const iTechThemeDark = createMuiTheme({
             textColorDone: '#079a48',
             textColorUnread: '#C64C54',
             textHighlightColor: '#cccccc',
-            tableOdd: '#2a2c2f', // light grey
-            tableEven: '#000000', // light grey
+            tableOdd: '#2a2c2f',
+            tableEven: '#000000',
             modalItechBackground: '#2a2c2f',
             mainColorOpacity: 'rgba(55, 107, 81, 0.1)',
             styledTitle: '#079a48',
@@ -206,7 +207,8 @@ export const iTechThemeDark = createMuiTheme({
             shadow: 'rgb(0, 0, 0, 0)',
             borderColor: '#2a2c2f',
             tabHeight: '45px',
-            greyBackground: 'rgb(201, 201, 201)'
+            greyBackground: 'rgb(201, 201, 201)',
+            sidebarHeaderColor: '#f7f9fa'
         },
         // text: {
         //     default: '#FFFFFF',

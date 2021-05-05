@@ -1,7 +1,7 @@
 {
   "name": "it-reactjs-ui-components",
-  "version": "0.4.1",
-  "subVersion": "0.0.1-itech",
+  "version": "0.4.2",
+  "subVersion": "itech",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {

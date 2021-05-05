@@ -1385,7 +1385,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .sidebar-header {
   height: 32px;
-  color: var(--main-color-dark);
+  color: var(--sidebar-header-color);
   background-color: var(--sidebar-background);
   margin-bottom: 4px;
 }
