@@ -1,5 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
-import { viettelIcon, viettelLogo, iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoString';
+import { vietradIcon, vietradLogo } from './logoString';
+import { iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoItechString';
+import { viettelIcon, viettelLogo } from './logoViettelString';
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -15,9 +17,7 @@ export const getContrastColor = (inputColor) => {
         convertedRGB.push(...rgb);
     }
     // http://www.w3.org/TR/AERT#color-contrast
-    const brightness = Math.round(((convertedRGB[0] * 299) +
-                                    (convertedRGB[1] * 587) +
-                                    (convertedRGB[2] * 114)) / 1000);
+    const brightness = Math.round((convertedRGB[0] * 299 + convertedRGB[1] * 587 + convertedRGB[2] * 114) / 1000);
     const contrastColor = brightness > 125 ? 'black' : '#E0E0E0';
     return contrastColor;
 };
@@ -74,7 +74,25 @@ export const vietradThemeLight = createMuiTheme({
         // },
         type: 'light'
     },
-    logo: {
+    logoVietrad: {
+        navbar: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        login: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        icon: {
+            type: 'svg',
+            src: vietradIcon
+        }
+    },
+    logoViettel: {
         navbar: {
             type: 'svg',
             src: viettelLogo
@@ -234,7 +252,25 @@ export const iTechThemeDark = createMuiTheme({
 
 export const vietradThemeDark = createMuiTheme({
     ...iTechThemeDark,
-    logo: {
+    logoVietrad: {
+        navbar: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        login: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: vietradLogo
+        },
+        icon: {
+            type: 'svg',
+            src: vietradIcon
+        }
+    },
+    logoViettel: {
         navbar: {
             type: 'svg',
             src: viettelLogo
@@ -249,7 +285,7 @@ export const vietradThemeDark = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelIcon
         }
     }
 });
