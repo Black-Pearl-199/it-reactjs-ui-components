@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Update font-size of text in table, height of row, navbar-css, MyfilterBox - [@TinVan2]
 ## [0.0.22] - 2021-02-19
 ### Changed
 - Update auto hide notification for crud action - [@TinVan2]

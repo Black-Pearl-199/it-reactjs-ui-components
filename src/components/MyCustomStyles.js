@@ -320,7 +320,7 @@ export const filterStyles = {
 
 export const tableStyles = {
     root: {
-        '& .MuiTableRow-root': { height: '27px !important' },
+        '& .MuiTableRow-root': { height: '25px !important' },
         '& .MuiIconButton-root ': {
             height: 'auto !important',
             width: 'auto !important'
@@ -346,13 +346,14 @@ export const tableStyles = {
                 border: 0
             },
             '$ tr': {
-                height: '25px !important',
+                height: '22px !important',
                 // border: '1px solid var(--border-color)'
                 border: 0
             }
         },
         '& th, & td, & tr': {
-            padding: '.35rem .3rem !important',
+            // padding: '.35rem .3rem !important',
+            padding: '.2rem .3rem !important',
             // border: '1px solid var(--border-color)',
             border: 0,
             '&.column-undefined': {
@@ -361,7 +362,7 @@ export const tableStyles = {
             },
             '& > span': {
                 padding: '0',
-                fontSize: '1rem'
+                fontSize: '.875rem'
             }
         },
         '& tbody': {

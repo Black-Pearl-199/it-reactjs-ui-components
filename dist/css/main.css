@@ -452,6 +452,10 @@ div.react-datepicker__day--selected {
   font-size: .875rem;
 }
 
+.font-8125rem {
+  font-size: .8125rem;
+}
+
 .font-weight-500 {
   font-weight: 500;
 }
@@ -705,7 +709,7 @@ div.react-datepicker__day--selected {
 .nav-item {
   -webkit-user-select: none;
   user-select: none;
-  height: calc(var(--tab-height) - 10px);
+  height: var(--tab-height);
   border-radius: 10px 10px 0 0;
   background: var(--main-color) !important;
 }
@@ -725,7 +729,7 @@ div.react-datepicker__day--selected {
 
 .nav-item .nav-link {
   border-radius: 10px 10px 0 0;
-  height: calc(var(--tab-height) - 10px);
+  height: var(--tab-height);
 }
 
 .nav-item .nav-link:hover {
@@ -940,8 +944,7 @@ div.react-datepicker__day--selected {
   background-color: var(--main-background);
   color: var(--text-color) !important;
   font-weight: 700 !important;
-  font-size: 1rem;
-  line-height: 200%;
+  font-size: .875rem;
 }
 
 .table-striped tbody tr {
@@ -1387,7 +1390,6 @@ ul.dropdown-menu.side-sub-menu-itech li {
   height: 32px;
   color: var(--sidebar-header-color);
   background-color: var(--sidebar-background);
-  margin-bottom: 4px;
 }
 
 .btn-icon-toggle {
@@ -1421,7 +1423,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item {
-  font-size: 16px;
+  font-size: 14px;
   display: block;
   position: relative;
   float: none;
@@ -1566,7 +1568,7 @@ a.sidebar-list-link b {
   height: 18px;
   line-height: 14px;
   text-shadow: none;
-  font-size: 18px;
+  font-size: 16px;
   position: absolute;
   right: 23px;
   top: calc((var(--sidebar-item-height) - 18px) /2);
@@ -1627,7 +1629,7 @@ a.sidebar-list-link b {
 .sidebar-sublist > li a {
   display: block;
   text-shadow: none;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   color: var(--text-color);
   padding-left: var(--sidebar-width-collapse);
@@ -1787,7 +1789,7 @@ a.sidebar-list-link b {
 
 .nav-iTech .nav-link {
   padding: .3rem .5rem;
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1884,7 +1886,7 @@ a {
 
 .al-footer {
   height: 34px;
-  padding: 0 18px 0 300px;
+  padding: 0 18px 0 270px;
   width: 100%;
   position: absolute;
   display: block;
@@ -2173,14 +2175,14 @@ h1, h2, h3, h4, h5, h6 {
   --dribble-color: #F26798;
   --behace-color: #0093FA;
   --sidebar-item-height: 32px;
-  --sidebar-width: 300px;
+  --sidebar-width: 270px;
   --sidebar-width-collapse: 30px;
   --sidebar-item-pad-left: 8px;
   --warning-border: rgba(219, 11, 11, 0.2);
   --warning-background: rgba(219, 11, 11, 0.05);
   --warning-head: #db0b0b;
   --top-height: 50px;
-  --tab-height: 45px;
+  --tab-height: 35px;
   --footer-height: 34px;
   --delete-box-height: 80px;
   --transitionTime: 0s;

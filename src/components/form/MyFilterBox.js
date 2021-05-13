@@ -270,7 +270,7 @@ const MyFilterBox = (props) => {
                 <div className={buttonClasses || `col align-self-sm-center ${hasClear ? 'justify-content-around' : ''} row`}>
                     {customAction}
                     {hasClear ? (
-                        <div className="col-form-label mr-3 pt-0">
+                        <div className="mr-3 pt-0">
                             <Button
                                 variant="itech"
                                 className="btn-itech-primary btn-itech-md"
@@ -291,7 +291,7 @@ const MyFilterBox = (props) => {
                         ''
                     )}
                     {hasButtonSearch ? (
-                        <div className="col-form-label my-auto">
+                        <div className="my-auto">
                             <Button
                                 variant="itech"
                                 disabled={loading}
