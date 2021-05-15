@@ -47,14 +47,14 @@
 			border-radius: 10px 10px 0 0;
 			background-color: var(--main-color-dark);
 			border-color: var(--main-color-dark);
-			color: var(--default-text);
+			color: var(--text-highlight-color);
 		}
 
 		&.active {
 			border-radius: 10px 10px 0 0;
 			background-color: var(--main-color-dark);
 			border-color: var(--main-color-dark);
-			color: var(--default-text);
+			color: var(--text-highlight-color);
 
 			&:hover {
 				border-color: transparent !important;

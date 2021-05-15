@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Update font-size of text in table, height of row, navbar-css, MyfilterBox - [@TinVan2]
+### Added
+- Support check checkbox action in list - [@TinVan2]
 ## [0.0.22] - 2021-02-19
 ### Changed
 - Update auto hide notification for crud action - [@TinVan2]

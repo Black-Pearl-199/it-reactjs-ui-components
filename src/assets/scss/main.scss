@@ -84,7 +84,6 @@ h1, h2, h3, h4, h5, h6 {
 
 	--default-text: #{$default-text};
     // --input-background: #{$input-background};
-    --text-color-light: #{$text-color-light};
 
 	// --------------------- NEW COLOR RE-DESIGN------------------------
 	--form-background-color: #{$form-background-color};
@@ -93,7 +92,6 @@ h1, h2, h3, h4, h5, h6 {
 	--grey-background: #{$grey-background};
 	--modal-itech-background: #{$modal-itech-background};
 
-	--main-color-opacity: #{$main-color-opacity};
 	--main-color: #{$main-color};
 	--main-color-hover: #{$main-color-hover};
 	--main-color-light: #{$main-color-light};
@@ -113,8 +111,6 @@ h1, h2, h3, h4, h5, h6 {
 
 	--white: #{$white};
 
-	--info-title: #{$info-title};
-	//--primary: #{$primary};
 	--info: #{$info};
 	--success: #{$success};
 	--warning: #{$warning};

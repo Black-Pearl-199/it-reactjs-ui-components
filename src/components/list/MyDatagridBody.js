@@ -28,6 +28,7 @@ const MyDatagridBodyView = ({
     version,
     handleDoubleClick,
     handleRightClick,
+    hasCheckboxAction,
     ...rest
 }) => (
     <TableBody className={classNames('datagrid-body', className)} {...rest}>
@@ -55,7 +56,8 @@ const MyDatagridBodyView = ({
                 handleRightClick,
                 onSelect,
                 selected: selectedIds.includes(id),
-                style: rowStyle ? rowStyle(data[id], rowIndex) : null
+                style: rowStyle ? rowStyle(data[id], rowIndex) : null,
+                hasCheckboxAction
             },
             children
         ))}
@@ -84,7 +86,8 @@ MyDatagridBodyView.propTypes = {
     styles: PropTypes.object,
     version: PropTypes.number,
     handleDoubleClick: PropTypes.func,
-    handleRightClick: PropTypes.func
+    handleRightClick: PropTypes.func,
+    hasCheckboxAction: PropTypes.bool
 };
 
 MyDatagridBodyView.defaultProps = {

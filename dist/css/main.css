@@ -90,7 +90,7 @@
 
 .btn-itech {
   border-radius: 5px !important;
-  color: #fff !important;
+  color: var(--text-color) !important;
   font-weight: 500;
   box-shadow: var(--shadow);
   white-space: nowrap;
@@ -584,6 +584,15 @@ div.react-datepicker__day--selected {
   background: var(--main-color-dark);
 }
 
+.col-form-label {
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
 .label-filter {
   font-size: var(--fontSize875);
   padding-bottom: 0.25rem;
@@ -736,14 +745,14 @@ div.react-datepicker__day--selected {
   border-radius: 10px 10px 0 0;
   background-color: var(--main-color-dark);
   border-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .nav-item .nav-link.active {
   border-radius: 10px 10px 0 0;
   background-color: var(--main-color-dark);
   border-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .nav-item .nav-link.active:hover {
@@ -1400,7 +1409,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .btn-icon-toggle:hover {
-  color: var(--content-background) !important;
+  color: var(--text-highlight-color) !important;
   background-color: var(--main-color-dark);
 }
 
@@ -1429,6 +1438,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   float: none;
   padding: 0 15px;
   max-width: var(--sidebar-width);
+  color: var(--text-color);
   transition: width var(--transitionTime) ease;
   -webkit-transition: width var(--transitionTime) ease;
   -moz-transition: width var(--transitionTime) ease;
@@ -1440,20 +1450,20 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
-  color: var(--text-color);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link b {
-  color: var(--text-color);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link i::before {
-  color: var(--text-color);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
   background-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
@@ -1461,7 +1471,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar-list-item a.sidebar-list-link.selected svg, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected svg {
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar.collapse .sidebar-list-item {
@@ -1475,7 +1485,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
   background-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1544,11 +1554,11 @@ a.sidebar-list-link {
 
 a.sidebar-list-link:hover {
   background-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 a.sidebar-list-link:hover i::before, a.sidebar-list-link:hover svg {
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 a.sidebar-list-link i, a.sidebar-list-link svg {
@@ -1639,22 +1649,22 @@ a.sidebar-list-link b {
 
 .sidebar-sublist > li a:hover {
   background-color: var(--main-color-dark) !important;
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a {
   border: none;
   background-color: var(--main-color-dark) !important;
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
   background-color: var(--main-color-dark);
-  color: var(--default-text);
+  color: var(--text-highlight-color);
 }
 
 .sidebar-hover-elem {
@@ -2137,13 +2147,11 @@ h1, h2, h3, h4, h5, h6 {
   --grey-dark: #333333;
   --red: red;
   --default-text: #ffffff;
-  --text-color-light: #58585a;
   --form-background-color: rgba(33, 156, 119, 0.1);
   --form-background-color-focus: rgba(33, 156, 119, 0.2);
   --text-color: #58585a;
   --grey-background: #E5E5E5;
   --modal-itech-background: #F7F9FC;
-  --main-color-opacity: rgba(55, 107, 81, 0.1);
   --main-color: #8ec540;
   --main-color-hover: #079a48;
   --main-color-light: #6c7770;
@@ -2161,7 +2169,6 @@ h1, h2, h3, h4, h5, h6 {
   --orange: #F79D49;
   --orange-light-1: #f8b06d;
   --white: #fff;
-  --info-title: #748189;
   --info: #2dacd1;
   --success: #90b900;
   --warning: #dfb81c;

@@ -320,7 +320,7 @@ export const filterStyles = {
 
 export const tableStyles = {
     root: {
-        '& .MuiTableRow-root': { height: '25px !important' },
+        '& .MuiTableRow-root': { height: '24px !important' },
         '& .MuiIconButton-root ': {
             height: 'auto !important',
             width: 'auto !important'
@@ -353,7 +353,7 @@ export const tableStyles = {
         },
         '& th, & td, & tr': {
             // padding: '.35rem .3rem !important',
-            padding: '.2rem .3rem !important',
+            padding: '.1rem .3rem !important',
             // border: '1px solid var(--border-color)',
             border: 0,
             '&.column-undefined': {
@@ -405,9 +405,9 @@ export const myDataGridStyle = {
         '&.active': {
             backgroundColor: 'var(--main-color-dark) !important',
             // filter: 'brightness(90%)'
-            color: 'var(--default-text) !important',
+            color: 'var(--text-highlight-color) !important',
             '& div': {
-                color: 'var(--default-text) !important'
+                color: 'var(--text-highlight-color) !important'
             }
         }
     },

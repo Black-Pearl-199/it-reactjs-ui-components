@@ -69,6 +69,7 @@ const MyDatagrid = (props) => {
         version,
         allowMultiSort,
         hideHeader,
+        hasCheckboxAction,
         ...rest
     } = props;
     const classes = useStyles(props);
@@ -192,7 +193,8 @@ const MyDatagrid = (props) => {
                         rowStyle,
                         selectedIds,
                         version,
-                        total
+                        total,
+                        hasCheckboxAction
                     },
                     children
                 )
@@ -232,7 +234,8 @@ MyDatagrid.propTypes = {
     handleDoubleClick: PropTypes.func,
     handleRightClick: PropTypes.func,
     allowMultiSort: PropTypes.bool,
-    hideHeader: PropTypes.bool
+    hideHeader: PropTypes.bool,
+    hasCheckboxAction: PropTypes.bool
 };
 
 MyDatagrid.defaultProps = {

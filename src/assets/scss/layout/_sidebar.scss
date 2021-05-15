@@ -75,7 +75,7 @@ $angle-right: "\f101";
 	padding: 0;
 
 	&:hover {
-		color: var(--content-background) !important;
+		color: var(--text-highlight-color) !important;
 		background-color: var(--main-color-dark);
 	}
 }
@@ -111,20 +111,21 @@ $angle-right: "\f101";
 	float: none;
 	padding: 0 15px;
 	max-width: var(--sidebar-width);
+	color: var(--text-color);
 	@include transition(var(--transitionTime), ease, width);
 
 	&.selected:not(.with-sub-menu) {
 		background-color: var(--main-color-dark);
 
 		a.sidebar-list-link {
-			color: var(--text-color);
+			color: var(--text-highlight-color);
 
 			b {
-				color: var(--text-color);
+				color: var(--text-highlight-color);
 			}
 
 			i::before{
-				color: var(--text-color);
+				color: var(--text-highlight-color);
 			}		
 		}
 	}
@@ -133,14 +134,14 @@ $angle-right: "\f101";
 		a.sidebar-list-link {
 			&.selected {
 				background-color: var(--main-color-dark);
-				color: var(--default-text);
+				color: var(--text-highlight-color);
 
 				&:hover {
 					background-color: var(--main-color-dark);
 				}
 
 				i::before, svg{
-					color: var(--default-text);
+				color: var(--text-highlight-color);
 				}		
 			}
 		}
@@ -158,7 +159,7 @@ $angle-right: "\f101";
 
 				&:hover {
 					background-color: var(--main-color-dark);
-					color: var(--default-text);
+					color: var(--text-highlight-color);
 				}
 			}
 		}
@@ -231,10 +232,10 @@ a.sidebar-list-link {
 
 	&:hover {
 		background-color: var(--main-color-dark);
-		color: var(--default-text);
+		color: var(--text-highlight-color);
 
 		i::before, svg {
-			color: var(--default-text);
+			color: var(--text-highlight-color);
 		}
 		// b {
 			//background-color: $green-itech-light;
@@ -326,17 +327,17 @@ a.sidebar-list-link {
 
 			&:hover {
 				background-color: var(--main-color-dark) !important;
-				color: var(--default-text);
+				color: var(--text-highlight-color);
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
 			background-color: var(--main-color-dark) !important;
-			color: var(--default-text);
+			color: var(--text-highlight-color);
 
 			&:hover {
-				color: var(--default-text);
+				color: var(--text-highlight-color);
 			}
 		}
 
@@ -344,7 +345,7 @@ a.sidebar-list-link {
 			a.sidebar-list-link {
 				&.selected {
 					background-color: var(--main-color-dark);
-					color: var(--default-text);
+					color: var(--text-highlight-color);
 				}
 			}
 		}

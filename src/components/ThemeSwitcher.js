@@ -10,9 +10,7 @@ import { switchTheme } from '../configurations/actions';
 //     '--form-background-color-focus': 'formBgColorFocus',
 //     '--default-text': 'defaultText',
 //     '--text-color': 'textColor',
-//     '--text-color-light': 'textColorLight',
 //     '--modal-itech-background': 'modalItechBackground',
-//     '--main-color-opacity': 'mainColorOpacity',
 //     '--main-color': 'main',
 //     '--main-color-hover': 'mainColorHover',
 //     '--main-color-light': 'light',
@@ -51,8 +49,8 @@ const ThemeSwitcher = (props) => {
         >
             {children || (
                 <span
-                // variant="itech-icon"
-                // size="sm"
+                    // variant="itech-icon"
+                    // size="sm"
                     className="btn btn-itech-icon btn-itech-icon-secondary my-auto font-20px"
                     onClick={handleClick}
                 >

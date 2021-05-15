@@ -10,8 +10,8 @@ import ROW_CLICK from './RowClick';
 
 const computeNbColumns = (expand, children, hasBulkActions) => (expand
     ? 1 // show expand button
-          + (hasBulkActions ? 1 : 0) // checkbox column
-          + React.Children.toArray(children).filter((child) => !!child).length // non-null children
+    + (hasBulkActions ? 1 : 0) // checkbox column
+    + React.Children.toArray(children).filter((child) => !!child).length // non-null children
     : 0); // we don't need to compute columns if there is no expand panel;
 
 const sanitizeRestProps = ({
@@ -51,6 +51,7 @@ const MyDatagridRow = (props) => {
         rowClick,
         handleDoubleClick,
         handleRightClick,
+        hasCheckboxAction,
         selected,
         style,
         styles,
@@ -79,14 +80,24 @@ const MyDatagridRow = (props) => {
         [toggleExpanded]
     );
 
+    const handleClickCheckbox = useCallback((onToggleItem, id) => ({
+        ...onToggleItem(id),
+        checkboxClick: true
+    }), []);
+
     const handleToggleSelection = useCallback(
-        (event) => {
+        async (event) => {
             if (onToggleItem) {
-                if (!checkToggle || checkToggle(id)) onToggleItem(id);
+                if (!checkToggle || checkToggle(id)) handleClickCheckbox(onToggleItem, id);
                 event.stopPropagation();
+            } else if (hasCheckboxAction) {
+                if (!rowClick) return;
+                event.stopPropagation();
+
+                await rowClick(id, basePath, record, hasCheckboxAction);
             }
         },
-        [checkToggle, id, onToggleItem]
+        [onToggleItem, hasCheckboxAction, checkToggle, id, handleClickCheckbox, rowClick, basePath, record]
     );
 
     const handleClick = useCallback(
@@ -95,7 +106,6 @@ const MyDatagridRow = (props) => {
             event.persist();
 
             const effect = typeof rowClick === 'function' ? await rowClick(id, basePath, record) : rowClick;
-
             switch (effect) {
                 case ROW_CLICK.EDIT:
                     dispatch(push(linkToRecord(basePath, id)));
@@ -213,7 +223,8 @@ MyDatagridRow.propTypes = {
     style: object,
     styles: object,
     handleDoubleClick: func,
-    handleRightClick: func
+    handleRightClick: func,
+    hasCheckboxAction: bool
 };
 
 MyDatagridRow.defaultProps = {
