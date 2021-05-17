@@ -90,7 +90,7 @@
 
 .btn-itech {
   border-radius: 5px !important;
-  color: var(--text-color) !important;
+  color: var(--default-text) !important;
   font-weight: 500;
   box-shadow: var(--shadow);
   white-space: nowrap;
