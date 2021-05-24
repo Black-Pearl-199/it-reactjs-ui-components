@@ -1,7 +1,7 @@
 {
   "name": "it-reactjs-ui-components",
   "version": "0.3.9",
-  "subVersion": "0.0.23vietrad",
+  "subVersion": "0.0.24vietrad",
   "private": true,
   "main": "./dist/index.js",
   "dependencies": {
