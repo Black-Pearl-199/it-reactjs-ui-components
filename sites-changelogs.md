@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.0.24] - 2021-05-24
+### Changed
+- Update Viettel logo 2021 as requested by Vietrad - [@Triet]
 ## [0.0.23] - 2021-05-05
 ### Changed
 - Update logo for viettel - [@TinVan2]
