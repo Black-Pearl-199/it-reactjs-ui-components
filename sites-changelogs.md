@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.26] - 2021-05-27
+### Changed
+- Remove max-width in tab - [@Triet]
 ## [0.0.25] - 2021-05-27
 ### Changed
 - Update Viettel logo 2021 as requested by Vietrad - [@Triet]
