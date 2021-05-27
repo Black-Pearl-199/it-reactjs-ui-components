@@ -97,13 +97,13 @@ const MySearchableDataGrid = (props) => {
                     ''
                 )}
             </div>
-            <div className={classNames('table-responsive')} style={{ maxHeight: maxHeightTable || '100%' }}>
+            <div className={classNames('table-responsive bordered')} style={{ maxHeight: maxHeightTable || '100%' }}>
                 <MyDatagrid
                     {...rest}
                     data={newData}
                     ids={newIds}
                     classes={customTableClasses}
-                    className={classNames('mb-0', 'table-striped', 'table-bordered', 'table', 'table-sm')}
+                    className={classNames('mb-0', 'table-striped', 'table', 'table-sm')}
                 />
             </div>
             {/* </div> */}

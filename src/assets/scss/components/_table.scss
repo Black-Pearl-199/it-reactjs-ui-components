@@ -35,7 +35,7 @@
 
 				&:hover {
 					&:not(.active) {
-						background: var(--main-color-dark) !important;
+						background: var(--table-hover-row) !important;
 					}
 
 					// box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
@@ -49,7 +49,7 @@
 
 				&:hover {
 					&:not(.active) {
-						background: var(--main-color-dark) !important;
+						background: var(--table-hover-row) !important;
 					}
 
 					// box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;

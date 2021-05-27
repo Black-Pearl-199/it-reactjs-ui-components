@@ -145,7 +145,7 @@
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
-  background: var(--main-color) !important;
+  filter: brightness(110%);
 }
 
 .btn-itech-icon-warning {
@@ -163,7 +163,7 @@
 }
 
 .btn-itech-icon-secondary:hover, .btn-itech-icon-secondary:active, .btn-itech-icon-secondary.active {
-  background: var(--main-color-dark) !important;
+  filter: brightness(110%);
 }
 
 .btn-itech-primary {
@@ -643,25 +643,25 @@ div.react-datepicker__day--selected {
 
 .label-header-xl {
   font-size: 24px;
-  color: var(--main-color-dark) !important;
+  color: var(--text-header-color) !important;
   font-weight: 500;
 }
 
 .label-header-lg {
   font-size: 20px;
-  color: var(--main-color-dark) !important;
+  color: var(--text-header-color) !important;
   font-weight: 500;
 }
 
 .label-header-md {
   font-size: 16px;
-  color: var(--main-color-dark) !important;
+  color: var(--text-header-color) !important;
   font-weight: 500;
 }
 
 .label-header-sm {
   font-size: 14px;
-  color: var(--main-color-dark) !important;
+  color: var(--text-header-color) !important;
   font-weight: 500;
 }
 
@@ -742,44 +742,43 @@ div.react-datepicker__day--selected {
   -webkit-user-select: none;
   user-select: none;
   height: var(--tab-height);
-  border-radius: 10px 10px 0 0;
-  background: var(--main-color) !important;
+  border-radius: 0 7px 0 0;
+  background: var(--tab-background) !important;
+  border-right: 1px solid var(--tab-border-color);
+  border-top: 1px solid var(--tab-border-color);
 }
 
 .nav-item a {
-  color: var(--default-text);
+  color: var(--text-color);
   -webkit-user-drag: none;
 }
 
 .nav-item a:hover {
-  background-color: var(--main-color-dark);
+  background-color: var(--tab-active-background);
 }
 
 .nav-item:hover {
-  background-color: var(--main-color-dark);
+  background-color: var(--tab-active-background) !important;
 }
 
 .nav-item .nav-link {
-  border-radius: 10px 10px 0 0;
+  border-radius: 0 7px 0 0;
   height: var(--tab-height);
 }
 
 .nav-item .nav-link:hover {
-  border-radius: 10px 10px 0 0;
-  background-color: var(--main-color-dark);
-  border-color: var(--main-color-dark);
-  color: var(--text-highlight-color);
+  border-radius: 0 7px 0 0;
+  background-color: var(--tab-active-background);
+  border-color: var(--tab-active-background);
+  color: var(--text-color);
 }
 
 .nav-item .nav-link.active {
-  border-radius: 10px 10px 0 0;
-  background-color: var(--main-color-dark);
-  border-color: var(--main-color-dark);
-  color: var(--text-highlight-color);
-}
-
-.nav-item .nav-link.active:hover {
-  border-color: transparent !important;
+  border-radius: 0 7px 0 0;
+  background-color: var(--tab-active-background);
+  border-color: var(--tab-active-background);
+  color: var(--text-color);
+  font-weight: 700;
 }
 
 #navItech {
@@ -861,7 +860,7 @@ div.react-datepicker__day--selected {
 
 .panel-itech {
   color: var(--main-background-contrast);
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0.5rem;
   box-shadow: 10px 10px 15px -20px rgba(0, 0, 0, 0.6);
   flex: 1;
 }
@@ -992,7 +991,7 @@ div.react-datepicker__day--selected {
 }
 
 .table-striped tbody tr:nth-of-type(odd):hover:not(.active) {
-  background: var(--main-color-dark) !important;
+  background: var(--table-hover-row) !important;
 }
 
 .table-striped tbody tr:nth-of-type(even):not(.active) {
@@ -1000,7 +999,7 @@ div.react-datepicker__day--selected {
 }
 
 .table-striped tbody tr:nth-of-type(even):hover:not(.active) {
-  background: var(--main-color-dark) !important;
+  background: var(--table-hover-row) !important;
 }
 
 .table-striped tbody tr td:has(button.btn-itech-icon) {
@@ -1375,7 +1374,6 @@ ul.dropdown-menu.side-sub-menu-itech li {
   display: flex;
   background-color: var(--sidebar-background);
   box-shadow: var(--shadow);
-  border-top: 3px solid var(--main-color-dark);
   transition: width 0s ease;
   -webkit-transition: width 0s ease;
   -moz-transition: width 0s ease;
@@ -1403,7 +1401,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar .toggle-collapse:hover {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
 }
 
 .sidebar .toggle-collapse:focus {
@@ -1433,7 +1431,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 
 .btn-icon-toggle:hover {
   color: var(--text-highlight-color) !important;
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
 }
 
 .collapse .btn-icon-toggle {
@@ -1459,7 +1457,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   display: block;
   position: relative;
   float: none;
-  padding: 0 15px;
+  padding: 0 8px;
   max-width: var(--sidebar-width);
   color: var(--text-color);
   transition: width var(--transitionTime) ease;
@@ -1469,7 +1467,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
 }
 
 .sidebar-list-item.selected:not(.with-sub-menu) a.sidebar-list-link {
@@ -1485,12 +1483,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item a.sidebar-list-link.selected, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
   color: var(--text-highlight-color);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected:hover, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected:hover {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
 }
 
 .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar-list-item a.sidebar-list-link.selected svg, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected i::before, .sidebar.collapse .sidebar-list-item a.sidebar-list-link.selected svg {
@@ -1502,13 +1500,12 @@ ul.dropdown-menu.side-sub-menu-itech li {
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
   color: var(--text-color);
 }
 
 .sidebar-list-item.with-sub-menu:not(.ba-sidebar-item-expanded) .sidebar-list-link.selected:hover {
-  background-color: var(--main-color-dark);
-  color: var(--text-highlight-color);
+  background-color: var(--sidebar-active-background);
 }
 
 .sidebar.collapse .sidebar-list-item.with-sub-menu .sidebar-sublist {
@@ -1522,7 +1519,7 @@ ul.dropdown-menu.side-sub-menu-itech li {
   top: 0;
   left: var(--sidebar-width-collapse);
   border-left: 1px solid white;
-  background-color: var(--main-color);
+  background-color: var(--sidebar-active-background);
   width: var(--sidebar-width);
   z-index: 100;
   height: auto;
@@ -1576,12 +1573,7 @@ a.sidebar-list-link {
 }
 
 a.sidebar-list-link:hover {
-  background-color: var(--main-color-dark);
-  color: var(--text-highlight-color);
-}
-
-a.sidebar-list-link:hover i::before, a.sidebar-list-link:hover svg {
-  color: var(--text-highlight-color);
+  background-color: var(--sidebar-active-background);
 }
 
 a.sidebar-list-link i, a.sidebar-list-link svg {
@@ -1603,7 +1595,7 @@ a.sidebar-list-link b {
   text-shadow: none;
   font-size: 16px;
   position: absolute;
-  right: 23px;
+  right: 16px;
   top: calc((var(--sidebar-item-height) - 18px) /2);
   padding: 0;
   text-align: center;
@@ -1671,22 +1663,17 @@ a.sidebar-list-link b {
 }
 
 .sidebar-sublist > li a:hover {
-  background-color: var(--main-color-dark) !important;
-  color: var(--text-highlight-color);
+  background-color: var(--sidebar-active-background) !important;
 }
 
 .sidebar-sublist > li.selected:not(.with-sub-menu) > a {
   border: none;
-  background-color: var(--main-color-dark) !important;
-  color: var(--text-highlight-color);
-}
-
-.sidebar-sublist > li.selected:not(.with-sub-menu) > a:hover {
+  background-color: var(--sidebar-active-background) !important;
   color: var(--text-highlight-color);
 }
 
 .sidebar-sublist > li:not(.with-sub-menu) a.sidebar-list-link.selected {
-  background-color: var(--main-color-dark);
+  background-color: var(--sidebar-active-background);
   color: var(--text-highlight-color);
 }
 
@@ -1844,7 +1831,7 @@ a.sidebar-list-link b {
 }
 
 .nav-iTech .nav-item a {
-  border-bottom: none !important;
+  border-bottom: 1px solid var(--tab-border-color) !important;
 }
 
 .no-wrap {

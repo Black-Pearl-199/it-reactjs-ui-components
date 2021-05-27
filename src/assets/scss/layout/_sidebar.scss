@@ -13,7 +13,7 @@ $angle-right: "\f101";
 	background-color: var(--sidebar-background);
 	// font-size: 16px;
 	box-shadow: var(--shadow);
-	border-top: 3px solid var(--main-color-dark);
+	// border-top: 1px solid var(--border-color);
 	// border-top: 0;
 	//height: 100%;
 	//position: fixed;
@@ -40,7 +40,7 @@ $angle-right: "\f101";
 		border-radius: 0;
 
 		&:hover {
-			background-color: var(--main-color-dark);
+			background-color: var(--sidebar-active-background);
 		}
 
 		&:focus {
@@ -76,7 +76,7 @@ $angle-right: "\f101";
 
 	&:hover {
 		color: var(--text-highlight-color) !important;
-		background-color: var(--main-color-dark);
+		background-color: var(--sidebar-active-background);
 	}
 }
 
@@ -109,13 +109,13 @@ $angle-right: "\f101";
 	display: block;
 	position: relative;
 	float: none;
-	padding: 0 15px;
+	padding: 0 8px;
 	max-width: var(--sidebar-width);
 	color: var(--text-color);
 	@include transition(var(--transitionTime), ease, width);
 
 	&.selected:not(.with-sub-menu) {
-		background-color: var(--main-color-dark);
+		background-color: var(--sidebar-active-background);
 
 		a.sidebar-list-link {
 			color: var(--text-highlight-color);
@@ -133,11 +133,11 @@ $angle-right: "\f101";
 	&, .sidebar.collapse & {
 		a.sidebar-list-link {
 			&.selected {
-				background-color: var(--main-color-dark);
+				background-color: var(--sidebar-active-background);
 				color: var(--text-highlight-color);
 
 				&:hover {
-					background-color: var(--main-color-dark);
+					background-color: var(--sidebar-active-background);
 				}
 
 				i::before, svg{
@@ -154,12 +154,12 @@ $angle-right: "\f101";
 	&.with-sub-menu {
 		&:not(.ba-sidebar-item-expanded) {
 			& .sidebar-list-link.selected {
-				background-color: var(--main-color-dark);
+				background-color: var(--sidebar-active-background);
 				color: var(--text-color);
 
 				&:hover {
-					background-color: var(--main-color-dark);
-					color: var(--text-highlight-color);
+					background-color: var(--sidebar-active-background);
+					// color: var(--text-highlight-color);
 				}
 			}
 		}
@@ -176,7 +176,7 @@ $angle-right: "\f101";
 				top: 0;
 				left: var(--sidebar-width-collapse);
 				border-left: 1px solid white;
-				background-color: var(--main-color);
+				background-color: var(--sidebar-active-background);
 				width: var(--sidebar-width);
 				z-index: 100;
 				height: auto;
@@ -231,11 +231,11 @@ a.sidebar-list-link {
 	@include transition (var(--transitionTime), ease, width);
 
 	&:hover {
-		background-color: var(--main-color-dark);
-		color: var(--text-highlight-color);
+		background-color: var(--sidebar-active-background);
+		// color: var(--text-highlight-color);
 
 		i::before, svg {
-			color: var(--text-highlight-color);
+			// color: var(--text-highlight-color);
 		}
 		// b {
 			//background-color: $green-itech-light;
@@ -258,7 +258,7 @@ a.sidebar-list-link {
 		text-shadow: none;
 		font-size: 16px;
 		position: absolute;
-		right: 23px;
+		right: 16px;
 		top: calc((var(--sidebar-item-height) - 18px) /2);
 		padding: 0;
 		text-align: center;
@@ -326,25 +326,25 @@ a.sidebar-list-link {
 			line-height: var(--sidebar-item-height);
 
 			&:hover {
-				background-color: var(--main-color-dark) !important;
-				color: var(--text-highlight-color);
+				background-color: var(--sidebar-active-background) !important;
+				// color: var(--text-highlight-color);
 			}
 		}
 
 		&.selected:not(.with-sub-menu) > a {
 			border: none;
-			background-color: var(--main-color-dark) !important;
+			background-color: var(--sidebar-active-background) !important;
 			color: var(--text-highlight-color);
 
 			&:hover {
-				color: var(--text-highlight-color);
+				// color: var(--text-highlight-color);
 			}
 		}
 
 		&:not(.with-sub-menu) {
 			a.sidebar-list-link {
 				&.selected {
-					background-color: var(--main-color-dark);
+					background-color: var(--sidebar-active-background);
 					color: var(--text-highlight-color);
 				}
 			}

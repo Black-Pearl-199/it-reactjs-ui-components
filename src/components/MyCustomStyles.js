@@ -118,8 +118,8 @@ export const listStylesNoActionsList = {
             marginRight: 'auto',
             marginLeft: 'auto',
             display: 'block',
-            paddingLeft: 15,
-            paddingRight: 15,
+            paddingLeft: 8,
+            paddingRight: 8,
             '&>[filters]': {
                 backgroundColor: '#ffffff',
                 overflow: 'hidden',
@@ -333,8 +333,10 @@ export const tableStyles = {
             '& th': {
                 // verticalAlign: 'inherit',
                 whiteSpace: 'nowrap',
-                // border: '1px solid var(--border-color)'
-                border: 0
+                border: '1px solid var(--border-color)',
+                borderLeft: 0,
+                borderTop: 0
+                // border: 0
                 // borderTop: '0px'
             },
             '& td': {
@@ -342,13 +344,13 @@ export const tableStyles = {
                 // backgroundColor: variables.primaryBgDark,
                 backgroundColor: 'var(--main-background)',
                 // borderColor: '#dee2e6',
-                // border: '1px solid var(--border-color)'
+                // borderRight: '1px solid var(--border-color)'
                 border: 0
             },
             '$ tr': {
                 height: '22px !important',
-                // border: '1px solid var(--border-color)'
-                border: 0
+                border: '1px solid var(--border-color)'
+                // border: 0
             }
         },
         '& th, & td, & tr': {
@@ -403,7 +405,7 @@ export const myDataGridStyle = {
         // },
         color: 'var(--text-color)',
         '&.active': {
-            backgroundColor: 'var(--main-color-dark) !important',
+            backgroundColor: 'var(--table-active-row) !important',
             // filter: 'brightness(90%)'
             color: 'var(--text-highlight-color) !important',
             '& div': {

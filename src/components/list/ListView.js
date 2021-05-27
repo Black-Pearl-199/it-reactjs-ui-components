@@ -42,7 +42,7 @@ const ListView = (props) => {
     const { defaultTitle, version, total, loaded, loading, hasCreate, filterValues } = rest;
     const controllerProps = getListControllerProps(rest);
     const spaceTableStyle = useCallback(() => ({
-        backgroundColor: spaceTableBackground || 'var(--table-odd)',
+        backgroundColor: spaceTableBackground || 'var(--main-background)',
         margin: '0 15px'
     }), [spaceTableBackground]);
 
