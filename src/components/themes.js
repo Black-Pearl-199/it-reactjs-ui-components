@@ -1,7 +1,14 @@
 import { createMuiTheme } from '@material-ui/core';
-import { vietradIcon, vietradLogo } from './logoString';
-import { iTechLogoLight, iTechLogoDark, iTechLogoIcon } from './logoItechString';
-import { viettelIcon, viettelLogo } from './logoViettelString';
+import {
+    vietradLogo,
+    iTechLogoLight,
+    iTechLogoDark,
+    iTechIcon,
+    viettelIcon,
+    viettelLogoDark,
+    viettelLogoLight
+} from './logoString';
+
 
 export const getContrastColor = (inputColor) => {
     // return a well contrasted color based on inputColor
@@ -89,21 +96,21 @@ export const vietradThemeLight = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: vietradIcon
+            src: vietradLogo
         }
     },
     logoViettel: {
         navbar: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoLight
         },
         login: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoLight
         },
         waitingOrder: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoLight
         },
         icon: {
             type: 'svg',
@@ -179,7 +186,7 @@ export const iTechThemeLight = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: iTechLogoIcon
+            src: iTechIcon
         }
     }
 });
@@ -245,7 +252,7 @@ export const iTechThemeDark = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: iTechLogoIcon
+            src: iTechIcon
         }
     }
 });
@@ -267,21 +274,21 @@ export const vietradThemeDark = createMuiTheme({
         },
         icon: {
             type: 'svg',
-            src: vietradIcon
+            src: vietradLogo
         }
     },
     logoViettel: {
         navbar: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoDark
         },
         login: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoLight // background mau trang bi mat chu nen phai dung Light
         },
         waitingOrder: {
             type: 'svg',
-            src: viettelLogo
+            src: viettelLogoDark
         },
         icon: {
             type: 'svg',
