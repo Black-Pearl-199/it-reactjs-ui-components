@@ -13,7 +13,7 @@
 	&:focus {
 		border-color: var(--main-color-dark);
 		box-shadow: none;
-		background-color: var(--form-background-color) !important;
+		background-color: var(--form-background-color-focus) !important;
 		color: var(--text-color) !important;
 	}
 
@@ -92,8 +92,8 @@
   }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-	background-color:var(--main-color-dark);
-	border-color: var(--main-color-dark);
+	background-color:var(--form-background-color);
+	border-color: var(--border-color);
 }
 
 // .custom-radio .custom-control-input:checked~.custom-control-label::before{

@@ -130,7 +130,7 @@
   margin: 0 auto;
   border-radius: 99px !important;
   display: flex;
-  background-color: var(--main-color);
+  background-color: var(--button-icon-color);
 }
 
 .btn-itech-icon svg, .btn-itech-icon i {
@@ -141,7 +141,7 @@
 .btn-itech-icon-primary {
   box-shadow: none;
   color: var(--default-text) !important;
-  background-color: var(--main-color-dark);
+  background-color: var(--button-icon-color);
 }
 
 .btn-itech-icon-primary:hover, .btn-itech-icon-primary:active, .btn-itech-icon-primary.active {
@@ -397,7 +397,7 @@ div.react-datepicker__day--selected {
 }
 
 .dropdown-itech a:hover, .dropdown-itech a:active, .dropdown-itech a:active, .dropdown-itech a:focus {
-  background-color: var(--main-color-dark);
+  background-color: var(--dropdown-item-background-hover);
   color: var(--default-text);
 }
 
@@ -505,7 +505,7 @@ div.react-datepicker__day--selected {
 .form-control:focus {
   border-color: var(--main-color-dark);
   box-shadow: none;
-  background-color: var(--form-background-color) !important;
+  background-color: var(--form-background-color-focus) !important;
   color: var(--text-color) !important;
 }
 
@@ -561,8 +561,8 @@ div.react-datepicker__day--selected {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: var(--main-color-dark);
-  border-color: var(--main-color-dark);
+  background-color: var(--form-background-color);
+  border-color: var(--border-color);
 }
 
 .custom-radio-hidden {
@@ -1832,6 +1832,7 @@ a.sidebar-list-link b {
 
 .nav-iTech .nav-item a {
   border-bottom: 1px solid var(--tab-border-color) !important;
+  line-height: 1;
 }
 
 .no-wrap {

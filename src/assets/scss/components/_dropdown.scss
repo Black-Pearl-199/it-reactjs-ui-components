@@ -34,7 +34,7 @@
         color: var(--text-color);
     }
     &:hover, &:active, &:active, &:focus {
-        background-color: var(--main-color-dark);
+        background-color: var(--dropdown-item-background-hover);
         color: var(--default-text);
         button, div {
             color: var(--default-text);

@@ -162,7 +162,7 @@ const SideBar = (props) => {
                                 >
                                     <NavLink
                                         exact={item.exact ? !collapse : false}
-                                        className={classNames('sidebar-list-link', index !== 0 && 'border-top')}
+                                        className={classNames('sidebar-list-link', index !== 0 && 'bordered-top')}
                                         to={item.url}
                                         isActive={item.isActive}
                                         activeClassName="selected"

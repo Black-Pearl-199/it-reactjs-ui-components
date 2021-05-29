@@ -99,7 +99,7 @@
 		margin: 0 auto;
 		border-radius: 99px !important;
 		display: flex;
-		background-color: var(--main-color);
+		background-color: var(--button-icon-color);
 	
 		svg, i {
 			margin: auto;
@@ -111,7 +111,7 @@
 	&-icon-primary {
 		box-shadow: none;
 		color: var(--default-text) !important;
-		background-color: var(--main-color-dark);
+		background-color: var(--button-icon-color);
 		// background: transparent !important;
 	
 		// i::before {
