@@ -284,6 +284,25 @@
   z-index: 0 !important;
 }
 
+.btn-itech-outline {
+  height: 30px;
+  border: 3px solid transparent;
+  border-radius: 25px;
+  color: var(--text-color) !important;
+  flex: 1 1 0px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.btn-itech-outline.active {
+  border: 3px solid var(--button-color-primary);
+  border-radius: 25px;
+  padding: 0;
+  color: var(--text-color) !important;
+  z-index: 0 !important;
+}
+
 .group-btn-pick-date {
   display: flex;
 }
@@ -527,10 +546,14 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   border-color: var(--main);
 }
 
+.custom-radio-hidden {
+  position: absolute;
+  opacity: 0;
+}
+
 .custom-radio {
   display: inline-block;
   position: relative;
-  padding: 0 6px;
 }
 
 .custom-radio input[type='radio'] {
@@ -559,10 +582,19 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
   width: 8px;
   height: 8px;
   position: absolute;
-  left: 9px;
+  left: 3px;
   content: " ";
-  display: block;
-  background: var(--text-color);
+  display: inline-block;
+  background: var(--main-color-dark);
+}
+
+.col-form-label {
+  padding-top: calc(.375rem + 1px);
+  padding-bottom: calc(.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 .label-filter {
@@ -867,6 +899,11 @@ div.react-datepicker-wrapper, div.react-datepicker__input-container {
 .scroll-sm ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
+}
+
+.scroll-secondary ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
 .scroll-secondary ::-webkit-scrollbar-thumb {

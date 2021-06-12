@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.0.27] - 2021-06-12
+### Added
+- Increase scroll-secondary scrollbar size to 10px - [@Triet]
 ## [0.0.26] - 2021-05-27
 ### Changed
 - Remove max-width in tab - [@Triet]
