@@ -264,6 +264,28 @@
 	}
 }
 
+.btn-itech-outline {
+	height: 30px;
+	// background: var(--button-color-primary) !important;
+	border: 3px solid transparent;
+	border-radius: 25px;
+	color: var(--text-color) !important;
+	flex: 1 1 0px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0;
+
+	&.active {
+		// background-color: var(--text-color-contrast);
+		border: 3px solid var(--button-color-primary);
+		border-radius: 25px;
+		padding: 0;
+		// filter: brightness(125%);
+		color: var(--text-color) !important;
+		z-index: 0 !important;
+	}
+}
+
 .group-btn-pick-date {
 	display: flex;
 

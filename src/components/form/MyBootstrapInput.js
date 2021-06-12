@@ -9,6 +9,7 @@ import { useTranslate } from 'react-admin';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import MaskedInput from 'react-maskedinput';
 import { useSelector } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
 import { getLoading } from '../../configurations/selectors';
 import { dateShowFormat, dateStoreFormat } from '../../utils';
@@ -232,6 +233,80 @@ const Input = ({ inputId, translatedLabel, composeInputClasses, ...props }) => {
                     </div>
                 );
             }
+            if (type === 'button-group') {
+                const selectRadio = (inputId) => () => {
+                    const radioButton = document.getElementById(inputId);
+                    if (radioButton.checked) {
+                        sanitizeProps.onChange({ target: { ...radioButton, value: undefined } });
+                    } else {
+                        sanitizeProps.onChange({ target: radioButton });
+                    }
+                    radioButton.checked = !radioButton.checked;
+                };
+                const emptyChecked = fullFill ? inputValue && inputValue.length === choices.length : !inputValue || inputValue.length === 0;
+                return (
+                    <div
+                        name={source}
+                        id={inputId}
+                        value={inputValue}
+                        className={optionClasses.group}
+                        title={translatedLabel}
+                        disabled={sanitizeProps.readOnly}
+                        placeholder={!hideLabel ? translatedLabel : null}
+                    >
+                        {allowEmpty && (
+                            <Button
+                                key={inputId}
+                                variant={optionClasses.variant || 'pick-date'}
+                                size="sm"
+                                disabled={sanitizeProps.readOnly}
+                                className={classNames(optionClasses.item ? optionClasses.item : 'btn-itech-primary', emptyChecked ? 'active' : '')}
+                                onClick={selectRadio(inputId)}
+                                // data-select-type={button}
+                                type="button"
+                            >
+                                <input
+                                    className="custom-radio-hidden"
+                                    type="radio"
+                                    value={CHECKBOX_EMPTY}
+                                    checked={emptyChecked}
+                                    name={source}
+                                    {...sanitizeProps}
+                                    id={`${source}-clear`}
+                                />
+                                {showText}
+                            </Button>
+                        )}
+                        {uniqBy(choices, optionValue).map((choice) => {
+                            const choiceValue = choice[optionValue];
+                            const inputId = `${source}-${choiceValue}`;
+                            return (
+                                <Button
+                                    key={inputId}
+                                    variant={optionClasses.variant || 'pick-date'}
+                                    size="sm"
+                                    disabled={sanitizeProps.readOnly}
+                                    className={classNames(optionClasses.item, inputValue === choiceValue ? 'active' : '')}
+                                    onClick={selectRadio(inputId)}
+                                    // data-select-type={button}
+                                    type="button"
+                                >
+                                    <input
+                                        className="custom-radio-hidden"
+                                        type="radio"
+                                        value={choiceValue}
+                                        checked={inputValue === choiceValue}
+                                        name={source}
+                                        {...sanitizeProps}
+                                        id={inputId}
+                                    />
+                                    {!skipFormat ? translate(choice[optionText]) : choice[optionText]}
+                                </Button>
+                            );
+                        })}
+                    </div>
+                );
+            }
             return (
                 <input
                     name={source}
@@ -339,7 +414,7 @@ Input.propTypes = {
     hideTextChoice: bool
 };
 
-const extendInputType = ['checkbox', 'checkbox-group', 'radio-group'];
+const extendInputType = ['checkbox', 'checkbox-group', 'radio-group', 'button-group'];
 const haveBootstrapCss = (type) => extendInputType.indexOf(type) === -1;
 
 // input not null khi sử dụng ReferenceInput
