@@ -353,7 +353,7 @@ export const tableStyles = {
         },
         '& th, & td, & tr': {
             padding: '.35rem .3rem !important',
-            border: '1px solid var(--border-color)',
+            borderBottom: '1px solid var(--border-color)',
             // border: 0,
             '&.column-undefined': {
                 paddingTop: '0rem !important',
