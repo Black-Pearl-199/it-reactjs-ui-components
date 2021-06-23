@@ -354,6 +354,9 @@ export const tableStyles = {
         '& th, & td, & tr': {
             padding: '.35rem .3rem !important',
             borderBottom: '1px solid var(--border-color)',
+            borderTop: 0,
+            borderLeft: 0,
+            borderRight: 0,
             // border: 0,
             '&.column-undefined': {
                 paddingTop: '0rem !important',
