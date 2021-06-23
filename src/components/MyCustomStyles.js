@@ -333,8 +333,8 @@ export const tableStyles = {
             '& th': {
                 // verticalAlign: 'inherit',
                 whiteSpace: 'nowrap',
-                // border: '1px solid var(--border-color)'
-                border: 0
+                border: '1px solid var(--border-color)'
+                // border: 0
                 // borderTop: '0px'
             },
             '& td': {
@@ -342,19 +342,19 @@ export const tableStyles = {
                 // backgroundColor: variables.primaryBgDark,
                 backgroundColor: 'var(--main-background)',
                 // borderColor: '#dee2e6',
-                // border: '1px solid var(--border-color)'
-                border: 0
+                border: '1px solid var(--border-color)'
+                // border: 0
             },
             '$ tr': {
                 height: '25px !important',
-                // border: '1px solid var(--border-color)'
-                border: 0
+                border: '1px solid var(--border-color)'
+                // border: 0
             }
         },
         '& th, & td, & tr': {
             padding: '.35rem .3rem !important',
-            // border: '1px solid var(--border-color)',
-            border: 0,
+            border: '1px solid var(--border-color)',
+            // border: 0,
             '&.column-undefined': {
                 paddingTop: '0rem !important',
                 paddingBottom: '0rem !important'
