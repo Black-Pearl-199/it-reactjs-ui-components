@@ -27,7 +27,7 @@ export const ITCrudGetList = (params) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
@@ -50,7 +50,7 @@ export const ITCrudGetAll = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
@@ -72,7 +72,7 @@ export const ITCrudGetOne = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.item_doesnt_exist',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 },
                 redirectTo: 'list',
                 refresh
@@ -96,7 +96,7 @@ export const ITCrudCreate = (params) => {
             onSuccess: {
                 notification: {
                     body: 'ra.notification.created',
-                    level: 'auto_hide_info',
+                    level: 'info',
                     messageArgs: {
                         smart_count: 1,
                         resource_name: resourceName
@@ -109,7 +109,7 @@ export const ITCrudCreate = (params) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning',
+                    level: 'warning',
                     messageArgs: { ...data }
                 }
             },
@@ -138,7 +138,7 @@ export const ITCrudUpdate = (params) => {
             onSuccess: {
                 notification: {
                     body: 'ra.notification.updated',
-                    level: 'auto_hide_info',
+                    level: 'info',
                     messageArgs: {
                         smart_count: 1,
                         resource_name: resourceName
@@ -151,7 +151,7 @@ export const ITCrudUpdate = (params) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning',
+                    level: 'warning',
                     messageArgs: { ...data }
                 }
             },
@@ -176,7 +176,7 @@ export const ITCrudUpdateMany = (params) => {
             onSuccess: {
                 notification: {
                     body: 'ra.notification.updated',
-                    level: 'auto_hide_info',
+                    level: 'info',
                     messageArgs: {
                         smart_count: ids.length,
                         resource_name: resourceName
@@ -189,7 +189,7 @@ export const ITCrudUpdateMany = (params) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
@@ -217,7 +217,7 @@ export const ITCrudDelete = ({ ...params }) => {
             onSuccess: {
                 notification: {
                     body: 'ra.notification.deleted',
-                    level: 'auto_hide_info',
+                    level: 'info',
                     messageArgs: {
                         smart_count: 1,
                         resource_name: resourceName
@@ -230,7 +230,7 @@ export const ITCrudDelete = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning',
+                    level: 'warning',
                     messageArgs: {
                         ...previousData,
                         resource_name: resourceName
@@ -257,7 +257,7 @@ export const ITCrudDeleteMany = ({ ...params }) => {
             onSuccess: {
                 notification: {
                     body: 'ra.notification.deleted',
-                    level: 'auto_hide_info',
+                    level: 'info',
                     messageArgs: {
                         smart_count: ids.length,
                         resource_name: resourceName
@@ -270,7 +270,7 @@ export const ITCrudDeleteMany = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
@@ -290,7 +290,7 @@ export const ITCrudGetMany = (resource, ids) => ({
         onFailure: {
             notification: {
                 body: 'ra.notification.http_error',
-                level: 'auto_hide_warning'
+                level: 'warning'
             }
         }
     }
@@ -311,7 +311,7 @@ export const ITCrudGetMatching = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
@@ -340,7 +340,7 @@ export const ITCrudGetManyReference = ({ ...params }) => {
             onFailure: {
                 notification: {
                     body: 'ra.notification.http_error',
-                    level: 'auto_hide_warning'
+                    level: 'warning'
                 }
             }
         }
