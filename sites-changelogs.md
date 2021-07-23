@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+## [0.0.28] - 2021-07-23
+### Changed
+- Update theme config - [@TinVan2]
 ## [0.0.27] - 2021-06-12
 ### Added
 - Increase scroll-secondary scrollbar size to 10px - [@Triet]

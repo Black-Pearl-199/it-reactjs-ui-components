@@ -81,7 +81,7 @@ export const vietradThemeLight = createMuiTheme({
         // },
         type: 'light'
     },
-    logoVietrad: {
+    logo: {
         navbar: {
             type: 'svg',
             src: vietradLogo
@@ -97,24 +97,6 @@ export const vietradThemeLight = createMuiTheme({
         icon: {
             type: 'svg',
             src: vietradLogo
-        }
-    },
-    logoViettel: {
-        navbar: {
-            type: 'svg',
-            src: viettelLogoLight
-        },
-        login: {
-            type: 'svg',
-            src: viettelLogoLight
-        },
-        waitingOrder: {
-            type: 'svg',
-            src: viettelLogoLight
-        },
-        icon: {
-            type: 'svg',
-            src: viettelIcon
         }
     }
 });
@@ -259,7 +241,7 @@ export const iTechThemeDark = createMuiTheme({
 
 export const vietradThemeDark = createMuiTheme({
     ...iTechThemeDark,
-    logoVietrad: {
+    logo: {
         navbar: {
             type: 'svg',
             src: vietradLogo
@@ -276,8 +258,34 @@ export const vietradThemeDark = createMuiTheme({
             type: 'svg',
             src: vietradLogo
         }
-    },
-    logoViettel: {
+    }
+});
+
+export const viettelThemeLight = createMuiTheme({
+    ...vietradThemeLight,
+    logo: {
+        navbar: {
+            type: 'svg',
+            src: viettelLogoLight
+        },
+        login: {
+            type: 'svg',
+            src: viettelLogoLight
+        },
+        waitingOrder: {
+            type: 'svg',
+            src: viettelLogoLight
+        },
+        icon: {
+            type: 'svg',
+            src: viettelIcon
+        }
+    }
+});
+
+export const viettelThemeDark = createMuiTheme({
+    ...iTechThemeDark,
+    logo: {
         navbar: {
             type: 'svg',
             src: viettelLogoDark
