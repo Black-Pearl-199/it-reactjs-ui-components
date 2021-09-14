@@ -742,7 +742,7 @@ div.react-datepicker__day--selected {
   -webkit-user-select: none;
   user-select: none;
   height: var(--tab-height);
-  border-radius: 0 7px 0 0;
+  border-radius: 0;
   background: var(--tab-background) !important;
   border-right: 1px solid var(--tab-border-color);
   border-top: 1px solid var(--tab-border-color);
@@ -762,19 +762,19 @@ div.react-datepicker__day--selected {
 }
 
 .nav-item .nav-link {
-  border-radius: 0 7px 0 0;
+  border-radius: 0;
   height: var(--tab-height);
 }
 
 .nav-item .nav-link:hover {
-  border-radius: 0 7px 0 0;
+  border-radius: 0;
   background-color: var(--tab-active-background);
   border-color: var(--tab-active-background);
   color: var(--text-color);
 }
 
 .nav-item .nav-link.active {
-  border-radius: 0 7px 0 0;
+  border-radius: 0;
   background-color: var(--tab-active-background);
   border-color: var(--tab-active-background);
   color: var(--text-color);
