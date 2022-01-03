@@ -17,51 +17,51 @@
 	}
 }
 
-.nav-item {
-	user-select: none;
-	// border-style: solid;
-	// border-width: 1px 1px 0 1px;
-	// border-color: var(--grey-background);
-	height: calc(var(--tab-height) - 10px);
-	border-radius: 10px 10px 0 0;
-	background: var(--main-color) !important;
+// .nav-item {
+// 	user-select: none;
+// 	// border-style: solid;
+// 	// border-width: 1px 1px 0 1px;
+// 	// border-color: var(--grey-background);
+// 	height: calc(var(--tab-height) - 10px);
+// 	border-radius: 10px 10px 0 0;
+// 	background: var(--main-color) !important;
 
-	a {
-		color: var(--default-text);
-		-webkit-user-drag: none;
+// 	a {
+// 		color: var(--default-text);
+// 		-webkit-user-drag: none;
 
-		&:hover {
-			background-color: var(--main-color-dark);
-		}
-	}
+// 		&:hover {
+// 			background-color: var(--main-color-dark);
+// 		}
+// 	}
 
-	&:hover {
-		background-color: var(--main-color-dark);
-	}
+// 	&:hover {
+// 		background-color: var(--main-color-dark);
+// 	}
 
-	.nav-link {
-		border-radius: 10px 10px 0 0;
-		height: calc(var(--tab-height) - 10px);
+// 	.nav-link {
+// 		border-radius: 10px 10px 0 0;
+// 		height: calc(var(--tab-height) - 10px);
 
-		&:hover {
-			border-radius: 10px 10px 0 0;
-			background-color: var(--main-color-dark);
-			border-color: var(--main-color-dark);
-			color: var(--default-text);
-		}
+// 		&:hover {
+// 			border-radius: 10px 10px 0 0;
+// 			background-color: var(--main-color-dark);
+// 			border-color: var(--main-color-dark);
+// 			color: var(--default-text);
+// 		}
 
-		&.active {
-			border-radius: 10px 10px 0 0;
-			background-color: var(--main-color-dark);
-			border-color: var(--main-color-dark);
-			color: var(--default-text);
+// 		&.active {
+// 			border-radius: 10px 10px 0 0;
+// 			background-color: var(--main-color-dark);
+// 			border-color: var(--main-color-dark);
+// 			color: var(--default-text);
 
-			&:hover {
-				border-color: transparent !important;
-			}
-		}
-	}
-}
+// 			&:hover {
+// 				border-color: transparent !important;
+// 			}
+// 		}
+// 	}
+// }
 
 #navItech {
 	// transform: translate(0, 6px);
