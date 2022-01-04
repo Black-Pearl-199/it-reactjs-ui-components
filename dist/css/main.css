@@ -1257,7 +1257,6 @@ ul.dropdown-menu.side-sub-menu-itech li {
   display: flex;
   background-color: var(--sidebar-background);
   box-shadow: var(--shadow);
-  border-top: 3px solid var(--main-color-dark);
   transition: width 0s ease;
   -webkit-transition: width 0s ease;
   -moz-transition: width 0s ease;

@@ -20,7 +20,7 @@ const RevertEditButton = (props) => {
         <Button
             variant="itech"
             size="sm"
-            className="btn btn-itech-primary btn-itech-fixed"
+            className="btn btn-primary btn-itech-fixed"
             onClick={goBack}
         >
             {translate('button.revertEdit')}

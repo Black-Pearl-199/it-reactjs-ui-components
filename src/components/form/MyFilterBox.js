@@ -273,7 +273,7 @@ const MyFilterBox = (props) => {
                         <div className="col-form-label mr-3 pt-0">
                             <Button
                                 variant="itech"
-                                className="btn-itech-primary btn-itech-md"
+                                className="btn-primary btn-itech-md"
                                 type="reset"
                                 disabled={loading}
                                 size="sm"
@@ -297,7 +297,7 @@ const MyFilterBox = (props) => {
                                 disabled={loading}
                                 size="sm"
                                 onClick={formEnter}
-                                className="btn-itech-primary btn-itech-md float-md-right float-lg-none"
+                                className="btn-primary btn-itech-md float-md-right float-lg-none"
                             >
                                 {icon && (
                                     <>

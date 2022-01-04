@@ -37,7 +37,7 @@ const MyDeleteManyButton = (props) => {
     return (
         <button
             type="button"
-            className={classNames('btn', 'btn-itech', disabled ? 'btn-itech-secondary' : 'btn-itech-primary')}
+            className={classNames('btn', 'btn-itech', disabled ? 'btn-itech-secondary' : 'btn-primary')}
             disabled={disabled}
             onClick={handleClick}
         >

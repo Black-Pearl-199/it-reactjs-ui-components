@@ -82128,7 +82128,7 @@ var MyBackFormButton = function MyBackFormButton(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     variant: "itech",
     size: "sm",
-    className: "btn btn-itech-primary btn-itech-fixed ml-2",
+    className: "btn btn-primary btn-itech-fixed ml-2",
     onClick: goBack
   }, translate('button.back'));
 };
@@ -82367,7 +82367,7 @@ var MyDeleteManyButton = function MyDeleteManyButton(props) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("button", {
     type: "button",
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('btn', 'btn-itech', disabled ? 'btn-itech-secondary' : 'btn-itech-primary'),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('btn', 'btn-itech', disabled ? 'btn-itech-secondary' : 'btn-primary'),
     disabled: disabled,
     onClick: handleClick
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
@@ -82710,7 +82710,7 @@ var MyExportExcelButton = function MyExportExcelButton(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["Button"], _extends({
     variant: "itech",
     size: "sm",
-    className: "".concat(total === 0 ? 'btn-itech-secondary' : 'btn-itech-primary', " btn-itech-fixed"),
+    className: "".concat(total === 0 ? 'btn-itech-secondary' : 'btn-primary', " btn-itech-fixed"),
     disabled: total === 0,
     onClick: handleClick
   }, sanitizeRestProps(rest)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
@@ -83322,7 +83322,7 @@ var RevertEditButton = function RevertEditButton(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     variant: "itech",
     size: "sm",
-    className: "btn btn-itech-primary btn-itech-fixed",
+    className: "btn btn-primary btn-itech-fixed",
     onClick: goBack
   }, translate('button.revertEdit'));
 };
@@ -83455,7 +83455,7 @@ var SaveButton = function SaveButton(props) {
     _: label
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_0__["Button"], {
-    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('btn-itech-primary btn-itech-fixed', className),
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()('btn-primary btn-itech-fixed', className),
     variant: variant,
     size: size,
     type: type,
@@ -85065,7 +85065,7 @@ var MyDatePicking = function MyDatePicking(props) {
       variant: "pick-date",
       size: "sm",
       disabled: disabled,
-      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-itech-primary', currentActive === button ? 'active' : ''),
+      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-primary', currentActive === button ? 'active' : ''),
       onClick: selectDateRange,
       "data-select-type": button,
       type: "button"
@@ -85520,7 +85520,7 @@ var MyFilterBox = function MyFilterBox(props) {
     className: "col-form-label mr-3 pt-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["Button"], {
     variant: "itech",
-    className: "btn-itech-primary btn-itech-md",
+    className: "btn-primary btn-itech-md",
     type: "reset",
     disabled: loading,
     size: "sm",
@@ -85534,7 +85534,7 @@ var MyFilterBox = function MyFilterBox(props) {
     disabled: loading,
     size: "sm",
     onClick: formEnter,
-    className: "btn-itech-primary btn-itech-md float-md-right float-lg-none"
+    className: "btn-primary btn-itech-md float-md-right float-lg-none"
   }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_7___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"], {
     icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_0__["faSearch"]
   })), translate('button.search'))) : '')));
@@ -85746,7 +85746,7 @@ var MyRadioButtonGroupInput = function MyRadioButtonGroupInput(props) {
       variant: "pick-date",
       size: "sm",
       disabled: disabled || loading,
-      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-itech-primary', value === choiceValue ? 'active' : '', buttonClasses),
+      className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-primary', value === choiceValue ? 'active' : '', buttonClasses),
       onClick: onClick,
       "data-value": choiceValue,
       type: "button"
@@ -85755,7 +85755,7 @@ var MyRadioButtonGroupInput = function MyRadioButtonGroupInput(props) {
     variant: "pick-date",
     size: "sm",
     disabled: disabled || loading,
-    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-itech-primary', !value ? 'active' : '', buttonClasses),
+    className: classnames__WEBPACK_IMPORTED_MODULE_0___default()('btn-primary', !value ? 'active' : '', buttonClasses),
     onClick: onClick,
     type: "button"
   }, translate(emptyChoiceLabel))));
@@ -90170,7 +90170,7 @@ var MySearchableDataGrid = function MySearchableDataGrid(props) {
   }, exportable && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
     className: "ml-4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_button__WEBPACK_IMPORTED_MODULE_8__["MyExportExcelButton"], {
-    className: "btn btn-itech btn-itech-primary btn-itech-fixed",
+    className: "btn btn-itech btn-primary btn-itech-fixed",
     resource: resource,
     exporter: exporter,
     name: "resources.".concat(resource, ".name"),
@@ -91284,7 +91284,7 @@ var MessageBox = function MessageBox(props) {
       key: index,
       variant: "itech",
       size: "sm",
-      className: action.className ? action.className : 'btn-itech-primary mr-2  btn-itech-fixed',
+      className: action.className ? action.className : 'btn-primary mr-2  btn-itech-fixed',
       onClick: function onClick() {
         dispatch(Object(react_admin__WEBPACK_IMPORTED_MODULE_5__["hideNotification"])());
         action.callback();

@@ -80,7 +80,7 @@ const MyExportExcelButton = (props) => {
         <Button
             variant="itech"
             size="sm"
-            className={`${total === 0 ? 'btn-itech-secondary' : 'btn-itech-primary'} btn-itech-fixed`}
+            className={`${total === 0 ? 'btn-itech-secondary' : 'btn-primary'} btn-itech-fixed`}
             disabled={total === 0}
             onClick={handleClick}
             {...sanitizeRestProps(rest)}

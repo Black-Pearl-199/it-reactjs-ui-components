@@ -252,7 +252,7 @@ const MyDatePicking = (props) => {
                             variant="pick-date"
                             size="sm"
                             disabled={disabled}
-                            className={classNames('btn-itech-primary', currentActive === button ? 'active' : '')}
+                            className={classNames('btn-primary', currentActive === button ? 'active' : '')}
                             onClick={selectDateRange}
                             data-select-type={button}
                             type="button"

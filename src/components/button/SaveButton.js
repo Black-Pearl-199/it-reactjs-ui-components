@@ -68,7 +68,7 @@ const SaveButton = (props) => {
     const displayedLabel = label && translate(label, { _: label });
     return (
         <Button
-            className={classnames('btn-itech-primary btn-itech-fixed', className)}
+            className={classnames('btn-primary btn-itech-fixed', className)}
             variant={variant}
             size={size}
             type={type}

@@ -15,7 +15,7 @@ const MyBackFormButton = ({ basePath }) => {
         <Button
             variant="itech"
             size="sm"
-            className="btn btn-itech-primary btn-itech-fixed ml-2"
+            className="btn btn-primary btn-itech-fixed ml-2"
             onClick={goBack}
         >
             {translate('button.back')}

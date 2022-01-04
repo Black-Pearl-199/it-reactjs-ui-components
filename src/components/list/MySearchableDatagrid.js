@@ -66,7 +66,7 @@ const MySearchableDataGrid = (props) => {
                 {exportable && (
                     <div className="ml-4">
                         <MyExportExcelButton
-                            className="btn btn-itech btn-itech-primary btn-itech-fixed"
+                            className="btn btn-itech btn-primary btn-itech-fixed"
                             resource={resource}
                             exporter={exporter}
                             name={`resources.${resource}.name`}
