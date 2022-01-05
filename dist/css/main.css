@@ -859,7 +859,7 @@ div.react-datepicker__day--selected {
 }
 
 .table thead.table-itech-thread tr th {
-  font-weight: 700 !important;
+  font-weight: 400 !important;
   text-align: left;
 }
 
@@ -868,8 +868,8 @@ div.react-datepicker__day--selected {
 .table thead.table-itech-thread span {
   background-color: var(--main-background);
   color: var(--text-color) !important;
-  font-weight: 700 !important;
-  font-size: 1rem;
+  font-weight: 400 !important;
+  font-size: 14px;
   line-height: 200%;
 }
 

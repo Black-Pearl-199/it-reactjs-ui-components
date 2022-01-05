@@ -87841,7 +87841,10 @@ var FormHeading = function FormHeading(props) {
     history: history,
     basePath: basePath
   })), "\xA0\xA0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h5", {
-    className: "my-0"
+    className: "my-0",
+    style: {
+      lineHeight: 2
+    }
   }, skipTran ? title : translate(title))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
     className: "d-flex flex-row-reverse ml-auto"
   }, children));

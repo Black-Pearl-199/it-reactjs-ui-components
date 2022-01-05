@@ -10,7 +10,7 @@
 			// text-transform: uppercase;
 
 			th {
-				font-weight: 700 !important;
+				font-weight: 400 !important;
 				text-align: left;
 			}
 		}
@@ -20,9 +20,9 @@
 		span {
 			background-color: var(--main-background);
 			color: var(--text-color) !important;
-			font-weight: 700 !important;
-            font-size: 1rem;
-            line-height: 200%;
+			font-weight: 400 !important;
+			font-size: 14px;
+			line-height: 200%;
 		}
 	}
 }

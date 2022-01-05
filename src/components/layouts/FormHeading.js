@@ -20,7 +20,7 @@ const FormHeading = (props) => {
                         &nbsp;&nbsp;
                     </>
                 )}
-                <h5 className="my-0">{skipTran ? title : translate(title)}</h5>
+                <h5 className="my-0" style={{ lineHeight: 2 }}>{skipTran ? title : translate(title)}</h5>
             </div>
             <div className="d-flex flex-row-reverse ml-auto">{children}</div>
         </div>
